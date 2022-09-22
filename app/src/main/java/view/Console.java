@@ -29,6 +29,7 @@ public class Console {
     System.out.println("------------------------");
     System.out.println("1. Member Menu");
     System.out.println("2. Item Menu");
+    System.out.println("3. Forward day");
     System.out.println("0. Quit ");
     System.out.println("------------------------");
 
@@ -65,5 +66,12 @@ public class Console {
     } else {
       return MemberEvent.Back;
     }
+  }
+
+  public String promptForAnswer(String question) {
+    System.out.println(question);
+    String choice = scan.next();
+
+    return choice;
   }
 }

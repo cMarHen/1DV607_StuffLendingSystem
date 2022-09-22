@@ -17,7 +17,7 @@ public class App {
   public static void main(String[] args) {
     view.Console ui = new Console(new Scanner(System.in, "UTF8"));
     model.domain.StuffLendingSystem sls = new StuffLendingSystem();
-    MainMenu mainMenu = new MainMenu(ui);
+    MainController mainMenu = new MainController(ui, sls);
 
     mainMenu.doMainMenu();
 
