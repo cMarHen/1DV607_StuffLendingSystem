@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.Scanner;
+
+import model.domain.StuffLendingSystem;
+import view.Console;
+
 /**
  * Responsible for staring the application.
  */
@@ -10,11 +15,11 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-    // adapt to start the application in your way
-    model.Simple m = new model.Simple();
-    Simple c = new Simple();
-    view.Simple v = new view.Simple();
+    view.Console ui = new Console(new Scanner(System.in, "UTF8"));
+    model.domain.StuffLendingSystem sls = new StuffLendingSystem();
+    MainMenu mainMenu = new MainMenu();
 
-    c.doSomethingSimple(m, v);
+    mainMenu.doMainMenu(ui);
+
   }
 }
