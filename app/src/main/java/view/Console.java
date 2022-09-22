@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Console {
@@ -65,6 +66,16 @@ public class Console {
       return MemberEvent.DeleteMember;
     } else {
       return MemberEvent.Back;
+    }
+  }
+
+  public void printMemberList(ArrayList<model.domain.Member> members) {
+    System.out.println(" --- ");
+    for (model.domain.Member member : members) {
+      System.out.println(member.getFirstName() + " " + member.getLastName());
+      System.out.println("Created day " + member.getRegistredDay() + ". ");
+      System.out.println("Id: " + member.getId());
+      System.out.println(" --- ");
     }
   }
 

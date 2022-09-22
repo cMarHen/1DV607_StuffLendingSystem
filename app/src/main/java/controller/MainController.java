@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 public class MainController {
   private view.Console ui;
   private model.domain.StuffLendingSystem sls;
@@ -42,15 +44,15 @@ public class MainController {
         String email = ui.promptForAnswer("Enter your email: ");
         String phoneNumber = ui.promptForAnswer("Enter your phone number: ");
 
-        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber);
+        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay);
 
         System.out.println(isSucceeded ? "Member successfully created" : "Member could not be created!");
-        return;
       }
       
       if (event == view.Console.MemberEvent.ListMember) {
-        System.out.println("LISTA MEDLEMMAR");
-        return;
+        ArrayList<model.domain.Member> members = sls.getMembers();
+
+        ui.printMemberList(members);
       }
       
       if (event == view.Console.MemberEvent.DeleteMember) {
