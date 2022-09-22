@@ -20,6 +20,26 @@ public class StuffLendingSystem {
     return true;
   }
 
+  public boolean deleteMember(String id) {
+    Member member = findMemberById(id);
+
+    if (member != null) {
+      members.remove(member);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private Member findMemberById(String id) {
+    for (Member member : members) {
+      if (member.getId().equals(id)) {
+        return member;
+      }
+    }
+    return null;
+  }
+
   public ArrayList<Member> getMembers() {
     // TODO: DEEP COPY!!
     return members;

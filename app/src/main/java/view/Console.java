@@ -85,4 +85,8 @@ public class Console {
 
     return choice;
   }
+
+  public void printActionResponse(String message) {
+    System.out.println(message);
+  }
 }

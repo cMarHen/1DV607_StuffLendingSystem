@@ -46,7 +46,7 @@ public class MainController {
 
         boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay);
 
-        System.out.println(isSucceeded ? "Member successfully created" : "Member could not be created!");
+        ui.printActionResponse(isSucceeded ? "Member successfully created" : "Member could not be created!");
       }
       
       if (event == view.Console.MemberEvent.ListMember) {
@@ -56,8 +56,11 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.DeleteMember) {
-        System.out.println("WARNING; DELETE MEMBER!");
-        return;
+        String id = ui.promptForAnswer("Enter id for the user to be removed: ");
+
+        boolean isSucceeded = sls.deleteMember(id);
+
+        ui.printActionResponse(isSucceeded ? "Member successfully deleted" : "Could not find a member with this id!");
       }
 
     } while (running);
