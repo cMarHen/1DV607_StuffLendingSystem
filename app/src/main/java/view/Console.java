@@ -40,6 +40,8 @@ public class Console {
 
   public Console(Scanner scan) {
     this.scan = scan;
+    /* this.memberConsole = new MemberConsole(scan) */
+    /* this.itemConsole = new ItemConsole(scan) */
   }
 
   public MainEvent getMainMenuChoice() {

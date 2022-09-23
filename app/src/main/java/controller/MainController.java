@@ -30,11 +30,11 @@ public class MainController {
       }
 
       if (event == view.Console.MainEvent.MemberMenu) {
-        doMemberMenu();
+        /* memberController. */doMemberMenu();
       }
 
       if (event == view.Console.MainEvent.ItemMenu) {
-        doItemMenu();
+        /* itemController. */doItemMenu();
       }
     } while (running);
   }
