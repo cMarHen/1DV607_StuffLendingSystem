@@ -1,5 +1,6 @@
 package controller;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 
 import model.domain.Item;
@@ -146,11 +147,52 @@ public class MainController {
     do {
       view.Console.ItemEvent event = ui.getItemMenuChoice();
 
+      if (event == view.Console.ItemEvent.AddItem) {
+        String memberId = ui.promptForAnswer("Enter member id (owner): ");
+        model.domain.Member member = sls.findMemberById(memberId);
+
+        if (member != null) {
+          model.domain.Item.ItemType type = ui.getItemTypeMenuChoice();
+          // TODO: Måste kunna läsa HEEEELA raden!
+          String name = ui.promptForAnswer("Enter the name: ");
+
+          // TODO: Måste kunna läsa HEEEELA raden!
+          String description = ui.promptForAnswer("Enter description: ");
+          int costPerDay = 50;
+
+          boolean isSucceeded = sls.addNewItem(member, type, name, description, currentDay, costPerDay);
+          ui.printActionResponse(isSucceeded ? "Item successfully created" : "Item could not be created!");
+        } else {
+          ui.printActionResponse("Could not find a member with this ID!");
+        }
+
+      } 
+
       if (event == view.Console.ItemEvent.ListItems) {
         ArrayList<model.domain.Item> items = sls.getItems();
 
         ui.printItemList(items);
       }
+
+      if (event == view.Console.ItemEvent.DetailedItem) {
+        String id = ui.promptForAnswer("Enter the item ID: ");
+
+        Item item = sls.findItemById(id);
+
+        if (item != null) {
+          ui.printDetailedItem(item);
+        } else {
+          ui.printActionResponse("Could not find an item with this ID!");
+        }
+      } 
+
+      if (event == view.Console.ItemEvent.DeleteItem) {
+        
+      } 
+
+      if (event == view.Console.ItemEvent.Back) {
+        
+      } 
     } while (running);
   }
 

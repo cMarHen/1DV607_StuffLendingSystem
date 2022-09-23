@@ -129,7 +129,7 @@ public class StuffLendingSystem {
     int lengthOfId = 6;
     boolean unique = false;
     String id = "";
-    String idPrefix = "item";
+    String idPrefix = "item_";
 
     while (!unique) {
       id = idPrefix + randomStringGenerator.getAlphanumeric(lengthOfId);

@@ -147,7 +147,16 @@ public class Console {
     } else {
       return ItemEvent.Back;
     }
+  }
 
+  public model.domain.Item.ItemType getItemTypeMenuChoice() {
+    for (int i = 1; i < model.domain.Item.ItemType.values().length; i++) {
+      System.out.println(i + ". " + model.domain.Item.ItemType.values()[i - 1]);
+    }
+
+    int choice = scan.nextInt();
+
+    return model.domain.Item.ItemType.values()[choice - 1];
   }
 
   public void printMemberList(ArrayList<model.domain.Member> members) {
@@ -180,6 +189,17 @@ public class Console {
     System.out.println("Name: " + member.getFirstName() + " " + member.getLastName());
     System.out.println("Email: " + member.getEmail());
     System.out.println("PhoneNumber: " + member.getPhoneNumber());
+  }
+
+  public void printDetailedItem(model.domain.Item item) {
+    System.out.println(" --- ");
+    System.out.println("Name: " + item.getName());
+    System.out.println("Type: " + item.getType());
+    System.out.println("Description: " + item.getDescription());
+    System.out.println("Cost per day: " + item.getCostPerDay());
+    // TODO: implementera contract view
+    System.out.println("Contracts: " + " IMPLEMENTERA!!!!!! ");
+    System.out.println("Avialiable: " + (item.getIsReserved() ? "no" : "yes"));
   }
 
   public String promptForAnswer(String question) {
