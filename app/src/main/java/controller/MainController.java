@@ -185,6 +185,35 @@ public class MainController {
         }
       } 
 
+      if (event == view.Console.ItemEvent.LendItem) {
+        String itemId = ui.promptForAnswer("Enter the item ID: ");
+        Item item = sls.findItemById(itemId);
+
+        if (item == null) {
+          ui.printActionResponse("Could not find an item with this ID!");
+          return;
+        }
+
+        String lenderId = ui.promptForAnswer("Enter the lenders ID: ");
+        model.domain.Member lender = sls.findMemberById(lenderId);
+
+        if (lender == null) {
+          ui.printActionResponse("Could not find a member with this ID!");
+          return;
+        }
+
+        int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
+        int endDay = currentDay.getCurrentDay() + daysToLoan;
+
+        boolean successfullyCreatedContract = sls.setUpLendingContract(lender, endDay, item, currentDay.getCurrentDay());
+
+        if (successfullyCreatedContract) {
+          ui.printActionResponse("Lending contract was successfully set up!");
+        } else {
+          ui.printActionResponse("Could not set up lending contract.");
+        }
+      } 
+
       if (event == view.Console.ItemEvent.DeleteItem) {
         
       } 

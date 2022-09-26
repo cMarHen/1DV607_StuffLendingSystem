@@ -34,6 +34,7 @@ public class Console {
     ListItems,
     DetailedItem,
     EditItem,
+    LendItem,
     DeleteItem,
     Back
   }
@@ -130,7 +131,8 @@ public class Console {
     System.out.println("2. List items");
     System.out.println("3. Show detailed item");
     System.out.println("4. Edit item");
-    System.out.println("5. Delete item");
+    System.out.println("5. Lend item");
+    System.out.println("6. Delete item");
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
@@ -144,7 +146,9 @@ public class Console {
       return ItemEvent.DetailedItem;
     } else if (choice == 4) {
       return ItemEvent.EditItem;
-    }  else if (choice == 3) {
+    } else if (choice == 5) {
+      return ItemEvent.LendItem;
+    } else if (choice == 6) {
       return ItemEvent.DeleteItem;
     } else {
       return ItemEvent.Back;
@@ -191,6 +195,7 @@ public class Console {
     System.out.println("Name: " + member.getFirstName() + " " + member.getLastName());
     System.out.println("Email: " + member.getEmail());
     System.out.println("PhoneNumber: " + member.getPhoneNumber());
+    System.out.println("Credits: " + member.getCredits());
   }
 
   public void printDetailedItem(model.domain.Item item) {
@@ -207,6 +212,13 @@ public class Console {
   public String promptForAnswer(String question) {
     System.out.println(question);
     String choice = scan.next();
+
+    return choice;
+  }
+
+  public int promptForIntAnswer(String question) {
+    System.out.println(question);
+    int choice = scan.nextInt();
 
     return choice;
   }

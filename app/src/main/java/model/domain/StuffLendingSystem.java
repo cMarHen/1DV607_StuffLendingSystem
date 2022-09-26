@@ -7,6 +7,7 @@ import model.domain.Item.ItemType;
 public class StuffLendingSystem {
   ArrayList<Member> members = new ArrayList<>();
   ItemCollection items = new ItemCollectionImpl();
+  ContractCollection contracts = new ContractCollection();
   RandomString randomStringGenerator = new RandomString();
 
   /**
@@ -14,11 +15,13 @@ public class StuffLendingSystem {
    */
   public StuffLendingSystem() {
     Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
+    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     members.add(m1);
-    members.add(new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5));
+    members.add(m2);
 
-    addNewItem(m1, ItemType.Tool, "kratta", "Rinsing leafs", 1, 20);
+    addNewItem(m1, ItemType.Tool, "kratta", "Rinsing leafs", 0, 20);
     addNewItem(m1, ItemType.Game, "Super Mario", "playing", 0, 50);
+    addNewItem(m2, ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
   }
 
   public boolean addNewMember(String firstName, String lastName, String email, String phoneNumber, int dayOfCreation) {
@@ -31,6 +34,22 @@ public class StuffLendingSystem {
     members.add(newMember);
 
     return true;
+  }
+
+  public boolean setUpLendingContract (Member lender, int endDay, Item item, int currentDay) {
+    LendingContract newContract = new LendingContract(lender, endDay, item, currentDay);
+    boolean successfullyAddedContract = contracts.addContract(newContract);
+
+    if (successfullyAddedContract) {
+      int contractFee = contracts.getContractFee(newContract);
+      newContract.getLender().removeCredits(contractFee);
+      newContract.getItem().getOwner().addCredits(contractFee);
+      // TODO: Fixa bugg i credits som inte dras.
+      newContract.getItem().setReserved(true);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
