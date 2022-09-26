@@ -6,7 +6,7 @@ import model.domain.Item.ItemType;
 
 public class StuffLendingSystem {
   ArrayList<Member> members = new ArrayList<>();
-  ArrayList<Item> items = new ArrayList<>();
+  ItemCollection items = new ItemCollectionImpl();
   RandomString randomStringGenerator = new RandomString();
 
   /**
@@ -19,8 +19,6 @@ public class StuffLendingSystem {
 
     addNewItem(m1, ItemType.Tool, "kratta", "Rinsing leafs", 1, 20);
     addNewItem(m1, ItemType.Game, "Super Mario", "playing", 0, 50);
-
-    items.get(1).setReserved(true);
   }
 
   public boolean addNewMember(String firstName, String lastName, String email, String phoneNumber, int dayOfCreation) {
@@ -48,9 +46,9 @@ public class StuffLendingSystem {
    */
   public boolean addNewItem(Member member, ItemType type, String name, String description, int dayOfCreation, int costPerDay) {
     String id = getNewUniqueItemId();
-    Item newItem = member.addItem(type, name, description, id, dayOfCreation, costPerDay);
+    Item newItem = new Item(member, type, name, description, id, dayOfCreation, costPerDay);
     member.addCredits(100);
-    items.add(newItem);
+    items.addItem(newItem);
 
     return true;
   }
@@ -66,6 +64,12 @@ public class StuffLendingSystem {
     }
   }
 
+  public Item findItemById(String id) {
+    Item item = items.findItemById(id);
+
+    return item;
+  }
+
   public Member findMemberById(String id) {
     for (Member member : members) {
       if (member.getId().equals(id)) {
@@ -76,23 +80,14 @@ public class StuffLendingSystem {
     return null;
   }
 
-  public Item findItemById(String id) {
-    for (Item item : items) {
-      if (item.getId().equals(id)) {
-        return item;
-      }
-    }
-    return null;
-  }
-
   public ArrayList<Member> getMembers() {
     // TODO: DEEP COPY!!
     return members;
   }
 
-  public ArrayList<Item> getItems() {
+  public ArrayList<Item> getAllItems() {
     // TODO: DEEP COPY!!
-    return items;
+    return items.getAllItems();
   }
 
   private boolean isUniqueEmailAndPhoneNumber(String email, String phoneNumber) {
@@ -133,17 +128,8 @@ public class StuffLendingSystem {
 
     while (!unique) {
       id = idPrefix + randomStringGenerator.getAlphanumeric(lengthOfId);
-      unique = isUniqueItemId(id);
+      unique = items.isUniqueItemId(id);
     }
     return id;
-  }
-
-  private boolean isUniqueItemId(String id) {
-    for (Item item : items) {
-      if (item.getId().equals(id)) {
-        return false;
-      }
-    }
-    return true;
   }
 }

@@ -1,9 +1,5 @@
 package model.domain;
 
-import java.util.ArrayList;
-
-import model.domain.Item.ItemType;
-
 public class Member {
   private String firstName;
   private String lastName;
@@ -12,7 +8,6 @@ public class Member {
   private String id;
   private int credits;
   private int registredDay;
-  private ArrayList<Item> ownedItems;
 
   public Member(String firstName, String lastName, String email, String phoneNumber, String id, int registredDay) {
     this.firstName = firstName;
@@ -22,16 +17,6 @@ public class Member {
     this.credits = 0;
     this.id = id;
     this.registredDay = registredDay;
-
-    this.ownedItems = new ArrayList<>();
-  }
-
-  public Item addItem(ItemType type, String name, String description, String id, int dayOfCreation, int costPerDay) {
-    Item newItem = new Item(type, name, description, id, dayOfCreation, costPerDay);
-
-    ownedItems.add(newItem);
-
-    return newItem;
   }
 
   public String getFirstName() {

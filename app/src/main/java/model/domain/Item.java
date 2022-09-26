@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class Item {
   private LinkedList<LendingContract> history;
+  private Member owner;
   private boolean isReserved;
   private ItemType type;
   private String name;
@@ -21,7 +22,8 @@ public class Item {
     Other
   }
 
-  public Item(ItemType type, String name, String description, String id, int dayOfCreation, int costPerDay) {
+  public Item(Member owner, ItemType type, String name, String description, String id, int dayOfCreation, int costPerDay) {
+    this.owner = owner;
     this.type = type;
     this.name = name;
     this.description = description;
@@ -56,6 +58,10 @@ public class Item {
 
   public String getId() {
     return id;
+  }
+  
+  public Member getOwner() {
+    return owner;
   }
 
   public int getCostPerDay() {

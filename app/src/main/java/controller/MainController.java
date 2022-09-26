@@ -1,6 +1,5 @@
 package controller;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 
 import model.domain.Item;
@@ -8,12 +7,12 @@ import model.domain.Item;
 public class MainController {
   private view.Console ui;
   private model.domain.StuffLendingSystem sls;
-  private int currentDay;
+  private CurrentDay currentDay;
 
   public MainController(view.Console ui, model.domain.StuffLendingSystem sls) {
     this.ui = ui;
     this.sls = sls;
-    this.currentDay = 0;
+    this.currentDay = new CurrentDay();
     // currentRole = enum.Role
     // currentId = id
   }
@@ -34,7 +33,7 @@ public class MainController {
       }
 
       if (event == view.Console.MainEvent.ItemMenu) {
-        /* itemController. */doItemMenu();
+        doItemMenu();
       }
     } while (running);
   }
@@ -55,7 +54,7 @@ public class MainController {
         String email = ui.promptForAnswer("Enter your email: ");
         String phoneNumber = ui.promptForAnswer("Enter your phone number: ");
 
-        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay);
+        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay.getCurrentDay());
 
         ui.printActionResponse(isSucceeded ? "Member successfully created" : "Member could not be created!");
       }
@@ -160,7 +159,7 @@ public class MainController {
           String description = ui.promptForAnswer("Enter description: ");
           int costPerDay = 50;
 
-          boolean isSucceeded = sls.addNewItem(member, type, name, description, currentDay, costPerDay);
+          boolean isSucceeded = sls.addNewItem(member, type, name, description, currentDay.getCurrentDay(), costPerDay);
           ui.printActionResponse(isSucceeded ? "Item successfully created" : "Item could not be created!");
         } else {
           ui.printActionResponse("Could not find a member with this ID!");
@@ -169,7 +168,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.ListItems) {
-        ArrayList<model.domain.Item> items = sls.getItems();
+        ArrayList<model.domain.Item> items = sls.getAllItems();
 
         ui.printItemList(items);
       }
@@ -191,9 +190,8 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.Back) {
-        
+        running = false;
       } 
     } while (running);
   }
-
 }
