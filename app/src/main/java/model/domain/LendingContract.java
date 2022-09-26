@@ -11,6 +11,7 @@ public class LendingContract {
     this.endDay = endDay;
     this.item = item;
     this.startDay = startDay;
+    // TODO: Calculate contract-price.
   }
 
   public int getEndDay() {

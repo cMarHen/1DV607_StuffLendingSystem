@@ -41,10 +41,16 @@ public class StuffLendingSystem {
     boolean successfullyAddedContract = contracts.addContract(newContract);
 
     if (successfullyAddedContract) {
-      int contractFee = contracts.getContractFee(newContract);
-      newContract.getLender().removeCredits(contractFee);
-      newContract.getItem().getOwner().addCredits(contractFee);
-      // TODO: Fixa bugg i credits som inte dras.
+      Member contractedLender = newContract.getLender();
+      Member contractedOwner = newContract.getItem().getOwner();
+
+      if (!contractedLender.equals(contractedOwner)) {
+        int contractFee = contracts.getContractFee(newContract);
+        System.out.println(contractFee);
+        contractedLender.removeCredits(contractFee);
+        contractedOwner.addCredits(contractFee);
+      }
+
       newContract.getItem().setReserved(true);
       return true;
     } else {

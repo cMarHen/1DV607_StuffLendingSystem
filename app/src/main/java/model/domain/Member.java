@@ -60,7 +60,7 @@ public class Member {
   }
 
   public void removeCredits(int credits) {
-    credits -= credits;
+    this.credits -= credits;
   }
 
   public String getId() {
