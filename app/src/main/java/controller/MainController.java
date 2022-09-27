@@ -1,14 +1,23 @@
 package controller;
 
 import java.util.ArrayList;
-
 import model.domain.Item;
 
+/**
+ * Wrapper class for controller-actions.
+ *
+ */
 public class MainController {
   private view.Console ui;
   private model.domain.StuffLendingSystem sls;
   private CurrentDay currentDay;
 
+  /**
+   * Instaciate the MainController with a user interface representing the view and the main model class.
+   *
+   * @param ui - The view user interface. 
+   * @param sls - The main class in the model.
+   */
   public MainController(view.Console ui, model.domain.StuffLendingSystem sls) {
     this.ui = ui;
     this.sls = sls;
@@ -17,6 +26,10 @@ public class MainController {
     // currentId = id
   }
 
+  /**
+   * Trigger the output of main-menu in the ui(view), this method runs until Quit-event is emitted from the view.
+   *
+   */
   public void doMainMenu() {
     boolean running = true;
     do {
@@ -215,7 +228,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.DeleteItem) {
-        
+        // TODO: Implement.
       } 
 
       if (event == view.Console.ItemEvent.Back) {

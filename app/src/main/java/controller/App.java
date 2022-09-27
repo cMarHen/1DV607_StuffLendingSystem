@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.Scanner;
-
 import model.domain.StuffLendingSystem;
 import view.Console;
 

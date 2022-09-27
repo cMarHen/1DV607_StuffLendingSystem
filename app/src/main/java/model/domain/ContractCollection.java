@@ -2,9 +2,17 @@ package model.domain;
 
 import java.util.ArrayList;
 
+/**
+ * Wrapper-class to manage a collection of LendingContracts.
+ *
+ */
 public class ContractCollection {
   private ArrayList<LendingContract> contracts;
 
+  /**
+   * Class is instanciated by setting the contracts to empty arraylist.
+   *
+   */
   public ContractCollection() {
     contracts = new ArrayList<>();
   }

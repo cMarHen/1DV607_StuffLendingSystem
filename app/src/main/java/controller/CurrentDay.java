@@ -1,13 +1,17 @@
 package controller;
 
+/**
+ * Painted class for the current day.
+ *
+ */
 public class CurrentDay {
   private int currentDay;
 
-  public CurrentDay () {
+  public CurrentDay() {
     this.currentDay = 0;
   }
 
-  public void incrementDay () {
+  public void incrementDay() {
     this.currentDay++;
   }
 

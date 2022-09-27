@@ -1,9 +1,10 @@
 package model.domain;
 
-import java.util.LinkedList;
-
+/**
+ * Class representing an item in the stufflending system.
+ *
+ */
 public class Item {
-  private LinkedList<LendingContract> history;
   private Member owner;
   private boolean isReserved;
   private ItemType type;
@@ -13,6 +14,10 @@ public class Item {
   private int dayOfCreation;
   private int costPerDay;
 
+  /**
+   * Available item-types.
+   *
+   */
   public static enum ItemType {
     Tool,
     Vehicle,
@@ -22,7 +27,25 @@ public class Item {
     Other
   }
 
-  public Item(Member owner, ItemType type, String name, String description, String id, int dayOfCreation, int costPerDay) {
+  /**
+   * Instanciate an item with the data presented as parameters.
+   *
+   * @param owner - Used to identify the owner when/if credits are to be transfered.
+   * @param type - Used to specify item-type for searching.
+   * @param name - Used to search for item by name.
+   * @param description - Description of the item.
+   * @param id - Used to present an item-identifyer in the ui(view).
+   * @param dayOfCreation - Metadata when item was created.
+   * @param costPerDay - Used in calculations to set up lending contracts.
+   */
+  public Item(
+      Member owner,
+      ItemType type,
+      String name,
+      String description,
+      String id,
+      int dayOfCreation,
+      int costPerDay) {
     this.owner = owner;
     this.type = type;
     this.name = name;
