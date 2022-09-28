@@ -12,6 +12,23 @@ public class MainController {
   private model.domain.StuffLendingSystem sls;
   private CurrentDay currentDay;
 
+  public static enum ActionEvent {
+    ERR_CREATE_MEMBER,
+    SUCCESS_CREATE_MEMBER,
+    ERR_CREATE_ITEM,
+    SUCCESS_CREATE_ITEM,
+    ERR_EDIT_MEMBER,
+    SUCCESS_EDIT_MEMBER,
+    ERR_EDIT_ITEM,
+    SUCCESS_EDIT_ITEM,
+    ERR_DELETE,
+    SUCCESS_DELETE,
+    ERR_FIND_MEMBER,
+    ERR_FIND_ITEM,
+    SUCCESS_CREATE_CONTRACT,
+    ERR_CREATE_CONTRACT
+  }
+
   /**
    * Instaciate the MainController with a user interface representing the view and the main model class.
    *
@@ -69,7 +86,7 @@ public class MainController {
 
         boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay.getCurrentDay(), 0);
 
-        ui.printActionResponse(isSucceeded ? "Member successfully created" : "Member could not be created!");
+        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
       }
 
       if (event == view.Console.MemberEvent.ListMember) {
@@ -86,7 +103,7 @@ public class MainController {
         if (member != null) {
           ui.printDetailedMember(member);
         } else {
-          ui.printActionResponse("Could not find a member with this ID. ");
+          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
         }
       }
       
@@ -99,7 +116,7 @@ public class MainController {
           doEditMemberMenu(member);
 
         } else {
-          ui.printActionResponse("Could not find a member with this ID. ");
+          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
         }
         
       }
@@ -109,7 +126,7 @@ public class MainController {
 
         boolean isSucceeded = sls.deleteMember(id);
 
-        ui.printActionResponse(isSucceeded ? "Member successfully deleted" : "Could not find a member with this id!");
+        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_FIND_MEMBER);
       }
 
     } while (running);
@@ -180,9 +197,9 @@ public class MainController {
               currentDay.getCurrentDay(),
               costPerDay);
 
-          ui.printActionResponse(isSucceeded ? "Item successfully created" : "Item could not be created!");
+          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_ITEM : ActionEvent.ERR_CREATE_ITEM);
         } else {
-          ui.printActionResponse("Could not find a member with this ID!");
+          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
         }
 
       } 
@@ -201,7 +218,7 @@ public class MainController {
         if (item != null) {
           ui.printDetailedItem(item);
         } else {
-          ui.printActionResponse("Could not find an item with this ID!");
+          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
         }
       } 
 
@@ -210,7 +227,7 @@ public class MainController {
         Item item = sls.findItemById(itemId);
 
         if (item == null) {
-          ui.printActionResponse("Could not find an item with this ID!");
+          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
           return;
         }
 
@@ -218,7 +235,7 @@ public class MainController {
         model.domain.Member lender = sls.findMemberById(lenderId);
 
         if (lender == null) {
-          ui.printActionResponse("Could not find a member with this ID!");
+          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
           return;
         }
 
@@ -229,9 +246,9 @@ public class MainController {
             sls.setUpLendingContract(lenderId, endDay, itemId, currentDay.getCurrentDay());
 
         if (successfullyCreatedContract) {
-          ui.printActionResponse("Lending contract was successfully set up!");
+          ui.actionResponder(ActionEvent.SUCCESS_CREATE_CONTRACT);
         } else {
-          ui.printActionResponse("Could not set up lending contract.");
+          ui.actionResponder(ActionEvent.ERR_CREATE_CONTRACT);
         }
       } 
 

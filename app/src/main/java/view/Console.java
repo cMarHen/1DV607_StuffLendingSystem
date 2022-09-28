@@ -3,6 +3,8 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.MainController.ActionEvent;
+
 /**
  * Main class and the Facade for the view.
  * 
@@ -306,10 +308,36 @@ public class Console {
    * Prints a message to the user based on action-event.
    * (E.g, member not found, unable to set up lending contract etc.)
    *
-   * @param message - The text to be presented to the user.
+   * @param actionResponse - The response from controller of type enum ActionEvent.
    */
-  public void printActionResponse(String message) {
+  public void actionResponder(controller.MainController.ActionEvent actionResponse) {
     // TODO: Refactor to ActionResponder and ActionEvents!
-    System.out.println(message);
+
+    if (actionResponse == ActionEvent.ERR_CREATE_MEMBER) {
+      System.out.println("Member could not be created!");
+    } else if (actionResponse == ActionEvent.SUCCESS_CREATE_MEMBER) {
+      System.out.println("Member successfully created!");
+    }  else if (actionResponse == ActionEvent.ERR_CREATE_ITEM) {
+      System.out.println("Item could not be created!");
+    } else if (actionResponse == ActionEvent.SUCCESS_CREATE_ITEM) {
+      System.out.println("Item successfully created!");
+    } else if (actionResponse == ActionEvent.ERR_EDIT_MEMBER) {
+      System.out.println("");
+    } else if (actionResponse == ActionEvent.SUCCESS_EDIT_MEMBER) {
+      System.out.println("");
+    } else if (actionResponse == ActionEvent.ERR_DELETE) {
+      System.out.println("");
+    } else if (actionResponse == ActionEvent.SUCCESS_DELETE) {
+      System.out.println("Member successfully deleted");
+    } else if (actionResponse == ActionEvent.ERR_FIND_MEMBER) {
+      System.out.println("Could not find a member with this ID!");
+    } else if (actionResponse == ActionEvent.ERR_FIND_ITEM) {
+      System.out.println("Could not find an item with this ID!");
+    }  else if (actionResponse == ActionEvent.ERR_CREATE_CONTRACT) {
+      System.out.println("Could not set up lending contract!");
+    }  else if (actionResponse == ActionEvent.SUCCESS_CREATE_CONTRACT) {
+      System.out.println("Lending contract was successfully set up!");
+    } 
+
   }
 }
