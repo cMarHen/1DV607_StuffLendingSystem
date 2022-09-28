@@ -67,7 +67,7 @@ public class MainController {
         String email = ui.promptForAnswer("Enter your email: ");
         String phoneNumber = ui.promptForAnswer("Enter your phone number: ");
 
-        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay.getCurrentDay());
+        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay.getCurrentDay(), 0);
 
         ui.printActionResponse(isSucceeded ? "Member successfully created" : "Member could not be created!");
       }
@@ -170,9 +170,9 @@ public class MainController {
 
           // TODO: Måste kunna läsa HEEEELA raden!
           String description = ui.promptForAnswer("Enter description: ");
-          int costPerDay = 50;
+          int costPerDay = 50; // TODO: Implement prompt for cost per day.
 
-          boolean isSucceeded = sls.addNewItem(member, type, name, description, currentDay.getCurrentDay(), costPerDay);
+          boolean isSucceeded = sls.addNewItem(memberId, type, name, description, currentDay.getCurrentDay(), costPerDay);
           ui.printActionResponse(isSucceeded ? "Item successfully created" : "Item could not be created!");
         } else {
           ui.printActionResponse("Could not find a member with this ID!");

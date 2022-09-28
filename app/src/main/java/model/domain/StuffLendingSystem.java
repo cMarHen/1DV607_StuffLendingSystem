@@ -18,14 +18,14 @@ public class StuffLendingSystem {
    * TODO: Remove this.
    */
   public StuffLendingSystem() {
-    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
-    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
+    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2, 0);
+    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5, 0);
     members.add(m1);
     members.add(m2);
 
-    addNewItem(m1, ItemType.Tool, "kratta", "Rinsing leafs", 0, 20);
-    addNewItem(m1, ItemType.Game, "Super Mario", "playing", 0, 50);
-    addNewItem(m2, ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
+    addNewItem(m1.getId(), ItemType.Tool, "kratta", "Rinsing leafs", 0, 20);
+    addNewItem(m1.getId(), ItemType.Game, "Super Mario", "playing", 0, 50);
+    addNewItem(m2.getId(), ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
   }
 
   /**
@@ -36,15 +36,16 @@ public class StuffLendingSystem {
    * @param email - The members email, editable later.
    * @param phoneNumber - The members phone number, editable later.
    * @param dayOfCreation - The current day when member was added to the system, not editable later.
+   * @param credits - Initial amount of credits.
    * @return - A flag if member successfully was added to the stufflending system.
    */
-  public boolean addNewMember(String firstName, String lastName, String email, String phoneNumber, int dayOfCreation) {
+  public boolean addNewMember(String firstName, String lastName, String email, String phoneNumber, int dayOfCreation, int credits) {
     if (!isUniqueEmailAndPhoneNumber(email, phoneNumber)) {
       return false;
     }
     
     String id = getNewUniqueMemberId();
-    Member newMember = new Member(firstName, lastName, email, phoneNumber, id, dayOfCreation);
+    Member newMember = new Member(firstName, lastName, email, phoneNumber, id, dayOfCreation, credits);
     members.add(newMember);
 
     return true;
@@ -70,7 +71,6 @@ public class StuffLendingSystem {
 
       if (!contractedLender.equals(contractedOwner)) {
         int contractFee = contracts.getContractFee(newContract);
-        System.out.println(contractFee);
         contractedLender.removeCredits(contractFee);
         contractedOwner.addCredits(contractFee);
       }
@@ -84,8 +84,9 @@ public class StuffLendingSystem {
 
   /**
    * Instaciate a new Item with unique id and add to the items-list.
+   * Fails if no member is found in the stufflending system.
    *
-   * @param member - Used to set the owner of the item, not editable later.
+   * @param memberId - Id of member to query for and then set as owner of item.
    * @param type - Used to specify item-type for searching, editable later.
    * @param name - Used to search for item by name, editable later.
    * @param description - Description of the item, editable later.
@@ -94,18 +95,24 @@ public class StuffLendingSystem {
    * @return - A flag indicated the item was successfully added to the item-list.
    */
   public boolean addNewItem(
-        Member member,
+        String memberId,
         ItemType type,
         String name,
         String description,
         int dayOfCreation,
         int costPerDay) {
-    String id = getNewUniqueItemId();
-    Item newItem = new Item(member, type, name, description, id, dayOfCreation, costPerDay);
-    member.addCredits(100);
-    items.addItem(newItem);
+    Member member = findOriginalMemberById(memberId);
 
-    return true;
+    if (member != null) {
+      String id = getNewUniqueItemId();
+      Item newItem = new Item(member, type, name, description, id, dayOfCreation, costPerDay);
+      member.addCredits(100);
+      items.addItem(newItem);
+  
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -116,7 +123,7 @@ public class StuffLendingSystem {
    * @return - Flag if successfully removed member from the member-list.
    */
   public boolean deleteMember(String id) {
-    Member member = findMemberById(id);
+    Member member = findOriginalMemberById(id);
 
     if (member != null) {
       members.remove(member);
@@ -139,16 +146,16 @@ public class StuffLendingSystem {
   }
 
   /**
-   * Queries the members-list for Member object with matching id.
+   * Queries the members-list for Member object with matching id and returns a copy.
    *
    * @param id - Id used to query the members-list.
-   * @return - The members-object or null if not found.
+   * @return - A copy of the member-object or null if not found.
    */
   public Member findMemberById(String id) {
     for (Member member : members) {
       if (member.getId().equals(id)) {
-        // TODO: Deep copy?
-        return member;
+        Member memberCopy = new Member(member.getFirstName(), member.getLastName(), member.getEmail(), member.getPhoneNumber(), id, member.getRegistredDay(), member.getCredits());
+        return memberCopy;
       }
     }
     return null;
@@ -171,6 +178,15 @@ public class StuffLendingSystem {
    */
   public ArrayList<Item> getAllItems() {
     return items.getAllItems();
+  }
+
+  private Member findOriginalMemberById(String id) {
+    for (Member member : members) {
+      if (member.getId().equals(id)) {
+        return member;
+      }
+    }
+    return null;
   }
 
   private boolean isUniqueEmailAndPhoneNumber(String email, String phoneNumber) {

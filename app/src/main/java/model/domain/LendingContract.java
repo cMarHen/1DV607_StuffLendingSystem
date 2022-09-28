@@ -32,10 +32,12 @@ public class LendingContract {
   }
 
   public Item getItem() {
+    // TODO: Findbugs issue should be supressed as the item shoud be available to change availibility-status.
     return item;
   }
 
   public Member getLender() {
+    // TODO: Findbugs issue should be supressed as the lender shoud be available to draw credits from.
     return lender;
   }
 

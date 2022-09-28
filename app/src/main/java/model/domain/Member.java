@@ -14,7 +14,7 @@ public class Member {
   private int registredDay;
 
   /**
-   * Instanciate Member with the data presented in the parameters.
+   * Instanciate Member with the data presented in the parameters and set credits to 0.
    *
    * @param firstName - User first name, editable later.
    * @param lastName - Users last name, editable later.
@@ -22,8 +22,9 @@ public class Member {
    * @param phoneNumber - Users phonenumber, editable later.
    * @param id - Used to present a member-identifyer in the ui(view), not editable later.
    * @param registredDay - Metadata when user was added to the stufflending system, not editable later.
+   * @param credits - Initial amount of credits for member.
    */
-  public Member(String firstName, String lastName, String email, String phoneNumber, String id, int registredDay) {
+  public Member(String firstName, String lastName, String email, String phoneNumber, String id, int registredDay, int credits) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -31,6 +32,7 @@ public class Member {
     this.credits = 0;
     this.id = id;
     this.registredDay = registredDay;
+    this.credits = credits;
   }
 
   /**

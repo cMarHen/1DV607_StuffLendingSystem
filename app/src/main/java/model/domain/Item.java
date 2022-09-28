@@ -85,6 +85,7 @@ public class Item {
   }
   
   public Member getOwner() {
+    // TODO: Findbugs issue should be supressed as the owner should be available to recieve credits.
     return owner;
   }
 
