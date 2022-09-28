@@ -22,6 +22,26 @@ public class Member {
    * @param phoneNumber - Users phonenumber, editable later.
    * @param id - Used to present a member-identifyer in the ui(view), not editable later.
    * @param registredDay - Metadata when user was added to the stufflending system, not editable later.
+   */
+  public Member(String firstName, String lastName, String email, String phoneNumber, String id, int registredDay) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.id = id;
+    this.registredDay = registredDay;
+    this.credits = 0;
+  }
+
+  /**
+   * Instanciate Member with the data presented in the parameters including credits.
+   *
+   * @param firstName - User first name, editable later.
+   * @param lastName - Users last name, editable later.
+   * @param email - Users email, editable later.
+   * @param phoneNumber - Users phonenumber, editable later.
+   * @param id - Used to present a member-identifyer in the ui(view), not editable later.
+   * @param registredDay - Metadata when user was added to the stufflending system, not editable later.
    * @param credits - Initial amount of credits for member.
    */
   public Member(String firstName, String lastName, String email, String phoneNumber, String id, int registredDay, int credits) {
@@ -29,7 +49,6 @@ public class Member {
     this.lastName = lastName;
     this.email = email;
     this.phoneNumber = phoneNumber;
-    this.credits = 0;
     this.id = id;
     this.registredDay = registredDay;
     this.credits = credits;

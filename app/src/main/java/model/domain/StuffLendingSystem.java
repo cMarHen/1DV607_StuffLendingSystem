@@ -18,8 +18,8 @@ public class StuffLendingSystem {
    * TODO: Remove this.
    */
   public StuffLendingSystem() {
-    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2, 0);
-    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5, 0);
+    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
+    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     members.add(m1);
     members.add(m2);
 
