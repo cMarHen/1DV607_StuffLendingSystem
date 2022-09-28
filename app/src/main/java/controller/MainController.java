@@ -172,7 +172,14 @@ public class MainController {
           String description = ui.promptForAnswer("Enter description: ");
           int costPerDay = 50; // TODO: Implement prompt for cost per day.
 
-          boolean isSucceeded = sls.addNewItem(memberId, type, name, description, currentDay.getCurrentDay(), costPerDay);
+          boolean isSucceeded = sls.addNewItem(
+              memberId,
+              type,
+              name,
+              description,
+              currentDay.getCurrentDay(),
+              costPerDay);
+
           ui.printActionResponse(isSucceeded ? "Item successfully created" : "Item could not be created!");
         } else {
           ui.printActionResponse("Could not find a member with this ID!");
@@ -219,7 +226,7 @@ public class MainController {
         int endDay = currentDay.getCurrentDay() + daysToLoan;
 
         boolean successfullyCreatedContract = 
-            sls.setUpLendingContract(lender, endDay, item, currentDay.getCurrentDay());
+            sls.setUpLendingContract(lenderId, endDay, itemId, currentDay.getCurrentDay());
 
         if (successfullyCreatedContract) {
           ui.printActionResponse("Lending contract was successfully set up!");

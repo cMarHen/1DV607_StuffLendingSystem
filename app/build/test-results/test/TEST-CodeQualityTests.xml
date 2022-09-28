@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-09-23T06:30:54" hostname="LAPTOP-85ADMTTU" time="0.149">
+<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-09-28T13:59:45" hostname="DESKTOP-GJ2AF9M" time="0.354">
   <properties/>
-  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.149">
-    <failure message="org.opentest4j.AssertionFailedError: Max amount (5) of quality issues exceeded:19 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Max amount (5) of quality issues exceeded:19 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
+  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.354">
+    <failure message="org.opentest4j.AssertionFailedError: Max amount (5) of quality issues exceeded:6 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Max amount (5) of quality issues exceeded:6 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
 	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:193)
 	at app//CodeQualityTests.codeQuality(CodeQualityTests.java:70)
-	at java.base@18.0.2.1/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@18.0.2.1/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base@17.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.1/java.lang.reflect.Method.invoke(Method.java:568)
 	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
 	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
 	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
@@ -36,7 +38,7 @@
 	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
 	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base@18.0.2.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.1/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
 	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
 	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -46,7 +48,7 @@
 	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
 	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
 	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base@18.0.2.1/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.1/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
 	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
 	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
@@ -72,8 +74,10 @@
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
-	at java.base@18.0.2.1/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@18.0.2.1/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base@17.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.1/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
@@ -90,85 +94,45 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <system-out><![CDATA[1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
-text:line: 5 column: column:1 
-Extra separation in import group before 'model.domain.StuffLendingSystem'
-
-3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
-text:line: 5 column: column:1 
-Missing a Javadoc comment.
-
-text:line: 10 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 16 column: column:3 
-Missing a Javadoc comment.
-
-2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Member.java
-text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-text:line: 11 column: column:3 
-Missing a Javadoc comment.
-
-0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/RandomString.java
-3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
-text:line: 5 column: column:1 
-Missing a Javadoc comment.
-
-text:line: 9 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 23 column: column:3 
-Missing a Javadoc comment.
-
-7 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
-text:line: 6 column: column:1 
-Missing a Javadoc comment.
-
-text:line: 9 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 15 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 26 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 48 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 72 column: column:3 
-Missing a Javadoc comment.
-
-text:line: 82 column: column:3 
-Missing a Javadoc comment.
-
-1 FindBugs Issues in view/Console.java
-text:lines: 22-91 
-new view.Console(Scanner) may expose internal representation by storing an externally mutable object 
-  into Console.scan 
+  <system-out><![CDATA[0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/controller/App.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/controller/CurrentDay.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/controller/MainController.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ContractCollection.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/Item.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ItemCollection.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ItemCollectionImpl.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ItemIterator.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/LendingContract.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/Member.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/RandomString.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/StuffLendingSystem.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
+0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/view/Console.java
+0 FindBugs Issues in view/Console.java
+2 FindBugs Issues in model/domain/Item.java
+text:lines: 49-147 
+new model.domain.Item(Member, Item$ItemType, String, String, String, int, int) may expose internal 
+  representation by storing an externally mutable object into Item.owner 
 May expose internal representation by incorporating reference to mutable object 
 This code stores a reference to an externally mutable object into the internal representation of the 
   object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
   would compromise security or other important properties, you will need to do something different. 
   Storing a copy of the object is better approach in many situations.
 
-0 FindBugs Issues in controller/App.java
-0 FindBugs Issues in model/domain/Member.java
-0 FindBugs Issues in model/domain/RandomString.java
-1 FindBugs Issues in model/domain/StuffLendingSystem.java
-text:lines: 5-75 
-getMembers() may expose internal representation by returning StuffLendingSystem.members 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the object's fields exposes the 
-  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
-  changes to the mutable object would compromise security or other important properties, you will 
-  need to do something different. Returning a new copy of the object is better approach in many 
-  situations.
+text:lines: 49-147 
+new model.domain.Item(Member, Item$ItemType, String, String, String, int, int, boolean) may expose 
+  internal representation by storing an externally mutable object into Item.owner 
+May expose internal representation by incorporating reference to mutable object 
+This code stores a reference to an externally mutable object into the internal representation of the 
+  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
+  would compromise security or other important properties, you will need to do something different. 
+  Storing a copy of the object is better approach in many situations.
 
+0 FindBugs Issues in model/domain/ItemCollection.java
+0 FindBugs Issues in model/domain/RandomString.java
+0 FindBugs Issues in model/domain/StuffLendingSystem.java
 1 FindBugs Issues in controller/MainController.java
-text:lines: 10-67 
+text:lines: 21-246 
 new controller.MainController(Console, StuffLendingSystem) may expose internal representation by 
   storing an externally mutable object into MainController.sls 
 May expose internal representation by incorporating reference to mutable object 
@@ -177,9 +141,41 @@ This code stores a reference to an externally mutable object into the internal r
   would compromise security or other important properties, you will need to do something different. 
   Storing a copy of the object is better approach in many situations.
 
+0 FindBugs Issues in model/domain/ItemCollectionImpl.java
+2 FindBugs Issues in model/domain/LendingContract.java
+text:lines: 21-72 
+new model.domain.LendingContract(Member, int, Item, int) may expose internal representation by 
+  storing an externally mutable object into LendingContract.item 
+May expose internal representation by incorporating reference to mutable object 
+This code stores a reference to an externally mutable object into the internal representation of the 
+  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
+  would compromise security or other important properties, you will need to do something different. 
+  Storing a copy of the object is better approach in many situations.
+
+text:lines: 21-72 
+new model.domain.LendingContract(Member, int, Item, int) may expose internal representation by 
+  storing an externally mutable object into LendingContract.lender 
+May expose internal representation by incorporating reference to mutable object 
+This code stores a reference to an externally mutable object into the internal representation of the 
+  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
+  would compromise security or other important properties, you will need to do something different. 
+  Storing a copy of the object is better approach in many situations.
+
+0 FindBugs Issues in model/domain/ItemIterator.java
+1 FindBugs Issues in model/domain/TypeIteratorImpl.java
+text:lines: 22-48 
+new model.domain.TypeIteratorImpl(Item$ItemType, ArrayList) may expose internal representation by 
+  storing an externally mutable object into TypeIteratorImpl.items 
+May expose internal representation by incorporating reference to mutable object 
+This code stores a reference to an externally mutable object into the internal representation of the 
+  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
+  would compromise security or other important properties, you will need to do something different. 
+  Storing a copy of the object is better approach in many situations.
+
+0 FindBugs Issues in controller/App.java
+0 FindBugs Issues in model/domain/Member.java
+0 FindBugs Issues in controller/CurrentDay.java
+0 FindBugs Issues in model/domain/ContractCollection.java
 ]]></system-out>
-  <system-err><![CDATA[Findbugs xml file not found: .\build\reports\spotbugs\spotbugs.xml
-Consider making code change to initiate regeneration of the xml (will try backup)
-Restored xml from backup: .\build\reports\spotbugs\spotbugs_bak.xml
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

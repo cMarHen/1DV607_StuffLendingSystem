@@ -39,7 +39,13 @@ public class StuffLendingSystem {
    * @param credits - Initial amount of credits.
    * @return - A flag if member successfully was added to the stufflending system.
    */
-  public boolean addNewMember(String firstName, String lastName, String email, String phoneNumber, int dayOfCreation, int credits) {
+  public boolean addNewMember(
+      String firstName,
+      String lastName,
+      String email,
+      String phoneNumber,
+      int dayOfCreation,
+      int credits) {
     if (!isUniqueEmailAndPhoneNumber(email, phoneNumber)) {
       return false;
     }
@@ -55,27 +61,30 @@ public class StuffLendingSystem {
    * The item is reserved, credits are transfered and the contract is added to the list of contracts.
    * (Can fail if item is reserved or if lender has insufficient credits.)
    *
-   * @param lender - Used as a reference to a member whom to pay credits for the total lending-fee.
+   * @param lenderId - Id of the member whom to pay credits for the total lending-fee.
    * @param endDay - The day after the endDay the item is available for loan again.
-   * @param item - The item holds information about the owner to recieve credits for the loan.
+   * @param itemId - The id of the item that holds information about the owner to recieve credits for the loan.
    * @param currentDay - From this day the item is reserved until the day after endDay.
    * @return - A flag if the contract was successfully implemented.
    */
-  public boolean setUpLendingContract(Member lender, int endDay, Item item, int currentDay) {
+  public boolean setUpLendingContract(String lenderId, int endDay, String itemId, int currentDay) {
+    Member lender = findOriginalMemberById(lenderId);
+    Item item = findItemById(itemId);
     LendingContract newContract = new LendingContract(lender, endDay, item, currentDay);
     boolean successfullyAddedContract = contracts.addContract(newContract);
 
     if (successfullyAddedContract) {
-      Member contractedLender = newContract.getLender();
-      Member contractedOwner = newContract.getItem().getOwner();
-
+      Member contractedLender = findOriginalMemberById(newContract.getLender().getId());
+      Member contractedOwner = findOriginalMemberById(newContract.getItem().getOwner().getId());
+      
       if (!contractedLender.equals(contractedOwner)) {
         int contractFee = contracts.getContractFee(newContract);
         contractedLender.removeCredits(contractFee);
         contractedOwner.addCredits(contractFee);
       }
+      
+      item.setReserved(true);
 
-      newContract.getItem().setReserved(true);
       return true;
     } else {
       return false;
@@ -142,6 +151,7 @@ public class StuffLendingSystem {
   public Item findItemById(String id) {
     Item item = items.findItemById(id);
 
+    // TODO: Copy the item here to not let it leave the SLS??????????
     return item;
   }
 
@@ -154,7 +164,15 @@ public class StuffLendingSystem {
   public Member findMemberById(String id) {
     for (Member member : members) {
       if (member.getId().equals(id)) {
-        Member memberCopy = new Member(member.getFirstName(), member.getLastName(), member.getEmail(), member.getPhoneNumber(), id, member.getRegistredDay(), member.getCredits());
+        Member memberCopy = new Member(
+            member.getFirstName(),
+            member.getLastName(),
+            member.getEmail(),
+            member.getPhoneNumber(),
+            id,
+            member.getRegistredDay(),
+            member.getCredits());
+
         return memberCopy;
       }
     }
@@ -170,7 +188,15 @@ public class StuffLendingSystem {
     ArrayList<Member> memberlistCopy = new ArrayList<>();
 
     for (Member member : this.members) {
-      Member memberCopy = new Member(member.getFirstName(), member.getLastName(), member.getEmail(), member.getPhoneNumber(), member.getId(), member.getRegistredDay(), member.getCredits());
+      Member memberCopy = new Member(
+          member.getFirstName(),
+          member.getLastName(),
+          member.getEmail(),
+          member.getPhoneNumber(),
+          member.getId(),
+          member.getRegistredDay(),
+          member.getCredits());
+
       memberlistCopy.add(memberCopy);
     }
 

@@ -44,7 +44,14 @@ public class Member {
    * @param registredDay - Metadata when user was added to the stufflending system, not editable later.
    * @param credits - Initial amount of credits for member.
    */
-  public Member(String firstName, String lastName, String email, String phoneNumber, String id, int registredDay, int credits) {
+  public Member(
+      String firstName,
+      String lastName,
+      String email,
+      String phoneNumber,
+      String id,
+      int registredDay,
+      int credits) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;

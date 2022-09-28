@@ -24,8 +24,22 @@ public class ItemCollectionImpl implements ItemCollection {
    * @return - The whole list of items in the collection.
    */
   public ArrayList<Item> getAllItems() {
-    // TODO: DEEP COPY!!
-    return items;
+    ArrayList<Item> itemlistCopy = new ArrayList<>();
+
+    for (Item item : this.items) {
+      Item itemCopy = new Item(
+          item.getOwner(),
+          item.getType(),
+          item.getName(),
+          item.getDescription(),
+          item.getId(),
+          item.getDayOfCreation(),
+          item.getCostPerDay(),
+          item.getIsReserved());
+
+      itemlistCopy.add(itemCopy);
+    }
+    return itemlistCopy;
   }
 
   @Override
@@ -46,9 +60,11 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
-  public void removeItem(Item item) {
-    if (item != null) {
-      items.remove(item);
+  public void removeItem(String itemId) {
+    for (Item item : items) {
+      if (item.getId().equals(itemId)) {
+        items.remove(item);
+      }
     }
   }
 

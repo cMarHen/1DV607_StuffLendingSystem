@@ -31,14 +31,41 @@ public class LendingContract {
     return endDay;
   }
 
+  /**
+   * Get a copy of the Item-object representing the item being loaned.
+   *
+   * @return - A copy of the item being loaned.
+   */
   public Item getItem() {
-    // TODO: Findbugs issue should be supressed as the item shoud be available to change availibility-status.
-    return item;
+    Item itemCopy = new Item(
+        this.item.getOwner(),
+        this.item.getType(),
+        this.item.getName(),
+        this.item.getDescription(),
+        this.item.getId(),
+        this.item.getDayOfCreation(),
+        this.item.getCostPerDay(),
+        this.item.getIsReserved());
+
+    return itemCopy;
   }
 
+  /**
+   * Get a copy of the Member-object representing the member loaning the item.
+   *
+   * @return - A copy of the member loaning the item.
+   */
   public Member getLender() {
-    // TODO: Findbugs issue should be supressed as the lender shoud be available to draw credits from.
-    return lender;
+    Member lenderCopy = new Member(
+        this.lender.getFirstName(),
+        this.lender.getLastName(),
+        this.lender.getEmail(),
+        this.lender.getPhoneNumber(),
+        this.lender.getId(),
+        this.lender.getRegistredDay(),
+        this.lender.getCredits());
+
+    return lenderCopy;
   }
 
   public int getStartDay() {
