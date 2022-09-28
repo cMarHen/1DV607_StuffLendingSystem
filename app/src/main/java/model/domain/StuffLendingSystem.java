@@ -162,13 +162,19 @@ public class StuffLendingSystem {
   }
 
   /**
-   * Get the whole list of members in the stufflending system.
+   * Get a copy of the whole list of members in the stufflending system.
    *
-   * @return - The list of members in the stufflending system.
+   * @return - A copy of the list of members in the stufflending system.
    */
   public ArrayList<Member> getMembers() {
-    // TODO: DEEP COPY!!
-    return members;
+    ArrayList<Member> memberlistCopy = new ArrayList<>();
+
+    for (Member member : this.members) {
+      Member memberCopy = new Member(member.getFirstName(), member.getLastName(), member.getEmail(), member.getPhoneNumber(), member.getId(), member.getRegistredDay(), member.getCredits());
+      memberlistCopy.add(memberCopy);
+    }
+
+    return memberlistCopy;
   }
 
   /**
