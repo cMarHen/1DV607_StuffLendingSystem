@@ -19,6 +19,7 @@ public class LendingContract {
    * @param startDay - From this day the item is reserved until the day after endDay.
    */
   public LendingContract(Member lender, int endDay, Item item, int startDay) {
+    // TODO: Findbugs issue should be supressed as the lender shoud reflect the member in sls.
     this.lender = lender;
     this.endDay = endDay;
     this.item = item;

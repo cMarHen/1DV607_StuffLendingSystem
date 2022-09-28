@@ -39,6 +39,7 @@ public class Item {
    * @param costPerDay - Used in calculations to set up lending contracts, editable later.
    */
   public Item(
+    // TODO: Findbugs issue should be supressed as the owner should reflect the member in the sls.
       Member owner,
       ItemType type,
       String name,

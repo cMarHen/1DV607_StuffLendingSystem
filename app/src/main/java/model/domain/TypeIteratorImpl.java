@@ -20,6 +20,7 @@ public class TypeIteratorImpl implements ItemIterator {
    * @param items - A list of items matching the type.
    */
   public TypeIteratorImpl(ItemType type, ArrayList<Item> items) {
+    // TODO: Findbugs issue should be supressed as the list to iterate shoud be presented to the iterator.
     this.type = type;
     this.items = items;
     this.position = 0;
