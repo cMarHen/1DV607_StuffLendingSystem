@@ -60,7 +60,7 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
-  public void removeItem(String itemId) {
+  public void removeItemById(String itemId) {
     for (Item item : items) {
       if (item.getId().equals(itemId)) {
         items.remove(item);

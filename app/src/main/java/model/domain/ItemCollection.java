@@ -10,7 +10,7 @@ import model.domain.Item.ItemType;
 public interface ItemCollection {
   public void addItem(Item item);
 
-  public void removeItem(String itemId);
+  public void removeItemById(String itemId);
 
   public ArrayList<Item> getAllItems();
 
