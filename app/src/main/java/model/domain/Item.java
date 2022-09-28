@@ -30,13 +30,13 @@ public class Item {
   /**
    * Instanciate an item with the data presented as parameters.
    *
-   * @param owner - Used to identify the owner when/if credits are to be transfered.
-   * @param type - Used to specify item-type for searching.
-   * @param name - Used to search for item by name.
-   * @param description - Description of the item.
-   * @param id - Used to present an item-identifyer in the ui(view).
-   * @param dayOfCreation - Metadata when item was created.
-   * @param costPerDay - Used in calculations to set up lending contracts.
+   * @param owner - Used to identify the owner when/if credits are to be transfered, not editable later.
+   * @param type - Used to specify item-type for searching, editable later.
+   * @param name - Used to search for item by name, editable later.
+   * @param description - Description of the item, editable later.
+   * @param id - Used to present an item-identifyer in the ui(view), not editable later.
+   * @param dayOfCreation - Metadata when item was created, not editable later.
+   * @param costPerDay - Used in calculations to set up lending contracts, editable later.
    */
   public Item(
       Member owner,

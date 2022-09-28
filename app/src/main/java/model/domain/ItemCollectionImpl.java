@@ -1,16 +1,28 @@
 package model.domain;
 
 import java.util.ArrayList;
-
 import model.domain.Item.ItemType;
 
+/**
+ * Class to manage querying and actions on the list of items.
+ *
+ */
 public class ItemCollectionImpl implements ItemCollection {
   private ArrayList<Item> items;
 
+  /**
+   * Set the items-list to empty arraylist when instanciated.
+   *
+   */
   public ItemCollectionImpl() {
     items = new ArrayList<>();
   }
 
+  /**
+   * Get the whole list of items in the collection.
+   *
+   * @return - The whole list of items in the collection.
+   */
   public ArrayList<Item> getAllItems() {
     // TODO: DEEP COPY!!
     return items;

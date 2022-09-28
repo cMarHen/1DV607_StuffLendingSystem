@@ -218,7 +218,8 @@ public class MainController {
         int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
         int endDay = currentDay.getCurrentDay() + daysToLoan;
 
-        boolean successfullyCreatedContract = sls.setUpLendingContract(lender, endDay, item, currentDay.getCurrentDay());
+        boolean successfullyCreatedContract = 
+            sls.setUpLendingContract(lender, endDay, item, currentDay.getCurrentDay());
 
         if (successfullyCreatedContract) {
           ui.printActionResponse("Lending contract was successfully set up!");

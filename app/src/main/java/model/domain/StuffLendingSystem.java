@@ -1,9 +1,13 @@
 package model.domain;
 
 import java.util.ArrayList;
-
 import model.domain.Item.ItemType;
 
+/**
+ * The main class in the system and the Facade for the model.
+ * This class handles members, items and contracts in the Stufflending System.
+ *
+ */
 public class StuffLendingSystem {
   ArrayList<Member> members = new ArrayList<>();
   ItemCollection items = new ItemCollectionImpl();
@@ -11,7 +15,7 @@ public class StuffLendingSystem {
   RandomString randomStringGenerator = new RandomString();
 
   /**
-   * Constructor
+   * TODO: Remove this.
    */
   public StuffLendingSystem() {
     Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
@@ -24,6 +28,16 @@ public class StuffLendingSystem {
     addNewItem(m2, ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
   }
 
+  /**
+   * Instaciate a new Member with unique id and add to the members-list.
+   *
+   * @param firstName - The members first name, editable later.
+   * @param lastName - The members last name, editable later.
+   * @param email - The members email, editable later.
+   * @param phoneNumber - The members phone number, editable later.
+   * @param dayOfCreation - The current day when member was added to the system, not editable later.
+   * @return - A flag if member successfully was added to the stufflending system.
+   */
   public boolean addNewMember(String firstName, String lastName, String email, String phoneNumber, int dayOfCreation) {
     if (!isUniqueEmailAndPhoneNumber(email, phoneNumber)) {
       return false;
@@ -36,7 +50,17 @@ public class StuffLendingSystem {
     return true;
   }
 
-  public boolean setUpLendingContract (Member lender, int endDay, Item item, int currentDay) {
+  /**
+   * The item is reserved, credits are transfered and the contract is added to the list of contracts.
+   * (Can fail if item is reserved or if lender has insufficient credits.)
+   *
+   * @param lender - Used as a reference to a member whom to pay credits for the total lending-fee.
+   * @param endDay - The day after the endDay the item is available for loan again.
+   * @param item - The item holds information about the owner to recieve credits for the loan.
+   * @param currentDay - From this day the item is reserved until the day after endDay.
+   * @return - A flag if the contract was successfully implemented.
+   */
+  public boolean setUpLendingContract(Member lender, int endDay, Item item, int currentDay) {
     LendingContract newContract = new LendingContract(lender, endDay, item, currentDay);
     boolean successfullyAddedContract = contracts.addContract(newContract);
 
@@ -59,17 +83,23 @@ public class StuffLendingSystem {
   }
 
   /**
-   * Tells member to create an item, then add the item to list of items.
-   * 
-   * @param member
-   * @param type
-   * @param name
-   * @param description
-   * @param dayOfCreation
-   * @param costPerDay
-   * @return
+   * Instaciate a new Item with unique id and add to the items-list.
+   *
+   * @param member - Used to set the owner of the item, not editable later.
+   * @param type - Used to specify item-type for searching, editable later.
+   * @param name - Used to search for item by name, editable later.
+   * @param description - Description of the item, editable later.
+   * @param dayOfCreation - Metadata when item was created, not editable later.
+   * @param costPerDay - Used in calculations to set up lending contracts, editable later.
+   * @return - A flag indicated the item was successfully added to the item-list.
    */
-  public boolean addNewItem(Member member, ItemType type, String name, String description, int dayOfCreation, int costPerDay) {
+  public boolean addNewItem(
+        Member member,
+        ItemType type,
+        String name,
+        String description,
+        int dayOfCreation,
+        int costPerDay) {
     String id = getNewUniqueItemId();
     Item newItem = new Item(member, type, name, description, id, dayOfCreation, costPerDay);
     member.addCredits(100);
@@ -78,6 +108,13 @@ public class StuffLendingSystem {
     return true;
   }
 
+  /**
+   * Removes member from the members-list.
+   * Fails if no member with the id is found in the list.
+   *
+   * @param id - Id for querying the members-list.
+   * @return - Flag if successfully removed member from the member-list.
+   */
   public boolean deleteMember(String id) {
     Member member = findMemberById(id);
 
@@ -89,29 +126,50 @@ public class StuffLendingSystem {
     }
   }
 
+  /**
+   * Queries the item-list for Item object with matching id.
+   *
+   * @param id - Id used to query the item-list.
+   * @return - The Item-object or null if not found.
+   */
   public Item findItemById(String id) {
     Item item = items.findItemById(id);
 
     return item;
   }
 
+  /**
+   * Queries the members-list for Member object with matching id.
+   *
+   * @param id - Id used to query the members-list.
+   * @return - The members-object or null if not found.
+   */
   public Member findMemberById(String id) {
     for (Member member : members) {
       if (member.getId().equals(id)) {
-        // TODO: Return DTO Object
+        // TODO: Deep copy?
         return member;
       }
     }
     return null;
   }
 
+  /**
+   * Get the whole list of members in the stufflending system.
+   *
+   * @return - The list of members in the stufflending system.
+   */
   public ArrayList<Member> getMembers() {
     // TODO: DEEP COPY!!
     return members;
   }
 
+  /**
+   * Get the whole list of items in the stufflending system.
+   *
+   * @return - The list of items in the stufflending system.
+   */
   public ArrayList<Item> getAllItems() {
-    // TODO: DEEP COPY!!
     return items.getAllItems();
   }
 
