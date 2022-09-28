@@ -51,19 +51,18 @@ public class MainController {
     boolean running = true;
     do {
       view.Console.MainEvent event = ui.getMainMenuChoice();
-      // view.Console.MainEvent event = ui.getNotLoggedMainMenuChoice();
-      // view.Console.MainEvent event = ui.getAdminMainMenuChoice();
-
-      if (event == view.Console.MainEvent.Quit) {
-        running = false;
-      }
 
       if (event == view.Console.MainEvent.MemberMenu) {
-        /* memberController. */doMemberMenu();
+        doMemberMenu();
       }
-
       if (event == view.Console.MainEvent.ItemMenu) {
         doItemMenu();
+      }
+      if (event == view.Console.MainEvent.ForwardDay) {
+        doForwardDayMenu();
+      }
+      if (event == view.Console.MainEvent.Quit) {
+        running = false;
       }
     } while (running);
   }
@@ -261,4 +260,18 @@ public class MainController {
       } 
     } while (running);
   }
+
+  
+  private void doForwardDayMenu() {
+    int amountOfDaysToProceed = ui.promptForIntAnswer("How many days do you want to proceed?: ");
+    
+    for (int i = 0; i < amountOfDaysToProceed; i++) {
+      currentDay.incrementDay();
+    }
+
+    // TODO: Properly display the current day in view, not in the controller!
+    System.out.println("The day is: " + currentDay.getCurrentDay());
+  }
 }
+
+

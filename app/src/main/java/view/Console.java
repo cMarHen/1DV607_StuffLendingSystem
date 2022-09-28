@@ -19,6 +19,7 @@ public class Console {
   public static enum MainEvent {
     MemberMenu,
     ItemMenu,
+    ForwardDay,
     Quit
   }
 
@@ -67,8 +68,6 @@ public class Console {
    */
   public Console() {
     this.scan = new Scanner(System.in, "UTF8");
-    /* this.memberConsole = new MemberConsole(scan) */
-    /* this.itemConsole = new ItemConsole(scan) */
   }
 
   /**
@@ -92,6 +91,8 @@ public class Console {
       return MainEvent.MemberMenu;
     } else if (choice == 2) {
       return MainEvent.ItemMenu;
+    } else if (choice == 3) {
+      return MainEvent.ForwardDay;
     } else {
       return MainEvent.Quit;
     }
