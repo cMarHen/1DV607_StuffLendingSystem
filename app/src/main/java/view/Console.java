@@ -401,7 +401,7 @@ public class Console {
   }
 
   private int promptForInt(String message) {
-    int input = 0;
+    int input = -1;
     boolean validInput;
 
     do {
