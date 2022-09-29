@@ -1,4 +1,4 @@
-package controller;
+package model.domain;
 
 /**
  * Painted class for the current day.

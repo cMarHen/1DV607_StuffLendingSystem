@@ -1,6 +1,7 @@
 package model.domain;
 
 import java.util.ArrayList;
+
 import model.domain.Item.ItemType;
 
 /**
@@ -13,11 +14,14 @@ public class StuffLendingSystem {
   ItemCollection items = new ItemCollectionImpl();
   ContractCollection contracts = new ContractCollection();
   RandomString randomStringGenerator = new RandomString();
+  private CurrentDay currentDay;
 
   /**
    * TODO: Remove this.
    */
   public StuffLendingSystem() {
+    this.currentDay = new CurrentDay();
+
     Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
     Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     members.add(m1);
@@ -26,6 +30,14 @@ public class StuffLendingSystem {
     addNewItem(m1.getId(), ItemType.Tool, "kratta", "Rinsing leafs", 0, 20);
     addNewItem(m1.getId(), ItemType.Game, "Super Mario", "playing", 0, 50);
     addNewItem(m2.getId(), ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
+  }
+
+  public void incrementCurrentDay() {
+    currentDay.incrementDay();
+  }
+
+  public int getCurrentDay() {
+    return currentDay.getCurrentDay();
   }
 
   /**

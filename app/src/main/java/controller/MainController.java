@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class MainController {
   private view.Console ui;
   private model.domain.StuffLendingSystem sls;
-  private CurrentDay currentDay;
 
   public static enum ActionEvent {
     ERR_CREATE_MEMBER,
@@ -37,7 +36,6 @@ public class MainController {
   public MainController(view.Console ui, model.domain.StuffLendingSystem sls) {
     this.ui = ui;
     this.sls = sls;
-    this.currentDay = new CurrentDay();
     // currentRole = enum.Role
     // currentId = id
   }
@@ -82,7 +80,7 @@ public class MainController {
         String email = ui.promptForAnswer("Enter your email: ");
         String phoneNumber = ui.promptForAnswer("Enter your phone number: ");
 
-        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, currentDay.getCurrentDay(), 0);
+        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, sls.getCurrentDay(), 0);
 
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
       }
@@ -192,7 +190,7 @@ public class MainController {
               type,
               name,
               description,
-              currentDay.getCurrentDay(),
+              sls.getCurrentDay(),
               costPerDay);
 
           ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_ITEM : ActionEvent.ERR_CREATE_ITEM);
@@ -251,10 +249,10 @@ public class MainController {
         }
 
         int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
-        int endDay = currentDay.getCurrentDay() + daysToLoan;
+        int endDay = sls.getCurrentDay() + daysToLoan;
 
         boolean successfullyCreatedContract = 
-            sls.setUpLendingContract(lenderId, endDay, itemId, currentDay.getCurrentDay());
+            sls.setUpLendingContract(lenderId, endDay, itemId, sls.getCurrentDay());
 
         if (successfullyCreatedContract) {
           ui.actionResponder(ActionEvent.SUCCESS_CREATE_CONTRACT);
@@ -279,7 +277,7 @@ public class MainController {
     do {
       ui.printDetailedItem(item);
       view.Console.ItemEditEvent event = ui.getEditItemMenuChoice();
-      
+
       if (event == view.Console.ItemEditEvent.EditName) {
         String name = ui.promptForAnswer("Enter the new name: ");
 
@@ -309,11 +307,11 @@ public class MainController {
     int amountOfDaysToProceed = ui.promptForIntAnswer("How many days do you want to proceed?: ");
     
     for (int i = 0; i < amountOfDaysToProceed; i++) {
-      currentDay.incrementDay();
+      sls.incrementCurrentDay();;
     }
 
     // TODO: Properly display the current day in view, not in the controller!
-    System.out.println("The day is: " + currentDay.getCurrentDay());
+    System.out.println("The day is: " + sls.getCurrentDay());
   }
 }
 
