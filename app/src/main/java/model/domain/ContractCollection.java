@@ -82,6 +82,22 @@ public class ContractCollection {
   }
 
   /**
+   * Search wheter an item has any active contracts.
+   * 
+   * @param id - Id for the item to look for.
+   * @return- Flag if item has any active contract.
+   */
+  public boolean itemHasActiveContract(String id) {
+    for (LendingContract contract : contracts) {
+      String itemId = contract.getItem().getId();
+      if (id.equals(itemId)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * Finds the contracts which just has reached its startDay and should have matching items reserved.
    *
    * @param currentDay - The day-number to compare with to find expired contracts.

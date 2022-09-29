@@ -191,6 +191,23 @@ public class StuffLendingSystem {
   }
 
   /**
+   * Removes item from the item-list.
+   * Fails if no member with the id is found in the list.
+   * 
+   * @param id - Id for querying the item-list.
+   * @return - Flag if successfully removed item from the item-list.
+   */
+  public boolean deleteItem(String id) {
+    Item item = findItemById(id);
+    if ((item != null) && (!contracts.itemHasActiveContract(item.getId()))) {
+      items.removeItemById(item.getId());
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
    * Queries the item-list for Item object with matching id.
    *
    * @param id - Id used to query the item-list.
