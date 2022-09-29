@@ -19,4 +19,6 @@ public interface ItemCollection {
   public boolean isUniqueItemId(String id);
   
   public ItemIterator typeIterator(ItemType type);
+
+  public ArrayList<Item> ownerIterator(Member owner);
 }

@@ -29,6 +29,12 @@ public class StuffLendingSystem {
     addNewItem(m1.getId(), ItemType.Tool, "kratta", "Rinsing leafs", 0, 20);
     addNewItem(m1.getId(), ItemType.Game, "Super Mario", "playing", 0, 50);
     addNewItem(m2.getId(), ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
+
+    ArrayList<Item> i = items.ownerIterator(m1);
+    for (Item item : i) {
+      System.out.println(item.getName());
+    }
+    
   }
 
   /**

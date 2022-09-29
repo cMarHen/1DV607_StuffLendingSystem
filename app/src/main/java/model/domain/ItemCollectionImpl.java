@@ -82,4 +82,16 @@ public class ItemCollectionImpl implements ItemCollection {
     }
     return null;
   }
+
+  @Override
+  public ArrayList<Item> ownerIterator(Member owner) {
+    ItemIterator iterator = new OwnerIteratorImpl(owner, items);
+    ArrayList<Item> items = new ArrayList<>();
+
+    while (iterator.hasNext()) {
+      items.add(iterator.next());
+    }
+
+    return items;
+  }
 }
