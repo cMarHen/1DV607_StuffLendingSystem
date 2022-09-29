@@ -95,7 +95,12 @@ public class Console {
     System.out.println("0. Quit ");
     System.out.println("------------------------");
 
-    int choice = scan.nextInt();
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= MainEvent.values().length || choice < 0);
+
 
     if (choice == 1) {
       return MainEvent.MemberMenu;
@@ -125,7 +130,11 @@ public class Console {
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
-    int choice = scan.nextInt();
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= MemberEvent.values().length || choice < 0);
 
     if (choice == 1) {
       return MemberEvent.AddMember;
@@ -158,7 +167,11 @@ public class Console {
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
-    int choice = scan.nextInt();
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= MemberEditEvent.values().length || choice < 0);
 
     if (choice == 1) {
       return MemberEditEvent.EditFirstName;
@@ -191,7 +204,11 @@ public class Console {
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
-    int choice = scan.nextInt();
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= ItemEvent.values().length || choice < 0);
 
     if (choice == 1) {
       return ItemEvent.AddItem;
@@ -225,7 +242,11 @@ public class Console {
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
-    int choice = scan.nextInt();
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= ItemEditEvent.values().length || choice < 0);
 
     if (choice == 1) {
       return ItemEditEvent.EditName;
@@ -377,6 +398,42 @@ public class Console {
     }  else if (actionResponse == ActionEvent.SUCCESS_CREATE_CONTRACT) {
       System.out.println("Lending contract was successfully set up!");
     } 
-
   }
+
+  private int promptForInt(String message) {
+    int input = 0;
+    boolean validInput;
+
+    do {
+      try {
+        System.out.print(message);
+        input = scan.nextInt();
+        scan.nextLine();
+        validInput = true;
+      } catch (Exception exeption) {
+        scan.nextLine();
+        validInput = false;
+      }
+    } while (!validInput);
+
+    return input;
+  }
+
+  private String promptForString(String message) {
+    String input = "";
+    boolean validInput;
+
+    do {
+      try {
+        System.out.print(message);
+        input = scan.nextLine();
+        validInput = true;
+      } catch (Exception exeption) {
+        validInput = false;
+      }
+    } while (!validInput);
+
+    return input;
+  }
+
 }
