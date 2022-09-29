@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.checkstyle" time="0" tests="14" errors="0" name="checkstyle">
+<testsuite package="org.checkstyle" time="0" tests="13" errors="1" name="checkstyle">
 <testcase time="0" name="controller/App.java" classname="CheckStyle Issues">
-</testcase><testcase time="0" name="controller/CurrentDay.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/Item.java" classname="CheckStyle Issues">
@@ -9,6 +8,10 @@
 </testcase><testcase time="0" name="model/domain/ItemCollectionImpl.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/LendingContract.java" classname="CheckStyle Issues">
+<failure message="issues" ><![CDATA[line: 29 column: column:33 
+',' is not followed by whitespace.
+----------------
+]]></failure>
 </testcase><testcase time="0" name="model/domain/Member.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/RandomString.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/StuffLendingSystem.java" classname="CheckStyle Issues">

@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.38">
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\controller\App.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\controller\App.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\controller\CurrentDay.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\controller\MainController.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\controller\MainController.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ContractCollection.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\ContractCollection.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\Item.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\Item.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ItemCollection.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\ItemCollection.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ItemCollectionImpl.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\ItemCollectionImpl.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ItemIterator.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\ItemIterator.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\LendingContract.java">
+<error line="29" column="33" severity="warning" message="&apos;,&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\LendingContract.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\Member.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\Member.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\RandomString.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\RandomString.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\StuffLendingSystem.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\StuffLendingSystem.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\TypeIteratorImpl.java">
 </file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\model\domain\TypeIteratorImpl.java">
-</file>
-<file name="C:\Users\Anders\OneDrive\Skrivbord\1dv607\exams\a2\app\src\main\java\view\Console.java">
+<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\view\Console.java">
 </file>
 </checkstyle>

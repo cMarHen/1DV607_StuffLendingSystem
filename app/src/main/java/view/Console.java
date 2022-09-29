@@ -1,9 +1,8 @@
 package view;
 
+import controller.MainController.ActionEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import controller.MainController.ActionEvent;
 
 /**
  * Main class and the Facade for the view.
@@ -211,7 +210,7 @@ public class Console {
     }
   }
 
-    /**
+  /**
    * Prints the edit-item menu and emits event based on users choice.
    *
    * @return - Matching event for users choice.

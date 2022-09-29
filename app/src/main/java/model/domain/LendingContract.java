@@ -14,16 +14,31 @@ public class LendingContract {
   /**
    * Instanciate a lending contract with the data presented as parameters.
    *
-   * @param lender - Used as a reference to a member whom to pay credits for the total lending-fee.
+   * @param lender - A copy of the whom to pay credits for the total lending-fee.
    * @param endDay - The day after the endDay the item is available for loan again.
-   * @param item - The item holds information about the owner to recieve credits for the loan.
+   * @param item - The item to copy wich holds information about the owner to recieve credits for the loan.
    * @param startDay - From this day the item is reserved until the day after endDay.
    */
   public LendingContract(Member lender, int endDay, Item item, int startDay) {
-    // TODO: Copy the lender??????????????
-    this.lender = lender;
+    // TODO: Supress findbug to reflekt member and item.
+    this.lender = new Member(
+        lender.getFirstName(),
+        lender.getLastName(),
+        lender.getEmail(),
+        lender.getPhoneNumber(),
+        lender.getId(),
+        lender.getRegistredDay(),
+        lender.getCredits());
     this.endDay = endDay;
-    this.item = item;
+    this.item = new Item(
+        item.getOwner(),
+        item.getType(),
+        item.getName(),
+        item.getDescription(),
+        item.getId(),
+        item.getDayOfCreation(),
+        item.getCostPerDay(),
+        item.getIsReserved());
     this.startDay = startDay;
     this.totalContractFee = (endDay - startDay) * item.getCostPerDay();
   }

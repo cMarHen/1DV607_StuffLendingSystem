@@ -1,7 +1,6 @@
 package model.domain;
 
 import java.util.ArrayList;
-
 import model.domain.Item.ItemType;
 
 /**
@@ -32,6 +31,10 @@ public class StuffLendingSystem {
     addNewItem(m2.getId(), ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
   }
 
+  /**
+   * Increment the current day.
+   * Cleans up expired contracts, finding newly activated contracts and updating the items-stats.
+   */
   public void incrementCurrentDay() {
     currentDay++;
     ArrayList<LendingContract> expiredContracts = contracts.cleanExpiredContracts(currentDay);
@@ -85,7 +88,6 @@ public class StuffLendingSystem {
    * @param lenderId - Id of the member whom to pay credits for the total lending-fee.
    * @param endDay - The day after the endDay the item is available for loan again.
    * @param itemId - The id of the item that holds information about the owner to recieve credits for the loan.
-   * @param currentDay - From this day the item is reserved until the day after endDay.
    * @return - A flag if the contract was successfully implemented.
    */
   public boolean setUpLendingContract(String lenderId, int startDay, int endDay, String itemId) {
@@ -156,6 +158,7 @@ public class StuffLendingSystem {
    * @return - Flag if successfully removed member from the member-list.
    */
   public boolean deleteMember(String id) {
+    // TODO: Get members items, is any item reserved abort, else delete items and member.
     Member member = findOriginalMemberById(id);
 
     if (member != null) {

@@ -44,7 +44,11 @@ public class ContractCollection {
     ArrayList<LendingContract> historyContracts = new ArrayList<>();
 
     for (LendingContract contract : history) {
-      LendingContract contractCopy = new LendingContract(contract.getLender(), contract.getEndDay(), contract.getItem(), contract.getStartDay());
+      LendingContract contractCopy = new LendingContract(
+          contract.getLender(),
+          contract.getEndDay(),
+          contract.getItem(),
+          contract.getStartDay());
 
       historyContracts.add(contractCopy);
     }
@@ -63,7 +67,11 @@ public class ContractCollection {
 
     for (LendingContract contract : contracts) {
       if (contract.getEndDay() < currentDay) {
-        LendingContract contractCopy = new LendingContract(contract.getLender(), contract.getEndDay(), contract.getItem(), contract.getStartDay());
+        LendingContract contractCopy = new LendingContract(
+            contract.getLender(),
+            contract.getEndDay(),
+            contract.getItem(),
+            contract.getStartDay());
         contracts.remove(contract);
         history.add(contractCopy);
         expiredContracts.add(contractCopy);
@@ -84,7 +92,11 @@ public class ContractCollection {
 
     for (LendingContract contract : contracts) {
       if (contract.getStartDay() <= currentDay) {
-        LendingContract contractCopy = new LendingContract(contract.getLender(), contract.getEndDay(), contract.getItem(), contract.getStartDay());
+        LendingContract contractCopy = new LendingContract(
+            contract.getLender(),
+            contract.getEndDay(),
+            contract.getItem(),
+            contract.getStartDay());
         activatedContracts.add(contractCopy);
       }
     }

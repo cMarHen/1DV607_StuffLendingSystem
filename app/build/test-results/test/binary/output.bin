@@ -1,20 +1,22 @@
-q0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/controller/App.java
-x0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/controller/CurrentDay.java
-|0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/controller/MainController.java
-‚0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ContractCollection.java
-t0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/Item.java
-~0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ItemCollection.java
-‚0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ItemCollectionImpl.java
-|0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/ItemIterator.java
-0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/LendingContract.java
-v0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/Member.java
-|0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/RandomString.java
-‚0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/StuffLendingSystem.java
-€0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
-o0 CheckStyle Issues in C:/Users/Anders/OneDrive/Skrivbord/1dv607/exams/a2/app/src/main/java/view/Console.java
+U0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/controller/App.java
+`0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/controller/MainController.java
+f0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/ContractCollection.java
+X0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/Item.java
+b0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/ItemCollection.java
+f0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/ItemCollectionImpl.java
+`0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/ItemIterator.java
+c1 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/LendingContract.java
+"text:line: 29 column: column:33 
+$',' is not followed by whitespace.
+
+Z0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/Member.java
+`0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/RandomString.java
+f0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/StuffLendingSystem.java
+d0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
+S0 CheckStyle Issues in C:/lnu/1dv607/exams/a2/app/src/main/java/view/Console.java
 (0 FindBugs Issues in view/Console.java
 -2 FindBugs Issues in model/domain/Item.java
-text:lines: 49-147 
+text:lines: 49-151 
 enew model.domain.Item(Member, Item$ItemType, String, String, String, int, int) may expose internal 
 K  representation by storing an externally mutable object into Item.owner 
 RMay expose internal representation by incorporating reference to mutable object 
@@ -23,7 +25,7 @@
 f  would compromise security or other important properties, you will need to do something different. 
 G  Storing a copy of the object is better approach in many situations.
 
-text:lines: 49-147 
+text:lines: 49-151 
 enew model.domain.Item(Member, Item$ItemType, String, String, String, int, int, boolean) may expose 
 T  internal representation by storing an externally mutable object into Item.owner 
 RMay expose internal representation by incorporating reference to mutable object 
@@ -36,7 +38,7 @@
 50 FindBugs Issues in model/domain/RandomString.java
 ;0 FindBugs Issues in model/domain/StuffLendingSystem.java
 51 FindBugs Issues in controller/MainController.java
-text:lines: 21-246 
+text:lines: 40-324 
 cnew controller.MainController(Console, StuffLendingSystem) may expose internal representation by 
 A  storing an externally mutable object into MainController.sls 
 RMay expose internal representation by incorporating reference to mutable object 
@@ -46,25 +48,7 @@
 G  Storing a copy of the object is better approach in many situations.
 
 ;0 FindBugs Issues in model/domain/ItemCollectionImpl.java
-82 FindBugs Issues in model/domain/LendingContract.java
-text:lines: 21-72 
-anew model.domain.LendingContract(Member, int, Item, int) may expose internal representation by 
-C  storing an externally mutable object into LendingContract.item 
-RMay expose internal representation by incorporating reference to mutable object 
-gThis code stores a reference to an externally mutable object into the internal representation of the 
-e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-f  would compromise security or other important properties, you will need to do something different. 
-G  Storing a copy of the object is better approach in many situations.
-
-text:lines: 21-72 
-anew model.domain.LendingContract(Member, int, Item, int) may expose internal representation by 
-E  storing an externally mutable object into LendingContract.lender 
-RMay expose internal representation by incorporating reference to mutable object 
-gThis code stores a reference to an externally mutable object into the internal representation of the 
-e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-f  would compromise security or other important properties, you will need to do something different. 
-G  Storing a copy of the object is better approach in many situations.
-
+80 FindBugs Issues in model/domain/LendingContract.java
 50 FindBugs Issues in model/domain/ItemIterator.java
 91 FindBugs Issues in model/domain/TypeIteratorImpl.java
 text:lines: 22-48 
@@ -78,5 +62,4 @@
 
 *0 FindBugs Issues in controller/App.java
 /0 FindBugs Issues in model/domain/Member.java
-10 FindBugs Issues in controller/CurrentDay.java
 ;0 FindBugs Issues in model/domain/ContractCollection.java

@@ -10,6 +10,10 @@ public class MainController {
   private view.Console ui;
   private model.domain.StuffLendingSystem sls;
 
+  /**
+   * The types of events that can occur in response to an action.
+   *
+   */
   public static enum ActionEvent {
     ERR_CREATE_MEMBER,
     SUCCESS_CREATE_MEMBER,
@@ -34,6 +38,7 @@ public class MainController {
    * @param sls - The main class in the model.
    */
   public MainController(view.Console ui, model.domain.StuffLendingSystem sls) {
+    // TODO: Supress findbugs as the ui and sls should be presented to the class.
     this.ui = ui;
     this.sls = sls;
     // currentRole = enum.Role
@@ -250,7 +255,8 @@ public class MainController {
 
         int currentDay = sls.getCurrentDay();
         // TODO: Check that the start day is not in the past.
-        int startDayOfLoan = ui.promptForIntAnswer("From which day do you want to book this item?: (Current day: " + currentDay + ")");
+        int startDayOfLoan = ui.promptForIntAnswer(
+            "From which day do you want to book this item?: (Current day: " + currentDay + ")");
         int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
         int endDay = currentDay + daysToLoan;
 
