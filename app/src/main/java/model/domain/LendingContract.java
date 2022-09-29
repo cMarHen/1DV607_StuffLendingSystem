@@ -50,10 +50,6 @@ public class LendingContract {
     return itemCopy;
   }
 
-  public void setItemReservation(boolean b) {
-    this.item.setReserved(b);
-  }
-
   /**
    * Get a copy of the Member-object representing the member loaning the item.
    *

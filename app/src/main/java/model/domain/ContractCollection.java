@@ -35,10 +35,29 @@ public class ContractCollection {
     }
   }
 
+  /**
+   * Get a list with copies of all expired contracts.
+   *
+   * @return - List with copies of all expired contracts.
+   */
   public ArrayList<LendingContract> getExpiredContracts() {
-    return history;
+    ArrayList<LendingContract> historyContracts = new ArrayList<>();
+
+    for (LendingContract contract : history) {
+      LendingContract contractCopy = new LendingContract(contract.getLender(), contract.getEndDay(), contract.getItem(), contract.getStartDay());
+
+      historyContracts.add(contractCopy);
+    }
+
+    return historyContracts;
   }
 
+  /**
+   * Adds expired contracts to history and removes the contract from the active/future contracts list.
+   *
+   * @param currentDay - The day-number to compare with to find expired contracts.
+   * @return - A list with copies of the expired contracts.
+   */
   public ArrayList<LendingContract> cleanExpiredContracts(int currentDay) {
     ArrayList<LendingContract> expiredContracts = new ArrayList<>();
 
@@ -54,6 +73,12 @@ public class ContractCollection {
     return expiredContracts;
   }
 
+  /**
+   * Finds the contracts which just has reached its startDay and should have matching items reserved.
+   *
+   * @param currentDay - The day-number to compare with to find expired contracts.
+   * @return - A list with copies of contracts that just has reached its startDay.
+   */
   public ArrayList<LendingContract> getActivatedContracts(int currentDay) {
     ArrayList<LendingContract> activatedContracts = new ArrayList<>();
 

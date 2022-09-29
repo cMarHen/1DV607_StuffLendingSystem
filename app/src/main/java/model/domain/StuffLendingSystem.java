@@ -54,13 +54,12 @@ public class StuffLendingSystem {
 
   /**
    * Instaciate a new Member with unique id and add to the members-list.
+   * Fails if email OR phonenumber is not unique.
    *
    * @param firstName - The members first name, editable later.
    * @param lastName - The members last name, editable later.
    * @param email - The members email, editable later.
    * @param phoneNumber - The members phone number, editable later.
-   * @param dayOfCreation - The current day when member was added to the system, not editable later.
-   * @param credits - Initial amount of credits.
    * @return - A flag if member successfully was added to the stufflending system.
    */
   public boolean addNewMember(
