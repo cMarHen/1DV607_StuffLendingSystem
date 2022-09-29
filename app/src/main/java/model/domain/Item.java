@@ -139,6 +139,10 @@ public class Item {
     return costPerDay;
   }
 
+  public void setCostPerDay(int costPerDay) {
+    this.costPerDay = costPerDay;
+  }
+
   public int getDayOfCreation() {
     return dayOfCreation;
   }

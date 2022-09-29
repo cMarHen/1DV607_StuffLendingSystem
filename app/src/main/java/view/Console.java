@@ -63,6 +63,17 @@ public class Console {
   }
 
   /**
+   * Events emmited from the class that constructs the edit item-menu choices.
+   *
+   */
+  public static enum ItemEditEvent {
+    EditName,
+    EditDescription,
+    EditCost,
+    Back
+  }
+
+  /**
    * Instaciate the class and the scanner used for inputs and outputs in the UI.
    *
    */
@@ -197,6 +208,34 @@ public class Console {
       return ItemEvent.DeleteItem;
     } else {
       return ItemEvent.Back;
+    }
+  }
+
+    /**
+   * Prints the edit-item menu and emits event based on users choice.
+   *
+   * @return - Matching event for users choice.
+   */
+  public ItemEditEvent getEditItemMenuChoice() {
+    System.out.println("------------------------");
+    System.out.println("- Edit Item ---------- -");
+    System.out.println("------------------------");
+    System.out.println("1. Edit name");
+    System.out.println("2. Edit description");
+    System.out.println("3. Edit cost per day");
+    System.out.println("0. Back ");
+    System.out.println("------------------------");
+
+    int choice = scan.nextInt();
+
+    if (choice == 1) {
+      return ItemEditEvent.EditName;
+    } else if (choice == 2) {
+      return ItemEditEvent.EditDescription;
+    } else if (choice == 3) {
+      return ItemEditEvent.EditCost;
+    } else {
+      return ItemEditEvent.Back;
     }
   }
 

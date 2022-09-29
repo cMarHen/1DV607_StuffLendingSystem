@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import model.domain.Item;
 
 /**
  * Wrapper class for controller-actions.
@@ -212,7 +211,7 @@ public class MainController {
       if (event == view.Console.ItemEvent.DetailedItem) {
         String id = ui.promptForAnswer("Enter the item ID: ");
 
-        Item item = sls.findItemById(id);
+        model.domain.Item item = sls.findItemById(id);
 
         if (item != null) {
           ui.printDetailedItem(item);
@@ -221,9 +220,22 @@ public class MainController {
         }
       } 
 
+      if (event == view.Console.ItemEvent.EditItem) {
+        String id = ui.promptForAnswer("Enter id for the item to edit: ");
+
+        model.domain.Item item = sls.findItemById(id);
+
+        if (item != null) {
+          doEditItemMenu(item);
+
+        } else {
+          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+        }
+      }
+
       if (event == view.Console.ItemEvent.LendItem) {
         String itemId = ui.promptForAnswer("Enter the item ID: ");
-        Item item = sls.findItemById(itemId);
+        model.domain.Item item = sls.findItemById(itemId);
 
         if (item == null) {
           ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
@@ -261,6 +273,37 @@ public class MainController {
     } while (running);
   }
 
+  private void doEditItemMenu(model.domain.Item item) {
+    boolean running = true;
+
+    do {
+      ui.printDetailedItem(item);
+      view.Console.ItemEditEvent event = ui.getEditItemMenuChoice();
+      
+      if (event == view.Console.ItemEditEvent.EditName) {
+        String name = ui.promptForAnswer("Enter the new name: ");
+
+        item.setName(name);
+      }
+      
+      if (event == view.Console.ItemEditEvent.EditDescription) {
+        String description = ui.promptForAnswer("Enter the new description: ");
+
+        item.setDescription(description);
+      }
+
+      if (event == view.Console.ItemEditEvent.EditCost) {
+        int cost = ui.promptForIntAnswer("Enter the new cost per day: ");
+
+        item.setCostPerDay(cost);
+      }
+
+      if (event == view.Console.ItemEditEvent.Back) {
+        running = false;
+      }
+
+    } while (running);
+  }
   
   private void doForwardDayMenu() {
     int amountOfDaysToProceed = ui.promptForIntAnswer("How many days do you want to proceed?: ");
