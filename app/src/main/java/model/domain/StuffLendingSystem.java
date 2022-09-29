@@ -100,9 +100,13 @@ public class StuffLendingSystem {
       
       // TODO: Should money be taken on booking, or when the loan starts?
       if (!contractedLender.equals(contractedOwner)) {
-        int contractFee = contracts.getContractFee(newContract);
+        int contractFee = newContract.getTotalContractFee();
         contractedLender.removeCredits(contractFee);
         contractedOwner.addCredits(contractFee);
+      }
+
+      if (startDay <= currentDay) {
+        item.setReserved(true);
       }
 
       return true;

@@ -7,6 +7,7 @@ package model.domain;
 public class LendingContract {
   private int startDay;
   private int endDay;
+  private int totalContractFee;
   private Item item;
   private Member lender;
 
@@ -19,16 +20,20 @@ public class LendingContract {
    * @param startDay - From this day the item is reserved until the day after endDay.
    */
   public LendingContract(Member lender, int endDay, Item item, int startDay) {
-    // TODO: Findbugs issue should be supressed as the lender shoud reflect the member in sls.
+    // TODO: Copy the lender??????????????
     this.lender = lender;
     this.endDay = endDay;
     this.item = item;
     this.startDay = startDay;
-    // TODO: Calculate contract-price.
+    this.totalContractFee = (endDay - startDay) * item.getCostPerDay();
   }
 
   public int getEndDay() {
-    return endDay;
+    return this.endDay;
+  }
+
+  public int getTotalContractFee() {
+    return this.totalContractFee;
   }
 
   /**

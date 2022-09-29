@@ -99,7 +99,7 @@ public class ContractCollection {
    * @return - Flag if a valid contract.
    */
   private boolean isValidContract(LendingContract contract) {
-    int totalLendingCost = getContractFee(contract);
+    int totalLendingCost = contract.getTotalContractFee();
     int lenderCredits = contract.getLender().getCredits();
 
     // TODO: Is owner setting up contracts for its own items? No need to check for credits.
@@ -109,16 +109,5 @@ public class ContractCollection {
     }
 
     return false;
-  }
-
-  /**
-   * Calculates the total contract-fee based on days to be loaned and the Items cost per day.
-   *
-   * @param contract - Contract to read from to calculate the total fee.
-   * @return - The calculated total contract-fee.
-   */
-  public int getContractFee(LendingContract contract) {
-    // TODO: Move this to the constructor in LendingContract to save a history of prices.
-    return (contract.getEndDay() - contract.getStartDay()) * contract.getItem().getCostPerDay();
   }
 }
