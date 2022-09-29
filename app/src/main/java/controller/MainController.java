@@ -249,6 +249,7 @@ public class MainController {
         }
 
         int currentDay = sls.getCurrentDay();
+        // TODO: Check that the start day is not in the past.
         int startDayOfLoan = ui.promptForIntAnswer("From which day do you want to book this item?: (Current day: " + currentDay + ")");
         int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
         int endDay = currentDay + daysToLoan;
