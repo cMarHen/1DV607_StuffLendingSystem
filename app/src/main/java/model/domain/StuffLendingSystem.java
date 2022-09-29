@@ -30,7 +30,14 @@ public class StuffLendingSystem {
     addNewItem(m1.getId(), ItemType.Game, "Super Mario", "playing", 0, 50);
     addNewItem(m2.getId(), ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
 
-    ArrayList<Item> i = items.ownerIterator(m1);
+    
+    ItemIterator iterator = items.ownerIterator(m1);
+    ArrayList<Item> i = new ArrayList<>();
+
+    while (iterator.hasNext()) {
+      i.add(iterator.next());
+    }
+
     for (Item item : i) {
       System.out.println(item.getName());
     }
@@ -165,8 +172,9 @@ public class StuffLendingSystem {
    */
   public boolean deleteMember(String id) {
     Member member = findOriginalMemberById(id);
-    ArrayList<Item> itemsOwned = items.ownerIterator(member);
+    ArrayList<Item> itemsOwned = items.getItemsByOwner(member);
     Boolean ownerHasReservedItems = contracts.ownerIsInActiveContract(id);
+    
 
     if (!ownerHasReservedItems) {
       for (Item item : itemsOwned) {

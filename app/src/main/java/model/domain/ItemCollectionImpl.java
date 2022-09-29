@@ -85,8 +85,8 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
-  public ArrayList<Item> ownerIterator(Member owner) {
-    ItemIterator iterator = new OwnerIteratorImpl(owner, items);
+  public ArrayList<Item> getItemsByOwner(Member owner) {
+    ItemIterator iterator = ownerIterator(owner);
     ArrayList<Item> items = new ArrayList<>();
 
     while (iterator.hasNext()) {
@@ -95,4 +95,13 @@ public class ItemCollectionImpl implements ItemCollection {
 
     return items;
   }
+
+  @Override
+  public ItemIterator ownerIterator(Member owner) {
+    return new OwnerIteratorImpl(owner, items);
+  }
+
+  
+
+
 }

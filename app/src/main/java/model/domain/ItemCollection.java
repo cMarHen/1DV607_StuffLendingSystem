@@ -15,10 +15,12 @@ public interface ItemCollection {
   public ArrayList<Item> getAllItems();
 
   public Item findItemById(String id);
-
+  
   public boolean isUniqueItemId(String id);
+  
+  public ArrayList<Item> getItemsByOwner(Member owner);
   
   public ItemIterator typeIterator(ItemType type);
 
-  public ArrayList<Item> ownerIterator(Member owner);
+  public ItemIterator ownerIterator(Member owner);
 }
