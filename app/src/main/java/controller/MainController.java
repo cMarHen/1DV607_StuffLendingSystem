@@ -126,7 +126,7 @@ public class MainController {
         String id = ui.promptForAnswer("Enter id for the user to be removed: ");
 
         boolean isSucceeded = sls.deleteMember(id);
-
+        // TODO: Will error find member even if there is active contracts that needs to be awaited.
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_FIND_MEMBER);
       }
 

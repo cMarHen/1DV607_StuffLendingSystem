@@ -64,6 +64,7 @@ public class ItemCollectionImpl implements ItemCollection {
     for (Item item : items) {
       if (item.getId().equals(itemId)) {
         items.remove(item);
+        return;
       }
     }
   }

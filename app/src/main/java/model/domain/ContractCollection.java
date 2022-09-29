@@ -105,6 +105,23 @@ public class ContractCollection {
   }
 
   /**
+   * Search whether a owner has an item in not yet expired contracts.
+   *
+   * @param memberId - Id for the owner to look for.
+   * @return - Flag if any owner item is in an active contract.
+   */
+  public boolean ownerIsInActiveContract(String memberId) {
+    for (LendingContract contract : contracts) {
+      String ownerId = contract.getItem().getOwner().getId();
+      if (memberId.equals(ownerId)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * A valid contract is if lender have sufficient credits and item is available.
    *
    * @param contract - The contract to validate.

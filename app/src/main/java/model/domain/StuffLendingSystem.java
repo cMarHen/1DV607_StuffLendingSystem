@@ -164,15 +164,22 @@ public class StuffLendingSystem {
    * @return - Flag if successfully removed member from the member-list.
    */
   public boolean deleteMember(String id) {
-    // TODO: Get members items, is any item reserved abort, else delete items and member.
     Member member = findOriginalMemberById(id);
+    ArrayList<Item> itemsOwned = items.ownerIterator(member);
+    Boolean ownerHasReservedItems = contracts.ownerIsInActiveContract(id);
 
-    if (member != null) {
-      members.remove(member);
-      return true;
-    } else {
-      return false;
+    if (!ownerHasReservedItems) {
+      for (Item item : itemsOwned) {
+        items.removeItemById(item.getId());
+      }
+      
+      if (member != null) {
+        members.remove(member);
+        return true;
+      } 
     }
+
+    return false;
   }
 
   /**
