@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class ContractCollection {
   private ArrayList<LendingContract> contracts; // Should only contain active or future contracts
-  // TODO: Add history-contracts, to minimize looping power.
+  private ArrayList<LendingContract> history;
 
   /**
    * Class is instanciated by setting the contracts to empty arraylist.
@@ -16,6 +16,7 @@ public class ContractCollection {
    */
   public ContractCollection() {
     contracts = new ArrayList<>();
+    history = new ArrayList<>();
   }
   
   /**
@@ -34,14 +35,36 @@ public class ContractCollection {
     }
   }
 
-  public void compareCurrentDayWithContracts(int currentDay) {
+  public ArrayList<LendingContract> getExpiredContracts() {
+    return history;
+  }
+
+  public ArrayList<LendingContract> cleanExpiredContracts(int currentDay) {
+    ArrayList<LendingContract> expiredContracts = new ArrayList<>();
+
     for (LendingContract contract : contracts) {
-      if ((contract.getStartDay() <= currentDay) && (contract.getEndDay() >= currentDay)) {
-        contract.setItemReservation(true);
-      } else {
-        contract.setItemReservation(false);
+      if (contract.getEndDay() < currentDay) {
+        LendingContract contractCopy = new LendingContract(contract.getLender(), contract.getEndDay(), contract.getItem(), contract.getStartDay());
+        contracts.remove(contract);
+        history.add(contractCopy);
+        expiredContracts.add(contractCopy);
       }
     }
+
+    return expiredContracts;
+  }
+
+  public ArrayList<LendingContract> getActivatedContracts(int currentDay) {
+    ArrayList<LendingContract> activatedContracts = new ArrayList<>();
+
+    for (LendingContract contract : contracts) {
+      if (contract.getStartDay() <= currentDay) {
+        LendingContract contractCopy = new LendingContract(contract.getLender(), contract.getEndDay(), contract.getItem(), contract.getStartDay());
+        activatedContracts.add(contractCopy);
+      }
+    }
+
+    return activatedContracts;
   }
 
   /**

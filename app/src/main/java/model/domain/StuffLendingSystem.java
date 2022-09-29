@@ -14,13 +14,13 @@ public class StuffLendingSystem {
   ItemCollection items = new ItemCollectionImpl();
   ContractCollection contracts = new ContractCollection();
   RandomString randomStringGenerator = new RandomString();
-  private CurrentDay currentDay;
+  private int currentDay;
 
   /**
    * TODO: Remove this.
    */
   public StuffLendingSystem() {
-    this.currentDay = new CurrentDay(this);
+    this.currentDay = 0;
 
     Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
     Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
@@ -33,15 +33,23 @@ public class StuffLendingSystem {
   }
 
   public void incrementCurrentDay() {
-    currentDay.incrementDay();
+    currentDay++;
+    ArrayList<LendingContract> expiredContracts = contracts.cleanExpiredContracts(currentDay);
+    ArrayList<LendingContract> activatedContracts = contracts.getActivatedContracts(currentDay);
+
+    for (LendingContract contract : expiredContracts) {
+      Item item = findItemById(contract.getItem().getId());
+      item.setReserved(false);
+    }
+
+    for (LendingContract contract : activatedContracts) {
+      Item item = findItemById(contract.getItem().getId());
+      item.setReserved(true);
+    }
   }
 
   public int getCurrentDay() {
-    return currentDay.getCurrentDay();
-  }
-
-  public void notifyIncrementedDay(int currentDay) {
-    contracts.compareCurrentDayWithContracts(currentDay);
+    return currentDay;
   }
 
   /**
@@ -59,15 +67,13 @@ public class StuffLendingSystem {
       String firstName,
       String lastName,
       String email,
-      String phoneNumber,
-      int dayOfCreation,
-      int credits) {
+      String phoneNumber) {
     if (!isUniqueEmailAndPhoneNumber(email, phoneNumber)) {
       return false;
     }
     
     String id = getNewUniqueMemberId();
-    Member newMember = new Member(firstName, lastName, email, phoneNumber, id, dayOfCreation, credits);
+    Member newMember = new Member(firstName, lastName, email, phoneNumber, id, currentDay);
     members.add(newMember);
 
     return true;

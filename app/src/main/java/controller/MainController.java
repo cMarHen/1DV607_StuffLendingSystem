@@ -80,7 +80,7 @@ public class MainController {
         String email = ui.promptForAnswer("Enter your email: ");
         String phoneNumber = ui.promptForAnswer("Enter your phone number: ");
 
-        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber, sls.getCurrentDay(), 0);
+        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber);
 
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
       }
