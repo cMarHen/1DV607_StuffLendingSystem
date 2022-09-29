@@ -7,7 +7,8 @@ import java.util.ArrayList;
  *
  */
 public class ContractCollection {
-  private ArrayList<LendingContract> contracts;
+  private ArrayList<LendingContract> contracts; // Should only contain active or future contracts
+  // TODO: Add history-contracts, to minimize looping power.
 
   /**
    * Class is instanciated by setting the contracts to empty arraylist.
@@ -30,6 +31,16 @@ public class ContractCollection {
       return true;
     } else {
       return false;
+    }
+  }
+
+  public void compareCurrentDayWithContracts(int currentDay) {
+    for (LendingContract contract : contracts) {
+      if ((contract.getStartDay() <= currentDay) && (contract.getEndDay() >= currentDay)) {
+        contract.setItemReservation(true);
+      } else {
+        contract.setItemReservation(false);
+      }
     }
   }
 

@@ -20,7 +20,7 @@ public class StuffLendingSystem {
    * TODO: Remove this.
    */
   public StuffLendingSystem() {
-    this.currentDay = new CurrentDay();
+    this.currentDay = new CurrentDay(this);
 
     Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
     Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
@@ -38,6 +38,10 @@ public class StuffLendingSystem {
 
   public int getCurrentDay() {
     return currentDay.getCurrentDay();
+  }
+
+  public void notifyIncrementedDay(int currentDay) {
+    contracts.compareCurrentDayWithContracts(currentDay);
   }
 
   /**
@@ -79,23 +83,22 @@ public class StuffLendingSystem {
    * @param currentDay - From this day the item is reserved until the day after endDay.
    * @return - A flag if the contract was successfully implemented.
    */
-  public boolean setUpLendingContract(String lenderId, int endDay, String itemId, int currentDay) {
+  public boolean setUpLendingContract(String lenderId, int startDay, int endDay, String itemId) {
     Member lender = findOriginalMemberById(lenderId);
     Item item = findItemById(itemId);
-    LendingContract newContract = new LendingContract(lender, endDay, item, currentDay);
+    LendingContract newContract = new LendingContract(lender, endDay, item, startDay);
     boolean successfullyAddedContract = contracts.addContract(newContract);
 
     if (successfullyAddedContract) {
       Member contractedLender = findOriginalMemberById(newContract.getLender().getId());
       Member contractedOwner = findOriginalMemberById(newContract.getItem().getOwner().getId());
       
+      // TODO: Should money be taken on booking, or when the loan starts?
       if (!contractedLender.equals(contractedOwner)) {
         int contractFee = contracts.getContractFee(newContract);
         contractedLender.removeCredits(contractFee);
         contractedOwner.addCredits(contractFee);
       }
-      
-      item.setReserved(true);
 
       return true;
     } else {

@@ -248,11 +248,13 @@ public class MainController {
           return;
         }
 
+        int currentDay = sls.getCurrentDay();
+        int startDayOfLoan = ui.promptForIntAnswer("From which day do you want to book this item?: (Current day: " + currentDay + ")");
         int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
-        int endDay = sls.getCurrentDay() + daysToLoan;
+        int endDay = currentDay + daysToLoan;
 
         boolean successfullyCreatedContract = 
-            sls.setUpLendingContract(lenderId, endDay, itemId, sls.getCurrentDay());
+            sls.setUpLendingContract(lenderId, startDayOfLoan, endDay, itemId);
 
         if (successfullyCreatedContract) {
           ui.actionResponder(ActionEvent.SUCCESS_CREATE_CONTRACT);
