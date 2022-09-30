@@ -1,6 +1,9 @@
 package view;
 
 import controller.MainController.ActionEvent;
+import controller.MainController.promptEvent;
+import model.domain.Item.ItemType;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -265,11 +268,15 @@ public class Console {
    * @return - The users item-type choice.
    */
   public model.domain.Item.ItemType getItemTypeMenuChoice() {
-    for (int i = 1; i < model.domain.Item.ItemType.values().length; i++) {
+    for (int i = 1; i <= model.domain.Item.ItemType.values().length; i++) {
       System.out.println(i + ". " + model.domain.Item.ItemType.values()[i - 1]);
     }
 
-    int choice = scan.nextInt();
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= ItemType.values().length || choice < 0);
 
     return model.domain.Item.ItemType.values()[choice - 1];
   }
@@ -336,32 +343,41 @@ public class Console {
     System.out.println("Contracts: " + " IMPLEMENTERA!!!!!! ");
   }
 
-  /**
-   * Prompt for user response in string-format.
-   *
-   * @param question - The text presented to the user describing what to respond to.
-   * @return - The users response.
-   */
-  public String promptForAnswer(String question) {
-    // TODO: Refactor to seperate methods for each question?
-    System.out.println(question);
-    String choice = scan.next();
-
-    return choice;
+  public String promptInformation(promptEvent event) {
+    if (event == promptEvent.ItemId) {
+      return promptForString("Enter the item ID: ");
+    } else if (event == promptEvent.MemberId) {
+      return promptForString("Enter the member ID: ");
+    } else if (event == promptEvent.FirstName) {
+      return promptForString("Enter first name: ");
+    } else if (event == promptEvent.LastName) {
+      return promptForString("Enter last name: ");
+    } else if (event == promptEvent.Email) {
+      return promptForString("Enter email: ");
+    } else if (event == promptEvent.PhoneNumber) {
+      return promptForString("Enter phone number: ");
+    } else if (event == promptEvent.Name) {
+      return promptForString("Enter name: ");
+    } else if (event == promptEvent.Description) {
+      return promptForString("Enter description: ");
+    }
+      
+    return null;
   }
 
-  /**
-   * Prompt for user response in int-format.
-   *
-   * @param question - The text presented to the user describing what to respond to.
-   * @return - The users response.
-   */
-  public int promptForIntAnswer(String question) {
-    // TODO: Refactor to seperate methods for each question?
-    System.out.println(question);
-    int choice = scan.nextInt();
-
-    return choice;
+  public int promptInformationInt(promptEvent event) {
+    if (event == promptEvent.CostPerDay) {
+      return promptForInt("Enter the cost per day: ");
+    } else if (event == promptEvent.LoanStartDay) {
+      return promptForInt("From which day do you want to book this item?: ");
+    } else if (event == promptEvent.AmountOfLoanDays) {
+      return promptForInt("Number of days to loan the item: ");
+    } else if (event == promptEvent.ForwardDay) {
+      return promptForInt("How many days do you want to proceed?: ");
+    } 
+    
+    // TODO: Handle this..
+    return 0;
   }
 
   /**
@@ -371,7 +387,6 @@ public class Console {
    * @param actionResponse - The response from controller of type enum ActionEvent.
    */
   public void actionResponder(controller.MainController.ActionEvent actionResponse) {
-    // TODO: Refactor to ActionResponder and ActionEvents!
 
     if (actionResponse == ActionEvent.ERR_CREATE_MEMBER) {
       System.out.println("Member could not be created!");
@@ -436,4 +451,7 @@ public class Console {
     return input;
   }
 
+	public void notifyCurrentDay(int currentDay) {
+    System.out.println("The current day is: " + currentDay);
+	}
 }

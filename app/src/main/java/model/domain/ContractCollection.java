@@ -64,7 +64,7 @@ public class ContractCollection {
    */
   public ArrayList<LendingContract> cleanExpiredContracts(int currentDay) {
     ArrayList<LendingContract> expiredContracts = new ArrayList<>();
-
+    // TODO: Something went wrong here
     for (LendingContract contract : contracts) {
       if (contract.getEndDay() < currentDay) {
         LendingContract contractCopy = new LendingContract(

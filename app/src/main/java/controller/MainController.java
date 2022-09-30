@@ -31,6 +31,21 @@ public class MainController {
     ERR_CREATE_CONTRACT
   }
 
+  public static enum promptEvent {
+    ItemId,
+    MemberId,
+    FirstName,
+    LastName,
+    Email,
+    PhoneNumber,
+    Name,
+    Description,
+    CostPerDay,
+    LoanStartDay,
+    AmountOfLoanDays,
+    ForwardDay
+  }
+
   /**
    * Instaciate the MainController with a user interface representing the view and the main model class.
    *
@@ -80,10 +95,10 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.AddMember) {
-        String firstName = ui.promptForAnswer("Enter your first name: ");
-        String lastName = ui.promptForAnswer("Enter your last name: ");
-        String email = ui.promptForAnswer("Enter your email: ");
-        String phoneNumber = ui.promptForAnswer("Enter your phone number: ");
+        String firstName = ui.promptInformation(promptEvent.FirstName);
+        String lastName = ui.promptInformation(promptEvent.LastName);
+        String email = ui.promptInformation(promptEvent.Email);
+        String phoneNumber = ui.promptInformation(promptEvent.PhoneNumber);
 
         boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber);
 
@@ -97,7 +112,7 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.DetailedMember) {
-        String id = ui.promptForAnswer("Enter the member ID: ");
+        String id = ui.promptInformation(promptEvent.MemberId);
         
         model.domain.Member member = sls.findMemberById(id);
         
@@ -109,7 +124,7 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.EditMember) {
-        String id = ui.promptForAnswer("Enter id for the user to edit: ");
+        String id = ui.promptInformation(promptEvent.MemberId);
 
         model.domain.Member member = sls.findMemberById(id);
 
@@ -123,11 +138,11 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.DeleteMember) {
-        String id = ui.promptForAnswer("Enter id for the user to be removed: ");
+        String id = ui.promptInformation(promptEvent.MemberId);
 
         boolean isSucceeded = sls.deleteMember(id);
-        // TODO: Will error find member even if there is active contracts that needs to be awaited.
-        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_FIND_MEMBER);
+
+        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
       }
 
     } while (running);
@@ -141,25 +156,25 @@ public class MainController {
       view.Console.MemberEditEvent event = ui.getEditMemberMenuChoice();
 
       if (event == view.Console.MemberEditEvent.EditFirstName) {
-        String firstName = ui.promptForAnswer("Enter the new first name: ");
+        String firstName =  ui.promptInformation(promptEvent.FirstName);
 
         member.setFirstName(firstName);
       }
 
       if (event == view.Console.MemberEditEvent.EditLastName) {
-        String lastName = ui.promptForAnswer("Enter the new last name: ");
+        String lastName =  ui.promptInformation(promptEvent.LastName);
 
         member.setLastName(lastName);
       }
 
       if (event == view.Console.MemberEditEvent.EditEmail) {
-        String email = ui.promptForAnswer("Enter the new email: ");
+        String email =  ui.promptInformation(promptEvent.Email);
 
         member.setEmail(email);
       }
 
       if (event == view.Console.MemberEditEvent.EditPhone) {
-        String phoneNumber = ui.promptForAnswer("Enter the new phone number: ");
+        String phoneNumber =  ui.promptInformation(promptEvent.PhoneNumber);
 
         member.setPhoneNumber(phoneNumber);
       }
@@ -178,16 +193,15 @@ public class MainController {
       view.Console.ItemEvent event = ui.getItemMenuChoice();
 
       if (event == view.Console.ItemEvent.AddItem) {
-        String memberId = ui.promptForAnswer("Enter member id (owner): ");
+        String memberId =  ui.promptInformation(promptEvent.MemberId);
         model.domain.Member member = sls.findMemberById(memberId);
 
         if (member != null) {
           model.domain.Item.ItemType type = ui.getItemTypeMenuChoice();
-          // TODO: Måste kunna läsa HEEEELA raden!
-          String name = ui.promptForAnswer("Enter the name: ");
 
-          // TODO: Måste kunna läsa HEEEELA raden!
-          String description = ui.promptForAnswer("Enter description: ");
+          String name =  ui.promptInformation(promptEvent.Name);
+
+          String description =  ui.promptInformation(promptEvent.Description);
           int costPerDay = 50; // TODO: Implement prompt for cost per day.
 
           boolean isSucceeded = sls.addNewItem(
@@ -212,7 +226,7 @@ public class MainController {
       }
 
       if (event == view.Console.ItemEvent.DetailedItem) {
-        String id = ui.promptForAnswer("Enter the item ID: ");
+        String id =  ui.promptInformation(promptEvent.ItemId);
 
         model.domain.Item item = sls.findItemById(id);
 
@@ -224,7 +238,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.EditItem) {
-        String id = ui.promptForAnswer("Enter id for the item to edit: ");
+        String id = ui.promptInformation(promptEvent.ItemId);
 
         model.domain.Item item = sls.findItemById(id);
 
@@ -237,7 +251,7 @@ public class MainController {
       }
 
       if (event == view.Console.ItemEvent.LendItem) {
-        String itemId = ui.promptForAnswer("Enter the item ID: ");
+        String itemId = ui.promptInformation(promptEvent.ItemId);
         model.domain.Item item = sls.findItemById(itemId);
 
         if (item == null) {
@@ -245,7 +259,7 @@ public class MainController {
           return;
         }
 
-        String lenderId = ui.promptForAnswer("Enter the lenders ID: ");
+        String lenderId = ui.promptInformation(promptEvent.MemberId);
         model.domain.Member lender = sls.findMemberById(lenderId);
 
         if (lender == null) {
@@ -255,9 +269,9 @@ public class MainController {
 
         int currentDay = sls.getCurrentDay();
         // TODO: Check that the start day is not in the past.
-        int startDayOfLoan = ui.promptForIntAnswer(
-            "From which day do you want to book this item?: (Current day: " + currentDay + ")");
-        int daysToLoan = ui.promptForIntAnswer("Number of days to loan the item: ");
+        ui.notifyCurrentDay(sls.getCurrentDay());
+        int startDayOfLoan = ui.promptInformationInt(promptEvent.LoanStartDay);
+        int daysToLoan = ui.promptInformationInt(promptEvent.AmountOfLoanDays);
         int endDay = currentDay + daysToLoan;
 
         boolean successfullyCreatedContract = 
@@ -271,7 +285,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.DeleteItem) {
-        String itemId = ui.promptForAnswer("Enter the item ID: ");
+        String itemId = ui.promptInformation(promptEvent.ItemId);
         Boolean isSucceeded = sls.deleteItem(itemId);
 
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
@@ -291,19 +305,19 @@ public class MainController {
       view.Console.ItemEditEvent event = ui.getEditItemMenuChoice();
 
       if (event == view.Console.ItemEditEvent.EditName) {
-        String name = ui.promptForAnswer("Enter the new name: ");
+        String name = ui.promptInformation(promptEvent.Name);
 
         item.setName(name);
       }
       
       if (event == view.Console.ItemEditEvent.EditDescription) {
-        String description = ui.promptForAnswer("Enter the new description: ");
+        String description = ui.promptInformation(promptEvent.Description);
 
         item.setDescription(description);
       }
 
       if (event == view.Console.ItemEditEvent.EditCost) {
-        int cost = ui.promptForIntAnswer("Enter the new cost per day: ");
+        int cost = ui.promptInformationInt(promptEvent.CostPerDay);
 
         item.setCostPerDay(cost);
       }
@@ -316,14 +330,13 @@ public class MainController {
   }
   
   private void doForwardDayMenu() {
-    int amountOfDaysToProceed = ui.promptForIntAnswer("How many days do you want to proceed?: ");
+    int amountOfDaysToProceed = ui.promptInformationInt(promptEvent.ForwardDay);
     
     for (int i = 0; i < amountOfDaysToProceed; i++) {
-      sls.incrementCurrentDay();;
+      sls.incrementCurrentDay();
     }
 
-    // TODO: Properly display the current day in view, not in the controller!
-    System.out.println("The day is: " + sls.getCurrentDay());
+    ui.notifyCurrentDay(sls.getCurrentDay());
   }
 }
 
