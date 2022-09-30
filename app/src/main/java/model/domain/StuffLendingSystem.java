@@ -23,12 +23,12 @@ public class StuffLendingSystem {
 
     Member.Mutable m1 = new Member.Mutable("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
     Member.Mutable m2 = new Member.Mutable("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
-    members.add(m1);
-    members.add(m2);
+    addNewMember(m1);
+    addNewMember(m2);
 
-    addNewItem(m1.getId(), ItemType.Tool, "kratta", "Rinsing leafs", 0, 20);
-    addNewItem(m1.getId(), ItemType.Game, "Super Mario", "playing", 0, 50);
-    addNewItem(m2.getId(), ItemType.Sport, "Arsenal jersey", "jersey size xl", 0, 80);
+    addNewItem(m1, new Item(ItemType.Tool, "kratta", "Rinsing leafs", 20));
+    addNewItem(m1, new Item(ItemType.Game, "Super Mario", "playing", 50));
+    addNewItem(m2, new Item(ItemType.Sport, "Arsenal jersey", "jersey size xl", 80));
 
     
     ItemIterator iterator = items.ownerIterator(m1);
@@ -54,12 +54,12 @@ public class StuffLendingSystem {
     ArrayList<LendingContract> activatedContracts = contracts.getActivatedContracts(currentDay);
 
     for (LendingContract contract : expiredContracts) {
-      Item item = findItemById(contract.getItem().getId());
+      Item.Mutable item = findItemById(contract.getItem().getId());
       item.setReserved(false);
     }
 
     for (LendingContract contract : activatedContracts) {
-      Item item = findItemById(contract.getItem().getId());
+      Item.Mutable item = findItemById(contract.getItem().getId());
       item.setReserved(true);
     }
   }
@@ -127,10 +127,10 @@ public class StuffLendingSystem {
    * Instaciate a new Item with unique id and add to the items-list.
    * Fails if no member is found in the stufflending system.
    *
-   * @param member - Member to set as owner of item.
+   * @param member - Mutable member to set as owner of item and to add credits to.
    * @param item - Wrapper object containing information to create new item in the system.
    */
-  public void addNewItem(Member.Mutable member, Item.Mutable item) {
+  public void addNewItem(Member.Mutable member, Item item) {
     String id = getNewUniqueItemId();
     Item newItem = new Item.Mutable(member, item.getType(), item.getName(), item.getDescription(), id, item.getDayOfCreation(), item.getCostPerDay());
     member.addCredits(100);
