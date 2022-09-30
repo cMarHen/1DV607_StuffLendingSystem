@@ -386,9 +386,9 @@ public class Console {
     } else if (actionResponse == ActionEvent.SUCCESS_EDIT_MEMBER) {
       System.out.println("");
     } else if (actionResponse == ActionEvent.ERR_DELETE) {
-      System.out.println("");
+      System.out.println("Oops, something went wrong. Could not delete this resource!");
     } else if (actionResponse == ActionEvent.SUCCESS_DELETE) {
-      System.out.println("Member successfully deleted");
+      System.out.println("The resource was successfully deleted");
     } else if (actionResponse == ActionEvent.ERR_FIND_MEMBER) {
       System.out.println("Could not find a member with this ID!");
     } else if (actionResponse == ActionEvent.ERR_FIND_ITEM) {

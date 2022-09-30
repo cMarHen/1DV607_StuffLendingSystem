@@ -271,7 +271,10 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.DeleteItem) {
-        // TODO: Implement.
+        String itemId = ui.promptForAnswer("Enter the item ID: ");
+        Boolean isSucceeded = sls.deleteItem(itemId);
+
+        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
       } 
 
       if (event == view.Console.ItemEvent.Back) {
