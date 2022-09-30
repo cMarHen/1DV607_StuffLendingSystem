@@ -12,9 +12,9 @@ public interface ItemCollection {
 
   public void removeItemById(String itemId);
 
-  public ArrayList<Item> getAllItems();
+  public Iterable<Item.Mutable> getAllItems();
 
-  public Item findItemById(String id);
+  public Item.Mutable findItemById(String id);
   
   public boolean isUniqueItemId(String id);
   

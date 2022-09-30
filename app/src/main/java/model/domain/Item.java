@@ -6,13 +6,13 @@ package model.domain;
  */
 public class Item {
   private Member owner;
-  private boolean isReserved;
+  protected boolean isReserved;
   private ItemType type;
-  private String name;
-  private String description;
+  protected String name;
+  protected String description;
   private String id;
   private int dayOfCreation;
-  private int costPerDay;
+  protected int costPerDay;
 
   /**
    * Available item-types.
@@ -25,6 +25,26 @@ public class Item {
     Toy,
     Sport,
     Other
+  }
+
+  /**
+   * Instanciate an item with the data presented as parameters, sets isReserved to false.
+   *
+   * @param type - Used to specify item-type for searching, editable later.
+   * @param name - Used to search for item by name, editable later.
+   * @param description - Description of the item, editable later.
+   * @param costPerDay - Used in calculations to set up lending contracts, editable later.
+   */
+  public Item(
+      ItemType type,
+      String name,
+      String description,
+      int costPerDay) {
+    this.type = type;
+    this.name = name;
+    this.description = description;
+    this.costPerDay = costPerDay;
+    this.isReserved = false;
   }
 
   /**
@@ -93,24 +113,12 @@ public class Item {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
   public boolean getIsReserved() {
     return isReserved;
-  }
-
-  public void setReserved(boolean isReserved) {
-    this.isReserved = isReserved;
   }
 
   public String getId() {
@@ -139,15 +147,63 @@ public class Item {
     return costPerDay;
   }
 
-  public void setCostPerDay(int costPerDay) {
-    this.costPerDay = costPerDay;
-  }
-
   public int getDayOfCreation() {
     return dayOfCreation;
   }
 
   public ItemType getType() {
     return type;
+  }
+
+  public static class Mutable extends Item {
+    public Mutable(
+        ItemType type,
+        String name,
+        String description,
+        int costPerDay
+    ) {
+      super(type, name, description, costPerDay);
+    }
+
+    public Mutable(
+        Member owner,
+        ItemType type,
+        String name,
+        String description,
+        String id,
+        int dayOfCreation,
+        int costPerDay
+    ) {
+      super(owner, type, name, description, id, dayOfCreation, costPerDay);
+    }
+
+    public Mutable(
+        Member owner,
+        ItemType type,
+        String name,
+        String description,
+        String id,
+        int dayOfCreation,
+        int costPerDay,
+        boolean isReserved
+    ){
+      super(owner, type, name, description, id, dayOfCreation, costPerDay, isReserved);
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+
+    public void setDescription(String description) {
+      this.description = description;
+    }
+
+    public void setReserved(boolean isReserved) {
+      this.isReserved = isReserved;
+    }
+
+    public void setCostPerDay(int costPerDay) {
+      this.costPerDay = costPerDay;
+    }
   }
 }

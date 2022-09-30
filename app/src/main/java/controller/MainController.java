@@ -100,13 +100,14 @@ public class MainController {
         String email = ui.promptInformation(promptEvent.Email);
         String phoneNumber = ui.promptInformation(promptEvent.PhoneNumber);
 
-        boolean isSucceeded = sls.addNewMember(firstName, lastName, email, phoneNumber);
+        model.domain.Member.Mutable newMember = new model.domain.Member.Mutable(firstName, lastName, email, phoneNumber);
+        boolean isSucceeded = sls.addNewMember(newMember);
 
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
       }
 
       if (event == view.Console.MemberEvent.ListMember) {
-        ArrayList<model.domain.Member> members = sls.getMembers();
+        Iterable<model.domain.Member.Mutable> members = sls.getMembers();
 
         ui.printMemberList(members);
       }
@@ -126,7 +127,7 @@ public class MainController {
       if (event == view.Console.MemberEvent.EditMember) {
         String id = ui.promptInformation(promptEvent.MemberId);
 
-        model.domain.Member member = sls.findMemberById(id);
+        model.domain.Member.Mutable member = sls.findMemberById(id);
 
         if (member != null) {
           doEditMemberMenu(member);
@@ -148,7 +149,7 @@ public class MainController {
     } while (running);
   }
 
-  private void doEditMemberMenu(model.domain.Member member) {
+  private void doEditMemberMenu(model.domain.Member.Mutable member) {
     boolean running = true;
 
     do {
@@ -194,7 +195,7 @@ public class MainController {
 
       if (event == view.Console.ItemEvent.AddItem) {
         String memberId =  ui.promptInformation(promptEvent.MemberId);
-        model.domain.Member member = sls.findMemberById(memberId);
+        model.domain.Member.Mutable member = sls.findMemberById(memberId);
 
         if (member != null) {
           model.domain.Item.ItemType type = ui.getItemTypeMenuChoice();
@@ -204,15 +205,10 @@ public class MainController {
           String description =  ui.promptInformation(promptEvent.Description);
           int costPerDay = 50; // TODO: Implement prompt for cost per day.
 
-          boolean isSucceeded = sls.addNewItem(
-              memberId,
-              type,
-              name,
-              description,
-              sls.getCurrentDay(),
-              costPerDay);
+          model.domain.Item.Mutable item = new model.domain.Item.Mutable(type, name, description, costPerDay);
+          sls.addNewItem(member, item);
 
-          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_ITEM : ActionEvent.ERR_CREATE_ITEM);
+          ui.actionResponder(ActionEvent.SUCCESS_CREATE_ITEM);
         } else {
           ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
         }
@@ -220,7 +216,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.ListItems) {
-        ArrayList<model.domain.Item> items = sls.getAllItems();
+        Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
         ui.printItemList(items);
       }
@@ -240,7 +236,7 @@ public class MainController {
       if (event == view.Console.ItemEvent.EditItem) {
         String id = ui.promptInformation(promptEvent.ItemId);
 
-        model.domain.Item item = sls.findItemById(id);
+        model.domain.Item.Mutable item = sls.findItemById(id);
 
         if (item != null) {
           doEditItemMenu(item);
@@ -297,7 +293,7 @@ public class MainController {
     } while (running);
   }
 
-  private void doEditItemMenu(model.domain.Item item) {
+  private void doEditItemMenu(model.domain.Item.Mutable item) {
     boolean running = true;
 
     do {

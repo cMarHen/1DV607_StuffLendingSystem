@@ -9,7 +9,7 @@ import model.domain.Item.ItemType;
  *
  */
 public class StuffLendingSystem {
-  ArrayList<Member> members = new ArrayList<>();
+  ArrayList<Member.Mutable> members = new ArrayList<>();
   ItemCollection items = new ItemCollectionImpl();
   ContractCollection contracts = new ContractCollection();
   RandomString randomStringGenerator = new RandomString();
@@ -21,8 +21,8 @@ public class StuffLendingSystem {
   public StuffLendingSystem() {
     this.currentDay = 0;
 
-    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
-    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
+    Member.Mutable m1 = new Member.Mutable("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
+    Member.Mutable m2 = new Member.Mutable("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     members.add(m1);
     members.add(m2);
 
@@ -72,23 +72,16 @@ public class StuffLendingSystem {
    * Instaciate a new Member with unique id and add to the members-list.
    * Fails if email OR phonenumber is not unique.
    *
-   * @param firstName - The members first name, editable later.
-   * @param lastName - The members last name, editable later.
-   * @param email - The members email, editable later.
-   * @param phoneNumber - The members phone number, editable later.
+   * @param m - Wrapper for the member-data to create a new member based on.
    * @return - A flag if member successfully was added to the stufflending system.
    */
-  public boolean addNewMember(
-      String firstName,
-      String lastName,
-      String email,
-      String phoneNumber) {
-    if (!isUniqueEmailAndPhoneNumber(email, phoneNumber)) {
+  public boolean addNewMember(Member m) {
+    if (!isUniqueEmailAndPhoneNumber(m.getEmail(), m.getPhoneNumber())) {
       return false;
     }
     
     String id = getNewUniqueMemberId();
-    Member newMember = new Member(firstName, lastName, email, phoneNumber, id, currentDay);
+    Member.Mutable newMember = new Member.Mutable(m.getFirstName(), m.getLastName(), m.getEmail(), m.getPhoneNumber(), id, currentDay);
     members.add(newMember);
 
     return true;
@@ -134,33 +127,14 @@ public class StuffLendingSystem {
    * Instaciate a new Item with unique id and add to the items-list.
    * Fails if no member is found in the stufflending system.
    *
-   * @param memberId - Id of member to query for and then set as owner of item.
-   * @param type - Used to specify item-type for searching, editable later.
-   * @param name - Used to search for item by name, editable later.
-   * @param description - Description of the item, editable later.
-   * @param dayOfCreation - Metadata when item was created, not editable later.
-   * @param costPerDay - Used in calculations to set up lending contracts, editable later.
-   * @return - A flag indicated the item was successfully added to the item-list.
+   * @param member - Member to set as owner of item.
+   * @param item - Wrapper object containing information to create new item in the system.
    */
-  public boolean addNewItem(
-        String memberId,
-        ItemType type,
-        String name,
-        String description,
-        int dayOfCreation,
-        int costPerDay) {
-    Member member = findOriginalMemberById(memberId);
-
-    if (member != null) {
-      String id = getNewUniqueItemId();
-      Item newItem = new Item(member, type, name, description, id, dayOfCreation, costPerDay);
-      member.addCredits(100);
-      items.addItem(newItem);
-  
-      return true;
-    } else {
-      return false;
-    }
+  public void addNewItem(Member.Mutable member, Item.Mutable item) {
+    String id = getNewUniqueItemId();
+    Item newItem = new Item.Mutable(member, item.getType(), item.getName(), item.getDescription(), id, item.getDayOfCreation(), item.getCostPerDay());
+    member.addCredits(100);
+    items.addItem(newItem);
   }
 
   /**
@@ -213,67 +187,43 @@ public class StuffLendingSystem {
    * @param id - Id used to query the item-list.
    * @return - The Item-object or null if not found.
    */
-  public Item findItemById(String id) {
-    Item item = items.findItemById(id);
+  public Item.Mutable findItemById(String id) {
+    Item.Mutable item = items.findItemById(id);
 
     // TODO: Copy the item here to not let it leave the SLS??????????
     return item;
   }
 
   /**
-   * Queries the members-list for Member object with matching id and returns a copy.
+   * Queries the members-list for Mutable Member object with matching id and returns a copy.
    *
    * @param id - Id used to query the members-list.
-   * @return - A copy of the member-object or null if not found.
+   * @return - A mutable member-object or null if not found.
    */
-  public Member findMemberById(String id) {
-    for (Member member : members) {
+  public Member.Mutable findMemberById(String id) {
+    for (Member.Mutable member : members) {
       if (member.getId().equals(id)) {
-        Member memberCopy = new Member(
-            member.getFirstName(),
-            member.getLastName(),
-            member.getEmail(),
-            member.getPhoneNumber(),
-            id,
-            member.getRegistredDay(),
-            member.getCredits());
-
-        return memberCopy;
+        return member;
       }
     }
     return null;
   }
 
   /**
-   * Get a copy of the whole list of members in the stufflending system.
+   * Get an iterable list of members in the stufflending system.
    *
-   * @return - A copy of the list of members in the stufflending system.
+   * @return - A iterable list of members in the stufflending system.
    */
-  public ArrayList<Member> getMembers() {
-    ArrayList<Member> memberlistCopy = new ArrayList<>();
-
-    for (Member member : this.members) {
-      Member memberCopy = new Member(
-          member.getFirstName(),
-          member.getLastName(),
-          member.getEmail(),
-          member.getPhoneNumber(),
-          member.getId(),
-          member.getRegistredDay(),
-          member.getCredits());
-
-      memberlistCopy.add(memberCopy);
-    }
-
-    return memberlistCopy;
+  public Iterable<Member.Mutable> getMembers() {
+    return members;
   }
 
   /**
-   * Get the whole list of items in the stufflending system.
+   * Get an iterable list of mutable items in the stufflending system.
    *
-   * @return - The list of items in the stufflending system.
+   * @return - Iterable list of mutable items in the stufflending system.
    */
-  public ArrayList<Item> getAllItems() {
+  public Iterable<Item.Mutable> getAllItems() {
     return items.getAllItems();
   }
 

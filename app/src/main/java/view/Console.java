@@ -285,7 +285,7 @@ public class Console {
    * Prints the list of all members with name, day of registration and id.
    *
    */
-  public void printMemberList(ArrayList<model.domain.Member> members) {
+  public void printMemberList(Iterable<? extends model.domain.Member> members) {
     System.out.println(" --- ");
 
     for (model.domain.Member member : members) {
@@ -301,8 +301,8 @@ public class Console {
    * If no items in the list a message is printed to signal this to the user.
    *
    */
-  public void printItemList(ArrayList<model.domain.Item> items) {
-    if (items.size() == 0) {
+  public void printItemList(Iterable<? extends model.domain.Item> items) {
+    if (!items.iterator().hasNext()) {
       System.out.println("No items to show.");
     }
     
