@@ -7,13 +7,20 @@ public class MockCollection {
 
   public MockCollection () {
     this.mocks = new ArrayList<>();
+
+    injectMocksToList();
   }
 
   private void injectMocksToList() {
-
+    mocks.add(new MockMemberOne());
   }
 
   public IMock searchMockByOid(String oid) {
-
+    for (IMock m : mocks) {
+      if (m.getColumn("OID").equals(oid)) {
+        return m;
+      }
+    }
+    return null;
   }
 }

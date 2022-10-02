@@ -28,7 +28,7 @@ public class MockMemberOne implements IMock {
       return this.id;
     } else if (column.equals("CREDITS")) {
       return this.credits;
-    } else if (column.equals("REGISTERED_DAT")) {
+    } else if (column.equals("REGISTERED_DAY")) {
       return this.registredDay;
     }
 
