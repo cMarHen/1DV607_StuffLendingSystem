@@ -10,8 +10,6 @@ import model.domain.Item.ItemType;
 public interface ItemCollection {
   public void addItem(Item item);
 
-  // public void removeItemById(String itemId);
-
   public void removeItem(Item.Mutable item);
 
   public Iterable<Item.Mutable> getAllItems();

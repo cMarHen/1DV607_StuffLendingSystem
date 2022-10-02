@@ -45,17 +45,6 @@ public class ItemCollectionImpl implements ItemCollection {
     }
   }
 
-  /* @Override
-  public void removeItemById(String itemId) {
-    for (Item item : items) {
-      if (item.getId().equals(itemId)) {
-        items.remove(item);
-        return;
-      }
-    }
-  }
- */
-
   @Override
   public void removeItem(Item.Mutable item) {
     items.remove(item);
