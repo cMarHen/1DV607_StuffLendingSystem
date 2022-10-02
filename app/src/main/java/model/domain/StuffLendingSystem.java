@@ -137,7 +137,7 @@ public class StuffLendingSystem {
    */
   public void addNewItem(Member.Mutable member, Item item) {
     String id = getNewUniqueItemId();
-    Item.Mutable newItem = new Item.Mutable(
+    Item newItem = new Item(
         member,
         item.getType(),
         item.getName(),

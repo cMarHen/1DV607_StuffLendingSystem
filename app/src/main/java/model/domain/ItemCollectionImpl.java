@@ -38,9 +38,10 @@ public class ItemCollectionImpl implements ItemCollection {
   }
   
   @Override
-  public void addItem(Item.Mutable item) {
+  public void addItem(Item item) {
     if (item != null) {
-      items.add(item);
+      Item.Mutable mutableItem = new Item.Mutable(item);
+      items.add(mutableItem);
     }
   }
 

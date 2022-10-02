@@ -8,7 +8,7 @@ import model.domain.Item.ItemType;
  *
  */
 public interface ItemCollection {
-  public void addItem(Item.Mutable item);
+  public void addItem(Item item);
 
   public void removeItemById(String itemId);
 
