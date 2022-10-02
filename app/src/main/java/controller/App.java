@@ -1,6 +1,8 @@
 package controller;
 
 import model.domain.StuffLendingSystem;
+import model.repository.mock.IMock;
+import model.repository.mock.MockMemberOne;
 import view.Console;
 
 /**
@@ -17,7 +19,9 @@ public class App {
     model.domain.StuffLendingSystem sls = new StuffLendingSystem();
     MainController mainMenu = new MainController(ui, sls);
 
-    mainMenu.doMainMenu();
+    IMock m = new MockMemberOne();
+    System.out.println(m.getColumn("FIRST_NAME"));
+    // mainMenu.doMainMenu();
 
   }
 }
