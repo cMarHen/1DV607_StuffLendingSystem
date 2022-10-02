@@ -429,6 +429,22 @@ public class Console {
     return new model.domain.Member(firstName, lastName, email, phoneNumber);
   }
 
+  /**
+   * Request user-inputs needed to add a new item.
+   *
+   * @return - Readonly object with item-information.
+   */
+  public model.domain.Item promptForNewItem() {
+    model.domain.Item.ItemType type = getItemTypeMenuChoice();
+
+    String name =  promptForString("Enter name: ");
+    String description =  promptForString("Enter description: ");
+    // TODO: check for positive int.
+    int costPerDay = promptForInt("Enter cost per day: ");
+
+    return new model.domain.Item(type, name, description, costPerDay);
+  }
+
   private int promptForInt(String message) {
     int input = -1;
     boolean validInput;

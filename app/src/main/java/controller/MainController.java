@@ -194,16 +194,8 @@ public class MainController {
         model.domain.Member.Mutable member = sls.findMemberById(memberId);
 
         if (member != null) {
-          model.domain.Item.ItemType type = ui.getItemTypeMenuChoice();
-
-          String name =  ui.promptInformation(promptEvent.Name);
-
-          String description =  ui.promptInformation(promptEvent.Description);
-          int costPerDay = 50; // TODO: Implement prompt for cost per day.
-
-          model.domain.Item item = new model.domain.Item(type, name, description, costPerDay);
+          model.domain.Item item = ui.promptForNewItem();
           sls.addNewItem(member, item);
-
           ui.actionResponder(ActionEvent.SUCCESS_CREATE_ITEM);
         } else {
           ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);

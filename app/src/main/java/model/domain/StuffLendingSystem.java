@@ -131,14 +131,20 @@ public class StuffLendingSystem {
 
   /**
    * Instaciate a new Item with unique id and add to the items-list.
-   * Fails if no member is found in the stufflending system.
    *
    * @param member - Mutable member to set as owner of item and to add credits to.
    * @param item - Wrapper object containing information to create new item in the system.
    */
   public void addNewItem(Member.Mutable member, Item item) {
     String id = getNewUniqueItemId();
-    Item.Mutable newItem = new Item.Mutable(member, item.getType(), item.getName(), item.getDescription(), id, item.getDayOfCreation(), item.getCostPerDay());
+    Item.Mutable newItem = new Item.Mutable(
+        member,
+        item.getType(),
+        item.getName(),
+        item.getDescription(),
+        id,
+        item.getDayOfCreation(),
+        item.getCostPerDay());
     member.addCredits(100);
     items.addItem(newItem);
   }
