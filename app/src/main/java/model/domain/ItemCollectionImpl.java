@@ -8,7 +8,7 @@ import model.domain.Item.ItemType;
  *
  */
 public class ItemCollectionImpl implements ItemCollection {
-  private ArrayList<Item> items;
+  private ArrayList<Item.Mutable> items;
 
   /**
    * Set the items-list to empty arraylist when instanciated.
@@ -23,23 +23,8 @@ public class ItemCollectionImpl implements ItemCollection {
    *
    * @return - The whole list of items in the collection.
    */
-  public ArrayList<Item> getAllItems() {
-    ArrayList<Item> itemlistCopy = new ArrayList<>();
-
-    for (Item item : this.items) {
-      Item itemCopy = new Item(
-          item.getOwner(),
-          item.getType(),
-          item.getName(),
-          item.getDescription(),
-          item.getId(),
-          item.getDayOfCreation(),
-          item.getCostPerDay(),
-          item.getIsReserved());
-
-      itemlistCopy.add(itemCopy);
-    }
-    return itemlistCopy;
+  public Iterable<Item.Mutable> getAllItems() {
+    return items;
   }
 
   @Override
@@ -53,7 +38,7 @@ public class ItemCollectionImpl implements ItemCollection {
   }
   
   @Override
-  public void addItem(Item item) {
+  public void addItem(Item.Mutable item) {
     if (item != null) {
       items.add(item);
     }
@@ -75,8 +60,8 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
-  public Item findItemById(String id) {
-    for (Item item : items) {
+  public Item.Mutable findItemById(String id) {
+    for (Item.Mutable item : items) {
       if (item.getId().equals(id)) {
         return item;
       }

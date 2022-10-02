@@ -8,11 +8,11 @@ import java.util.ArrayList;
  *
  */
 public class OwnerIteratorImpl implements ItemIterator {
-  private ArrayList<Item> items;
+  private ArrayList<Item.Mutable> items;
   private Member owner;
   private int position;
 
-  public OwnerIteratorImpl(Member owner, ArrayList<Item> items) {
+  public OwnerIteratorImpl(Member owner, ArrayList<Item.Mutable> items) {
     this.items = items;
     this.owner = owner;
     this.position = 0;
@@ -21,7 +21,7 @@ public class OwnerIteratorImpl implements ItemIterator {
   public boolean hasNext() {
     
     while (position < items.size()) {
-      Item item = items.get(position);
+      Item.Mutable item = items.get(position);
       
       if (item.getOwner().getId().equals(owner.getId())) {
         return true;
@@ -34,8 +34,8 @@ public class OwnerIteratorImpl implements ItemIterator {
   }
 
   @Override
-  public Item next() {
-    Item item = items.get(position);
+  public Item.Mutable next() {
+    Item.Mutable item = items.get(position);
     position++;
     return item;
   }

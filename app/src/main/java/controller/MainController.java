@@ -94,13 +94,9 @@ public class MainController {
         return;
       }
       
-      if (event == view.Console.MemberEvent.AddMember) {
-        String firstName = ui.promptInformation(promptEvent.FirstName);
-        String lastName = ui.promptInformation(promptEvent.LastName);
-        String email = ui.promptInformation(promptEvent.Email);
-        String phoneNumber = ui.promptInformation(promptEvent.PhoneNumber);
+      if (event == view.Console.MemberEvent.AddMember) {        
+        model.domain.Member newMember= ui.promptForNewMember();
 
-        model.domain.Member newMember = new model.domain.Member(firstName, lastName, email, phoneNumber);
         boolean isSucceeded = sls.addNewMember(newMember);
 
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);

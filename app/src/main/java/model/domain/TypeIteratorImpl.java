@@ -10,7 +10,7 @@ import model.domain.Item.ItemType;
  */
 public class TypeIteratorImpl implements ItemIterator {
   private ItemType type;
-  private ArrayList<Item> items;
+  private ArrayList<Item.Mutable> items;
   private int position;
 
   /**
@@ -19,7 +19,7 @@ public class TypeIteratorImpl implements ItemIterator {
    * @param type - ItemType to query for. 
    * @param items - A list of items matching the type.
    */
-  public TypeIteratorImpl(ItemType type, ArrayList<Item> items) {
+  public TypeIteratorImpl(ItemType type, ArrayList<Item.Mutable> items) {
     // TODO: Findbugs issue should be supressed as the list to iterate shoud be presented to the iterator.
     this.type = type;
     this.items = items;

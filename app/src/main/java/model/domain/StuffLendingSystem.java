@@ -81,7 +81,13 @@ public class StuffLendingSystem {
     }
     
     String id = getNewUniqueMemberId();
-    Member.Mutable newMember = new Member.Mutable(m.getFirstName(), m.getLastName(), m.getEmail(), m.getPhoneNumber(), id, currentDay);
+    Member.Mutable newMember = new Member.Mutable(
+        m.getFirstName(),
+        m.getLastName(),
+        m.getEmail(),
+        m.getPhoneNumber(),
+        id,
+        currentDay);
     members.add(newMember);
 
     return true;
@@ -109,12 +115,12 @@ public class StuffLendingSystem {
       // TODO: Should money be taken on booking, or when the loan starts?
       if (!contractedLender.equals(contractedOwner)) {
         int contractFee = newContract.getTotalContractFee();
-        contractedLender.removeCredits(contractFee);
-        contractedOwner.addCredits(contractFee);
+        // contractedLender.removeCredits(contractFee);
+        // contractedOwner.addCredits(contractFee);
       }
 
       if (startDay <= currentDay) {
-        item.setReserved(true);
+        // item.setReserved(true);
       }
 
       return true;
@@ -132,7 +138,7 @@ public class StuffLendingSystem {
    */
   public void addNewItem(Member.Mutable member, Item item) {
     String id = getNewUniqueItemId();
-    Item newItem = new Item.Mutable(member, item.getType(), item.getName(), item.getDescription(), id, item.getDayOfCreation(), item.getCostPerDay());
+    Item.Mutable newItem = new Item.Mutable(member, item.getType(), item.getName(), item.getDescription(), id, item.getDayOfCreation(), item.getCostPerDay());
     member.addCredits(100);
     items.addItem(newItem);
   }

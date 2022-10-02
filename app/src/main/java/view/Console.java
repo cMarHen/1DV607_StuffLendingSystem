@@ -415,6 +415,20 @@ public class Console {
     } 
   }
 
+  /**
+   * Request user-inputs needed to register a new member.
+   *
+   * @return - Readonly object with member-information.
+   */
+  public model.domain.Member promptForNewMember() {
+    String firstName = promptForString("Enter first name: ");
+    String lastName = promptForString("Enter last name: ");
+    String email = promptForString("Enter email: ");
+    String phoneNumber = promptForString("Enter phone number: ");
+
+    return new model.domain.Member(firstName, lastName, email, phoneNumber);
+  }
+
   private int promptForInt(String message) {
     int input = -1;
     boolean validInput;
