@@ -2,6 +2,7 @@ package model.repository;
 
 import java.util.ArrayList;
 
+import model.domain.Item;
 import model.domain.ItemCollection;
 import model.domain.ItemCollectionImpl;
 import model.domain.Member;
@@ -18,7 +19,7 @@ public class PersistenceFacade {
     this.items = new ItemCollectionImpl();
 
     loadMembers();
-    // loadItems();
+    loadItems(members); 
     // loadContracts();
   }
 
@@ -47,5 +48,14 @@ public class PersistenceFacade {
     }
   }
 
+  // Inject with members to be used when assign owners.
+  private void loadItems(ArrayList<Member> members) {
+    ItemMapper mapper = new ItemMapper(members);
+    ArrayList<Item> listOfItems = mapper.loadAllItems();
+
+    for (Item item : listOfItems) {
+      items.addItem(item);
+    }
+  }
 
 }
