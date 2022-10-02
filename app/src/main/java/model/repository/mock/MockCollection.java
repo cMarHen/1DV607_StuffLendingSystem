@@ -12,7 +12,8 @@ public class MockCollection {
   }
 
   private void injectMocksToList() {
-    mocks.add(new MockMemberOne());
+    mocks.add(new MemberMockOne());
+    mocks.add(new MemberMockTwo());
   }
 
   public IMock searchMockByOid(String oid) {

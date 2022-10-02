@@ -1,6 +1,6 @@
 package model.repository.mock;
 
-public class MockMemberOne implements IMock {
+public class MemberMockOne implements IMock {
   private String oid = "oid_12345"; // TODO: Add a real numeric
   private String firstName = "Martin";
   private String lastName = "Henriksson";
@@ -10,7 +10,7 @@ public class MockMemberOne implements IMock {
   private String credits = "200";
   private String registredDay = "0";
 
-  public MockMemberOne() {
+  public MemberMockOne() {
   }
 
   public String getColumn(String column) {

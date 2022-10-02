@@ -25,6 +25,7 @@ public class App {
     ArrayList<Member> members = f.getMembers();
 
     System.out.println(members.get(0).getFirstName());
+    System.out.println(members.get(1).getLastName());
 
     /* IMock m = new MockMemberOne();
     System.out.println(m.getColumn("FIRST_NAME")); */

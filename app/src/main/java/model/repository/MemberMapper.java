@@ -37,6 +37,7 @@ public class MemberMapper extends PersistenceMapper{
     ArrayList<Member> m = new ArrayList<>();
 
     m.add(getObjectFromStorage(new ObjectIdentifier("oid_12345")));
+    m.add(getObjectFromStorage(new ObjectIdentifier("oid_23456")));
 
     return m;
   }
