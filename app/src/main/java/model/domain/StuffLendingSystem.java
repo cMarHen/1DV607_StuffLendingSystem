@@ -11,7 +11,7 @@ import model.domain.Item.ItemType;
 public class StuffLendingSystem {
   ArrayList<Member.Mutable> members = new ArrayList<>();
   ItemCollection items = new ItemCollectionImpl();
-  ContractCollection contracts = new ContractCollection();
+  ContractCollectionImpl contracts = new ContractCollectionImpl();
   RandomString randomStringGenerator = new RandomString();
   private int currentDay;
 
