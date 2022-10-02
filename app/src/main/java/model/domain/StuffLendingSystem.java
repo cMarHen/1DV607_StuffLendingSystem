@@ -21,27 +21,15 @@ public class StuffLendingSystem {
   public StuffLendingSystem() {
     this.currentDay = 0;
 
-    Member.Mutable m1 = new Member.Mutable("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
-    Member.Mutable m2 = new Member.Mutable("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
+    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
+    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     addNewMember(m1);
     addNewMember(m2);
+/* 
+    addNewItem(findMemberById(m1.getId()), new Item(ItemType.Tool, "kratta", "Rinsing leafs", 20));
+    addNewItem(findMemberById(m1.getId()), new Item(ItemType.Game, "Super Mario", "playing", 50));
+    addNewItem(findMemberById(m2.getId()), new Item(ItemType.Sport, "Arsenal jersey", "jersey size xl", 80));  */   
 
-    addNewItem(m1, new Item(ItemType.Tool, "kratta", "Rinsing leafs", 20));
-    addNewItem(m1, new Item(ItemType.Game, "Super Mario", "playing", 50));
-    addNewItem(m2, new Item(ItemType.Sport, "Arsenal jersey", "jersey size xl", 80));
-
-    
-    ItemIterator iterator = items.ownerIterator(m1);
-    ArrayList<Item> i = new ArrayList<>();
-
-    while (iterator.hasNext()) {
-      i.add(iterator.next());
-    }
-
-    for (Item item : i) {
-      System.out.println(item.getName());
-    }
-    
   }
 
   /**
@@ -103,24 +91,24 @@ public class StuffLendingSystem {
    * @return - A flag if the contract was successfully implemented.
    */
   public boolean setUpLendingContract(String lenderId, int startDay, int endDay, String itemId) {
-    Member lender = findOriginalMemberById(lenderId);
-    Item item = findItemById(itemId);
-    LendingContract newContract = new LendingContract(lender, endDay, item, startDay);
+    Member.Mutable lender = findMemberById(lenderId);
+    Item.Mutable item = findItemById(itemId);
+    LendingContract newContract = new LendingContract(new Member(lender), endDay, new Item(item), startDay);
     boolean successfullyAddedContract = contracts.addContract(newContract);
 
     if (successfullyAddedContract) {
-      Member contractedLender = findOriginalMemberById(newContract.getLender().getId());
-      Member contractedOwner = findOriginalMemberById(newContract.getItem().getOwner().getId());
+      Member.Mutable contractedLender = findMemberById(newContract.getLender().getId());
+      Member.Mutable contractedOwner = findMemberById(newContract.getItem().getOwner().getId());
       
       // TODO: Should money be taken on booking, or when the loan starts?
       if (!contractedLender.equals(contractedOwner)) {
         int contractFee = newContract.getTotalContractFee();
-        // contractedLender.removeCredits(contractFee);
-        // contractedOwner.addCredits(contractFee);
+        contractedLender.removeCredits(contractFee);
+        contractedOwner.addCredits(contractFee);
       }
 
       if (startDay <= currentDay) {
-        // item.setReserved(true);
+        item.setReserved(true);
       }
 
       return true;
@@ -157,14 +145,14 @@ public class StuffLendingSystem {
    * @return - Flag if successfully removed member from the member-list.
    */
   public boolean deleteMember(String id) {
-    Member member = findOriginalMemberById(id);
-    ArrayList<Item> itemsOwned = items.getItemsByOwner(member);
+    Member member = findMemberById(id);
+    ArrayList<Item.Mutable> itemsOwned = items.getItemsByOwner(member);
     Boolean ownerHasReservedItems = contracts.ownerIsInActiveContract(id);
     
 
     if (!ownerHasReservedItems) {
-      for (Item item : itemsOwned) {
-        items.removeItemById(item.getId());
+      for (Item.Mutable item : itemsOwned) {
+        items.removeItem(item);
       }
       
       if (member != null) {
@@ -184,9 +172,9 @@ public class StuffLendingSystem {
    * @return - Flag if successfully removed item from the item-list.
    */
   public boolean deleteItem(String id) {
-    Item item = findItemById(id);
+    Item.Mutable item = findItemById(id);
     if ((item != null) && (!contracts.itemHasActiveContract(item.getId()))) {
-      items.removeItemById(item.getId());
+      items.removeItem(item);
       return true;
     }
 
@@ -237,15 +225,6 @@ public class StuffLendingSystem {
    */
   public Iterable<Item.Mutable> getAllItems() {
     return items.getAllItems();
-  }
-
-  private Member findOriginalMemberById(String id) {
-    for (Member member : members) {
-      if (member.getId().equals(id)) {
-        return member;
-      }
-    }
-    return null;
   }
 
   private boolean isUniqueEmailAndPhoneNumber(String email, String phoneNumber) {

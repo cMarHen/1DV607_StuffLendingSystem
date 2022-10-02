@@ -21,24 +21,9 @@ public class LendingContract {
    */
   public LendingContract(Member lender, int endDay, Item item, int startDay) {
     // TODO: Supress findbug to reflekt member and item.
-    this.lender = new Member(
-        lender.getFirstName(),
-        lender.getLastName(),
-        lender.getEmail(),
-        lender.getPhoneNumber(),
-        lender.getId(),
-        lender.getRegistredDay(),
-        lender.getCredits());
+    this.lender = lender;
     this.endDay = endDay;
-    this.item = new Item(
-        item.getOwner(),
-        item.getType(),
-        item.getName(),
-        item.getDescription(),
-        item.getId(),
-        item.getDayOfCreation(),
-        item.getCostPerDay(),
-        item.getIsReserved());
+    this.item = item;
     this.startDay = startDay;
     this.totalContractFee = (endDay - startDay) * item.getCostPerDay();
   }

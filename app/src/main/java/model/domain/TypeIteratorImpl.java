@@ -42,8 +42,8 @@ public class TypeIteratorImpl implements ItemIterator {
   }
 
   @Override
-  public Item next() {
-    Item item = items.get(position);
+  public Item.Mutable next() {
+    Item.Mutable item = items.get(position);
     position++;
     return item;
   }

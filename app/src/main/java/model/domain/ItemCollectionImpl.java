@@ -45,7 +45,7 @@ public class ItemCollectionImpl implements ItemCollection {
     }
   }
 
-  @Override
+  /* @Override
   public void removeItemById(String itemId) {
     for (Item item : items) {
       if (item.getId().equals(itemId)) {
@@ -53,6 +53,12 @@ public class ItemCollectionImpl implements ItemCollection {
         return;
       }
     }
+  }
+ */
+
+  @Override
+  public void removeItem(Item.Mutable item) {
+    items.remove(item);
   }
 
   @Override
@@ -71,9 +77,9 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
-  public ArrayList<Item> getItemsByOwner(Member owner) {
+  public ArrayList<Item.Mutable> getItemsByOwner(Member owner) {
     ItemIterator iterator = ownerIterator(owner);
-    ArrayList<Item> items = new ArrayList<>();
+    ArrayList<Item.Mutable> items = new ArrayList<>();
 
     while (iterator.hasNext()) {
       items.add(iterator.next());

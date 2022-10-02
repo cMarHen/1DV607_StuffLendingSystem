@@ -10,7 +10,9 @@ import model.domain.Item.ItemType;
 public interface ItemCollection {
   public void addItem(Item item);
 
-  public void removeItemById(String itemId);
+  // public void removeItemById(String itemId);
+
+  public void removeItem(Item.Mutable item);
 
   public Iterable<Item.Mutable> getAllItems();
 
@@ -18,7 +20,7 @@ public interface ItemCollection {
   
   public boolean isUniqueItemId(String id);
   
-  public ArrayList<Item> getItemsByOwner(Member owner);
+  public ArrayList<Item.Mutable> getItemsByOwner(Member owner);
   
   public ItemIterator typeIterator(ItemType type);
 
