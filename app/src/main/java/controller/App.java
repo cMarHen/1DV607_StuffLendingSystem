@@ -18,6 +18,5 @@ public class App {
     MainController mainMenu = new MainController(ui, sls);
 
     mainMenu.doMainMenu();
-
   }
 }
