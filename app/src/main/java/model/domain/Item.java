@@ -5,7 +5,7 @@ package model.domain;
  *
  */
 public class Item {
-  private Member owner;
+  private Member.Mutable owner;
   protected boolean isReserved;
   private ItemType type;
   protected String name;
@@ -25,6 +25,22 @@ public class Item {
     Toy,
     Sport,
     Other
+  }
+
+  /**
+   * Instanciate an item with Item-object.
+   *
+   * @param item - Readonly Item-object.
+   */
+  public Item(Item item) {
+    this.type = item.getType();
+    this.name = item.getName();
+    this.description = item.getDescription();
+    this.costPerDay = item.getCostPerDay();
+    this.isReserved = item.getIsReserved();
+    this.owner = item.getOwner();
+    this.dayOfCreation = item.getDayOfCreation();
+    this.id = item.getId();
   }
 
   /**
@@ -60,7 +76,7 @@ public class Item {
    */
   public Item(
       // TODO: Findbugs issue should be supressed as the owner should reflect the member in the sls!
-      Member owner,
+      Member.Mutable owner,
       ItemType type,
       String name,
       String description,
@@ -91,7 +107,7 @@ public class Item {
    */
   public Item(
       // TODO: Findbugs issue should be supressed as the owner should reflect the member in the sls.
-      Member owner,
+      Member.Mutable owner,
       ItemType type,
       String name,
       String description,
@@ -124,23 +140,9 @@ public class Item {
   public String getId() {
     return id;
   }
-  
-  /**
-   * Get a copy of the Member-object representing the owner of the item.
-   *
-   * @return - A copy of the owner.
-   */
-  public Member getOwner() {
-    Member ownerCopy = new Member(
-        this.owner.getFirstName(),
-        this.owner.getLastName(),
-        this.owner.getEmail(),
-        this.owner.getPhoneNumber(),
-        this.owner.getId(),
-        this.owner.getRegistredDay(),
-        this.owner.getCredits());
 
-    return ownerCopy;
+  public Member.Mutable getOwner() {
+    return this.owner;
   }
 
   public int getCostPerDay() {
@@ -155,7 +157,15 @@ public class Item {
     return type;
   }
 
+  /**
+   * Mutable Item class.
+   *
+   */
   public static class Mutable extends Item {
+    public Mutable(Item item) {
+      super(item);
+    }
+
     public Mutable(
         ItemType type,
         String name,
@@ -166,7 +176,7 @@ public class Item {
     }
 
     public Mutable(
-        Member owner,
+        Member.Mutable owner,
         ItemType type,
         String name,
         String description,
@@ -178,7 +188,7 @@ public class Item {
     }
 
     public Mutable(
-        Member owner,
+        Member.Mutable owner,
         ItemType type,
         String name,
         String description,

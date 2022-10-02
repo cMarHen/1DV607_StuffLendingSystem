@@ -14,6 +14,21 @@ public class Member {
   private int registredDay;
 
   /**
+   * Instanciate Member with the readonly Member-object.
+   *
+   * @param m - Readonly member-object.
+   */
+  public Member(Member m) {
+    this.firstName = m.getFirstName();
+    this.lastName = m.getLastName();
+    this.email = m.getEmail();
+    this.phoneNumber = m.getPhoneNumber();
+    this.credits = m.getCredits();
+    this.id = m.getId();
+    this.registredDay = m.getRegistredDay();
+  }
+
+  /**
    * Instanciate Member with the data presented in the parameters and set credits to 0.
    *
    * @param firstName - User first name, editable later.
@@ -106,6 +121,10 @@ public class Member {
   }
 
   public static class Mutable extends Member {
+
+    public Mutable(Member m){
+      super(m);
+    }
 
     public Mutable(String firstName, String lastName, String email, String phoneNumber){
       super(firstName, lastName, email, phoneNumber);
