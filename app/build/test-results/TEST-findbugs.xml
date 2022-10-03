@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.spotbugs" time="0" tests="13" errors="4" name="findbugs">
+<testsuite package="org.spotbugs" time="0" tests="27" errors="14" name="findbugs">
 <testcase time="0" name="view/Console.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/Item.java" classname="FindBugs Issues">
 <failure message="issues" ><![CDATA[lines: 49-151 
@@ -29,11 +29,35 @@ This code stores a reference to an externally mutable object into the
   many situations.
 ----------------
 ]]></failure>
+</testcase><testcase time="0" name="model/repository/mock/ItemMockOne.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 4-37 
+Unread field: ownerID 
+Unread field 
+This field is never read. Consider removing it from the class.
+----------------
+]]></failure>
+</testcase><testcase time="0" name="model/repository/IMapper.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/domain/LendingContract.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="controller/App.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/mock/IMock.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/mock/MemberMockOne.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/MemberMapper.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/MapperFactory.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 10-16 
+Unused field: mocks 
+Unused field 
+This field is never used. Consider removing it from the class.
+----------------
+]]></failure>
+</testcase><testcase time="0" name="model/repository/mock/MemberMockTwo.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/ObjectIdentifier.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ItemCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/RandomString.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/StuffLendingSystem.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/PersistenceMapper.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 40-324 
+<failure message="issues" ><![CDATA[lines: 55-340 
 new controller.MainController(Console, StuffLendingSystem) may expose 
   internal representation by storing an externally mutable object into 
   MainController.sls 
@@ -46,10 +70,18 @@ This code stores a reference to an externally mutable object into the
   something different. Storing a copy of the object is better approach in 
   many situations.
 ----------------
+lines: 34-46 
+The class name controller.MainController$promptEvent doesn't start with an 
+  upper case letter 
+Class names should start with an upper case letter 
+Class names should be nouns, in mixed case with the first letter of each 
+  internal word capitalized. Try to keep your class names simple and 
+  descriptive. Use whole words-avoid acronyms and abbreviations (unless the 
+  abbreviation is much more widely used than the long form, such as URL or 
+  HTML).
+----------------
 ]]></failure>
 </testcase><testcase time="0" name="model/domain/ItemCollectionImpl.java" classname="FindBugs Issues">
-</testcase><testcase time="0" name="model/domain/LendingContract.java" classname="FindBugs Issues">
-</testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/TypeIteratorImpl.java" classname="FindBugs Issues">
 <failure message="issues" ><![CDATA[lines: 22-48 
 new model.domain.TypeIteratorImpl(Item$ItemType, ArrayList) may expose 
@@ -65,7 +97,86 @@ This code stores a reference to an externally mutable object into the
   many situations.
 ----------------
 ]]></failure>
-</testcase><testcase time="0" name="controller/App.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/PersistenceFacade.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 15-59 
+getItems() may expose internal representation by returning 
+  PersistenceFacade.items 
+May expose internal representation by returning reference to mutable object 
+Returning a reference to a mutable object value stored in one of the 
+  object's fields exposes the internal representation of the object. If 
+  instances are accessed by untrusted code, and unchecked changes to the 
+  mutable object would compromise security or other important properties, 
+  you will need to do something different. Returning a new copy of the 
+  object is better approach in many situations.
+----------------
+lines: 15-59 
+getMembers() may expose internal representation by returning 
+  PersistenceFacade.members 
+May expose internal representation by returning reference to mutable object 
+Returning a reference to a mutable object value stored in one of the 
+  object's fields exposes the internal representation of the object. If 
+  instances are accessed by untrusted code, and unchecked changes to the 
+  mutable object would compromise security or other important properties, 
+  you will need to do something different. Returning a new copy of the 
+  object is better approach in many situations.
+----------------
+lines: 15-59 
+Unread field: mapperFactory 
+Unread field 
+This field is never read. Consider removing it from the class.
+----------------
+]]></failure>
 </testcase><testcase time="0" name="model/domain/Member.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/mock/MockCollection.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/ItemMapper.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 11-47 
+new model.repository.ItemMapper(ArrayList) may expose internal 
+  representation by storing an externally mutable object into 
+  ItemMapper.members 
+May expose internal representation by incorporating reference to mutable 
+  object 
+This code stores a reference to an externally mutable object into the 
+  internal representation of the object. If instances are accessed by 
+  untrusted code, and unchecked changes to the mutable object would 
+  compromise security or other important properties, you will need to do 
+  something different. Storing a copy of the object is better approach in 
+  many situations.
+----------------
+]]></failure>
+</testcase><testcase time="0" name="model/repository/mock/ItemMockTwo.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 4-37 
+Unread field: ownerID 
+Unread field 
+This field is never read. Consider removing it from the class.
+----------------
+]]></failure>
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/domain/OwnerIteratorImpl.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 15-40 
+new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal 
+  representation by storing an externally mutable object into 
+  OwnerIteratorImpl.items 
+May expose internal representation by incorporating reference to mutable 
+  object 
+This code stores a reference to an externally mutable object into the 
+  internal representation of the object. If instances are accessed by 
+  untrusted code, and unchecked changes to the mutable object would 
+  compromise security or other important properties, you will need to do 
+  something different. Storing a copy of the object is better approach in 
+  many situations.
+----------------
+lines: 15-40 
+new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal 
+  representation by storing an externally mutable object into 
+  OwnerIteratorImpl.owner 
+May expose internal representation by incorporating reference to mutable 
+  object 
+This code stores a reference to an externally mutable object into the 
+  internal representation of the object. If instances are accessed by 
+  untrusted code, and unchecked changes to the mutable object would 
+  compromise security or other important properties, you will need to do 
+  something different. Storing a copy of the object is better approach in 
+  many situations.
+----------------
+]]></failure>
 </testcase></testsuite>
