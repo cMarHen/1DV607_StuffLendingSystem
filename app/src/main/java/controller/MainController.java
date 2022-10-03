@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.domain.LendingContract;
 
 /**
@@ -215,7 +217,9 @@ public class MainController {
         model.domain.Item item = sls.findItemById(id);
 
         if (item != null) {
-          ui.printDetailedItem(item);
+          ArrayList<model.domain.LendingContract> expiredContracts = sls.getContractsByItem(item);
+          ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
+          ui.printDetailedItem(item, activeContracts, expiredContracts);
         } else {
           ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
         }
@@ -288,7 +292,6 @@ public class MainController {
     boolean running = true;
 
     do {
-      ui.printDetailedItem(item);
       view.Console.ItemEditEvent event = ui.getEditItemMenuChoice();
 
       if (event == view.Console.ItemEditEvent.EditName) {

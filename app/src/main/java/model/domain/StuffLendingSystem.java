@@ -214,6 +214,14 @@ public class StuffLendingSystem {
     return items.getAllItems();
   }
 
+  public ArrayList<LendingContract> getContractsByItem(Item item) {
+    return contracts.getContractsByItem(item);
+  }
+
+  public ArrayList<LendingContract> getExpiredContractsByItem(Item item) {
+    return contracts.getExpiredContractsByItem(item);
+  }
+
   private String getNewUniqueMemberId() {
     int lengthOfId = 6;
     boolean unique = false;

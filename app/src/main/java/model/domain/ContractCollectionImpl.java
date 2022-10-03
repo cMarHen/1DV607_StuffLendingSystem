@@ -126,6 +126,40 @@ public class ContractCollectionImpl implements ContractCollection {
   }
 
   /**
+   * Finds all active contracts for a specific item.
+   *
+   * @param item - Item to query for match by id in contract.
+   */
+  public ArrayList<LendingContract> getContractsByItem(Item item) {
+    ArrayList<LendingContract> contractsByItem = new ArrayList<>();
+
+    for (LendingContract contract : contracts) {
+      if (item.getId().equals(contract.getItem().getId())) {
+        contractsByItem.add(contract);
+      }
+    }
+
+    return contractsByItem;
+  }
+
+  /**
+   * Finds all expired contracts for a specific item.
+   *
+   * @param item - Item to query for match by id in contract.
+   */
+  public ArrayList<LendingContract> getExpiredContractsByItem(Item item) {
+    ArrayList<LendingContract> expiredContractsByItem = new ArrayList<>();
+
+    for (LendingContract contract : history) {
+      if (item.getId().equals(contract.getItem().getId())) {
+        expiredContractsByItem.add(contract);
+      }
+    }
+
+    return expiredContractsByItem;
+  }
+
+  /**
    * Search whether a owner has an item in not yet expired contracts.
    *
    * @param memberId - Id for the owner to look for.

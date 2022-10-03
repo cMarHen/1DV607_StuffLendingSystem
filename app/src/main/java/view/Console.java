@@ -310,7 +310,7 @@ public class Console {
       System.out.println(" --- ");
       System.out.println("Name: " + item.getName());
       System.out.println("Type: " + item.getType());
-      System.out.println("Avialiable: " + (item.getIsReserved() ? "no" : "yes"));
+      System.out.println("Available: " + (item.getIsReserved() ? "no" : "yes"));
       System.out.println("Id: " + item.getId());
     }
   }
@@ -332,15 +332,20 @@ public class Console {
    *
    * @param item - The item to read all data from.
    */
-  public void printDetailedItem(model.domain.Item item) {
-    // TODO: Needs lending-contracts for matching item.
-    System.out.println(" --- ");
-    System.out.println("Name: " + item.getName());
-    System.out.println("Type: " + item.getType());
-    System.out.println("Description: " + item.getDescription());
-    System.out.println("Cost per day: " + item.getCostPerDay());
-    System.out.println("Avialiable: " + (item.getIsReserved() ? "no" : "yes"));
-    System.out.println("Contracts: " + " IMPLEMENTERA!!!!!! ");
+  public void printDetailedItem(model.domain.Item item, ArrayList<model.domain.LendingContract> activeContracts, ArrayList<model.domain.LendingContract> expiredContracts) {
+    System.out.printf("----------------%n");
+    System.out.printf(" Item Details                                                                                %n");
+    System.out.printf("----------------%n");
+    System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", "Name", "Type", "Description", "Cost/Day", "Available");
+    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
+    System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", item.getName(), item.getType(), item.getDescription(), item.getCostPerDay(), (item.getIsReserved() ? "no" : "yes"));
+    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
+    System.out.printf(" Active Contracts                                                                            %n");
+    System.out.printf("----------------%n");
+    System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", "Start day", "End day", "Lender", "Contract fee");
+    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
+      // TODO: Loop active contracts.
+    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
   }
 
   public String promptInformation(promptEvent event) {
