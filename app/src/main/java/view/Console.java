@@ -2,10 +2,13 @@ package view;
 
 import controller.MainController.ActionEvent;
 import controller.MainController.promptEvent;
-import model.domain.Item.ItemType;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import model.domain.Item;
+import model.domain.Item.ItemType;
+
 
 /**
  * Main class and the Facade for the view.
@@ -285,15 +288,74 @@ public class Console {
    * Prints the list of all members with name, day of registration and id.
    *
    */
-  public void printMemberList(Iterable<? extends model.domain.Member> members) {
-    System.out.println(" --- ");
-
+  public void printMemberList(
+      Iterable<? extends model.domain.Member> members,
+      Iterable<model.domain.Item.Mutable> items
+  ) {
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("                                     Item list     %n");
+    System.out.printf("                                     ( Simple )       %n");
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-6s |%n", "NAME", "EMAIL", "CREDITS", "ITEMS", "ID");
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
     for (model.domain.Member member : members) {
-      System.out.println(member.getFirstName() + " " + member.getLastName());
-      System.out.println("Created day " + member.getRegistredDay() + ". ");
-      System.out.println("Id: " + member.getId());
-      System.out.println(" --- ");
+      ArrayList<Item.Mutable> ownedItems = new ArrayList<>();
+      for (Item.Mutable item : items) {
+        String memberId = member.getId();
+        if (item.getOwner().getId().equals(memberId)) {
+          ownedItems.add(item);
+        }
+      }
+      
+      System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-6s |%n",
+          member.getFirstName() + " " + member.getLastName(),
+          member.getEmail(),
+          member.getCredits(),
+          ownedItems.size(),
+          member.getId());
     }
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
+  }
+
+  /**
+   * Prints the list of all members with name, day of registration and id.
+   *
+   */
+  public void printVerboseMemberList(
+      Iterable<? extends model.domain.Member> members,
+      Iterable<model.domain.Item.Mutable> items
+  ) {
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("                                     Item list     %n");
+    System.out.printf("                                     ( Simple )       %n");
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-6s |%n", "NAME", "EMAIL", "CREDITS", "ITEMS", "ID");
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
+    for (model.domain.Member member : members) {
+      ArrayList<Item.Mutable> ownedItems = new ArrayList<>();
+      for (Item.Mutable item : items) {
+        String memberId = member.getId();
+        if (item.getOwner().getId().equals(memberId)) {
+          ownedItems.add(item);
+        }
+      }
+      
+      System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-6s |%n",
+          member.getFirstName() + " " + member.getLastName(),
+          member.getEmail(),
+          member.getCredits(),
+          ownedItems.size(),
+          member.getId());
+    }
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
   }
   
   /**

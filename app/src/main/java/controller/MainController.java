@@ -104,8 +104,9 @@ public class MainController {
 
       if (event == view.Console.MemberEvent.ListMember) {
         Iterable<model.domain.Member.Mutable> members = sls.getMembers();
+        Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
-        ui.printMemberList(members);
+        ui.printMemberList(members, items);
       }
       
       if (event == view.Console.MemberEvent.DetailedMember) {
