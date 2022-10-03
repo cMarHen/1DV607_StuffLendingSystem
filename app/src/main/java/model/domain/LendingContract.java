@@ -4,7 +4,7 @@ package model.domain;
  * Class to form a lending contract with all details.
  *
  */
-public class LendingContract {
+public class LendingContract implements Comparable<LendingContract> {
   private int startDay;
   private int endDay;
   private int totalContractFee;
@@ -46,4 +46,23 @@ public class LendingContract {
   public int getStartDay() {
     return startDay;
   }
+
+  /**
+   * Compare contracts by startDay.
+   *
+   * @return - Int to signal sorting-order.
+   */
+  public int compareTo(LendingContract contract) {
+    int thisStartDay = this.getStartDay();
+    int compareToStartDay = contract.getStartDay();
+
+    if (thisStartDay > compareToStartDay) {
+      return -1;
+    } else if (thisStartDay < compareToStartDay) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
 }

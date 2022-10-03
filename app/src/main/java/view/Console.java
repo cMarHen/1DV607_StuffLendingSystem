@@ -4,6 +4,7 @@ import controller.MainController.ActionEvent;
 import controller.MainController.promptEvent;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import model.domain.Item;
@@ -402,12 +403,35 @@ public class Console {
     System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
     System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", item.getName(), item.getType(), item.getDescription(), item.getCostPerDay(), (item.getIsReserved() ? "no" : "yes"));
     System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
+    System.out.println();
+    
     System.out.printf(" Active Contracts                                                                            %n");
     System.out.printf("----------------%n");
-    System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", "Start day", "End day", "Lender", "Contract fee");
-    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
-      // TODO: Loop active contracts.
-    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
+    System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", "Start day", "End day", "Lender", "Contract fee");
+    System.out.printf("---------------------------------------------------------------------------%n");
+    
+    if (activeContracts.size() != 0) {
+      Collections.sort(activeContracts);
+      for (model.domain.LendingContract contract : activeContracts) {
+        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", contract.getStartDay(), contract.getEndDay(), contract.getLender().getFirstName() + contract.getLender().getLastName(), contract.getTotalContractFee());
+      }
+      System.out.printf("---------------------------------------------------------------------------%n");
+    }
+    System.out.println();
+    System.out.printf(" Expired Contracts                                                                            %n");
+    System.out.printf("----------------%n");
+    System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", "Start day", "End day", "Lender", "Contract fee");
+    System.out.printf("---------------------------------------------------------------------------%n");
+    
+    if (expiredContracts.size() != 0) {
+      Collections.sort(expiredContracts, Collections.reverseOrder());
+      for (model.domain.LendingContract contract : expiredContracts) {
+        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", contract.getStartDay(), contract.getEndDay(), contract.getLender().getFirstName() + contract.getLender().getLastName(), contract.getTotalContractFee());
+      }
+      System.out.printf("---------------------------------------------------------------------------------------%n");
+    }
+
+    System.out.println();
   }
 
   public String promptInformation(promptEvent event) {
