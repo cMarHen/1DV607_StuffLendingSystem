@@ -1,7 +1,6 @@
 package model.domain;
 
 import java.util.ArrayList;
-import model.domain.Item.ItemType;
 
 /**
  * The main class in the system and the Facade for the model.
@@ -9,10 +8,10 @@ import model.domain.Item.ItemType;
  *
  */
 public class StuffLendingSystem {
-  ArrayList<Member.Mutable> members = new ArrayList<>();
+  MemberCollection members = new MemberCollection();
   ItemCollection items = new ItemCollectionImpl();
   ContractCollectionImpl contracts = new ContractCollectionImpl();
-  RandomString randomStringGenerator = new RandomString();
+  private RandomString randomStringGenerator = new RandomString();
   private int currentDay;
 
   /**
@@ -56,6 +55,10 @@ public class StuffLendingSystem {
     return currentDay;
   }
 
+  public Iterable<Member.Mutable> getMembers() {
+    return members.getMembers();
+  }
+
   /**
    * Instaciate a new Member with unique id and add to the members-list.
    * Fails if email OR phonenumber is not unique.
@@ -64,7 +67,7 @@ public class StuffLendingSystem {
    * @return - A flag if member successfully was added to the stufflending system.
    */
   public boolean addNewMember(Member m) {
-    if (!isUniqueEmailAndPhoneNumber(m.getEmail(), m.getPhoneNumber())) {
+    if (!members.isUniqueEmailAndPhoneNumber(m.getEmail(), m.getPhoneNumber())) {
       return false;
     }
     
@@ -76,7 +79,7 @@ public class StuffLendingSystem {
         m.getPhoneNumber(),
         id,
         currentDay);
-    members.add(newMember);
+    members.addMember(newMember);
 
     return true;
   }
@@ -91,16 +94,15 @@ public class StuffLendingSystem {
    * @return - A flag if the contract was successfully implemented.
    */
   public boolean setUpLendingContract(String lenderId, int startDay, int endDay, String itemId) {
-    Member.Mutable lender = findMemberById(lenderId);
+    Member.Mutable lender = members.findMemberById(lenderId);
     Item.Mutable item = findItemById(itemId);
     LendingContract newContract = new LendingContract(new Member(lender), endDay, new Item(item), startDay);
     boolean successfullyAddedContract = contracts.addContract(newContract);
 
     if (successfullyAddedContract) {
-      Member.Mutable contractedLender = findMemberById(newContract.getLender().getId());
-      Member.Mutable contractedOwner = findMemberById(newContract.getItem().getOwner().getId());
+      Member.Mutable contractedLender = members.findMemberById(newContract.getLender().getId());
+      Member.Mutable contractedOwner = members.findMemberById(newContract.getItem().getOwner().getId());
       
-      // TODO: Should money be taken on booking, or when the loan starts?
       if (!contractedLender.equals(contractedOwner)) {
         int contractFee = newContract.getTotalContractFee();
         contractedLender.removeCredits(contractFee);
@@ -145,7 +147,7 @@ public class StuffLendingSystem {
    * @return - Flag if successfully removed member from the member-list.
    */
   public boolean deleteMember(String id) {
-    Member member = findMemberById(id);
+    Member.Mutable member = members.findMemberById(id);
     ArrayList<Item.Mutable> itemsOwned = items.getItemsByOwner(member);
     Boolean ownerHasReservedItems = contracts.ownerIsInActiveContract(id);
     
@@ -156,7 +158,7 @@ public class StuffLendingSystem {
       }
       
       if (member != null) {
-        members.remove(member);
+        members.removeMember(member);
         return true;
       } 
     }
@@ -190,7 +192,6 @@ public class StuffLendingSystem {
   public Item.Mutable findItemById(String id) {
     Item.Mutable item = items.findItemById(id);
 
-    // TODO: Copy the item here to not let it leave the SLS??????????
     return item;
   }
 
@@ -201,21 +202,7 @@ public class StuffLendingSystem {
    * @return - A mutable member-object or null if not found.
    */
   public Member.Mutable findMemberById(String id) {
-    for (Member.Mutable member : members) {
-      if (member.getId().equals(id)) {
-        return member;
-      }
-    }
-    return null;
-  }
-
-  /**
-   * Get an iterable list of members in the stufflending system.
-   *
-   * @return - A iterable list of members in the stufflending system.
-   */
-  public Iterable<Member.Mutable> getMembers() {
-    return members;
+    return members.findMemberById(id);
   }
 
   /**
@@ -227,15 +214,6 @@ public class StuffLendingSystem {
     return items.getAllItems();
   }
 
-  private boolean isUniqueEmailAndPhoneNumber(String email, String phoneNumber) {
-    for (Member member : members) {
-      if (member.getEmail().equals(email) || member.getPhoneNumber().equals(phoneNumber)) {
-        return false;
-      }
-    }
-    return true;
-  }
-
   private String getNewUniqueMemberId() {
     int lengthOfId = 6;
     boolean unique = false;
@@ -243,18 +221,9 @@ public class StuffLendingSystem {
 
     while (!unique) {
       id = randomStringGenerator.getAlphanumeric(lengthOfId);
-      unique = isUniqueMemberId(id);
+      unique = members.isUniqueMemberId(id);
     }
     return id;
-  }
-
-  private boolean isUniqueMemberId(String id) {
-    for (Member member : members) {
-      if (member.getId().equals(id)) {
-        return false;
-      }
-    }
-    return true;
   }
 
   private String getNewUniqueItemId() {
