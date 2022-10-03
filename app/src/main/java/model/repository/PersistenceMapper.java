@@ -1,5 +1,8 @@
 package model.repository;
 
+/**
+ * Abstract class PersistenceMapper.
+ */
 public abstract class PersistenceMapper implements Mapper {
   @Override
   public Object get(ObjectIdentifier oid) {

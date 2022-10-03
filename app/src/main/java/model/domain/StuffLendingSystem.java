@@ -169,7 +169,7 @@ public class StuffLendingSystem {
   /**
    * Removes item from the item-list.
    * Fails if no member with the id is found in the list.
-   * 
+   *
    * @param id - Id for querying the item-list.
    * @return - Flag if successfully removed item from the item-list.
    */

@@ -1,16 +1,18 @@
 package model.repository;
 
-import java.util.ArrayList;
-
 import model.domain.Item;
+import model.domain.Item.ItemType;
 import model.domain.ItemCollection;
 import model.domain.ItemCollectionImpl;
 import model.domain.Member;
 import model.domain.MemberCollection;
-import model.domain.Item.ItemType;
 import model.repository.mock.Mock;
 import model.repository.mock.MockCollection;
 
+/**
+ * Class ItemMapper, used for mapping items from DB.
+ * RDBMapper : Item
+ */
 public class ItemMapper extends PersistenceMapper {
   private MockCollection mocks;
   private MemberCollection members;
@@ -41,7 +43,11 @@ public class ItemMapper extends PersistenceMapper {
     return newItem;
   }
 
-
+  /**
+   * Load all items.
+   *
+   * @return - ItemCollection with items from database.
+   */
   public ItemCollection loadAllItems() {
     ItemCollection i = new ItemCollectionImpl();
 

@@ -5,8 +5,11 @@ import model.domain.MemberCollection;
 import model.repository.mock.Mock;
 import model.repository.mock.MockCollection;
 
-// RDBMapper : Member
-public class MemberMapper extends PersistenceMapper{
+/**
+ * Class MemberMapper, used for mapping members from DB.
+ * RDBMapper : Member
+ */
+public class MemberMapper extends PersistenceMapper {
   private MockCollection mocks;
 
   public MemberMapper() {
@@ -20,18 +23,22 @@ public class MemberMapper extends PersistenceMapper{
     Mock m = mocks.searchMockByOid(key);
     
     Member.Mutable newMember = new Member.Mutable(
-      m.getColumn("FIRST_NAME"),
-      m.getColumn("LAST_NAME"),
-      m.getColumn("EMAIL"),
-      m.getColumn("PHONE_NUMBER"),
-      m.getColumn("ALPHA_ID"),
-      Integer.parseInt(m.getColumn("REGISTERED_DAY")),
-      Integer.parseInt(m.getColumn("CREDITS"))
-      );
+        m.getColumn("FIRST_NAME"),
+        m.getColumn("LAST_NAME"),
+        m.getColumn("EMAIL"),
+        m.getColumn("PHONE_NUMBER"),
+        m.getColumn("ALPHA_ID"),
+        Integer.parseInt(m.getColumn("REGISTERED_DAY")),
+        Integer.parseInt(m.getColumn("CREDITS"))
+        );
     return newMember;
   }
 
-
+  /**
+   * Load all members.
+   *
+   * @return - MemberCollection with members from database.
+   */
   public MemberCollection loadAllMembers() {
     MemberCollection m = new MemberCollection();
     // mocks.getAllMembers()
