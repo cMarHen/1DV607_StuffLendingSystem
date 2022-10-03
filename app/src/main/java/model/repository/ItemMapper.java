@@ -3,16 +3,19 @@ package model.repository;
 import java.util.ArrayList;
 
 import model.domain.Item;
+import model.domain.ItemCollection;
+import model.domain.ItemCollectionImpl;
 import model.domain.Member;
+import model.domain.MemberCollection;
 import model.domain.Item.ItemType;
-import model.repository.mock.IMock;
+import model.repository.mock.Mock;
 import model.repository.mock.MockCollection;
 
 public class ItemMapper extends PersistenceMapper {
   private MockCollection mocks;
-  private ArrayList<Member.Mutable> members;
+  private MemberCollection members;
 
-  public ItemMapper(ArrayList<Member.Mutable> members) {
+  public ItemMapper(MemberCollection members) {
     this.mocks = new MockCollection(); // TODO: Should this be in superclass?
     this.members = members; // TODO: This is not good, strong coupling.
   }
@@ -21,29 +24,29 @@ public class ItemMapper extends PersistenceMapper {
   @Override
   protected Item getObjectFromStorage(ObjectIdentifier oid) {
     String key = oid.toString();
-    IMock i = mocks.searchMockByOid(key);
+    Mock item = mocks.searchMockByOid(key);
     // TODO: Hard coded an owner.
-    Member.Mutable m = /* i.getColumn("OWNER_ID") */ members.get(0); 
+    Member.Mutable m = members.findMemberById(item.getColumn("OWNER_ID")); 
 
     Item newItem = new Item(
-      m,
-      ItemType.valueOf(i.getColumn("TYPE")),
-      i.getColumn("NAME"),
-      i.getColumn("DESCRIPTION"),
-      i.getColumn("ALPHA_ID"),
-      Integer.parseInt(i.getColumn("CREATION_DAY")),
-      Integer.parseInt(i.getColumn("COST")),
-      i.getColumn("IS_RESERVED").equals("true") // TODO: Is this correct?
-      );
+        m,
+        ItemType.valueOf(item.getColumn("TYPE")),
+        item.getColumn("NAME"),
+        item.getColumn("DESCRIPTION"),
+        item.getColumn("ALPHA_ID"),
+        Integer.parseInt(item.getColumn("CREATION_DAY")),
+        Integer.parseInt(item.getColumn("COST")),
+        item.getColumn("IS_RESERVED").equals("true") // TODO: Is this correct?
+        );
     return newItem;
   }
 
 
-  public ArrayList<Item> loadAllItems() {
-    ArrayList<Item> i = new ArrayList<>();
+  public ItemCollection loadAllItems() {
+    ItemCollection i = new ItemCollectionImpl();
 
-    i.add(getObjectFromStorage(new ObjectIdentifier("oid_232345")));
-    i.add(getObjectFromStorage(new ObjectIdentifier("oid_233456")));
+    i.addItem(getObjectFromStorage(new ObjectIdentifier("oid_232345")));
+    i.addItem(getObjectFromStorage(new ObjectIdentifier("oid_233456")));
 
     return i;
   }

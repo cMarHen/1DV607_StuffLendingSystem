@@ -2,14 +2,16 @@ package model.domain;
 
 import java.util.ArrayList;
 
+import model.repository.PersistenceFacade;
+
 /**
  * The main class in the system and the Facade for the model.
  * This class handles members, items and contracts in the Stufflending System.
  *
  */
 public class StuffLendingSystem {
-  MemberCollection members = new MemberCollection();
-  ItemCollection items = new ItemCollectionImpl();
+  MemberCollection members;
+  ItemCollection items;
   ContractCollectionImpl contracts = new ContractCollectionImpl();
   private RandomString randomStringGenerator = new RandomString();
   private int currentDay;
@@ -17,14 +19,16 @@ public class StuffLendingSystem {
   /**
    * TODO: Remove this.
    */
-  public StuffLendingSystem() {
+  public StuffLendingSystem(PersistenceFacade p) {
+    this.members = p.getMembers();
+    this.items = p.getItems();
     this.currentDay = 0;
 
-    Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
+    /* Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
     Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     addNewMember(m1);
-    addNewMember(m2);
-/* 
+    addNewMember(m2); */
+    /* 
     addNewItem(findMemberById(m1.getId()), new Item(ItemType.Tool, "kratta", "Rinsing leafs", 20));
     addNewItem(findMemberById(m1.getId()), new Item(ItemType.Game, "Super Mario", "playing", 50));
     addNewItem(findMemberById(m2.getId()), new Item(ItemType.Sport, "Arsenal jersey", "jersey size xl", 80));  */   

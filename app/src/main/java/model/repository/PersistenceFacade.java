@@ -6,25 +6,23 @@ import model.domain.Item;
 import model.domain.ItemCollection;
 import model.domain.ItemCollectionImpl;
 import model.domain.Member;
+import model.domain.MemberCollection;
 
 public class PersistenceFacade {
   MapperFactory mapperFactory;
-  ArrayList<Member.Mutable> members;
+  MemberCollection members;
   ItemCollection items;
 
   public PersistenceFacade() {
     this.mapperFactory = new MapperFactory();
-    
-    this.members = new ArrayList<>();
-    this.items = new ItemCollectionImpl();
 
     loadMembers();
     loadItems(members); 
-    // loadContracts();
+    // loadContracts(members, items);
   }
 
   // Return MemberCollection, used in SLS
-  public ArrayList<Member.Mutable> getMembers() {
+  public MemberCollection getMembers() {
     return members;
   }
 
@@ -41,21 +39,13 @@ public class PersistenceFacade {
 
   private void loadMembers() {
     MemberMapper mapper = new MemberMapper();
-    ArrayList<Member.Mutable> membersFromDb = mapper.loadAllMembers();
-
-    for (Member.Mutable m : membersFromDb) {
-      members.add(m);
-    }
+    this.members = mapper.loadAllMembers();
   }
 
   // Inject with members to be used when assign owners.
-  private void loadItems(ArrayList<Member.Mutable> members) {
+  private void loadItems(MemberCollection members) {
     ItemMapper mapper = new ItemMapper(members);
-    ArrayList<Item> listOfItems = mapper.loadAllItems();
-
-    for (Item item : listOfItems) {
-      items.addItem(item);
-    }
+    this.items = mapper.loadAllItems();
   }
 
 }
