@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-
 import model.domain.Item;
 import model.domain.LendingContract;
 import model.domain.Member;
@@ -35,7 +34,11 @@ public class MainController {
     ERR_CREATE_CONTRACT
   }
 
-  public static enum promptEvent {
+  /**
+   * The types of prompts to use in communication with view.
+   *
+   */
+  public static enum PromptEvent {
     ItemId,
     MemberId,
     FirstName,
@@ -130,7 +133,7 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.DetailedMember) {
-        String id = ui.promptInformation(promptEvent.MemberId);
+        String id = ui.promptInformation(PromptEvent.MemberId);
         
         model.domain.Member member = sls.findMemberById(id);
         
@@ -142,7 +145,7 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.EditMember) {
-        String id = ui.promptInformation(promptEvent.MemberId);
+        String id = ui.promptInformation(PromptEvent.MemberId);
 
         model.domain.Member.Mutable member = sls.findMemberById(id);
 
@@ -156,7 +159,7 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.DeleteMember) {
-        String id = ui.promptInformation(promptEvent.MemberId);
+        String id = ui.promptInformation(PromptEvent.MemberId);
 
         boolean isSucceeded = sls.deleteMember(id);
 
@@ -174,25 +177,25 @@ public class MainController {
       view.Console.MemberEditEvent event = ui.getEditMemberMenuChoice();
 
       if (event == view.Console.MemberEditEvent.EditFirstName) {
-        String firstName =  ui.promptInformation(promptEvent.FirstName);
+        String firstName =  ui.promptInformation(PromptEvent.FirstName);
 
         member.setFirstName(firstName);
       }
 
       if (event == view.Console.MemberEditEvent.EditLastName) {
-        String lastName =  ui.promptInformation(promptEvent.LastName);
+        String lastName =  ui.promptInformation(PromptEvent.LastName);
 
         member.setLastName(lastName);
       }
 
       if (event == view.Console.MemberEditEvent.EditEmail) {
-        String email =  ui.promptInformation(promptEvent.Email);
+        String email =  ui.promptInformation(PromptEvent.Email);
 
         member.setEmail(email);
       }
 
       if (event == view.Console.MemberEditEvent.EditPhone) {
-        String phoneNumber =  ui.promptInformation(promptEvent.PhoneNumber);
+        String phoneNumber =  ui.promptInformation(PromptEvent.PhoneNumber);
 
         member.setPhoneNumber(phoneNumber);
       }
@@ -211,7 +214,7 @@ public class MainController {
       view.Console.ItemEvent event = ui.getItemMenuChoice();
 
       if (event == view.Console.ItemEvent.AddItem) {
-        String memberId =  ui.promptInformation(promptEvent.MemberId);
+        String memberId =  ui.promptInformation(PromptEvent.MemberId);
         model.domain.Member.Mutable member = sls.findMemberById(memberId);
 
         if (member != null) {
@@ -231,7 +234,7 @@ public class MainController {
       }
 
       if (event == view.Console.ItemEvent.DetailedItem) {
-        String id =  ui.promptInformation(promptEvent.ItemId);
+        String id =  ui.promptInformation(PromptEvent.ItemId);
 
         model.domain.Item item = sls.findItemById(id);
 
@@ -245,7 +248,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.EditItem) {
-        String id = ui.promptInformation(promptEvent.ItemId);
+        String id = ui.promptInformation(PromptEvent.ItemId);
 
         model.domain.Item.Mutable item = sls.findItemById(id);
 
@@ -258,7 +261,7 @@ public class MainController {
       }
 
       if (event == view.Console.ItemEvent.LendItem) {
-        String itemId = ui.promptInformation(promptEvent.ItemId);
+        String itemId = ui.promptInformation(PromptEvent.ItemId);
         model.domain.Item item = sls.findItemById(itemId);
 
         if (item == null) {
@@ -266,7 +269,7 @@ public class MainController {
           return;
         }
 
-        String lenderId = ui.promptInformation(promptEvent.MemberId);
+        String lenderId = ui.promptInformation(PromptEvent.MemberId);
         model.domain.Member lender = sls.findMemberById(lenderId);
 
         if (lender == null) {
@@ -279,10 +282,10 @@ public class MainController {
 
         int startDayOfLoan = 0;
         do {
-          startDayOfLoan = ui.promptInformationInt(promptEvent.LoanStartDay); 
+          startDayOfLoan = ui.promptInformationInt(PromptEvent.LoanStartDay); 
         } while (startDayOfLoan < currentDay);
 
-        int daysToLoan = ui.promptInformationInt(promptEvent.AmountOfLoanDays);
+        int daysToLoan = ui.promptInformationInt(PromptEvent.AmountOfLoanDays);
         int endDay = startDayOfLoan + daysToLoan;
 
         model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
@@ -295,7 +298,7 @@ public class MainController {
       } 
 
       if (event == view.Console.ItemEvent.DeleteItem) {
-        String itemId = ui.promptInformation(promptEvent.ItemId);
+        String itemId = ui.promptInformation(PromptEvent.ItemId);
         Boolean isSucceeded = sls.deleteItem(itemId);
 
         ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
@@ -314,19 +317,19 @@ public class MainController {
       view.Console.ItemEditEvent event = ui.getEditItemMenuChoice();
 
       if (event == view.Console.ItemEditEvent.EditName) {
-        String name = ui.promptInformation(promptEvent.Name);
+        String name = ui.promptInformation(PromptEvent.Name);
 
         item.setName(name);
       }
       
       if (event == view.Console.ItemEditEvent.EditDescription) {
-        String description = ui.promptInformation(promptEvent.Description);
+        String description = ui.promptInformation(PromptEvent.Description);
 
         item.setDescription(description);
       }
 
       if (event == view.Console.ItemEditEvent.EditCost) {
-        int cost = ui.promptInformationInt(promptEvent.CostPerDay);
+        int cost = ui.promptInformationInt(PromptEvent.CostPerDay);
 
         item.setCostPerDay(cost);
       }
@@ -339,7 +342,7 @@ public class MainController {
   }
   
   private void doForwardDayMenu() {
-    int amountOfDaysToProceed = ui.promptInformationInt(promptEvent.ForwardDay);
+    int amountOfDaysToProceed = ui.promptInformationInt(PromptEvent.ForwardDay);
     
     for (int i = 0; i < amountOfDaysToProceed; i++) {
       sls.incrementCurrentDay();

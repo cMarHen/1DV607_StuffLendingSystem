@@ -1,87 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.checkstyle" time="0" tests="29" errors="27" name="checkstyle">
+<testsuite package="org.checkstyle" time="0" tests="29" errors="16" name="checkstyle">
 <testcase time="0" name="controller/App.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 34 column: column:3 
-Missing a Javadoc comment.
-----------------
-line: 34 column: column:22 
-Type name 'promptEvent' must match pattern '^[A-Z][a-zA-Z0-9]*$'.
-----------------
-line: 98 column: column:38 
-WhitespaceAround: '=' is not preceded with whitespace.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollectionImpl.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 90 column: 
-Javadoc tag '@param' should be preceded with an empty line.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/Item.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 199 column: column:6 
-WhitespaceAround: '{' is not preceded with whitespace.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/ItemCollection.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ItemCollectionImpl.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/LendingContract.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/Member.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 123 column: column:3 
-Missing a Javadoc comment.
-----------------
-line: 125 column: column:29 
-WhitespaceAround: '{' is not preceded with whitespace.
-----------------
-line: 129 column: column:88 
-WhitespaceAround: '{' is not preceded with whitespace.
-----------------
-line: 139 column: column:26 
-WhitespaceAround: '{' is not preceded with whitespace.
-----------------
-line: 150 column: column:21 
-WhitespaceAround: '{' is not preceded with whitespace.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/MemberCollection.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 5 column: column:1 
-Missing a Javadoc comment.
-----------------
-line: 41 column: column:3 
-Missing a Javadoc comment.
-----------------
-line: 50 column: column:3 
-Missing a Javadoc comment.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/OwnerIteratorImpl.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 15 column: column:3 
-Missing a Javadoc comment.
-----------------
-line: 20 column: column:3 
-'METHOD_DEF' should be separated from previous statement.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/RandomString.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/StuffLendingSystem.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 5 column: column:1 
-Extra separation in import group before 
-  'model.repository.PersistenceFacade'
-----------------
-line: 177 column: 
-Javadoc tag '@param' should be preceded with an empty line.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/TypeIteratorImpl.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/ItemMapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/Mapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/MapperFactory.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/MemberMapper.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 12 column: column:52 
-WhitespaceAround: '{' is not preceded with whitespace.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/repository/mock/ItemMockOne.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/ItemMockTwo.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/MemberMockOne.java" classname="CheckStyle Issues">
@@ -92,34 +29,53 @@ WhitespaceAround: '{' is not preceded with whitespace.
 </testcase><testcase time="0" name="model/repository/PersistenceFacade.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/PersistenceMapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="view/Console.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 7 column: column:1 
-Extra separation in import group before 'java.util.ArrayList'
+<failure message="issues" ><![CDATA[line: 2 column: column:1 
+'import' should be separated from previous statement.
 ----------------
-line: 7 column: column:1 
-Wrong lexicographical order for 'java.util.ArrayList' import. Should be 
-  before 'model.domain.Item.ItemType'.
+line: 382 column: 
+Line is longer than 120 characters (found 172).
 ----------------
-line: 8 column: column:1 
-Wrong lexicographical order for 'java.util.Scanner' import. Should be 
-  before 'model.domain.Item.ItemType'.
+line: 385 column: 
+Line is longer than 120 characters (found 121).
 ----------------
-line: 346 column: column:3 
+line: 388 column: 
+Line is longer than 120 characters (found 125).
+----------------
+line: 389 column: 
+Line is longer than 120 characters (found 128).
+----------------
+line: 390 column: 
+Line is longer than 120 characters (found 185).
+----------------
+line: 393 column: 
+Line is longer than 120 characters (found 121).
+----------------
+line: 401 column: 
+Line is longer than 120 characters (found 223).
+----------------
+line: 406 column: 
+Line is longer than 120 characters (found 122).
+----------------
+line: 414 column: 
+Line is longer than 120 characters (found 223).
+----------------
+line: 424 column: column:3 
 Missing a Javadoc comment.
 ----------------
-line: 368 column: column:3 
+line: 446 column: column:3 
 Missing a Javadoc comment.
 ----------------
-line: 484 column: column:1 
+line: 562 column: column:1 
 Line contains a tab character.
 ----------------
-line: 484 column: column:9 
+line: 562 column: column:9 
 'method def modifier' has incorrect indentation level 8, expected level 
   should be 2.
 ----------------
-line: 486 column: column:1 
+line: 564 column: column:1 
 Line contains a tab character.
 ----------------
-line: 486 column: column:9 
+line: 564 column: column:9 
 'method def rcurly' has incorrect indentation level 8, expected level 
   should be 2.
 ----------------

@@ -88,7 +88,7 @@ public class ContractCollectionImpl implements ContractCollection {
 
   /**
    * Search wheter an item has any active contracts.
-   * 
+   *
    * @param id - Id for the item to look for.
    * @return- Flag if item has any active contract.
    */
@@ -189,7 +189,10 @@ public class ContractCollectionImpl implements ContractCollection {
     // Validate that the item does'nt have any other contracts during the lending-period.
     ArrayList<LendingContract> activeContractsForItem = getContractsByItem(contract.getItem());
     for (LendingContract activeContract : activeContractsForItem) {
-      if ((activeContract.getStartDay() >= contract.getStartDay()) && (activeContract.getStartDay() <= contract.getEndDay())) {
+      if (
+          (activeContract.getStartDay() >= contract.getStartDay())
+          && (activeContract.getStartDay() <= contract.getEndDay())
+      ) {
         return false;
       }
     }

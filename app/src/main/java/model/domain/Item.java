@@ -196,7 +196,7 @@ public class Item {
         int dayOfCreation,
         int costPerDay,
         boolean isReserved
-    ){
+    ) {
       super(owner, type, name, description, id, dayOfCreation, costPerDay, isReserved);
     }
 

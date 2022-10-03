@@ -1,6 +1,6 @@
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\App.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$ActionEvent.class
-C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$promptEvent.class
+C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$PromptEvent.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ContractCollection.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ContractCollectionImpl.class

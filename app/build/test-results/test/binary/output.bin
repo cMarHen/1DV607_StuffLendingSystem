@@ -1,76 +1,22 @@
 ^0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
-i3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
-!text:line: 34 column: column:3 
-Missing a Javadoc comment.
-
-"text:line: 34 column: column:22 
-CType name 'promptEvent' must match pattern '^[A-Z][a-zA-Z0-9]*$'.
-
-"text:line: 98 column: column:38 
-8WhitespaceAround: '=' is not preceded with whitespace.
-
+i0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
 o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollection.java
-s1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollectionImpl.java
-text:line: 90 column: 
-=Javadoc tag '@param' should be preceded with an empty line.
-
-a1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Item.java
-"text:line: 199 column: column:6 
-8WhitespaceAround: '{' is not preceded with whitespace.
-
+s0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollectionImpl.java
+a0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Item.java
 k0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ItemCollection.java
 o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ItemCollectionImpl.java
 i0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ItemIterator.java
 l0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/LendingContract.java
-c5 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Member.java
-"text:line: 123 column: column:3 
-Missing a Javadoc comment.
-
-#text:line: 125 column: column:29 
-8WhitespaceAround: '{' is not preceded with whitespace.
-
-#text:line: 129 column: column:88 
-8WhitespaceAround: '{' is not preceded with whitespace.
-
-#text:line: 139 column: column:26 
-8WhitespaceAround: '{' is not preceded with whitespace.
-
-#text:line: 150 column: column:21 
-8WhitespaceAround: '{' is not preceded with whitespace.
-
-m3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/MemberCollection.java
- text:line: 5 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 41 column: column:3 
-Missing a Javadoc comment.
-
-!text:line: 50 column: column:3 
-Missing a Javadoc comment.
-
-n2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/OwnerIteratorImpl.java
-!text:line: 15 column: column:3 
-Missing a Javadoc comment.
-
-!text:line: 20 column: column:3 
-;'METHOD_DEF' should be separated from previous statement.
-
+c0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Member.java
+m0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/MemberCollection.java
+n0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/OwnerIteratorImpl.java
 i0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/RandomString.java
-o2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
- text:line: 5 column: column:1 
-NExtra separation in import group before 'model.repository.PersistenceFacade'
-
-text:line: 177 column: 
-=Javadoc tag '@param' should be preceded with an empty line.
-
+o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
 m0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
 k0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ItemMapper.java
 g0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/Mapper.java
 n0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MapperFactory.java
-m1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MemberMapper.java
-"text:line: 12 column: column:52 
-8WhitespaceAround: '{' is not preceded with whitespace.
-
+m0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MemberMapper.java
 q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockOne.java
 q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockTwo.java
 s0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockOne.java
@@ -80,34 +26,53 @@
 q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ObjectIdentifier.java
 r0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceFacade.java
 r0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceMapper.java
-\9 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
- text:line: 7 column: column:1 
-?Extra separation in import group before 'java.util.ArrayList'
+]16 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
+ text:line: 2 column: column:1 
+7'import' should be separated from previous statement.
 
- text:line: 7 column: column:1 
-QWrong lexicographical order for 'java.util.ArrayList' import. Should be before 
-!  'model.domain.Item.ItemType'.
+text:line: 382 column: 
+1Line is longer than 120 characters (found 172).
 
- text:line: 8 column: column:1 
-OWrong lexicographical order for 'java.util.Scanner' import. Should be before 
-!  'model.domain.Item.ItemType'.
+text:line: 385 column: 
+1Line is longer than 120 characters (found 121).
 
-"text:line: 346 column: column:3 
+text:line: 388 column: 
+1Line is longer than 120 characters (found 125).
+
+text:line: 389 column: 
+1Line is longer than 120 characters (found 128).
+
+text:line: 390 column: 
+1Line is longer than 120 characters (found 185).
+
+text:line: 393 column: 
+1Line is longer than 120 characters (found 121).
+
+text:line: 401 column: 
+1Line is longer than 120 characters (found 223).
+
+text:line: 406 column: 
+1Line is longer than 120 characters (found 122).
+
+text:line: 414 column: 
+1Line is longer than 120 characters (found 223).
+
+"text:line: 424 column: column:3 
 Missing a Javadoc comment.
 
-"text:line: 368 column: column:3 
+"text:line: 446 column: column:3 
 Missing a Javadoc comment.
 
-"text:line: 484 column: column:1 
+"text:line: 562 column: column:1 
  Line contains a tab character.
 
-"text:line: 484 column: column:9 
+"text:line: 562 column: column:9 
 V'method def modifier' has incorrect indentation level 8, expected level should be 2.
 
-"text:line: 486 column: column:1 
+"text:line: 564 column: column:1 
  Line contains a tab character.
 
-"text:line: 486 column: column:9 
+"text:line: 564 column: column:9 
 T'method def rcurly' has incorrect indentation level 8, expected level should be 2.
 
 (0 FindBugs Issues in view/Console.java
@@ -140,7 +105,7 @@
 G  Storing a copy of the object is better approach in many situations.
 
 91 FindBugs Issues in model/domain/MemberCollection.java
-text:lines: 5-56 
+text:lines: 9-74 
 XgetMembers() may expose internal representation by returning MemberCollection.members 
 NMay expose internal representation by returning reference to mutable object 
 cReturning a reference to a mutable object value stored in one of the object's fields exposes the 
@@ -150,7 +115,22 @@
   situations.
 
 =0 FindBugs Issues in model/repository/mock/ItemMockOne.java
-80 FindBugs Issues in model/domain/LendingContract.java
+81 FindBugs Issues in model/domain/LendingContract.java
+text:lines: 7-77 
+[model.domain.LendingContract defines compareTo(LendingContract) and uses Object.equals() 
+8Class defines compareTo(...) and uses Object.equals() 
+eThis class defines a compareTo(...) method but inherits its equals() method from java.lang.Object. 
+e  Generally, the value of compareTo should return zero if and only if equals returns true. If this 
+g  is violated, weird and unpredictable failures will occur in classes such as PriorityQueue. In Java 
+d  5 the PriorityQueue.remove method uses the compareTo method, while in Java 6 it uses the equals 
+  method. 
+ 
+eFrom the JavaDoc for the compareTo method in the Comparable interface: It is strongly recommended, 
+g  but not strictly required that (x.compareTo(y)==0) == (x.equals(y)). Generally speaking, any class 
+f  that implements the Comparable interface and violates this condition should clearly indicate this 
+d  fact. The recommended language is "Note: this class has a natural ordering that is inconsistent 
+  with equals."
+
 ?0 FindBugs Issues in model/domain/ContractCollectionImpl.java
 50 FindBugs Issues in model/domain/ItemIterator.java
 *0 FindBugs Issues in controller/App.java
@@ -164,8 +144,8 @@
 ;0 FindBugs Issues in model/domain/StuffLendingSystem.java
 30 FindBugs Issues in model/repository/Mapper.java
 >0 FindBugs Issues in model/repository/PersistenceMapper.java
-52 FindBugs Issues in controller/MainController.java
-text:lines: 55-324 
+51 FindBugs Issues in controller/MainController.java
+text:lines: 62-352 
 cnew controller.MainController(Console, StuffLendingSystem) may expose internal representation by 
 A  storing an externally mutable object into MainController.sls 
 RMay expose internal representation by incorporating reference to mutable object 
@@ -173,15 +153,6 @@
 e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
 f  would compromise security or other important properties, you will need to do something different. 
 G  Storing a copy of the object is better approach in many situations.
-
-text:lines: 34-46 
-_The class name controller.MainController$promptEvent doesn't start with an upper case letter 
-5Class names should start with an upper case letter 
-fClass names should be nouns, in mixed case with the first letter of each internal word capitalized. 
-\  Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and 
-g  abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or 
-
-  HTML).
 
 ;1 FindBugs Issues in model/domain/ItemCollectionImpl.java
 text:lines: 17-82 
@@ -243,7 +214,7 @@
 =0 FindBugs Issues in model/repository/mock/ItemMockTwo.java
 ;0 FindBugs Issues in model/domain/ContractCollection.java
 :1 FindBugs Issues in model/domain/OwnerIteratorImpl.java
-text:lines: 15-40 
+text:lines: 21-47 
 fnew model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal representation by storing 
 >  an externally mutable object into OwnerIteratorImpl.items 
 RMay expose internal representation by incorporating reference to mutable object 

@@ -12,11 +12,18 @@ public class OwnerIteratorImpl implements ItemIterator {
   private Member owner;
   private int position;
 
+  /**
+   * Constructor for OwnerIteratorImpl.
+   *
+   * @param owner - A member as owner.
+   * @param items - The list of items to search.
+   */
   public OwnerIteratorImpl(Member owner, ArrayList<Item.Mutable> items) {
     this.items = items;
     this.owner = owner;
     this.position = 0;
   }
+
   @Override
   public boolean hasNext() {
     

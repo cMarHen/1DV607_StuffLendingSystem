@@ -1,15 +1,15 @@
 package view;
 
 import controller.MainController.ActionEvent;
-import controller.MainController.promptEvent;
+import controller.MainController.PromptEvent;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
 import model.domain.Item;
-import model.domain.Member;
 import model.domain.Item.ItemType;
+import model.domain.Member;
 
 
 /**
@@ -355,7 +355,7 @@ public class Console {
     if (!items.iterator().hasNext()) {
       System.out.println("No items to show.");
     }
-    
+
     for (model.domain.Item item : items) {
       System.out.println(" --- ");
       System.out.println("Name: " + item.getName());
@@ -424,36 +424,36 @@ public class Console {
     System.out.println();
   }
 
-  public String promptInformation(promptEvent event) {
-    if (event == promptEvent.ItemId) {
+  public String promptInformation(PromptEvent event) {
+    if (event == PromptEvent.ItemId) {
       return promptForString("Enter the item ID: ");
-    } else if (event == promptEvent.MemberId) {
+    } else if (event == PromptEvent.MemberId) {
       return promptForString("Enter the member ID: ");
-    } else if (event == promptEvent.FirstName) {
+    } else if (event == PromptEvent.FirstName) {
       return promptForString("Enter first name: ");
-    } else if (event == promptEvent.LastName) {
+    } else if (event == PromptEvent.LastName) {
       return promptForString("Enter last name: ");
-    } else if (event == promptEvent.Email) {
+    } else if (event == PromptEvent.Email) {
       return promptForString("Enter email: ");
-    } else if (event == promptEvent.PhoneNumber) {
+    } else if (event == PromptEvent.PhoneNumber) {
       return promptForString("Enter phone number: ");
-    } else if (event == promptEvent.Name) {
+    } else if (event == PromptEvent.Name) {
       return promptForString("Enter name: ");
-    } else if (event == promptEvent.Description) {
+    } else if (event == PromptEvent.Description) {
       return promptForString("Enter description: ");
     }
-      
+
     return null;
   }
 
-  public int promptInformationInt(promptEvent event) {
-    if (event == promptEvent.CostPerDay) {
+  public int promptInformationInt(PromptEvent event) {
+    if (event == PromptEvent.CostPerDay) {
       return promptForInt("Enter the cost per day: ");
-    } else if (event == promptEvent.LoanStartDay) {
+    } else if (event == PromptEvent.LoanStartDay) {
       return promptForInt("From which day do you want to book this item?: ");
-    } else if (event == promptEvent.AmountOfLoanDays) {
+    } else if (event == PromptEvent.AmountOfLoanDays) {
       return promptForInt("Number of days to loan the item: ");
-    } else if (event == promptEvent.ForwardDay) {
+    } else if (event == PromptEvent.ForwardDay) {
       return promptForInt("How many days do you want to proceed?: ");
     } 
     
@@ -562,7 +562,7 @@ public class Console {
     return input;
   }
 
-	public void notifyCurrentDay(int currentDay) {
+  public void notifyCurrentDay(int currentDay) {
     System.out.println("The current day is: " + currentDay);
-	}
+  }
 }

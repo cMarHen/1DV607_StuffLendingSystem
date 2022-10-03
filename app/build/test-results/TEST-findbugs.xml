@@ -40,7 +40,7 @@ This code stores a reference to an externally mutable object into the
 ----------------
 ]]></failure>
 </testcase><testcase time="0" name="model/domain/MemberCollection.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 5-56 
+<failure message="issues" ><![CDATA[lines: 9-74 
 getMembers() may expose internal representation by returning 
   MemberCollection.members 
 May expose internal representation by returning reference to mutable object 
@@ -54,6 +54,25 @@ Returning a reference to a mutable object value stored in one of the
 ]]></failure>
 </testcase><testcase time="0" name="model/repository/mock/ItemMockOne.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/LendingContract.java" classname="FindBugs Issues">
+<failure message="issues" ><![CDATA[lines: 7-77 
+model.domain.LendingContract defines compareTo(LendingContract) and uses 
+  Object.equals() 
+Class defines compareTo(...) and uses Object.equals() 
+This class defines a compareTo(...) method but inherits its equals() method 
+  from java.lang.Object. Generally, the value of compareTo should return 
+  zero if and only if equals returns true. If this is violated, weird and 
+  unpredictable failures will occur in classes such as PriorityQueue. In 
+  Java 5 the PriorityQueue.remove method uses the compareTo method, while 
+  in Java 6 it uses the equals method. 
+ 
+From the JavaDoc for the compareTo method in the Comparable interface: It 
+  is strongly recommended, but not strictly required that 
+  (x.compareTo(y)==0) == (x.equals(y)). Generally speaking, any class that 
+  implements the Comparable interface and violates this condition should 
+  clearly indicate this fact. The recommended language is "Note: this class 
+  has a natural ordering that is inconsistent with equals."
+----------------
+]]></failure>
 </testcase><testcase time="0" name="model/domain/ContractCollectionImpl.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="controller/App.java" classname="FindBugs Issues">
@@ -68,7 +87,7 @@ Returning a reference to a mutable object value stored in one of the
 </testcase><testcase time="0" name="model/repository/Mapper.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/PersistenceMapper.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 55-324 
+<failure message="issues" ><![CDATA[lines: 62-352 
 new controller.MainController(Console, StuffLendingSystem) may expose 
   internal representation by storing an externally mutable object into 
   MainController.sls 
@@ -80,16 +99,6 @@ This code stores a reference to an externally mutable object into the
   compromise security or other important properties, you will need to do 
   something different. Storing a copy of the object is better approach in 
   many situations.
-----------------
-lines: 34-46 
-The class name controller.MainController$promptEvent doesn't start with an 
-  upper case letter 
-Class names should start with an upper case letter 
-Class names should be nouns, in mixed case with the first letter of each 
-  internal word capitalized. Try to keep your class names simple and 
-  descriptive. Use whole words-avoid acronyms and abbreviations (unless the 
-  abbreviation is much more widely used than the long form, such as URL or 
-  HTML).
 ----------------
 ]]></failure>
 </testcase><testcase time="0" name="model/domain/ItemCollectionImpl.java" classname="FindBugs Issues">
@@ -170,7 +179,7 @@ This code stores a reference to an externally mutable object into the
 </testcase><testcase time="0" name="model/repository/mock/ItemMockTwo.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/OwnerIteratorImpl.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 15-40 
+<failure message="issues" ><![CDATA[lines: 21-47 
 new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal 
   representation by storing an externally mutable object into 
   OwnerIteratorImpl.items 

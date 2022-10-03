@@ -2,6 +2,10 @@ package model.domain;
 
 import java.util.ArrayList;
 
+/**
+ * Wrapper-class to manage a collection of Members.
+ *
+ */
 public class MemberCollection {
   private ArrayList<Member.Mutable> members = new ArrayList<>();
   
@@ -38,6 +42,14 @@ public class MemberCollection {
     members.remove(member);
   }
 
+
+  /**
+   * Flag if email and phone number are unique.
+   *
+   * @param email - The email to check.
+   * @param phoneNumber - The phone number to check.
+   * @return- Flag if any is not unique.
+   */
   public boolean isUniqueEmailAndPhoneNumber(String email, String phoneNumber) {
     for (Member member : members) {
       if (member.getEmail().equals(email) || member.getPhoneNumber().equals(phoneNumber)) {
@@ -47,6 +59,12 @@ public class MemberCollection {
     return true;
   }
 
+  /**
+   * Flag if memberId is unique.
+   *
+   * @param id - The id to check.
+   * @return- Flag if memberId is not unique.
+   */
   public boolean isUniqueMemberId(String id) {
     for (Member member : members) {
       if (member.getId().equals(id)) {

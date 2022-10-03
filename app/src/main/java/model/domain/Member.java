@@ -120,13 +120,16 @@ public class Member {
     return registredDay;
   }
 
+  /**
+   * Mutable class of Member.
+   */
   public static class Mutable extends Member {
 
-    public Mutable(Member m){
+    public Mutable(Member m) {
       super(m);
     }
 
-    public Mutable(String firstName, String lastName, String email, String phoneNumber){
+    public Mutable(String firstName, String lastName, String email, String phoneNumber) {
       super(firstName, lastName, email, phoneNumber);
     }
 
@@ -136,7 +139,7 @@ public class Member {
         String email,
         String phoneNumber,
         String id,
-        int registredDay){
+        int registredDay) {
       super(firstName, lastName, email, phoneNumber, id, registredDay);
     }
 
@@ -147,7 +150,7 @@ public class Member {
         String phoneNumber,
         String id,
         int registredDay,
-        int credits){
+        int credits) {
       super(firstName, lastName, email, phoneNumber, id, registredDay, credits);
     }
 

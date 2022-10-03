@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="4.7.1" sequence="0" timestamp="1664793575196" analysisTimestamp="1664793575261" release="unspecified">
+<BugCollection version="4.7.1" sequence="0" timestamp="1664834175055" analysisTimestamp="1664834175101" release="unspecified">
   <Project projectName="app (spotbugsMain)">
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\App.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$ActionEvent.class</Jar>
-    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$promptEvent.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$PromptEvent.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ContractCollection.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ContractCollectionImpl.class</Jar>
@@ -55,13 +55,13 @@
     <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
     <LongMessage>new controller.MainController(Console, StuffLendingSystem) may expose internal representation by storing an externally mutable object into MainController.sls</LongMessage>
     <Class classname="controller.MainController" primary="true">
-      <SourceLine classname="controller.MainController" start="55" end="324" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
-        <Message>At MainController.java:[lines 55-324]</Message>
+      <SourceLine classname="controller.MainController" start="62" end="352" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
+        <Message>At MainController.java:[lines 62-352]</Message>
       </SourceLine>
       <Message>In class controller.MainController</Message>
     </Class>
     <Method classname="controller.MainController" name="&lt;init&gt;" signature="(Lview/Console;Lmodel/domain/StuffLendingSystem;)V" isStatic="false" primary="true">
-      <SourceLine classname="controller.MainController" start="55" end="61" startBytecode="0" endBytecode="88" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java"/>
+      <SourceLine classname="controller.MainController" start="62" end="68" startBytecode="0" endBytecode="88" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java"/>
       <Message>In method new controller.MainController(Console, StuffLendingSystem)</Message>
     </Method>
     <Field classname="controller.MainController" name="sls" signature="Lmodel/domain/StuffLendingSystem;" isStatic="false" primary="true">
@@ -73,21 +73,8 @@
     <LocalVariable name="sls" register="2" pc="11" role="LOCAL_VARIABLE_NAMED">
       <Message>Local variable named sls</Message>
     </LocalVariable>
-    <SourceLine classname="controller.MainController" primary="true" start="58" end="58" startBytecode="11" endBytecode="11" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
-      <Message>At MainController.java:[line 58]</Message>
-    </SourceLine>
-  </BugInstance>
-  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" rank="16" abbrev="Nm" category="BAD_PRACTICE" instanceHash="8e5a7bf9d886f861866b8093032d4e5f" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
-    <ShortMessage>Class names should start with an upper case letter</ShortMessage>
-    <LongMessage>The class name controller.MainController$promptEvent doesn&apos;t start with an upper case letter</LongMessage>
-    <Class classname="controller.MainController$promptEvent" primary="true">
-      <SourceLine classname="controller.MainController$promptEvent" start="34" end="46" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
-        <Message>At MainController.java:[lines 34-46]</Message>
-      </SourceLine>
-      <Message>In class controller.MainController$promptEvent</Message>
-    </Class>
-    <SourceLine classname="controller.MainController$promptEvent" start="34" end="46" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java" synthetic="true">
-      <Message>At MainController.java:[lines 34-46]</Message>
+    <SourceLine classname="controller.MainController" primary="true" start="65" end="65" startBytecode="11" endBytecode="11" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
+      <Message>At MainController.java:[line 65]</Message>
     </SourceLine>
   </BugInstance>
   <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="576d6e1772e14dae9b58e6c0f1c6d369" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
@@ -188,17 +175,34 @@
       <Message>At ItemCollectionImpl.java:[line 27]</Message>
     </SourceLine>
   </BugInstance>
+  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" instanceHash="42f4469eb9259e9de9a9577f71b10d13" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
+    <ShortMessage>Class defines compareTo(...) and uses Object.equals()</ShortMessage>
+    <LongMessage>model.domain.LendingContract defines compareTo(LendingContract) and uses Object.equals()</LongMessage>
+    <Class classname="model.domain.LendingContract" primary="true">
+      <SourceLine classname="model.domain.LendingContract" start="7" end="77" sourcefile="LendingContract.java" sourcepath="model/domain/LendingContract.java" relSourcepath="java\model\domain\LendingContract.java">
+        <Message>At LendingContract.java:[lines 7-77]</Message>
+      </SourceLine>
+      <Message>In class model.domain.LendingContract</Message>
+    </Class>
+    <Method classname="model.domain.LendingContract" name="compareTo" signature="(Lmodel/domain/LendingContract;)I" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.LendingContract" start="69" end="77" startBytecode="0" endBytecode="135" sourcefile="LendingContract.java" sourcepath="model/domain/LendingContract.java" relSourcepath="java\model\domain\LendingContract.java"/>
+      <Message>In method model.domain.LendingContract.compareTo(LendingContract)</Message>
+    </Method>
+    <SourceLine classname="model.domain.LendingContract" start="69" end="77" startBytecode="0" endBytecode="135" sourcefile="LendingContract.java" sourcepath="model/domain/LendingContract.java" relSourcepath="java\model\domain\LendingContract.java" synthetic="true">
+      <Message>At LendingContract.java:[lines 69-77]</Message>
+    </SourceLine>
+  </BugInstance>
   <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="824e665646d9a892c9d44f1fb2063c08" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
     <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
     <LongMessage>model.domain.MemberCollection.getMembers() may expose internal representation by returning MemberCollection.members</LongMessage>
     <Class classname="model.domain.MemberCollection" primary="true">
-      <SourceLine classname="model.domain.MemberCollection" start="5" end="56" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
-        <Message>At MemberCollection.java:[lines 5-56]</Message>
+      <SourceLine classname="model.domain.MemberCollection" start="9" end="74" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
+        <Message>At MemberCollection.java:[lines 9-74]</Message>
       </SourceLine>
       <Message>In class model.domain.MemberCollection</Message>
     </Class>
     <Method classname="model.domain.MemberCollection" name="getMembers" signature="()Ljava/lang/Iterable;" isStatic="false" primary="true">
-      <SourceLine classname="model.domain.MemberCollection" start="19" end="19" startBytecode="0" endBytecode="46" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java"/>
+      <SourceLine classname="model.domain.MemberCollection" start="23" end="23" startBytecode="0" endBytecode="46" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java"/>
       <Message>In method model.domain.MemberCollection.getMembers()</Message>
     </Method>
     <Field classname="model.domain.MemberCollection" name="members" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
@@ -207,21 +211,21 @@
       </SourceLine>
       <Message>Field model.domain.MemberCollection.members</Message>
     </Field>
-    <SourceLine classname="model.domain.MemberCollection" primary="true" start="19" end="19" startBytecode="4" endBytecode="4" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
-      <Message>At MemberCollection.java:[line 19]</Message>
+    <SourceLine classname="model.domain.MemberCollection" primary="true" start="23" end="23" startBytecode="4" endBytecode="4" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
+      <Message>At MemberCollection.java:[line 23]</Message>
     </SourceLine>
   </BugInstance>
   <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8d0b5ad6dea00867624603a848fbefc8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
     <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
     <LongMessage>new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal representation by storing an externally mutable object into OwnerIteratorImpl.items</LongMessage>
     <Class classname="model.domain.OwnerIteratorImpl" primary="true">
-      <SourceLine classname="model.domain.OwnerIteratorImpl" start="15" end="40" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
-        <Message>At OwnerIteratorImpl.java:[lines 15-40]</Message>
+      <SourceLine classname="model.domain.OwnerIteratorImpl" start="21" end="47" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
+        <Message>At OwnerIteratorImpl.java:[lines 21-47]</Message>
       </SourceLine>
       <Message>In class model.domain.OwnerIteratorImpl</Message>
     </Class>
     <Method classname="model.domain.OwnerIteratorImpl" name="&lt;init&gt;" signature="(Lmodel/domain/Member;Ljava/util/ArrayList;)V" isStatic="false" primary="true">
-      <SourceLine classname="model.domain.OwnerIteratorImpl" start="15" end="19" startBytecode="0" endBytecode="115" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java"/>
+      <SourceLine classname="model.domain.OwnerIteratorImpl" start="21" end="25" startBytecode="0" endBytecode="115" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java"/>
       <Message>In method new model.domain.OwnerIteratorImpl(Member, ArrayList)</Message>
     </Method>
     <Field classname="model.domain.OwnerIteratorImpl" name="items" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
@@ -233,8 +237,8 @@
     <LocalVariable name="items" register="2" pc="6" role="LOCAL_VARIABLE_NAMED">
       <Message>Local variable named items</Message>
     </LocalVariable>
-    <SourceLine classname="model.domain.OwnerIteratorImpl" primary="true" start="16" end="16" startBytecode="6" endBytecode="6" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
-      <Message>At OwnerIteratorImpl.java:[line 16]</Message>
+    <SourceLine classname="model.domain.OwnerIteratorImpl" primary="true" start="22" end="22" startBytecode="6" endBytecode="6" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
+      <Message>At OwnerIteratorImpl.java:[line 22]</Message>
     </SourceLine>
   </BugInstance>
   <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="623ce30617f57547db1ccb48ef9ca928" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
@@ -363,6 +367,28 @@
   <BugCategory category="PERFORMANCE">
     <Description>Performance</Description>
   </BugCategory>
+  <BugPattern type="EQ_COMPARETO_USE_OBJECT_EQUALS" abbrev="Eq" category="BAD_PRACTICE">
+    <ShortDescription>Class defines compareTo(...) and uses Object.equals()</ShortDescription>
+    <Details><![CDATA[
+
+  <p> This class defines a <code>compareTo(...)</code> method but inherits its
+  <code>equals()</code> method from <code>java.lang.Object</code>.
+    Generally, the value of compareTo should return zero if and only if
+    equals returns true. If this is violated, weird and unpredictable
+    failures will occur in classes such as PriorityQueue.
+    In Java 5 the PriorityQueue.remove method uses the compareTo method,
+    while in Java 6 it uses the equals method.</p>
+
+<p>From the JavaDoc for the compareTo method in the Comparable interface:
+<blockquote>
+It is strongly recommended, but not strictly required that <code>(x.compareTo(y)==0) == (x.equals(y))</code>.
+Generally speaking, any class that implements the Comparable interface and violates this condition
+should clearly indicate this fact. The recommended language
+is "Note: this class has a natural ordering that is inconsistent with equals."
+</blockquote></p>
+
+    ]]></Details>
+  </BugPattern>
   <BugPattern type="EI_EXPOSE_REP2" abbrev="EI2" category="MALICIOUS_CODE" cweid="374">
     <ShortDescription>May expose internal representation by incorporating reference to mutable object</ShortDescription>
     <Details><![CDATA[
@@ -374,15 +400,6 @@
    the mutable object would compromise security or other
    important properties, you will need to do something different.
   Storing a copy of the object is better approach in many situations.</p>
-
-    ]]></Details>
-  </BugPattern>
-  <BugPattern type="NM_CLASS_NAMING_CONVENTION" abbrev="Nm" category="BAD_PRACTICE">
-    <ShortDescription>Class names should start with an upper case letter</ShortDescription>
-    <Details><![CDATA[
-
-  <p> Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
-</p>
 
     ]]></Details>
   </BugPattern>
@@ -414,28 +431,28 @@
   <BugCode abbrev="UrF">
     <Description>Unread field</Description>
   </BugCode>
+  <BugCode abbrev="Eq">
+    <Description>Problems with implementation of equals()</Description>
+  </BugCode>
   <BugCode abbrev="EI2">
     <Description>Storing reference to mutable object</Description>
   </BugCode>
-  <BugCode abbrev="Nm">
-    <Description>Confusing method name</Description>
-  </BugCode>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Mon, 3 Oct 2022 12:39:35 +0200" total_classes="39" referenced_classes="83" total_bugs="13" total_size="1434" num_packages="5" java_version="18.0.2.1" vm_version="18.0.2.1+1-1" cpu_seconds="38.44" clock_seconds="5.75" peak_mbytes="212.04" alloc_mbytes="3930.00" gc_seconds="0.03" priority_2="13">
+  <FindBugsSummary timestamp="Mon, 3 Oct 2022 23:56:15 +0200" total_classes="39" referenced_classes="86" total_bugs="13" total_size="1545" num_packages="5" java_version="18.0.2.1" vm_version="18.0.2.1+1-1" cpu_seconds="24.16" clock_seconds="3.98" peak_mbytes="216.39" alloc_mbytes="3930.00" gc_seconds="0.08" priority_2="13">
     <FileStats path="controller/App.java" bugCount="0" size="10"/>
-    <FileStats path="controller/MainController.java" bugCount="2" size="218" bugHash="4f0aaace46376435e43a329de76b12d9"/>
-    <FileStats path="model/domain/ContractCollection.java" bugCount="0" size="7"/>
-    <FileStats path="model/domain/ContractCollectionImpl.java" bugCount="0" size="70"/>
+    <FileStats path="controller/MainController.java" bugCount="1" size="234" bugHash="c7cd529061a49129da11838229789fed"/>
+    <FileStats path="model/domain/ContractCollection.java" bugCount="0" size="9"/>
+    <FileStats path="model/domain/ContractCollectionImpl.java" bugCount="0" size="94"/>
     <FileStats path="model/domain/Item.java" bugCount="3" size="111" bugHash="094f7c68233a529a5f7d482ddcce913c"/>
     <FileStats path="model/domain/ItemCollection.java" bugCount="0" size="9"/>
     <FileStats path="model/domain/ItemCollectionImpl.java" bugCount="1" size="38" bugHash="668191d7729c7b2529829efc330a86b5"/>
     <FileStats path="model/domain/ItemIterator.java" bugCount="0" size="3"/>
-    <FileStats path="model/domain/LendingContract.java" bugCount="0" size="41"/>
+    <FileStats path="model/domain/LendingContract.java" bugCount="1" size="42" bugHash="f55685ab052aeedfb6fe3f12e81472b4"/>
     <FileStats path="model/domain/Member.java" bugCount="0" size="91"/>
-    <FileStats path="model/domain/MemberCollection.java" bugCount="1" size="31" bugHash="cfbba2d4834902f80c56e6fa4dc643aa"/>
-    <FileStats path="model/domain/OwnerIteratorImpl.java" bugCount="1" size="22" bugHash="edd9963e61636e18a559d3805bfb9262"/>
+    <FileStats path="model/domain/MemberCollection.java" bugCount="1" size="31" bugHash="63fd0504d841e6fd5433861374b1eeee"/>
+    <FileStats path="model/domain/OwnerIteratorImpl.java" bugCount="1" size="22" bugHash="124a93824dea5c29be3cd6b716669439"/>
     <FileStats path="model/domain/RandomString.java" bugCount="0" size="24"/>
-    <FileStats path="model/domain/StuffLendingSystem.java" bugCount="0" size="111"/>
+    <FileStats path="model/domain/StuffLendingSystem.java" bugCount="0" size="117"/>
     <FileStats path="model/domain/TypeIteratorImpl.java" bugCount="1" size="22" bugHash="5192555b556aa757e5cd913c43c37b6e"/>
     <FileStats path="model/repository/ItemMapper.java" bugCount="1" size="28" bugHash="baf8ec86918e6edb56b46df751ec7b39"/>
     <FileStats path="model/repository/Mapper.java" bugCount="0" size="3"/>
@@ -450,29 +467,29 @@
     <FileStats path="model/repository/mock/MemberMockTwo.java" bugCount="0" size="38"/>
     <FileStats path="model/repository/mock/Mock.java" bugCount="0" size="2"/>
     <FileStats path="model/repository/mock/MockCollection.java" bugCount="0" size="21"/>
-    <FileStats path="view/Console.java" bugCount="0" size="344"/>
-    <PackageStats package="controller" total_bugs="2" total_types="4" total_size="228" priority_2="2">
+    <FileStats path="view/Console.java" bugCount="0" size="406"/>
+    <PackageStats package="controller" total_bugs="1" total_types="4" total_size="244" priority_2="1">
       <ClassStats class="controller.App" sourceFile="App.java" interface="false" size="10" bugs="0"/>
-      <ClassStats class="controller.MainController" sourceFile="MainController.java" interface="false" size="150" bugs="1" priority_2="1"/>
+      <ClassStats class="controller.MainController" sourceFile="MainController.java" interface="false" size="166" bugs="1" priority_2="1"/>
       <ClassStats class="controller.MainController$ActionEvent" sourceFile="MainController.java" interface="false" size="36" bugs="0"/>
-      <ClassStats class="controller.MainController$promptEvent" sourceFile="MainController.java" interface="false" size="32" bugs="1" priority_2="1"/>
+      <ClassStats class="controller.MainController$PromptEvent" sourceFile="MainController.java" interface="false" size="32" bugs="0"/>
     </PackageStats>
-    <PackageStats package="model.domain" total_bugs="7" total_types="16" total_size="580" priority_2="7">
-      <ClassStats class="model.domain.ContractCollection" sourceFile="ContractCollection.java" interface="true" size="7" bugs="0"/>
-      <ClassStats class="model.domain.ContractCollectionImpl" sourceFile="ContractCollectionImpl.java" interface="false" size="70" bugs="0"/>
+    <PackageStats package="model.domain" total_bugs="8" total_types="16" total_size="613" priority_2="8">
+      <ClassStats class="model.domain.ContractCollection" sourceFile="ContractCollection.java" interface="true" size="9" bugs="0"/>
+      <ClassStats class="model.domain.ContractCollectionImpl" sourceFile="ContractCollectionImpl.java" interface="false" size="94" bugs="0"/>
       <ClassStats class="model.domain.Item" sourceFile="Item.java" interface="false" size="66" bugs="3" priority_2="3"/>
       <ClassStats class="model.domain.Item$ItemType" sourceFile="Item.java" interface="false" size="20" bugs="0"/>
       <ClassStats class="model.domain.Item$Mutable" sourceFile="Item.java" interface="false" size="25" bugs="0"/>
       <ClassStats class="model.domain.ItemCollection" sourceFile="ItemCollection.java" interface="true" size="9" bugs="0"/>
       <ClassStats class="model.domain.ItemCollectionImpl" sourceFile="ItemCollectionImpl.java" interface="false" size="38" bugs="1" priority_2="1"/>
       <ClassStats class="model.domain.ItemIterator" sourceFile="ItemIterator.java" interface="true" size="3" bugs="0"/>
-      <ClassStats class="model.domain.LendingContract" sourceFile="LendingContract.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="model.domain.LendingContract" sourceFile="LendingContract.java" interface="false" size="42" bugs="1" priority_2="1"/>
       <ClassStats class="model.domain.Member" sourceFile="Member.java" interface="false" size="60" bugs="0"/>
       <ClassStats class="model.domain.Member$Mutable" sourceFile="Member.java" interface="false" size="31" bugs="0"/>
       <ClassStats class="model.domain.MemberCollection" sourceFile="MemberCollection.java" interface="false" size="31" bugs="1" priority_2="1"/>
       <ClassStats class="model.domain.OwnerIteratorImpl" sourceFile="OwnerIteratorImpl.java" interface="false" size="22" bugs="1" priority_2="1"/>
       <ClassStats class="model.domain.RandomString" sourceFile="RandomString.java" interface="false" size="24" bugs="0"/>
-      <ClassStats class="model.domain.StuffLendingSystem" sourceFile="StuffLendingSystem.java" interface="false" size="111" bugs="0"/>
+      <ClassStats class="model.domain.StuffLendingSystem" sourceFile="StuffLendingSystem.java" interface="false" size="117" bugs="0"/>
       <ClassStats class="model.domain.TypeIteratorImpl" sourceFile="TypeIteratorImpl.java" interface="false" size="22" bugs="1" priority_2="1"/>
     </PackageStats>
     <PackageStats package="model.repository" total_bugs="4" total_types="7" total_size="99" priority_2="4">
@@ -492,57 +509,43 @@
       <ClassStats class="model.repository.mock.Mock" sourceFile="Mock.java" interface="true" size="2" bugs="0"/>
       <ClassStats class="model.repository.mock.MockCollection" sourceFile="MockCollection.java" interface="false" size="21" bugs="0"/>
     </PackageStats>
-    <PackageStats package="view" total_bugs="0" total_types="6" total_size="344">
-      <ClassStats class="view.Console" sourceFile="Console.java" interface="false" size="252" bugs="0"/>
+    <PackageStats package="view" total_bugs="0" total_types="6" total_size="406">
+      <ClassStats class="view.Console" sourceFile="Console.java" interface="false" size="312" bugs="0"/>
       <ClassStats class="view.Console$ItemEditEvent" sourceFile="Console.java" interface="false" size="16" bugs="0"/>
       <ClassStats class="view.Console$ItemEvent" sourceFile="Console.java" interface="false" size="22" bugs="0"/>
       <ClassStats class="view.Console$MainEvent" sourceFile="Console.java" interface="false" size="16" bugs="0"/>
       <ClassStats class="view.Console$MemberEditEvent" sourceFile="Console.java" interface="false" size="18" bugs="0"/>
-      <ClassStats class="view.Console$MemberEvent" sourceFile="Console.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="view.Console$MemberEvent" sourceFile="Console.java" interface="false" size="22" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="498" invocations="644" avgMicrosecondsPerInvocation="773" maxMicrosecondsPerInvocation="22858" standardDeviationMicrosecondsPerInvocation="1508"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="212" invocations="193" avgMicrosecondsPerInvocation="1103" maxMicrosecondsPerInvocation="10989" standardDeviationMicrosecondsPerInvocation="1601"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="175" invocations="83" avgMicrosecondsPerInvocation="2115" maxMicrosecondsPerInvocation="23577" standardDeviationMicrosecondsPerInvocation="4297"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="167" invocations="191" avgMicrosecondsPerInvocation="878" maxMicrosecondsPerInvocation="7255" standardDeviationMicrosecondsPerInvocation="1197"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="167" invocations="196" avgMicrosecondsPerInvocation="854" maxMicrosecondsPerInvocation="17059" standardDeviationMicrosecondsPerInvocation="1545"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="163" invocations="193" avgMicrosecondsPerInvocation="845" maxMicrosecondsPerInvocation="15073" standardDeviationMicrosecondsPerInvocation="1705"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="143" invocations="193" avgMicrosecondsPerInvocation="742" maxMicrosecondsPerInvocation="16875" standardDeviationMicrosecondsPerInvocation="1388"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="141" invocations="404" avgMicrosecondsPerInvocation="349" maxMicrosecondsPerInvocation="3947" standardDeviationMicrosecondsPerInvocation="456"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="140" invocations="193" avgMicrosecondsPerInvocation="730" maxMicrosecondsPerInvocation="5015" standardDeviationMicrosecondsPerInvocation="941"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="131" invocations="648" avgMicrosecondsPerInvocation="203" maxMicrosecondsPerInvocation="4043" standardDeviationMicrosecondsPerInvocation="225"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="115" invocations="83" avgMicrosecondsPerInvocation="1388" maxMicrosecondsPerInvocation="21143" standardDeviationMicrosecondsPerInvocation="2881"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="104" invocations="83" avgMicrosecondsPerInvocation="1258" maxMicrosecondsPerInvocation="87080" standardDeviationMicrosecondsPerInvocation="9488"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="103" invocations="212" avgMicrosecondsPerInvocation="490" maxMicrosecondsPerInvocation="44046" standardDeviationMicrosecondsPerInvocation="3080"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="81" invocations="122" avgMicrosecondsPerInvocation="670" maxMicrosecondsPerInvocation="36890" standardDeviationMicrosecondsPerInvocation="3423"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="74" invocations="599" avgMicrosecondsPerInvocation="125" maxMicrosecondsPerInvocation="13042" standardDeviationMicrosecondsPerInvocation="556"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="70" invocations="147" avgMicrosecondsPerInvocation="482" maxMicrosecondsPerInvocation="3280" standardDeviationMicrosecondsPerInvocation="552"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="59" invocations="83" avgMicrosecondsPerInvocation="714" maxMicrosecondsPerInvocation="11325" standardDeviationMicrosecondsPerInvocation="1584"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="54" invocations="39" avgMicrosecondsPerInvocation="1399" maxMicrosecondsPerInvocation="22866" standardDeviationMicrosecondsPerInvocation="3734"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="51" invocations="39" avgMicrosecondsPerInvocation="1326" maxMicrosecondsPerInvocation="21272" standardDeviationMicrosecondsPerInvocation="3744"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="51" invocations="39" avgMicrosecondsPerInvocation="1312" maxMicrosecondsPerInvocation="13211" standardDeviationMicrosecondsPerInvocation="2759"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="50" invocations="39" avgMicrosecondsPerInvocation="1300" maxMicrosecondsPerInvocation="16644" standardDeviationMicrosecondsPerInvocation="2910"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="49" invocations="193" avgMicrosecondsPerInvocation="255" maxMicrosecondsPerInvocation="4241" standardDeviationMicrosecondsPerInvocation="528"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="44" invocations="83" avgMicrosecondsPerInvocation="540" maxMicrosecondsPerInvocation="5787" standardDeviationMicrosecondsPerInvocation="1115"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="44" invocations="4099" avgMicrosecondsPerInvocation="10" maxMicrosecondsPerInvocation="3594" standardDeviationMicrosecondsPerInvocation="82"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.MethodReturnCheck" totalMilliseconds="44" invocations="39" avgMicrosecondsPerInvocation="1132" maxMicrosecondsPerInvocation="22418" standardDeviationMicrosecondsPerInvocation="3524"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="43" invocations="83" avgMicrosecondsPerInvocation="524" maxMicrosecondsPerInvocation="10605" standardDeviationMicrosecondsPerInvocation="1513"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="39" invocations="39" avgMicrosecondsPerInvocation="1001" maxMicrosecondsPerInvocation="26871" standardDeviationMicrosecondsPerInvocation="4224"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="36" invocations="39" avgMicrosecondsPerInvocation="945" maxMicrosecondsPerInvocation="13609" standardDeviationMicrosecondsPerInvocation="2306"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="36" invocations="83" avgMicrosecondsPerInvocation="436" maxMicrosecondsPerInvocation="4452" standardDeviationMicrosecondsPerInvocation="842"/>
-      <ClassProfile name="edu.umd.cs.findbugs.StackMapAnalyzer$StackMapAnalysisFactory" totalMilliseconds="35" invocations="35" avgMicrosecondsPerInvocation="1023" maxMicrosecondsPerInvocation="34868" standardDeviationMicrosecondsPerInvocation="5804"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="35" invocations="212" avgMicrosecondsPerInvocation="165" maxMicrosecondsPerInvocation="12578" standardDeviationMicrosecondsPerInvocation="932"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="34" invocations="39" avgMicrosecondsPerInvocation="885" maxMicrosecondsPerInvocation="3253" standardDeviationMicrosecondsPerInvocation="772"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="34" invocations="83" avgMicrosecondsPerInvocation="411" maxMicrosecondsPerInvocation="8060" standardDeviationMicrosecondsPerInvocation="1024"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="30" invocations="83" avgMicrosecondsPerInvocation="368" maxMicrosecondsPerInvocation="3335" standardDeviationMicrosecondsPerInvocation="614"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="29" invocations="39" avgMicrosecondsPerInvocation="749" maxMicrosecondsPerInvocation="5158" standardDeviationMicrosecondsPerInvocation="942"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInstanceLockOnSharedStaticData" totalMilliseconds="28" invocations="39" avgMicrosecondsPerInvocation="740" maxMicrosecondsPerInvocation="5347" standardDeviationMicrosecondsPerInvocation="1238"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref" totalMilliseconds="28" invocations="39" avgMicrosecondsPerInvocation="734" maxMicrosecondsPerInvocation="3364" standardDeviationMicrosecondsPerInvocation="723"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="28" invocations="39" avgMicrosecondsPerInvocation="728" maxMicrosecondsPerInvocation="3292" standardDeviationMicrosecondsPerInvocation="805"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="27" invocations="85" avgMicrosecondsPerInvocation="325" maxMicrosecondsPerInvocation="1929" standardDeviationMicrosecondsPerInvocation="259"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="27" invocations="191" avgMicrosecondsPerInvocation="142" maxMicrosecondsPerInvocation="5821" standardDeviationMicrosecondsPerInvocation="439"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="26" invocations="39" avgMicrosecondsPerInvocation="686" maxMicrosecondsPerInvocation="25018" standardDeviationMicrosecondsPerInvocation="3947"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.DontUseFloatsAsLoopCounters" totalMilliseconds="26" invocations="39" avgMicrosecondsPerInvocation="686" maxMicrosecondsPerInvocation="15869" standardDeviationMicrosecondsPerInvocation="2497"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="487" invocations="704" avgMicrosecondsPerInvocation="693" maxMicrosecondsPerInvocation="57313" standardDeviationMicrosecondsPerInvocation="2484"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="157" invocations="86" avgMicrosecondsPerInvocation="1829" maxMicrosecondsPerInvocation="15468" standardDeviationMicrosecondsPerInvocation="3514"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="122" invocations="202" avgMicrosecondsPerInvocation="605" maxMicrosecondsPerInvocation="18977" standardDeviationMicrosecondsPerInvocation="2084"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="111" invocations="86" avgMicrosecondsPerInvocation="1295" maxMicrosecondsPerInvocation="20922" standardDeviationMicrosecondsPerInvocation="2701"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="105" invocations="440" avgMicrosecondsPerInvocation="239" maxMicrosecondsPerInvocation="4149" standardDeviationMicrosecondsPerInvocation="416"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="101" invocations="206" avgMicrosecondsPerInvocation="494" maxMicrosecondsPerInvocation="12556" standardDeviationMicrosecondsPerInvocation="1178"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="98" invocations="202" avgMicrosecondsPerInvocation="489" maxMicrosecondsPerInvocation="8183" standardDeviationMicrosecondsPerInvocation="907"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="98" invocations="708" avgMicrosecondsPerInvocation="139" maxMicrosecondsPerInvocation="6009" standardDeviationMicrosecondsPerInvocation="260"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="95" invocations="223" avgMicrosecondsPerInvocation="429" maxMicrosecondsPerInvocation="59036" standardDeviationMicrosecondsPerInvocation="3950"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="89" invocations="86" avgMicrosecondsPerInvocation="1043" maxMicrosecondsPerInvocation="74964" standardDeviationMicrosecondsPerInvocation="8026"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="84" invocations="124" avgMicrosecondsPerInvocation="683" maxMicrosecondsPerInvocation="39976" standardDeviationMicrosecondsPerInvocation="3722"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="80" invocations="199" avgMicrosecondsPerInvocation="406" maxMicrosecondsPerInvocation="4621" standardDeviationMicrosecondsPerInvocation="632"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="77" invocations="202" avgMicrosecondsPerInvocation="385" maxMicrosecondsPerInvocation="8050" standardDeviationMicrosecondsPerInvocation="819"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="75" invocations="202" avgMicrosecondsPerInvocation="372" maxMicrosecondsPerInvocation="16502" standardDeviationMicrosecondsPerInvocation="1173"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="56" invocations="86" avgMicrosecondsPerInvocation="652" maxMicrosecondsPerInvocation="9284" standardDeviationMicrosecondsPerInvocation="1301"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="55" invocations="118" avgMicrosecondsPerInvocation="469" maxMicrosecondsPerInvocation="15085" standardDeviationMicrosecondsPerInvocation="1388"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="47" invocations="658" avgMicrosecondsPerInvocation="72" maxMicrosecondsPerInvocation="1397" standardDeviationMicrosecondsPerInvocation="121"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ObligationDataflowFactory" totalMilliseconds="43" invocations="20" avgMicrosecondsPerInvocation="2180" maxMicrosecondsPerInvocation="42299" standardDeviationMicrosecondsPerInvocation="9204"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="43" invocations="86" avgMicrosecondsPerInvocation="503" maxMicrosecondsPerInvocation="14917" standardDeviationMicrosecondsPerInvocation="1778"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="42" invocations="154" avgMicrosecondsPerInvocation="275" maxMicrosecondsPerInvocation="1999" standardDeviationMicrosecondsPerInvocation="346"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="41" invocations="86" avgMicrosecondsPerInvocation="486" maxMicrosecondsPerInvocation="6716" standardDeviationMicrosecondsPerInvocation="1102"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="39" invocations="39" avgMicrosecondsPerInvocation="1005" maxMicrosecondsPerInvocation="38383" standardDeviationMicrosecondsPerInvocation="6063"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="38" invocations="223" avgMicrosecondsPerInvocation="173" maxMicrosecondsPerInvocation="18097" standardDeviationMicrosecondsPerInvocation="1294"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="36" invocations="39" avgMicrosecondsPerInvocation="945" maxMicrosecondsPerInvocation="16038" standardDeviationMicrosecondsPerInvocation="2637"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="31" invocations="86" avgMicrosecondsPerInvocation="368" maxMicrosecondsPerInvocation="3671" standardDeviationMicrosecondsPerInvocation="703"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="28" invocations="86" avgMicrosecondsPerInvocation="332" maxMicrosecondsPerInvocation="7014" standardDeviationMicrosecondsPerInvocation="866"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="27" invocations="86" avgMicrosecondsPerInvocation="318" maxMicrosecondsPerInvocation="2508" standardDeviationMicrosecondsPerInvocation="480"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantPoolGenFactory" totalMilliseconds="26" invocations="39" avgMicrosecondsPerInvocation="692" maxMicrosecondsPerInvocation="23791" standardDeviationMicrosecondsPerInvocation="3747"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>

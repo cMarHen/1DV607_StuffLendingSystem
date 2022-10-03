@@ -1,7 +1,6 @@
 package model.domain;
 
 import java.util.ArrayList;
-
 import model.repository.PersistenceFacade;
 
 /**

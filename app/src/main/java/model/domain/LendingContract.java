@@ -77,5 +77,4 @@ public class LendingContract implements Comparable<LendingContract> {
       return 0;
     }
   }
-
 }
