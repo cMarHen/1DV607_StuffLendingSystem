@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.ArrayList;
+import model.domain.LendingContract;
 
 /**
  * Wrapper class for controller-actions.
@@ -252,15 +252,18 @@ public class MainController {
         }
 
         int currentDay = sls.getCurrentDay();
-        // TODO: Check that the start day is not in the past.
         ui.notifyCurrentDay(sls.getCurrentDay());
-        int startDayOfLoan = ui.promptInformationInt(promptEvent.LoanStartDay);
+
+        int startDayOfLoan = 0;
+        do {
+          startDayOfLoan = ui.promptInformationInt(promptEvent.LoanStartDay); 
+        } while (startDayOfLoan < currentDay);
+
         int daysToLoan = ui.promptInformationInt(promptEvent.AmountOfLoanDays);
         int endDay = currentDay + daysToLoan;
 
-        boolean successfullyCreatedContract = 
-            sls.setUpLendingContract(lenderId, startDayOfLoan, endDay, itemId);
-
+        model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
+        boolean successfullyCreatedContract = sls.setUpLendingContract(contract);
         if (successfullyCreatedContract) {
           ui.actionResponder(ActionEvent.SUCCESS_CREATE_CONTRACT);
         } else {
