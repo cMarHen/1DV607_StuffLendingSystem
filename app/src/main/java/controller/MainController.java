@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import model.domain.Item;
 import model.domain.LendingContract;
 
 /**
@@ -97,7 +98,7 @@ public class MainController {
       }
       
       if (event == view.Console.MemberEvent.AddMember) {        
-        model.domain.Member newMember= ui.promptForNewMember();
+        model.domain.Member newMember = ui.promptForNewMember();
 
         boolean isSucceeded = sls.addNewMember(newMember);
 
@@ -109,6 +110,25 @@ public class MainController {
         Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
         ui.printMemberList(members, items);
+      }
+
+      if (event == view.Console.MemberEvent.ListMemberVerbose) {
+        Iterable<model.domain.Member.Mutable> members = sls.getMembers();
+        Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
+        ArrayList<model.domain.LendingContract> contracts = new ArrayList<>();
+
+        for (Item.Mutable item : items) {
+          ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
+          for (LendingContract ac : activeContracts) {
+            contracts.add(ac);
+          }
+          ArrayList<model.domain.LendingContract> expiredContracts = sls.getContractsByItem(item); // TODO:
+          for (LendingContract ec : expiredContracts) {
+            contracts.add(ec);
+          }
+        }
+
+        ui.printVerboseMemberList(members, items, contracts);
       }
       
       if (event == view.Console.MemberEvent.DetailedMember) {

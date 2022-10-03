@@ -24,6 +24,9 @@ public class StuffLendingSystem {
     this.items = p.getItems();
     this.currentDay = 0;
 
+    LendingContract c = new LendingContract(members.findMemberById("2yGoOc"), 4, items.findItemById("item_5yR0oc"), 0);
+    setUpLendingContract(c);    
+
     /* Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
     Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
     addNewMember(m1);

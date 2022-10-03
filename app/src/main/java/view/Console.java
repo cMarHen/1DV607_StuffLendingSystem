@@ -36,6 +36,7 @@ public class Console {
   public static enum MemberEvent {
     AddMember,
     ListMember,
+    ListMemberVerbose,
     DetailedMember,
     EditMember,
     DeleteMember,
@@ -130,10 +131,11 @@ public class Console {
     System.out.println("- Member Menu -------- -");
     System.out.println("------------------------");
     System.out.println("1. Add Member");
-    System.out.println("2. List Members");
-    System.out.println("3. Show detailed member");
-    System.out.println("4. Edit a member");
-    System.out.println("5. Delete Member");
+    System.out.println("2. List Members simple");
+    System.out.println("3. List Members verbose");
+    System.out.println("4. Show detailed member");
+    System.out.println("5. Edit a member");
+    System.out.println("6. Delete Member");
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
@@ -148,10 +150,12 @@ public class Console {
     } else if (choice == 2) {
       return MemberEvent.ListMember;
     } else if (choice == 3) {
-      return MemberEvent.DetailedMember;
+      return MemberEvent.ListMemberVerbose;
     } else if (choice == 4) {
-      return MemberEvent.EditMember;
+      return MemberEvent.DetailedMember;
     } else if (choice == 5) {
+      return MemberEvent.EditMember;
+    } else if (choice == 6) {
       return MemberEvent.DeleteMember;
     } else {
       return MemberEvent.Back;
@@ -328,7 +332,8 @@ public class Console {
    */
   public void printVerboseMemberList(
       Iterable<? extends model.domain.Member> members,
-      Iterable<model.domain.Item.Mutable> items
+      Iterable<model.domain.Item.Mutable> items,
+      ArrayList<model.domain.LendingContract> contracts
   ) {
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
@@ -345,6 +350,15 @@ public class Console {
         String memberId = member.getId();
         if (item.getOwner().getId().equals(memberId)) {
           ownedItems.add(item);
+          System.out.println("ITEMS: ");
+          System.out.print(item.getName() + " of type " + item.getType() + ". " + "Description: " + item.getDescription() + "\n");
+          for (model.domain.LendingContract c : contracts) {
+            if (c.getItem().getId().equals(item.getId())) {
+              System.out.println("Lender: " + c.getLender().getId() + ", from: " + c.getStartDay() + " to: " + c.getEndDay());
+              System.out.println();
+            }
+          }
+          System.out.println();
         }
       }
       
