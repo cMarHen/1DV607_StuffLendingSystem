@@ -1,30 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.38">
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\controller\App.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\controller\App.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\controller\MainController.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\controller\MainController.java">
+<error line="34" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="34" column="22" severity="warning" message="Type name &apos;promptEvent&apos; must match pattern &apos;^[A-Z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck"/>
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ContractCollection.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\ContractCollection.java">
+<error line="87" severity="warning" message="Javadoc tag &apos;@param&apos; should be preceded with an empty line." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\Item.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\Item.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ItemCollection.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\ItemCollection.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ItemCollectionImpl.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\ItemCollectionImpl.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\ItemIterator.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\ItemIterator.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\LendingContract.java">
-<error line="29" column="33" severity="warning" message="&apos;,&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\LendingContract.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\Member.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\Member.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\RandomString.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\OwnerIteratorImpl.java">
+<error line="15" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="20" column="3" severity="warning" message="&apos;METHOD_DEF&apos; should be separated from previous statement." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\StuffLendingSystem.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\RandomString.java">
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\model\domain\TypeIteratorImpl.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\StuffLendingSystem.java">
+<error line="197" severity="warning" message="Javadoc tag &apos;@param&apos; should be preceded with an empty line." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 </file>
-<file name="C:\lnu\1dv607\exams\a2\app\src\main\java\view\Console.java">
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\domain\TypeIteratorImpl.java">
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\IMapper.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="3" column="18" severity="warning" message="Abbreviation in name &apos;IMapper&apos; must contain no more than &apos;1&apos; consecutive capital letters." source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
+<error line="5" column="3" severity="warning" message="&apos;METHOD_DEF&apos; should be separated from previous statement." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\ItemMapper.java">
+<error line="5" column="1" severity="warning" message="Extra separation in import group before &apos;model.domain.Item&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" column="1" severity="warning" message="Wrong lexicographical order for &apos;model.domain.Item.ItemType&apos; import. Should be before &apos;model.domain.Member&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="28" column="7" severity="warning" message="&apos;m&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="29" column="7" severity="warning" message="&apos;ItemType&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="30" column="7" severity="warning" message="&apos;i&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="31" column="7" severity="warning" message="&apos;i&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="32" column="7" severity="warning" message="&apos;i&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="33" column="7" severity="warning" message="&apos;Integer&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="34" column="7" severity="warning" message="&apos;Integer&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="35" column="7" severity="warning" message="&apos;i&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="41" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\MapperFactory.java">
+<error line="5" column="1" severity="warning" message="Extra separation in import group before &apos;model.repository.mock.IMock&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\MemberMapper.java">
+<error line="5" column="1" severity="warning" message="Extra separation in import group before &apos;model.domain.Member&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="10" column="52" severity="warning" message="WhitespaceAround: &apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="24" column="7" severity="warning" message="&apos;m&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="25" column="7" severity="warning" message="&apos;m&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="26" column="7" severity="warning" message="&apos;m&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="27" column="7" severity="warning" message="&apos;m&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="28" column="7" severity="warning" message="&apos;m&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="29" column="7" severity="warning" message="&apos;Integer&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="30" column="7" severity="warning" message="&apos;Integer&apos; has incorrect indentation level 6, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="36" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\ObjectIdentifier.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="5" column="3" severity="warning" message="&apos;CTOR_DEF&apos; should be separated from previous statement." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\PersistenceFacade.java">
+<error line="5" column="1" severity="warning" message="Extra separation in import group before &apos;model.domain.Item&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="15" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="36" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="36" column="33" severity="warning" message="&apos;(&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\PersistenceMapper.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\mock\IMock.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="3" column="18" severity="warning" message="Abbreviation in name &apos;IMock&apos; must contain no more than &apos;1&apos; consecutive capital letters." source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\mock\ItemMockOne.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="5" column="10" severity="warning" message="Abbreviation in name &apos;ownerID&apos; must contain no more than &apos;1&apos; consecutive capital letters." source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
+<error line="21" column="12" severity="warning" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="21" column="12" severity="warning" message="WhitespaceAround: &apos;if&apos; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)" source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\mock\ItemMockTwo.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="5" column="10" severity="warning" message="Abbreviation in name &apos;ownerID&apos; must contain no more than &apos;1&apos; consecutive capital letters." source="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
+<error line="21" column="12" severity="warning" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="21" column="12" severity="warning" message="WhitespaceAround: &apos;if&apos; is not followed by whitespace. Empty blocks may only be represented as {} when not part of a multi-block statement (4.1.3)" source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\mock\MemberMockOne.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="16" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\mock\MemberMockTwo.java">
+<error line="3" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="17" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\model\repository\mock\MockCollection.java">
+<error line="5" column="1" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>
+<error line="8" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="8" column="25" severity="warning" message="&apos;(&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="21" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="C:\Users\marti\LNU-WP\1dv607\a2\app\src\main\java\view\Console.java">
+<error line="7" column="1" severity="warning" message="Extra separation in import group before &apos;java.util.ArrayList&apos;" source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.util.ArrayList&apos; import. Should be before &apos;model.domain.Item.ItemType&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.util.Scanner&apos; import. Should be before &apos;model.domain.Item.ItemType&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="346" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="368" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="454" column="1" severity="warning" message="Line contains a tab character." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="454" column="9" severity="warning" message="&apos;method def modifier&apos; has incorrect indentation level 8, expected level should be 2." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="456" column="1" severity="warning" message="Line contains a tab character." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
+<error line="456" column="9" severity="warning" message="&apos;method def rcurly&apos; has incorrect indentation level 8, expected level should be 2." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 </file>
 </checkstyle>
