@@ -1,12 +1,15 @@
 package model.repository.mock;
 
-public class ItemMockTwo implements IMock {
+/**
+ * Mock for Item nr 2. 
+ */
+public class ItemMockTwo implements Mock {
   String oid = "oid_233456";
-  String ownerID = "ownerID"; // TODO: This is owner ID, not Member
+  String ownerId = "2yGoOc";
   String type = "Game";
   String name = "Minecraft";
   String description = "Build your world";
-  String id = "item_32234";
+  String id = "item_2yG1Oc";
   String dayOfCreation = "0";
   String costPerDay = "50";
   String isReserved = "false";
@@ -18,7 +21,9 @@ public class ItemMockTwo implements IMock {
   public String getColumn(String column) {
     if (column.equals("OID")) {
       return this.oid;
-    } else if(column.equals("TYPE")) {
+    } else if (column.equals("OWNER_ID")) {
+      return this.ownerId;
+    } else if (column.equals("TYPE")) {
       return this.type;
     } else if (column.equals("NAME")) {
       return this.name;

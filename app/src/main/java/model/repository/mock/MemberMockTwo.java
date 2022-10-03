@@ -1,19 +1,23 @@
 package model.repository.mock;
 
-public class MemberMockTwo implements IMock {
+/**
+ * Mock for Member nr 2. 
+ */
+public class MemberMockTwo implements Mock {
   
-  private String oid = "oid_23456"; // TODO: Add a real numeric
+  private String oid = "oid_23456";
   private String firstName = "Anders";
   private String lastName = "Jonsson";
   private String email = "anders@mail.com";
   private String phoneNumber = "1234556";
-  private String id = "Alphanumir"; // TODO: Add a real numeric
+  private String id = "2yGoOc";
   private String credits = "200";
   private String registredDay = "0";
 
   public MemberMockTwo() {
   }
 
+  @Override
   public String getColumn(String column) {
     if (column.equals("OID")) {
       return this.oid;

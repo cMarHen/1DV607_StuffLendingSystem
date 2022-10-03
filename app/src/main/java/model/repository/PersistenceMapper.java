@@ -1,6 +1,6 @@
 package model.repository;
 
-public abstract class PersistenceMapper implements IMapper {
+public abstract class PersistenceMapper implements Mapper {
   @Override
   public Object get(ObjectIdentifier oid) {
     // TODO Auto-generated method stub
