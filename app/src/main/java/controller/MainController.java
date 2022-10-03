@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.domain.Item;
 import model.domain.LendingContract;
+import model.domain.Member;
 
 /**
  * Wrapper class for controller-actions.
@@ -114,21 +115,18 @@ public class MainController {
 
       if (event == view.Console.MemberEvent.ListMemberVerbose) {
         Iterable<model.domain.Member.Mutable> members = sls.getMembers();
-        Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
-        ArrayList<model.domain.LendingContract> contracts = new ArrayList<>();
 
-        for (Item.Mutable item : items) {
-          ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
-          for (LendingContract ac : activeContracts) {
-            contracts.add(ac);
-          }
-          ArrayList<model.domain.LendingContract> expiredContracts = sls.getContractsByItem(item); // TODO:
-          for (LendingContract ec : expiredContracts) {
-            contracts.add(ec);
+        for (Member.Mutable m : members) {
+          Iterable<Item.Mutable> memberItems = sls.getItemByOwner(m);
+
+          ui.printVerboseMember(m);
+          
+          for (Item.Mutable item : memberItems) {
+            ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
+            ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
+            ui.printDetailedItem(item, activeContracts, expiredContracts);
           }
         }
-
-        ui.printVerboseMemberList(members, items, contracts);
       }
       
       if (event == view.Console.MemberEvent.DetailedMember) {
@@ -238,7 +236,7 @@ public class MainController {
         model.domain.Item item = sls.findItemById(id);
 
         if (item != null) {
-          ArrayList<model.domain.LendingContract> expiredContracts = sls.getContractsByItem(item);
+          ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
           ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
           ui.printDetailedItem(item, activeContracts, expiredContracts);
         } else {
@@ -285,7 +283,7 @@ public class MainController {
         } while (startDayOfLoan < currentDay);
 
         int daysToLoan = ui.promptInformationInt(promptEvent.AmountOfLoanDays);
-        int endDay = currentDay + daysToLoan;
+        int endDay = startDayOfLoan + daysToLoan;
 
         model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);

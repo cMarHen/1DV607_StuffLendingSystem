@@ -66,22 +66,24 @@ public class ContractCollectionImpl implements ContractCollection {
    */
   @Override
   public ArrayList<LendingContract> cleanExpiredContracts(int currentDay) {
-    ArrayList<LendingContract> expiredContracts = new ArrayList<>();
-    // TODO: Something went wrong here
+    ArrayList<LendingContract> copiesOfExpiredContracts = new ArrayList<>();
+    ArrayList<LendingContract> originalExpiredContracts = new ArrayList<>();
+
     for (LendingContract contract : contracts) {
       if (contract.getEndDay() < currentDay) {
-        LendingContract contractCopy = new LendingContract(
-            contract.getLender(),
-            contract.getEndDay(),
-            contract.getItem(),
-            contract.getStartDay());
-        contracts.remove(contract);
+        LendingContract contractCopy = new LendingContract(contract);
         history.add(contractCopy);
-        expiredContracts.add(contractCopy);
+        copiesOfExpiredContracts.add(contractCopy);
+        originalExpiredContracts.add(contract);
       }
     }
 
-    return expiredContracts;
+    // Remove all the expired contracts from the contracts-list.
+    for (LendingContract contract : originalExpiredContracts) {
+      contracts.remove(contract);
+    }
+
+    return copiesOfExpiredContracts;
   }
 
   /**
@@ -184,15 +186,29 @@ public class ContractCollectionImpl implements ContractCollection {
    * @return - Flag if a valid contract.
    */
   private boolean isValidContract(LendingContract contract) {
-    int totalLendingCost = contract.getTotalContractFee();
-    int lenderCredits = contract.getLender().getCredits();
-
-    // TODO: Is owner setting up contracts for its own items? No need to check for credits.
-
-    if (!contract.getItem().getIsReserved() && lenderCredits > totalLendingCost) {
-      return true;
+    // Validate that the item does'nt have any other contracts during the lending-period.
+    ArrayList<LendingContract> activeContractsForItem = getContractsByItem(contract.getItem());
+    for (LendingContract activeContract : activeContractsForItem) {
+      if ((activeContract.getStartDay() >= contract.getStartDay()) && (activeContract.getStartDay() <= contract.getEndDay())) {
+        return false;
+      }
     }
 
-    return false;
+    boolean contractIsValid = false;
+
+    // Validate lender with sufficient amount of credits if not the lender also is the owner of the item.
+    if (contract.getItem().getOwner().getId().equals(contract.getLender().getId())) {
+      contractIsValid = true;
+    } else {
+      int totalLendingCost = contract.getTotalContractFee();
+      int lenderCredits = contract.getLender().getCredits();
+  
+      if (lenderCredits >= totalLendingCost) {
+        contractIsValid = true;
+      }
+    }
+    
+
+    return contractIsValid;
   }
 }

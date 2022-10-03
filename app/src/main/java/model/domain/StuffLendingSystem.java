@@ -217,6 +217,10 @@ public class StuffLendingSystem {
     return items.getAllItems();
   }
 
+  public Iterable<Item.Mutable> getItemByOwner(Member m) {
+    return items.getItemsByOwner(m);
+  }
+
   public ArrayList<LendingContract> getContractsByItem(Item item) {
     return contracts.getContractsByItem(item);
   }
