@@ -1,18 +1,20 @@
 package model.repository;
 
-import java.util.ArrayList;
-
-import model.domain.Item;
 import model.domain.ItemCollection;
-import model.domain.ItemCollectionImpl;
-import model.domain.Member;
 import model.domain.MemberCollection;
 
+/**
+ * Facade for Persistence handling.
+ */
 public class PersistenceFacade {
   MapperFactory mapperFactory;
   MemberCollection members;
   ItemCollection items;
 
+  /**
+   * Constructor for PersistenceFacade.
+   * Load members and items on init.
+   */
   public PersistenceFacade() {
     this.mapperFactory = new MapperFactory();
 
@@ -29,12 +31,6 @@ public class PersistenceFacade {
   // Return ItemCollection, used in SLS
   public ItemCollection getItems() {
     return items;
-  }
-
-  public Member getMemberFromDb (ObjectIdentifier oid) {
-    MemberMapper map = new MemberMapper();
-    Member m = map.getObjectFromStorage(oid);
-    return m;
   }
 
   private void loadMembers() {

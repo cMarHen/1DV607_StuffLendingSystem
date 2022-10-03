@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="4.7.1" sequence="0" timestamp="1664782996103" analysisTimestamp="1664782996163" release="unspecified">
+<BugCollection version="4.7.1" sequence="0" timestamp="1664793575196" analysisTimestamp="1664793575261" release="unspecified">
   <Project projectName="app (spotbugsMain)">
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\App.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$ActionEvent.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController$promptEvent.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\controller\MainController.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ContractCollection.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ContractCollectionImpl.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\Item$ItemType.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\Item$Mutable.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\Item.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ItemCollection.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ItemCollectionImpl.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\ItemIterator.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\LendingContract.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\Member$Mutable.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\Member.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\MemberCollection.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\OwnerIteratorImpl.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\RandomString.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\StuffLendingSystem.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\TypeIteratorImpl.class</Jar>
-    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\IMapper.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\ItemMapper.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\Mapper.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\MapperFactory.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\MemberMapper.class</Jar>
-    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\IMock.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\ItemMockOne.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\ItemMockTwo.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MemberMockOne.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MemberMockTwo.class</Jar>
+    <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\Mock.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MockCollection.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\ObjectIdentifier.class</Jar>
     <Jar>C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\PersistenceFacade.class</Jar>
@@ -51,8 +55,8 @@
     <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
     <LongMessage>new controller.MainController(Console, StuffLendingSystem) may expose internal representation by storing an externally mutable object into MainController.sls</LongMessage>
     <Class classname="controller.MainController" primary="true">
-      <SourceLine classname="controller.MainController" start="55" end="340" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
-        <Message>At MainController.java:[lines 55-340]</Message>
+      <SourceLine classname="controller.MainController" start="55" end="324" sourcefile="MainController.java" sourcepath="controller/MainController.java" relSourcepath="java\controller\MainController.java">
+        <Message>At MainController.java:[lines 55-324]</Message>
       </SourceLine>
       <Message>In class controller.MainController</Message>
     </Class>
@@ -86,46 +90,43 @@
       <Message>At MainController.java:[lines 34-46]</Message>
     </SourceLine>
   </BugInstance>
-  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="ef017f3f368a446a990993dc8084a75c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
-    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
-    <LongMessage>new model.domain.Item(Member, Item$ItemType, String, String, String, int, int) may expose internal representation by storing an externally mutable object into Item.owner</LongMessage>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="576d6e1772e14dae9b58e6c0f1c6d369" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.domain.Item.getOwner() may expose internal representation by returning Item.owner</LongMessage>
     <Class classname="model.domain.Item" primary="true">
-      <SourceLine classname="model.domain.Item" start="49" end="151" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
-        <Message>At Item.java:[lines 49-151]</Message>
+      <SourceLine classname="model.domain.Item" start="35" end="157" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+        <Message>At Item.java:[lines 35-157]</Message>
       </SourceLine>
       <Message>In class model.domain.Item</Message>
     </Class>
-    <Method classname="model.domain.Item" name="&lt;init&gt;" signature="(Lmodel/domain/Member;Lmodel/domain/Item$ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V" isStatic="false" primary="true">
-      <SourceLine classname="model.domain.Item" start="49" end="58" startBytecode="0" endBytecode="196" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java"/>
-      <Message>In method new model.domain.Item(Member, Item$ItemType, String, String, String, int, int)</Message>
+    <Method classname="model.domain.Item" name="getOwner" signature="()Lmodel/domain/Member$Mutable;" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.Item" start="145" end="145" startBytecode="0" endBytecode="46" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java"/>
+      <Message>In method model.domain.Item.getOwner()</Message>
     </Method>
-    <Field classname="model.domain.Item" name="owner" signature="Lmodel/domain/Member;" isStatic="false" primary="true">
+    <Field classname="model.domain.Item" name="owner" signature="Lmodel/domain/Member$Mutable;" isStatic="false" primary="true">
       <SourceLine classname="model.domain.Item" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
         <Message>In Item.java</Message>
       </SourceLine>
       <Message>Field model.domain.Item.owner</Message>
     </Field>
-    <LocalVariable name="owner" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
-      <Message>Local variable named owner</Message>
-    </LocalVariable>
-    <SourceLine classname="model.domain.Item" primary="true" start="50" end="50" startBytecode="6" endBytecode="6" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
-      <Message>At Item.java:[line 50]</Message>
+    <SourceLine classname="model.domain.Item" primary="true" start="145" end="145" startBytecode="4" endBytecode="4" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+      <Message>At Item.java:[line 145]</Message>
     </SourceLine>
   </BugInstance>
-  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="6d031a16120901061b5bfac3aeb30444" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="c631a80c04e71967b062bd44cb62fea8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
     <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
-    <LongMessage>new model.domain.Item(Member, Item$ItemType, String, String, String, int, int, boolean) may expose internal representation by storing an externally mutable object into Item.owner</LongMessage>
+    <LongMessage>new model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int) may expose internal representation by storing an externally mutable object into Item.owner</LongMessage>
     <Class classname="model.domain.Item" primary="true">
-      <SourceLine classname="model.domain.Item" start="49" end="151" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
-        <Message>At Item.java:[lines 49-151]</Message>
+      <SourceLine classname="model.domain.Item" start="35" end="157" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+        <Message>At Item.java:[lines 35-157]</Message>
       </SourceLine>
       <Message>In class model.domain.Item</Message>
     </Class>
-    <Method classname="model.domain.Item" name="&lt;init&gt;" signature="(Lmodel/domain/Member;Lmodel/domain/Item$ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIZ)V" isStatic="false" primary="true">
-      <SourceLine classname="model.domain.Item" start="81" end="90" startBytecode="0" endBytecode="207" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java"/>
-      <Message>In method new model.domain.Item(Member, Item$ItemType, String, String, String, int, int, boolean)</Message>
+    <Method classname="model.domain.Item" name="&lt;init&gt;" signature="(Lmodel/domain/Member$Mutable;Lmodel/domain/Item$ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.Item" start="85" end="94" startBytecode="0" endBytecode="196" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java"/>
+      <Message>In method new model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int)</Message>
     </Method>
-    <Field classname="model.domain.Item" name="owner" signature="Lmodel/domain/Member;" isStatic="false" primary="true">
+    <Field classname="model.domain.Item" name="owner" signature="Lmodel/domain/Member$Mutable;" isStatic="false" primary="true">
       <SourceLine classname="model.domain.Item" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
         <Message>In Item.java</Message>
       </SourceLine>
@@ -134,8 +135,80 @@
     <LocalVariable name="owner" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
       <Message>Local variable named owner</Message>
     </LocalVariable>
-    <SourceLine classname="model.domain.Item" primary="true" start="82" end="82" startBytecode="6" endBytecode="6" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
-      <Message>At Item.java:[line 82]</Message>
+    <SourceLine classname="model.domain.Item" primary="true" start="86" end="86" startBytecode="6" endBytecode="6" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+      <Message>At Item.java:[line 86]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="cc605bace9af6de7e5a3b8c0ac98bf5d" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
+    <LongMessage>new model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int, boolean) may expose internal representation by storing an externally mutable object into Item.owner</LongMessage>
+    <Class classname="model.domain.Item" primary="true">
+      <SourceLine classname="model.domain.Item" start="35" end="157" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+        <Message>At Item.java:[lines 35-157]</Message>
+      </SourceLine>
+      <Message>In class model.domain.Item</Message>
+    </Class>
+    <Method classname="model.domain.Item" name="&lt;init&gt;" signature="(Lmodel/domain/Member$Mutable;Lmodel/domain/Item$ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIZ)V" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.Item" start="117" end="126" startBytecode="0" endBytecode="207" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java"/>
+      <Message>In method new model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int, boolean)</Message>
+    </Method>
+    <Field classname="model.domain.Item" name="owner" signature="Lmodel/domain/Member$Mutable;" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.Item" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+        <Message>In Item.java</Message>
+      </SourceLine>
+      <Message>Field model.domain.Item.owner</Message>
+    </Field>
+    <LocalVariable name="owner" register="1" pc="6" role="LOCAL_VARIABLE_NAMED">
+      <Message>Local variable named owner</Message>
+    </LocalVariable>
+    <SourceLine classname="model.domain.Item" primary="true" start="118" end="118" startBytecode="6" endBytecode="6" sourcefile="Item.java" sourcepath="model/domain/Item.java" relSourcepath="java\model\domain\Item.java">
+      <Message>At Item.java:[line 118]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="4139d58d89e1e1e6f7cd1493c0e150bc" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.domain.ItemCollectionImpl.getAllItems() may expose internal representation by returning ItemCollectionImpl.items</LongMessage>
+    <Class classname="model.domain.ItemCollectionImpl" primary="true">
+      <SourceLine classname="model.domain.ItemCollectionImpl" start="17" end="82" sourcefile="ItemCollectionImpl.java" sourcepath="model/domain/ItemCollectionImpl.java" relSourcepath="java\model\domain\ItemCollectionImpl.java">
+        <Message>At ItemCollectionImpl.java:[lines 17-82]</Message>
+      </SourceLine>
+      <Message>In class model.domain.ItemCollectionImpl</Message>
+    </Class>
+    <Method classname="model.domain.ItemCollectionImpl" name="getAllItems" signature="()Ljava/lang/Iterable;" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.ItemCollectionImpl" start="27" end="27" startBytecode="0" endBytecode="46" sourcefile="ItemCollectionImpl.java" sourcepath="model/domain/ItemCollectionImpl.java" relSourcepath="java\model\domain\ItemCollectionImpl.java"/>
+      <Message>In method model.domain.ItemCollectionImpl.getAllItems()</Message>
+    </Method>
+    <Field classname="model.domain.ItemCollectionImpl" name="items" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.ItemCollectionImpl" sourcefile="ItemCollectionImpl.java" sourcepath="model/domain/ItemCollectionImpl.java" relSourcepath="java\model\domain\ItemCollectionImpl.java">
+        <Message>In ItemCollectionImpl.java</Message>
+      </SourceLine>
+      <Message>Field model.domain.ItemCollectionImpl.items</Message>
+    </Field>
+    <SourceLine classname="model.domain.ItemCollectionImpl" primary="true" start="27" end="27" startBytecode="4" endBytecode="4" sourcefile="ItemCollectionImpl.java" sourcepath="model/domain/ItemCollectionImpl.java" relSourcepath="java\model\domain\ItemCollectionImpl.java">
+      <Message>At ItemCollectionImpl.java:[line 27]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="824e665646d9a892c9d44f1fb2063c08" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+    <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
+    <LongMessage>model.domain.MemberCollection.getMembers() may expose internal representation by returning MemberCollection.members</LongMessage>
+    <Class classname="model.domain.MemberCollection" primary="true">
+      <SourceLine classname="model.domain.MemberCollection" start="5" end="56" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
+        <Message>At MemberCollection.java:[lines 5-56]</Message>
+      </SourceLine>
+      <Message>In class model.domain.MemberCollection</Message>
+    </Class>
+    <Method classname="model.domain.MemberCollection" name="getMembers" signature="()Ljava/lang/Iterable;" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.MemberCollection" start="19" end="19" startBytecode="0" endBytecode="46" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java"/>
+      <Message>In method model.domain.MemberCollection.getMembers()</Message>
+    </Method>
+    <Field classname="model.domain.MemberCollection" name="members" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+      <SourceLine classname="model.domain.MemberCollection" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
+        <Message>In MemberCollection.java</Message>
+      </SourceLine>
+      <Message>Field model.domain.MemberCollection.members</Message>
+    </Field>
+    <SourceLine classname="model.domain.MemberCollection" primary="true" start="19" end="19" startBytecode="4" endBytecode="4" sourcefile="MemberCollection.java" sourcepath="model/domain/MemberCollection.java" relSourcepath="java\model\domain\MemberCollection.java">
+      <Message>At MemberCollection.java:[line 19]</Message>
     </SourceLine>
   </BugInstance>
   <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="8d0b5ad6dea00867624603a848fbefc8" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
@@ -164,32 +237,6 @@
       <Message>At OwnerIteratorImpl.java:[line 16]</Message>
     </SourceLine>
   </BugInstance>
-  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="3f18fa4c60027924899681dddf3b866c" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
-    <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
-    <LongMessage>new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal representation by storing an externally mutable object into OwnerIteratorImpl.owner</LongMessage>
-    <Class classname="model.domain.OwnerIteratorImpl" primary="true">
-      <SourceLine classname="model.domain.OwnerIteratorImpl" start="15" end="40" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
-        <Message>At OwnerIteratorImpl.java:[lines 15-40]</Message>
-      </SourceLine>
-      <Message>In class model.domain.OwnerIteratorImpl</Message>
-    </Class>
-    <Method classname="model.domain.OwnerIteratorImpl" name="&lt;init&gt;" signature="(Lmodel/domain/Member;Ljava/util/ArrayList;)V" isStatic="false" primary="true">
-      <SourceLine classname="model.domain.OwnerIteratorImpl" start="15" end="19" startBytecode="0" endBytecode="115" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java"/>
-      <Message>In method new model.domain.OwnerIteratorImpl(Member, ArrayList)</Message>
-    </Method>
-    <Field classname="model.domain.OwnerIteratorImpl" name="owner" signature="Lmodel/domain/Member;" isStatic="false" primary="true">
-      <SourceLine classname="model.domain.OwnerIteratorImpl" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
-        <Message>In OwnerIteratorImpl.java</Message>
-      </SourceLine>
-      <Message>Field model.domain.OwnerIteratorImpl.owner</Message>
-    </Field>
-    <LocalVariable name="owner" register="1" pc="11" role="LOCAL_VARIABLE_NAMED">
-      <Message>Local variable named owner</Message>
-    </LocalVariable>
-    <SourceLine classname="model.domain.OwnerIteratorImpl" primary="true" start="17" end="17" startBytecode="11" endBytecode="11" sourcefile="OwnerIteratorImpl.java" sourcepath="model/domain/OwnerIteratorImpl.java" relSourcepath="java\model\domain\OwnerIteratorImpl.java">
-      <Message>At OwnerIteratorImpl.java:[line 17]</Message>
-    </SourceLine>
-  </BugInstance>
   <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="623ce30617f57547db1ccb48ef9ca928" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
     <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
     <LongMessage>new model.domain.TypeIteratorImpl(Item$ItemType, ArrayList) may expose internal representation by storing an externally mutable object into TypeIteratorImpl.items</LongMessage>
@@ -216,20 +263,20 @@
       <Message>At TypeIteratorImpl.java:[line 25]</Message>
     </SourceLine>
   </BugInstance>
-  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="2a7eac2fe7cb458e0f47b9de8807cbcf" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" rank="18" abbrev="EI2" category="MALICIOUS_CODE" instanceHash="b3a5125cc4820d78df48276a5bd3530f" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
     <ShortMessage>May expose internal representation by incorporating reference to mutable object</ShortMessage>
-    <LongMessage>new model.repository.ItemMapper(ArrayList) may expose internal representation by storing an externally mutable object into ItemMapper.members</LongMessage>
+    <LongMessage>new model.repository.ItemMapper(MemberCollection) may expose internal representation by storing an externally mutable object into ItemMapper.members</LongMessage>
     <Class classname="model.repository.ItemMapper" primary="true">
-      <SourceLine classname="model.repository.ItemMapper" start="11" end="47" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java">
-        <Message>At ItemMapper.java:[lines 11-47]</Message>
+      <SourceLine classname="model.repository.ItemMapper" start="16" end="57" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java">
+        <Message>At ItemMapper.java:[lines 16-57]</Message>
       </SourceLine>
       <Message>In class model.repository.ItemMapper</Message>
     </Class>
-    <Method classname="model.repository.ItemMapper" name="&lt;init&gt;" signature="(Ljava/util/ArrayList;)V" isStatic="false" primary="true">
-      <SourceLine classname="model.repository.ItemMapper" start="15" end="18" startBytecode="0" endBytecode="102" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java"/>
-      <Message>In method new model.repository.ItemMapper(ArrayList)</Message>
+    <Method classname="model.repository.ItemMapper" name="&lt;init&gt;" signature="(Lmodel/domain/MemberCollection;)V" isStatic="false" primary="true">
+      <SourceLine classname="model.repository.ItemMapper" start="20" end="23" startBytecode="0" endBytecode="84" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java"/>
+      <Message>In method new model.repository.ItemMapper(MemberCollection)</Message>
     </Method>
-    <Field classname="model.repository.ItemMapper" name="members" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+    <Field classname="model.repository.ItemMapper" name="members" signature="Lmodel/domain/MemberCollection;" isStatic="false" primary="true">
       <SourceLine classname="model.repository.ItemMapper" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java">
         <Message>In ItemMapper.java</Message>
       </SourceLine>
@@ -238,35 +285,16 @@
     <LocalVariable name="members" register="1" pc="17" role="LOCAL_VARIABLE_NAMED">
       <Message>Local variable named members</Message>
     </LocalVariable>
-    <SourceLine classname="model.repository.ItemMapper" primary="true" start="17" end="17" startBytecode="17" endBytecode="17" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java">
-      <Message>At ItemMapper.java:[line 17]</Message>
-    </SourceLine>
-  </BugInstance>
-  <BugInstance type="UUF_UNUSED_FIELD" priority="2" rank="18" abbrev="UuF" category="PERFORMANCE" instanceHash="63f38230d5e8c9a9be4880d2e4428976" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
-    <ShortMessage>Unused field</ShortMessage>
-    <LongMessage>Unused field: model.repository.MapperFactory.mocks</LongMessage>
-    <Class classname="model.repository.MapperFactory" primary="true">
-      <SourceLine classname="model.repository.MapperFactory" start="10" end="16" sourcefile="MapperFactory.java" sourcepath="model/repository/MapperFactory.java" relSourcepath="java\model\repository\MapperFactory.java">
-        <Message>At MapperFactory.java:[lines 10-16]</Message>
-      </SourceLine>
-      <Message>In class model.repository.MapperFactory</Message>
-    </Class>
-    <Field classname="model.repository.MapperFactory" name="mocks" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
-      <SourceLine classname="model.repository.MapperFactory" sourcefile="MapperFactory.java" sourcepath="model/repository/MapperFactory.java" relSourcepath="java\model\repository\MapperFactory.java">
-        <Message>In MapperFactory.java</Message>
-      </SourceLine>
-      <Message>Field model.repository.MapperFactory.mocks</Message>
-    </Field>
-    <SourceLine classname="model.repository.MapperFactory" sourcefile="MapperFactory.java" sourcepath="model/repository/MapperFactory.java" relSourcepath="java\model\repository\MapperFactory.java" synthetic="true">
-      <Message>In MapperFactory.java</Message>
+    <SourceLine classname="model.repository.ItemMapper" primary="true" start="22" end="22" startBytecode="17" endBytecode="17" sourcefile="ItemMapper.java" sourcepath="model/repository/ItemMapper.java" relSourcepath="java\model\repository\ItemMapper.java">
+      <Message>At ItemMapper.java:[line 22]</Message>
     </SourceLine>
   </BugInstance>
   <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE" instanceHash="30f38678d092de8c50b4f2c667055349" instanceOccurrenceNum="0" instanceOccurrenceMax="0" cweid="374">
     <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
     <LongMessage>model.repository.PersistenceFacade.getItems() may expose internal representation by returning PersistenceFacade.items</LongMessage>
     <Class classname="model.repository.PersistenceFacade" primary="true">
-      <SourceLine classname="model.repository.PersistenceFacade" start="15" end="59" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
-        <Message>At PersistenceFacade.java:[lines 15-59]</Message>
+      <SourceLine classname="model.repository.PersistenceFacade" start="18" end="45" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
+        <Message>At PersistenceFacade.java:[lines 18-45]</Message>
       </SourceLine>
       <Message>In class model.repository.PersistenceFacade</Message>
     </Class>
@@ -288,16 +316,16 @@
     <ShortMessage>May expose internal representation by returning reference to mutable object</ShortMessage>
     <LongMessage>model.repository.PersistenceFacade.getMembers() may expose internal representation by returning PersistenceFacade.members</LongMessage>
     <Class classname="model.repository.PersistenceFacade" primary="true">
-      <SourceLine classname="model.repository.PersistenceFacade" start="15" end="59" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
-        <Message>At PersistenceFacade.java:[lines 15-59]</Message>
+      <SourceLine classname="model.repository.PersistenceFacade" start="18" end="45" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
+        <Message>At PersistenceFacade.java:[lines 18-45]</Message>
       </SourceLine>
       <Message>In class model.repository.PersistenceFacade</Message>
     </Class>
-    <Method classname="model.repository.PersistenceFacade" name="getMembers" signature="()Ljava/util/ArrayList;" isStatic="false" primary="true">
+    <Method classname="model.repository.PersistenceFacade" name="getMembers" signature="()Lmodel/domain/MemberCollection;" isStatic="false" primary="true">
       <SourceLine classname="model.repository.PersistenceFacade" start="28" end="28" startBytecode="0" endBytecode="46" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java"/>
       <Message>In method model.repository.PersistenceFacade.getMembers()</Message>
     </Method>
-    <Field classname="model.repository.PersistenceFacade" name="members" signature="Ljava/util/ArrayList;" isStatic="false" primary="true">
+    <Field classname="model.repository.PersistenceFacade" name="members" signature="Lmodel/domain/MemberCollection;" isStatic="false" primary="true">
       <SourceLine classname="model.repository.PersistenceFacade" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
         <Message>In PersistenceFacade.java</Message>
       </SourceLine>
@@ -311,8 +339,8 @@
     <ShortMessage>Unread field</ShortMessage>
     <LongMessage>Unread field: model.repository.PersistenceFacade.mapperFactory</LongMessage>
     <Class classname="model.repository.PersistenceFacade" primary="true">
-      <SourceLine classname="model.repository.PersistenceFacade" start="15" end="59" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
-        <Message>At PersistenceFacade.java:[lines 15-59]</Message>
+      <SourceLine classname="model.repository.PersistenceFacade" start="18" end="45" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
+        <Message>At PersistenceFacade.java:[lines 18-45]</Message>
       </SourceLine>
       <Message>In class model.repository.PersistenceFacade</Message>
     </Class>
@@ -322,46 +350,8 @@
       </SourceLine>
       <Message>Field model.repository.PersistenceFacade.mapperFactory</Message>
     </Field>
-    <SourceLine classname="model.repository.PersistenceFacade" primary="true" start="16" end="16" startBytecode="12" endBytecode="12" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
-      <Message>At PersistenceFacade.java:[line 16]</Message>
-    </SourceLine>
-  </BugInstance>
-  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="4f5778bc7c7872d58cd78f8b2a92f613" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
-    <ShortMessage>Unread field</ShortMessage>
-    <LongMessage>Unread field: model.repository.mock.ItemMockOne.ownerID</LongMessage>
-    <Class classname="model.repository.mock.ItemMockOne" primary="true">
-      <SourceLine classname="model.repository.mock.ItemMockOne" start="4" end="37" sourcefile="ItemMockOne.java" sourcepath="model/repository/mock/ItemMockOne.java" relSourcepath="java\model\repository\mock\ItemMockOne.java">
-        <Message>At ItemMockOne.java:[lines 4-37]</Message>
-      </SourceLine>
-      <Message>In class model.repository.mock.ItemMockOne</Message>
-    </Class>
-    <Field classname="model.repository.mock.ItemMockOne" name="ownerID" signature="Ljava/lang/String;" isStatic="false" primary="true">
-      <SourceLine classname="model.repository.mock.ItemMockOne" sourcefile="ItemMockOne.java" sourcepath="model/repository/mock/ItemMockOne.java" relSourcepath="java\model\repository\mock\ItemMockOne.java">
-        <Message>In ItemMockOne.java</Message>
-      </SourceLine>
-      <Message>Field model.repository.mock.ItemMockOne.ownerID</Message>
-    </Field>
-    <SourceLine classname="model.repository.mock.ItemMockOne" primary="true" start="5" end="5" startBytecode="13" endBytecode="13" sourcefile="ItemMockOne.java" sourcepath="model/repository/mock/ItemMockOne.java" relSourcepath="java\model\repository\mock\ItemMockOne.java">
-      <Message>At ItemMockOne.java:[line 5]</Message>
-    </SourceLine>
-  </BugInstance>
-  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" instanceHash="97d0d62d0dd6cf85dd86955b41a23030" instanceOccurrenceNum="0" instanceOccurrenceMax="0">
-    <ShortMessage>Unread field</ShortMessage>
-    <LongMessage>Unread field: model.repository.mock.ItemMockTwo.ownerID</LongMessage>
-    <Class classname="model.repository.mock.ItemMockTwo" primary="true">
-      <SourceLine classname="model.repository.mock.ItemMockTwo" start="4" end="37" sourcefile="ItemMockTwo.java" sourcepath="model/repository/mock/ItemMockTwo.java" relSourcepath="java\model\repository\mock\ItemMockTwo.java">
-        <Message>At ItemMockTwo.java:[lines 4-37]</Message>
-      </SourceLine>
-      <Message>In class model.repository.mock.ItemMockTwo</Message>
-    </Class>
-    <Field classname="model.repository.mock.ItemMockTwo" name="ownerID" signature="Ljava/lang/String;" isStatic="false" primary="true">
-      <SourceLine classname="model.repository.mock.ItemMockTwo" sourcefile="ItemMockTwo.java" sourcepath="model/repository/mock/ItemMockTwo.java" relSourcepath="java\model\repository\mock\ItemMockTwo.java">
-        <Message>In ItemMockTwo.java</Message>
-      </SourceLine>
-      <Message>Field model.repository.mock.ItemMockTwo.ownerID</Message>
-    </Field>
-    <SourceLine classname="model.repository.mock.ItemMockTwo" primary="true" start="5" end="5" startBytecode="13" endBytecode="13" sourcefile="ItemMockTwo.java" sourcepath="model/repository/mock/ItemMockTwo.java" relSourcepath="java\model\repository\mock\ItemMockTwo.java">
-      <Message>At ItemMockTwo.java:[line 5]</Message>
+    <SourceLine classname="model.repository.PersistenceFacade" primary="true" start="19" end="19" startBytecode="12" endBytecode="12" sourcefile="PersistenceFacade.java" sourcepath="model/repository/PersistenceFacade.java" relSourcepath="java\model\repository\PersistenceFacade.java">
+      <Message>At PersistenceFacade.java:[line 19]</Message>
     </SourceLine>
   </BugInstance>
   <BugCategory category="BAD_PRACTICE">
@@ -410,14 +400,6 @@
 
     ]]></Details>
   </BugPattern>
-  <BugPattern type="UUF_UNUSED_FIELD" abbrev="UuF" category="PERFORMANCE">
-    <ShortDescription>Unused field</ShortDescription>
-    <Details><![CDATA[
-
-  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
-
-    ]]></Details>
-  </BugPattern>
   <BugPattern type="URF_UNREAD_FIELD" abbrev="UrF" category="PERFORMANCE">
     <ShortDescription>Unread field</ShortDescription>
     <Details><![CDATA[
@@ -429,9 +411,6 @@
   <BugCode abbrev="EI">
     <Description>Method returning array may expose internal representation</Description>
   </BugCode>
-  <BugCode abbrev="UuF">
-    <Description>Unused field</Description>
-  </BugCode>
   <BugCode abbrev="UrF">
     <Description>Unread field</Description>
   </BugCode>
@@ -442,73 +421,79 @@
     <Description>Confusing method name</Description>
   </BugCode>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Mon, 3 Oct 2022 09:43:16 +0200" total_classes="35" referenced_classes="78" total_bugs="14" total_size="1424" num_packages="5" java_version="18.0.2.1" vm_version="18.0.2.1+1-1" cpu_seconds="23.88" clock_seconds="3.86" peak_mbytes="219.96" alloc_mbytes="3930.00" gc_seconds="0.04" priority_2="14">
-    <FileStats path="controller/App.java" bugCount="0" size="9"/>
-    <FileStats path="controller/MainController.java" bugCount="2" size="225" bugHash="4f0aaace46376435e43a329de76b12d9"/>
-    <FileStats path="model/domain/ContractCollection.java" bugCount="0" size="70"/>
-    <FileStats path="model/domain/Item.java" bugCount="2" size="87" bugHash="5974c815c09b793daa985aaf7305f613"/>
+  <FindBugsSummary timestamp="Mon, 3 Oct 2022 12:39:35 +0200" total_classes="39" referenced_classes="83" total_bugs="13" total_size="1434" num_packages="5" java_version="18.0.2.1" vm_version="18.0.2.1+1-1" cpu_seconds="38.44" clock_seconds="5.75" peak_mbytes="212.04" alloc_mbytes="3930.00" gc_seconds="0.03" priority_2="13">
+    <FileStats path="controller/App.java" bugCount="0" size="10"/>
+    <FileStats path="controller/MainController.java" bugCount="2" size="218" bugHash="4f0aaace46376435e43a329de76b12d9"/>
+    <FileStats path="model/domain/ContractCollection.java" bugCount="0" size="7"/>
+    <FileStats path="model/domain/ContractCollectionImpl.java" bugCount="0" size="70"/>
+    <FileStats path="model/domain/Item.java" bugCount="3" size="111" bugHash="094f7c68233a529a5f7d482ddcce913c"/>
     <FileStats path="model/domain/ItemCollection.java" bugCount="0" size="9"/>
-    <FileStats path="model/domain/ItemCollectionImpl.java" bugCount="0" size="54"/>
+    <FileStats path="model/domain/ItemCollectionImpl.java" bugCount="1" size="38" bugHash="668191d7729c7b2529829efc330a86b5"/>
     <FileStats path="model/domain/ItemIterator.java" bugCount="0" size="3"/>
-    <FileStats path="model/domain/LendingContract.java" bugCount="0" size="56"/>
-    <FileStats path="model/domain/Member.java" bugCount="0" size="60"/>
-    <FileStats path="model/domain/OwnerIteratorImpl.java" bugCount="2" size="22" bugHash="fcdcc6f4cfcb48cd94e29231a2eaaff6"/>
+    <FileStats path="model/domain/LendingContract.java" bugCount="0" size="41"/>
+    <FileStats path="model/domain/Member.java" bugCount="0" size="91"/>
+    <FileStats path="model/domain/MemberCollection.java" bugCount="1" size="31" bugHash="cfbba2d4834902f80c56e6fa4dc643aa"/>
+    <FileStats path="model/domain/OwnerIteratorImpl.java" bugCount="1" size="22" bugHash="edd9963e61636e18a559d3805bfb9262"/>
     <FileStats path="model/domain/RandomString.java" bugCount="0" size="24"/>
-    <FileStats path="model/domain/StuffLendingSystem.java" bugCount="0" size="160"/>
+    <FileStats path="model/domain/StuffLendingSystem.java" bugCount="0" size="111"/>
     <FileStats path="model/domain/TypeIteratorImpl.java" bugCount="1" size="22" bugHash="5192555b556aa757e5cd913c43c37b6e"/>
-    <FileStats path="model/repository/IMapper.java" bugCount="0" size="3"/>
-    <FileStats path="model/repository/ItemMapper.java" bugCount="1" size="28" bugHash="d73508b1efd54d4fc07774b22d724edb"/>
-    <FileStats path="model/repository/MapperFactory.java" bugCount="1" size="7" bugHash="5fb4eafd472d5aa08d934ef76943c1b8"/>
+    <FileStats path="model/repository/ItemMapper.java" bugCount="1" size="28" bugHash="baf8ec86918e6edb56b46df751ec7b39"/>
+    <FileStats path="model/repository/Mapper.java" bugCount="0" size="3"/>
+    <FileStats path="model/repository/MapperFactory.java" bugCount="0" size="4"/>
     <FileStats path="model/repository/MemberMapper.java" bugCount="0" size="25"/>
     <FileStats path="model/repository/ObjectIdentifier.java" bugCount="0" size="8"/>
-    <FileStats path="model/repository/PersistenceFacade.java" bugCount="3" size="34" bugHash="69dac2b765ea97f2a682c8a208d15dd3"/>
+    <FileStats path="model/repository/PersistenceFacade.java" bugCount="3" size="22" bugHash="ecd2508608aa5f9a26f3ed6e84a14d60"/>
     <FileStats path="model/repository/PersistenceMapper.java" bugCount="0" size="9"/>
-    <FileStats path="model/repository/mock/IMock.java" bugCount="0" size="2"/>
-    <FileStats path="model/repository/mock/ItemMockOne.java" bugCount="1" size="40" bugHash="724abd0a853fde2d380b4b87499b5242"/>
-    <FileStats path="model/repository/mock/ItemMockTwo.java" bugCount="1" size="40" bugHash="f600fb3f6f40a675658d043e84b2b3d4"/>
+    <FileStats path="model/repository/mock/ItemMockOne.java" bugCount="0" size="42"/>
+    <FileStats path="model/repository/mock/ItemMockTwo.java" bugCount="0" size="42"/>
     <FileStats path="model/repository/mock/MemberMockOne.java" bugCount="0" size="38"/>
     <FileStats path="model/repository/mock/MemberMockTwo.java" bugCount="0" size="38"/>
-    <FileStats path="model/repository/mock/MockCollection.java" bugCount="0" size="19"/>
-    <FileStats path="view/Console.java" bugCount="0" size="332"/>
-    <PackageStats package="controller" total_bugs="2" total_types="4" total_size="234" priority_2="2">
-      <ClassStats class="controller.App" sourceFile="App.java" interface="false" size="9" bugs="0"/>
-      <ClassStats class="controller.MainController" sourceFile="MainController.java" interface="false" size="157" bugs="1" priority_2="1"/>
+    <FileStats path="model/repository/mock/Mock.java" bugCount="0" size="2"/>
+    <FileStats path="model/repository/mock/MockCollection.java" bugCount="0" size="21"/>
+    <FileStats path="view/Console.java" bugCount="0" size="344"/>
+    <PackageStats package="controller" total_bugs="2" total_types="4" total_size="228" priority_2="2">
+      <ClassStats class="controller.App" sourceFile="App.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="controller.MainController" sourceFile="MainController.java" interface="false" size="150" bugs="1" priority_2="1"/>
       <ClassStats class="controller.MainController$ActionEvent" sourceFile="MainController.java" interface="false" size="36" bugs="0"/>
       <ClassStats class="controller.MainController$promptEvent" sourceFile="MainController.java" interface="false" size="32" bugs="1" priority_2="1"/>
     </PackageStats>
-    <PackageStats package="model.domain" total_bugs="5" total_types="12" total_size="567" priority_2="5">
-      <ClassStats class="model.domain.ContractCollection" sourceFile="ContractCollection.java" interface="false" size="70" bugs="0"/>
-      <ClassStats class="model.domain.Item" sourceFile="Item.java" interface="false" size="67" bugs="2" priority_2="2"/>
+    <PackageStats package="model.domain" total_bugs="7" total_types="16" total_size="580" priority_2="7">
+      <ClassStats class="model.domain.ContractCollection" sourceFile="ContractCollection.java" interface="true" size="7" bugs="0"/>
+      <ClassStats class="model.domain.ContractCollectionImpl" sourceFile="ContractCollectionImpl.java" interface="false" size="70" bugs="0"/>
+      <ClassStats class="model.domain.Item" sourceFile="Item.java" interface="false" size="66" bugs="3" priority_2="3"/>
       <ClassStats class="model.domain.Item$ItemType" sourceFile="Item.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="model.domain.Item$Mutable" sourceFile="Item.java" interface="false" size="25" bugs="0"/>
       <ClassStats class="model.domain.ItemCollection" sourceFile="ItemCollection.java" interface="true" size="9" bugs="0"/>
-      <ClassStats class="model.domain.ItemCollectionImpl" sourceFile="ItemCollectionImpl.java" interface="false" size="54" bugs="0"/>
+      <ClassStats class="model.domain.ItemCollectionImpl" sourceFile="ItemCollectionImpl.java" interface="false" size="38" bugs="1" priority_2="1"/>
       <ClassStats class="model.domain.ItemIterator" sourceFile="ItemIterator.java" interface="true" size="3" bugs="0"/>
-      <ClassStats class="model.domain.LendingContract" sourceFile="LendingContract.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="model.domain.LendingContract" sourceFile="LendingContract.java" interface="false" size="41" bugs="0"/>
       <ClassStats class="model.domain.Member" sourceFile="Member.java" interface="false" size="60" bugs="0"/>
-      <ClassStats class="model.domain.OwnerIteratorImpl" sourceFile="OwnerIteratorImpl.java" interface="false" size="22" bugs="2" priority_2="2"/>
+      <ClassStats class="model.domain.Member$Mutable" sourceFile="Member.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="model.domain.MemberCollection" sourceFile="MemberCollection.java" interface="false" size="31" bugs="1" priority_2="1"/>
+      <ClassStats class="model.domain.OwnerIteratorImpl" sourceFile="OwnerIteratorImpl.java" interface="false" size="22" bugs="1" priority_2="1"/>
       <ClassStats class="model.domain.RandomString" sourceFile="RandomString.java" interface="false" size="24" bugs="0"/>
-      <ClassStats class="model.domain.StuffLendingSystem" sourceFile="StuffLendingSystem.java" interface="false" size="160" bugs="0"/>
+      <ClassStats class="model.domain.StuffLendingSystem" sourceFile="StuffLendingSystem.java" interface="false" size="111" bugs="0"/>
       <ClassStats class="model.domain.TypeIteratorImpl" sourceFile="TypeIteratorImpl.java" interface="false" size="22" bugs="1" priority_2="1"/>
     </PackageStats>
-    <PackageStats package="model.repository" total_bugs="5" total_types="7" total_size="114" priority_2="5">
-      <ClassStats class="model.repository.IMapper" sourceFile="IMapper.java" interface="true" size="3" bugs="0"/>
+    <PackageStats package="model.repository" total_bugs="4" total_types="7" total_size="99" priority_2="4">
       <ClassStats class="model.repository.ItemMapper" sourceFile="ItemMapper.java" interface="false" size="28" bugs="1" priority_2="1"/>
-      <ClassStats class="model.repository.MapperFactory" sourceFile="MapperFactory.java" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="model.repository.Mapper" sourceFile="Mapper.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="model.repository.MapperFactory" sourceFile="MapperFactory.java" interface="false" size="4" bugs="0"/>
       <ClassStats class="model.repository.MemberMapper" sourceFile="MemberMapper.java" interface="false" size="25" bugs="0"/>
       <ClassStats class="model.repository.ObjectIdentifier" sourceFile="ObjectIdentifier.java" interface="false" size="8" bugs="0"/>
-      <ClassStats class="model.repository.PersistenceFacade" sourceFile="PersistenceFacade.java" interface="false" size="34" bugs="3" priority_2="3"/>
+      <ClassStats class="model.repository.PersistenceFacade" sourceFile="PersistenceFacade.java" interface="false" size="22" bugs="3" priority_2="3"/>
       <ClassStats class="model.repository.PersistenceMapper" sourceFile="PersistenceMapper.java" interface="false" size="9" bugs="0"/>
     </PackageStats>
-    <PackageStats package="model.repository.mock" total_bugs="2" total_types="6" total_size="177" priority_2="2">
-      <ClassStats class="model.repository.mock.IMock" sourceFile="IMock.java" interface="true" size="2" bugs="0"/>
-      <ClassStats class="model.repository.mock.ItemMockOne" sourceFile="ItemMockOne.java" interface="false" size="40" bugs="1" priority_2="1"/>
-      <ClassStats class="model.repository.mock.ItemMockTwo" sourceFile="ItemMockTwo.java" interface="false" size="40" bugs="1" priority_2="1"/>
+    <PackageStats package="model.repository.mock" total_bugs="0" total_types="6" total_size="183">
+      <ClassStats class="model.repository.mock.ItemMockOne" sourceFile="ItemMockOne.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="model.repository.mock.ItemMockTwo" sourceFile="ItemMockTwo.java" interface="false" size="42" bugs="0"/>
       <ClassStats class="model.repository.mock.MemberMockOne" sourceFile="MemberMockOne.java" interface="false" size="38" bugs="0"/>
       <ClassStats class="model.repository.mock.MemberMockTwo" sourceFile="MemberMockTwo.java" interface="false" size="38" bugs="0"/>
-      <ClassStats class="model.repository.mock.MockCollection" sourceFile="MockCollection.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="model.repository.mock.Mock" sourceFile="Mock.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="model.repository.mock.MockCollection" sourceFile="MockCollection.java" interface="false" size="21" bugs="0"/>
     </PackageStats>
-    <PackageStats package="view" total_bugs="0" total_types="6" total_size="332">
-      <ClassStats class="view.Console" sourceFile="Console.java" interface="false" size="240" bugs="0"/>
+    <PackageStats package="view" total_bugs="0" total_types="6" total_size="344">
+      <ClassStats class="view.Console" sourceFile="Console.java" interface="false" size="252" bugs="0"/>
       <ClassStats class="view.Console$ItemEditEvent" sourceFile="Console.java" interface="false" size="16" bugs="0"/>
       <ClassStats class="view.Console$ItemEvent" sourceFile="Console.java" interface="false" size="22" bugs="0"/>
       <ClassStats class="view.Console$MainEvent" sourceFile="Console.java" interface="false" size="16" bugs="0"/>
@@ -516,37 +501,48 @@
       <ClassStats class="view.Console$MemberEvent" sourceFile="Console.java" interface="false" size="20" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="447" invocations="640" avgMicrosecondsPerInvocation="699" maxMicrosecondsPerInvocation="17256" standardDeviationMicrosecondsPerInvocation="1461"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="129" invocations="78" avgMicrosecondsPerInvocation="1662" maxMicrosecondsPerInvocation="15987" standardDeviationMicrosecondsPerInvocation="3263"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="108" invocations="176" avgMicrosecondsPerInvocation="615" maxMicrosecondsPerInvocation="5895" standardDeviationMicrosecondsPerInvocation="826"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="100" invocations="393" avgMicrosecondsPerInvocation="255" maxMicrosecondsPerInvocation="5257" standardDeviationMicrosecondsPerInvocation="434"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="99" invocations="181" avgMicrosecondsPerInvocation="548" maxMicrosecondsPerInvocation="11568" standardDeviationMicrosecondsPerInvocation="1119"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="96" invocations="644" avgMicrosecondsPerInvocation="149" maxMicrosecondsPerInvocation="3802" standardDeviationMicrosecondsPerInvocation="202"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="92" invocations="78" avgMicrosecondsPerInvocation="1190" maxMicrosecondsPerInvocation="14194" standardDeviationMicrosecondsPerInvocation="2306"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="92" invocations="176" avgMicrosecondsPerInvocation="524" maxMicrosecondsPerInvocation="9756" standardDeviationMicrosecondsPerInvocation="1013"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="87" invocations="189" avgMicrosecondsPerInvocation="462" maxMicrosecondsPerInvocation="50631" standardDeviationMicrosecondsPerInvocation="3680"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="85" invocations="174" avgMicrosecondsPerInvocation="488" maxMicrosecondsPerInvocation="4002" standardDeviationMicrosecondsPerInvocation="614"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="80" invocations="176" avgMicrosecondsPerInvocation="459" maxMicrosecondsPerInvocation="5889" standardDeviationMicrosecondsPerInvocation="633"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="80" invocations="78" avgMicrosecondsPerInvocation="1033" maxMicrosecondsPerInvocation="67574" standardDeviationMicrosecondsPerInvocation="7592"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="75" invocations="176" avgMicrosecondsPerInvocation="431" maxMicrosecondsPerInvocation="11645" standardDeviationMicrosecondsPerInvocation="894"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="73" invocations="117" avgMicrosecondsPerInvocation="629" maxMicrosecondsPerInvocation="38855" standardDeviationMicrosecondsPerInvocation="3635"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="51" invocations="78" avgMicrosecondsPerInvocation="658" maxMicrosecondsPerInvocation="16328" standardDeviationMicrosecondsPerInvocation="1957"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="49" invocations="595" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="1440" standardDeviationMicrosecondsPerInvocation="154"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="44" invocations="134" avgMicrosecondsPerInvocation="332" maxMicrosecondsPerInvocation="2559" standardDeviationMicrosecondsPerInvocation="363"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="35" invocations="35" avgMicrosecondsPerInvocation="1004" maxMicrosecondsPerInvocation="15944" standardDeviationMicrosecondsPerInvocation="2725"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="34" invocations="78" avgMicrosecondsPerInvocation="442" maxMicrosecondsPerInvocation="5072" standardDeviationMicrosecondsPerInvocation="887"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="31" invocations="78" avgMicrosecondsPerInvocation="407" maxMicrosecondsPerInvocation="13993" standardDeviationMicrosecondsPerInvocation="1596"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="31" invocations="35" avgMicrosecondsPerInvocation="899" maxMicrosecondsPerInvocation="16153" standardDeviationMicrosecondsPerInvocation="2696"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="30" invocations="35" avgMicrosecondsPerInvocation="862" maxMicrosecondsPerInvocation="23594" standardDeviationMicrosecondsPerInvocation="4016"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="28" invocations="17" avgMicrosecondsPerInvocation="1656" maxMicrosecondsPerInvocation="9339" standardDeviationMicrosecondsPerInvocation="2263"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="28" invocations="35" avgMicrosecondsPerInvocation="804" maxMicrosecondsPerInvocation="8378" standardDeviationMicrosecondsPerInvocation="1496"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="28" invocations="78" avgMicrosecondsPerInvocation="360" maxMicrosecondsPerInvocation="7346" standardDeviationMicrosecondsPerInvocation="920"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="27" invocations="78" avgMicrosecondsPerInvocation="355" maxMicrosecondsPerInvocation="3402" standardDeviationMicrosecondsPerInvocation="677"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="25" invocations="189" avgMicrosecondsPerInvocation="135" maxMicrosecondsPerInvocation="6024" standardDeviationMicrosecondsPerInvocation="644"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="24" invocations="35" avgMicrosecondsPerInvocation="713" maxMicrosecondsPerInvocation="6923" standardDeviationMicrosecondsPerInvocation="1258"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="23" invocations="176" avgMicrosecondsPerInvocation="135" maxMicrosecondsPerInvocation="2410" standardDeviationMicrosecondsPerInvocation="227"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="23" invocations="35" avgMicrosecondsPerInvocation="678" maxMicrosecondsPerInvocation="17984" standardDeviationMicrosecondsPerInvocation="2973"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="23" invocations="4063" avgMicrosecondsPerInvocation="5" maxMicrosecondsPerInvocation="2477" standardDeviationMicrosecondsPerInvocation="58"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="498" invocations="644" avgMicrosecondsPerInvocation="773" maxMicrosecondsPerInvocation="22858" standardDeviationMicrosecondsPerInvocation="1508"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="212" invocations="193" avgMicrosecondsPerInvocation="1103" maxMicrosecondsPerInvocation="10989" standardDeviationMicrosecondsPerInvocation="1601"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="175" invocations="83" avgMicrosecondsPerInvocation="2115" maxMicrosecondsPerInvocation="23577" standardDeviationMicrosecondsPerInvocation="4297"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="167" invocations="191" avgMicrosecondsPerInvocation="878" maxMicrosecondsPerInvocation="7255" standardDeviationMicrosecondsPerInvocation="1197"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="167" invocations="196" avgMicrosecondsPerInvocation="854" maxMicrosecondsPerInvocation="17059" standardDeviationMicrosecondsPerInvocation="1545"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="163" invocations="193" avgMicrosecondsPerInvocation="845" maxMicrosecondsPerInvocation="15073" standardDeviationMicrosecondsPerInvocation="1705"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="143" invocations="193" avgMicrosecondsPerInvocation="742" maxMicrosecondsPerInvocation="16875" standardDeviationMicrosecondsPerInvocation="1388"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="141" invocations="404" avgMicrosecondsPerInvocation="349" maxMicrosecondsPerInvocation="3947" standardDeviationMicrosecondsPerInvocation="456"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="140" invocations="193" avgMicrosecondsPerInvocation="730" maxMicrosecondsPerInvocation="5015" standardDeviationMicrosecondsPerInvocation="941"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="131" invocations="648" avgMicrosecondsPerInvocation="203" maxMicrosecondsPerInvocation="4043" standardDeviationMicrosecondsPerInvocation="225"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="115" invocations="83" avgMicrosecondsPerInvocation="1388" maxMicrosecondsPerInvocation="21143" standardDeviationMicrosecondsPerInvocation="2881"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="104" invocations="83" avgMicrosecondsPerInvocation="1258" maxMicrosecondsPerInvocation="87080" standardDeviationMicrosecondsPerInvocation="9488"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="103" invocations="212" avgMicrosecondsPerInvocation="490" maxMicrosecondsPerInvocation="44046" standardDeviationMicrosecondsPerInvocation="3080"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="81" invocations="122" avgMicrosecondsPerInvocation="670" maxMicrosecondsPerInvocation="36890" standardDeviationMicrosecondsPerInvocation="3423"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="74" invocations="599" avgMicrosecondsPerInvocation="125" maxMicrosecondsPerInvocation="13042" standardDeviationMicrosecondsPerInvocation="556"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="70" invocations="147" avgMicrosecondsPerInvocation="482" maxMicrosecondsPerInvocation="3280" standardDeviationMicrosecondsPerInvocation="552"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="59" invocations="83" avgMicrosecondsPerInvocation="714" maxMicrosecondsPerInvocation="11325" standardDeviationMicrosecondsPerInvocation="1584"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="54" invocations="39" avgMicrosecondsPerInvocation="1399" maxMicrosecondsPerInvocation="22866" standardDeviationMicrosecondsPerInvocation="3734"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="51" invocations="39" avgMicrosecondsPerInvocation="1326" maxMicrosecondsPerInvocation="21272" standardDeviationMicrosecondsPerInvocation="3744"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="51" invocations="39" avgMicrosecondsPerInvocation="1312" maxMicrosecondsPerInvocation="13211" standardDeviationMicrosecondsPerInvocation="2759"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="50" invocations="39" avgMicrosecondsPerInvocation="1300" maxMicrosecondsPerInvocation="16644" standardDeviationMicrosecondsPerInvocation="2910"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="49" invocations="193" avgMicrosecondsPerInvocation="255" maxMicrosecondsPerInvocation="4241" standardDeviationMicrosecondsPerInvocation="528"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="44" invocations="83" avgMicrosecondsPerInvocation="540" maxMicrosecondsPerInvocation="5787" standardDeviationMicrosecondsPerInvocation="1115"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="44" invocations="4099" avgMicrosecondsPerInvocation="10" maxMicrosecondsPerInvocation="3594" standardDeviationMicrosecondsPerInvocation="82"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.MethodReturnCheck" totalMilliseconds="44" invocations="39" avgMicrosecondsPerInvocation="1132" maxMicrosecondsPerInvocation="22418" standardDeviationMicrosecondsPerInvocation="3524"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="43" invocations="83" avgMicrosecondsPerInvocation="524" maxMicrosecondsPerInvocation="10605" standardDeviationMicrosecondsPerInvocation="1513"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="39" invocations="39" avgMicrosecondsPerInvocation="1001" maxMicrosecondsPerInvocation="26871" standardDeviationMicrosecondsPerInvocation="4224"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="36" invocations="39" avgMicrosecondsPerInvocation="945" maxMicrosecondsPerInvocation="13609" standardDeviationMicrosecondsPerInvocation="2306"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="36" invocations="83" avgMicrosecondsPerInvocation="436" maxMicrosecondsPerInvocation="4452" standardDeviationMicrosecondsPerInvocation="842"/>
+      <ClassProfile name="edu.umd.cs.findbugs.StackMapAnalyzer$StackMapAnalysisFactory" totalMilliseconds="35" invocations="35" avgMicrosecondsPerInvocation="1023" maxMicrosecondsPerInvocation="34868" standardDeviationMicrosecondsPerInvocation="5804"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueRangeAnalysisFactory" totalMilliseconds="35" invocations="212" avgMicrosecondsPerInvocation="165" maxMicrosecondsPerInvocation="12578" standardDeviationMicrosecondsPerInvocation="932"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="34" invocations="39" avgMicrosecondsPerInvocation="885" maxMicrosecondsPerInvocation="3253" standardDeviationMicrosecondsPerInvocation="772"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="34" invocations="83" avgMicrosecondsPerInvocation="411" maxMicrosecondsPerInvocation="8060" standardDeviationMicrosecondsPerInvocation="1024"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="30" invocations="83" avgMicrosecondsPerInvocation="368" maxMicrosecondsPerInvocation="3335" standardDeviationMicrosecondsPerInvocation="614"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="29" invocations="39" avgMicrosecondsPerInvocation="749" maxMicrosecondsPerInvocation="5158" standardDeviationMicrosecondsPerInvocation="942"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInstanceLockOnSharedStaticData" totalMilliseconds="28" invocations="39" avgMicrosecondsPerInvocation="740" maxMicrosecondsPerInvocation="5347" standardDeviationMicrosecondsPerInvocation="1238"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref" totalMilliseconds="28" invocations="39" avgMicrosecondsPerInvocation="734" maxMicrosecondsPerInvocation="3364" standardDeviationMicrosecondsPerInvocation="723"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="28" invocations="39" avgMicrosecondsPerInvocation="728" maxMicrosecondsPerInvocation="3292" standardDeviationMicrosecondsPerInvocation="805"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="27" invocations="85" avgMicrosecondsPerInvocation="325" maxMicrosecondsPerInvocation="1929" standardDeviationMicrosecondsPerInvocation="259"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="27" invocations="191" avgMicrosecondsPerInvocation="142" maxMicrosecondsPerInvocation="5821" standardDeviationMicrosecondsPerInvocation="439"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="26" invocations="39" avgMicrosecondsPerInvocation="686" maxMicrosecondsPerInvocation="25018" standardDeviationMicrosecondsPerInvocation="3947"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DontUseFloatsAsLoopCounters" totalMilliseconds="26" invocations="39" avgMicrosecondsPerInvocation="686" maxMicrosecondsPerInvocation="15869" standardDeviationMicrosecondsPerInvocation="2497"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>

@@ -1,21 +1,53 @@
 ^0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
-i2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
+i3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
 !text:line: 34 column: column:3 
 Missing a Javadoc comment.
 
 "text:line: 34 column: column:22 
 CType name 'promptEvent' must match pattern '^[A-Z][a-zA-Z0-9]*$'.
 
-o1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollection.java
-text:line: 87 column: 
+"text:line: 98 column: column:38 
+8WhitespaceAround: '=' is not preceded with whitespace.
+
+o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollection.java
+s1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollectionImpl.java
+text:line: 90 column: 
 =Javadoc tag '@param' should be preceded with an empty line.
 
-a0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Item.java
+a1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Item.java
+"text:line: 199 column: column:6 
+8WhitespaceAround: '{' is not preceded with whitespace.
+
 k0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ItemCollection.java
 o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ItemCollectionImpl.java
 i0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ItemIterator.java
 l0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/LendingContract.java
-c0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Member.java
+c5 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/Member.java
+"text:line: 123 column: column:3 
+Missing a Javadoc comment.
+
+#text:line: 125 column: column:29 
+8WhitespaceAround: '{' is not preceded with whitespace.
+
+#text:line: 129 column: column:88 
+8WhitespaceAround: '{' is not preceded with whitespace.
+
+#text:line: 139 column: column:26 
+8WhitespaceAround: '{' is not preceded with whitespace.
+
+#text:line: 150 column: column:21 
+8WhitespaceAround: '{' is not preceded with whitespace.
+
+m3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/MemberCollection.java
+ text:line: 5 column: column:1 
+Missing a Javadoc comment.
+
+!text:line: 41 column: column:3 
+Missing a Javadoc comment.
+
+!text:line: 50 column: column:3 
+Missing a Javadoc comment.
+
 n2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/OwnerIteratorImpl.java
 !text:line: 15 column: column:3 
 Missing a Javadoc comment.
@@ -24,189 +56,30 @@
 ;'METHOD_DEF' should be separated from previous statement.
 
 i0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/RandomString.java
-o1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
-text:line: 197 column: 
+o2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
+ text:line: 5 column: column:1 
+NExtra separation in import group before 'model.repository.PersistenceFacade'
+
+text:line: 177 column: 
 =Javadoc tag '@param' should be preceded with an empty line.
 
 m0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
-h3 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/IMapper.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 3 column: column:18 
-[Abbreviation in name 'IMapper' must contain no more than '1' consecutive capital letters.
-
- text:line: 5 column: column:3 
-;'METHOD_DEF' should be separated from previous statement.
-
-l12 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ItemMapper.java
- text:line: 5 column: column:1 
-=Extra separation in import group before 'model.domain.Item'
-
- text:line: 7 column: column:1 
-XWrong lexicographical order for 'model.domain.Item.ItemType' import. Should be before 
-  'model.domain.Member'.
-
-!text:line: 11 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 28 column: column:7 
-D'm' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 29 column: column:7 
-K'ItemType' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 30 column: column:7 
-D'i' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 31 column: column:7 
-D'i' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 32 column: column:7 
-D'i' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 33 column: column:7 
-J'Integer' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 34 column: column:7 
-J'Integer' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 35 column: column:7 
-D'i' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 41 column: column:3 
-Missing a Javadoc comment.
-
-n2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MapperFactory.java
- text:line: 5 column: column:1 
-GExtra separation in import group before 'model.repository.mock.IMock'
-
- text:line: 7 column: column:1 
-Missing a Javadoc comment.
-
-n11 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MemberMapper.java
- text:line: 5 column: column:1 
-?Extra separation in import group before 'model.domain.Member'
-
-!text:line: 10 column: column:1 
-Missing a Javadoc comment.
-
-"text:line: 10 column: column:52 
+k0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ItemMapper.java
+g0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/Mapper.java
+n0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MapperFactory.java
+m1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MemberMapper.java
+"text:line: 12 column: column:52 
 8WhitespaceAround: '{' is not preceded with whitespace.
 
-!text:line: 24 column: column:7 
-D'm' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 25 column: column:7 
-D'm' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 26 column: column:7 
-D'm' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 27 column: column:7 
-D'm' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 28 column: column:7 
-D'm' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 29 column: column:7 
-J'Integer' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 30 column: column:7 
-J'Integer' has incorrect indentation level 6, expected level should be 8.
-
-!text:line: 36 column: column:3 
-Missing a Javadoc comment.
-
-q2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ObjectIdentifier.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
- text:line: 5 column: column:3 
-9'CTOR_DEF' should be separated from previous statement.
-
-r5 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceFacade.java
- text:line: 5 column: column:1 
-=Extra separation in import group before 'model.domain.Item'
-
-!text:line: 10 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 15 column: column:3 
-Missing a Javadoc comment.
-
-!text:line: 36 column: column:3 
-Missing a Javadoc comment.
-
-"text:line: 36 column: column:33 
-"'(' is preceded with whitespace.
-
-r1 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceMapper.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-k2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/IMock.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 3 column: column:18 
-YAbbreviation in name 'IMock' must contain no more than '1' consecutive capital letters.
-
-q4 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockOne.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 5 column: column:10 
-[Abbreviation in name 'ownerID' must contain no more than '1' consecutive capital letters.
-
-"text:line: 21 column: column:12 
-%'if' is not followed by whitespace.
-
-"text:line: 21 column: column:12 
-cWhitespaceAround: 'if' is not followed by whitespace. Empty blocks may only be represented as {} 
-4  when not part of a multi-block statement (4.1.3)
-
-q4 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockTwo.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 5 column: column:10 
-[Abbreviation in name 'ownerID' must contain no more than '1' consecutive capital letters.
-
-"text:line: 21 column: column:12 
-%'if' is not followed by whitespace.
-
-"text:line: 21 column: column:12 
-cWhitespaceAround: 'if' is not followed by whitespace. Empty blocks may only be represented as {} 
-4  when not part of a multi-block statement (4.1.3)
-
-s2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockOne.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 16 column: column:3 
-Missing a Javadoc comment.
-
-s2 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockTwo.java
- text:line: 3 column: column:1 
-Missing a Javadoc comment.
-
-!text:line: 17 column: column:3 
-Missing a Javadoc comment.
-
-t4 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MockCollection.java
- text:line: 5 column: column:1 
-Missing a Javadoc comment.
-
- text:line: 8 column: column:3 
-Missing a Javadoc comment.
-
-!text:line: 8 column: column:25 
-"'(' is preceded with whitespace.
-
-!text:line: 21 column: column:3 
-Missing a Javadoc comment.
-
+q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockOne.java
+q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockTwo.java
+s0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockOne.java
+s0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockTwo.java
+j0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/Mock.java
+t0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MockCollection.java
+q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ObjectIdentifier.java
+r0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceFacade.java
+r0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceMapper.java
 \9 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
  text:line: 7 column: column:1 
 ?Extra separation in import group before 'java.util.ArrayList'
@@ -225,31 +98,31 @@
 "text:line: 368 column: column:3 
 Missing a Javadoc comment.
 
-"text:line: 454 column: column:1 
+"text:line: 484 column: column:1 
  Line contains a tab character.
 
-"text:line: 454 column: column:9 
+"text:line: 484 column: column:9 
 V'method def modifier' has incorrect indentation level 8, expected level should be 2.
 
-"text:line: 456 column: column:1 
+"text:line: 486 column: column:1 
  Line contains a tab character.
 
-"text:line: 456 column: column:9 
+"text:line: 486 column: column:9 
 T'method def rcurly' has incorrect indentation level 8, expected level should be 2.
 
 (0 FindBugs Issues in view/Console.java
--2 FindBugs Issues in model/domain/Item.java
-text:lines: 49-151 
-enew model.domain.Item(Member, Item$ItemType, String, String, String, int, int) may expose internal 
-K  representation by storing an externally mutable object into Item.owner 
-RMay expose internal representation by incorporating reference to mutable object 
-gThis code stores a reference to an externally mutable object into the internal representation of the 
-e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-f  would compromise security or other important properties, you will need to do something different. 
-G  Storing a copy of the object is better approach in many situations.
+-3 FindBugs Issues in model/domain/Item.java
+text:lines: 35-157 
+HgetOwner() may expose internal representation by returning Item.owner 
+NMay expose internal representation by returning reference to mutable object 
+cReturning a reference to a mutable object value stored in one of the object's fields exposes the 
+f  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
+d  changes to the mutable object would compromise security or other important properties, you will 
+b  need to do something different. Returning a new copy of the object is better approach in many 
+  situations.
 
-text:lines: 49-151 
-enew model.domain.Item(Member, Item$ItemType, String, String, String, int, int, boolean) may expose 
+text:lines: 35-157 
+dnew model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int) may expose 
 T  internal representation by storing an externally mutable object into Item.owner 
 RMay expose internal representation by incorporating reference to mutable object 
 gThis code stores a reference to an externally mutable object into the internal representation of the 
@@ -257,33 +130,42 @@
 f  would compromise security or other important properties, you will need to do something different. 
 G  Storing a copy of the object is better approach in many situations.
 
-=1 FindBugs Issues in model/repository/mock/ItemMockOne.java
-text:lines: 4-37 
-Unread field: ownerID 
-Unread field 
-@This field is never read. Consider removing it from the class.
+text:lines: 35-157 
+fnew model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int, boolean) may 
+[  expose internal representation by storing an externally mutable object into Item.owner 
+RMay expose internal representation by incorporating reference to mutable object 
+gThis code stores a reference to an externally mutable object into the internal representation of the 
+e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
+f  would compromise security or other important properties, you will need to do something different. 
+G  Storing a copy of the object is better approach in many situations.
 
-40 FindBugs Issues in model/repository/IMapper.java
+91 FindBugs Issues in model/domain/MemberCollection.java
+text:lines: 5-56 
+XgetMembers() may expose internal representation by returning MemberCollection.members 
+NMay expose internal representation by returning reference to mutable object 
+cReturning a reference to a mutable object value stored in one of the object's fields exposes the 
+f  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
+d  changes to the mutable object would compromise security or other important properties, you will 
+b  need to do something different. Returning a new copy of the object is better approach in many 
+  situations.
+
+=0 FindBugs Issues in model/repository/mock/ItemMockOne.java
 80 FindBugs Issues in model/domain/LendingContract.java
+?0 FindBugs Issues in model/domain/ContractCollectionImpl.java
 50 FindBugs Issues in model/domain/ItemIterator.java
 *0 FindBugs Issues in controller/App.java
-70 FindBugs Issues in model/repository/mock/IMock.java
 ?0 FindBugs Issues in model/repository/mock/MemberMockOne.java
 90 FindBugs Issues in model/repository/MemberMapper.java
-:1 FindBugs Issues in model/repository/MapperFactory.java
-text:lines: 10-16 
-Unused field: mocks 
-Unused field 
-@This field is never used. Consider removing it from the class.
-
+:0 FindBugs Issues in model/repository/MapperFactory.java
 ?0 FindBugs Issues in model/repository/mock/MemberMockTwo.java
 =0 FindBugs Issues in model/repository/ObjectIdentifier.java
 70 FindBugs Issues in model/domain/ItemCollection.java
 50 FindBugs Issues in model/domain/RandomString.java
 ;0 FindBugs Issues in model/domain/StuffLendingSystem.java
+30 FindBugs Issues in model/repository/Mapper.java
 >0 FindBugs Issues in model/repository/PersistenceMapper.java
 52 FindBugs Issues in controller/MainController.java
-text:lines: 55-340 
+text:lines: 55-324 
 cnew controller.MainController(Console, StuffLendingSystem) may expose internal representation by 
 A  storing an externally mutable object into MainController.sls 
 RMay expose internal representation by incorporating reference to mutable object 
@@ -301,7 +183,16 @@
 
   HTML).
 
-;0 FindBugs Issues in model/domain/ItemCollectionImpl.java
+;1 FindBugs Issues in model/domain/ItemCollectionImpl.java
+text:lines: 17-82 
+YgetAllItems() may expose internal representation by returning ItemCollectionImpl.items 
+NMay expose internal representation by returning reference to mutable object 
+cReturning a reference to a mutable object value stored in one of the object's fields exposes the 
+f  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
+d  changes to the mutable object would compromise security or other important properties, you will 
+b  need to do something different. Returning a new copy of the object is better approach in many 
+  situations.
+
 91 FindBugs Issues in model/domain/TypeIteratorImpl.java
 text:lines: 22-48 
 dnew model.domain.TypeIteratorImpl(Item$ItemType, ArrayList) may expose internal representation by 
@@ -312,8 +203,9 @@
 f  would compromise security or other important properties, you will need to do something different. 
 G  Storing a copy of the object is better approach in many situations.
 
+60 FindBugs Issues in model/repository/mock/Mock.java
 >3 FindBugs Issues in model/repository/PersistenceFacade.java
-text:lines: 15-59 
+text:lines: 18-45 
 UgetItems() may expose internal representation by returning PersistenceFacade.items 
 NMay expose internal representation by returning reference to mutable object 
 cReturning a reference to a mutable object value stored in one of the object's fields exposes the 
@@ -322,7 +214,7 @@
 b  need to do something different. Returning a new copy of the object is better approach in many 
   situations.
 
-text:lines: 15-59 
+text:lines: 18-45 
 YgetMembers() may expose internal representation by returning PersistenceFacade.members 
 NMay expose internal representation by returning reference to mutable object 
 cReturning a reference to a mutable object value stored in one of the object's fields exposes the 
@@ -331,7 +223,7 @@
 b  need to do something different. Returning a new copy of the object is better approach in many 
   situations.
 
-text:lines: 15-59 
+text:lines: 18-45 
 Unread field: mapperFactory 
 Unread field 
 @This field is never read. Consider removing it from the class.
@@ -339,8 +231,8 @@
 /0 FindBugs Issues in model/domain/Member.java
 @0 FindBugs Issues in model/repository/mock/MockCollection.java
 71 FindBugs Issues in model/repository/ItemMapper.java
-text:lines: 11-47 
-^new model.repository.ItemMapper(ArrayList) may expose internal representation by storing an 
+text:lines: 16-57 
+enew model.repository.ItemMapper(MemberCollection) may expose internal representation by storing an 
 6  externally mutable object into ItemMapper.members 
 RMay expose internal representation by incorporating reference to mutable object 
 gThis code stores a reference to an externally mutable object into the internal representation of the 
@@ -348,26 +240,12 @@
 f  would compromise security or other important properties, you will need to do something different. 
 G  Storing a copy of the object is better approach in many situations.
 
-=1 FindBugs Issues in model/repository/mock/ItemMockTwo.java
-text:lines: 4-37 
-Unread field: ownerID 
-Unread field 
-@This field is never read. Consider removing it from the class.
-
+=0 FindBugs Issues in model/repository/mock/ItemMockTwo.java
 ;0 FindBugs Issues in model/domain/ContractCollection.java
-:2 FindBugs Issues in model/domain/OwnerIteratorImpl.java
+:1 FindBugs Issues in model/domain/OwnerIteratorImpl.java
 text:lines: 15-40 
 fnew model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal representation by storing 
 >  an externally mutable object into OwnerIteratorImpl.items 
-RMay expose internal representation by incorporating reference to mutable object 
-gThis code stores a reference to an externally mutable object into the internal representation of the 
-e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-f  would compromise security or other important properties, you will need to do something different. 
-G  Storing a copy of the object is better approach in many situations.
-
-text:lines: 15-40 
-fnew model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal representation by storing 
->  an externally mutable object into OwnerIteratorImpl.owner 
 RMay expose internal representation by incorporating reference to mutable object 
 gThis code stores a reference to an externally mutable object into the internal representation of the 
 e  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
