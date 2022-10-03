@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
  * Test Member.
  */
 public class MemberTest {
-  Member newMember = new Member("t", "t", "t", "t", "t", 0);
+  Member.Mutable newMember = new Member.Mutable("t", "t", "t", "t", "t", 0);
 
   @Test
   public void createMember() {

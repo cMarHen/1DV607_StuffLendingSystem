@@ -10,9 +10,9 @@ import model.repository.mock.MockCollection;
 
 public class ItemMapper extends PersistenceMapper {
   private MockCollection mocks;
-  private ArrayList<Member> members;
+  private ArrayList<Member.Mutable> members;
 
-  public ItemMapper(ArrayList<Member> members) {
+  public ItemMapper(ArrayList<Member.Mutable> members) {
     this.mocks = new MockCollection(); // TODO: Should this be in superclass?
     this.members = members; // TODO: This is not good, strong coupling.
   }
@@ -22,7 +22,8 @@ public class ItemMapper extends PersistenceMapper {
   protected Item getObjectFromStorage(ObjectIdentifier oid) {
     String key = oid.toString();
     IMock i = mocks.searchMockByOid(key);
-    Member m = /* i.getColumn("OWNER_ID") */ members.get(0); // TODO: Hard coded an owner.
+    // TODO: Hard coded an owner.
+    Member.Mutable m = /* i.getColumn("OWNER_ID") */ members.get(0); 
 
     Item newItem = new Item(
       m,

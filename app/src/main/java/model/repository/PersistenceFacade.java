@@ -9,7 +9,7 @@ import model.domain.Member;
 
 public class PersistenceFacade {
   MapperFactory mapperFactory;
-  ArrayList<Member> members;
+  ArrayList<Member.Mutable> members;
   ItemCollection items;
 
   public PersistenceFacade() {
@@ -24,7 +24,7 @@ public class PersistenceFacade {
   }
 
   // Return MemberCollection, used in SLS
-  public ArrayList<Member> getMembers() {
+  public ArrayList<Member.Mutable> getMembers() {
     return members;
   }
 
@@ -41,15 +41,15 @@ public class PersistenceFacade {
 
   private void loadMembers() {
     MemberMapper mapper = new MemberMapper();
-    ArrayList<Member> membersFromDb = mapper.loadAllMembers();
+    ArrayList<Member.Mutable> membersFromDb = mapper.loadAllMembers();
 
-    for (Member m : membersFromDb) {
+    for (Member.Mutable m : membersFromDb) {
       members.add(m);
     }
   }
 
   // Inject with members to be used when assign owners.
-  private void loadItems(ArrayList<Member> members) {
+  private void loadItems(ArrayList<Member.Mutable> members) {
     ItemMapper mapper = new ItemMapper(members);
     ArrayList<Item> listOfItems = mapper.loadAllItems();
 

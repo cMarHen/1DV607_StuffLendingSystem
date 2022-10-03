@@ -16,11 +16,11 @@ public class MemberMapper extends PersistenceMapper{
 
 
   @Override
-  protected Member getObjectFromStorage(ObjectIdentifier oid) {
+  protected Member.Mutable getObjectFromStorage(ObjectIdentifier oid) {
     String key = oid.toString();
     IMock m = mocks.searchMockByOid(key);
     
-    Member newMember = new Member(
+    Member.Mutable newMember = new Member.Mutable(
       m.getColumn("FIRST_NAME"),
       m.getColumn("LAST_NAME"),
       m.getColumn("EMAIL"),
@@ -33,8 +33,8 @@ public class MemberMapper extends PersistenceMapper{
   }
 
 
-  public ArrayList<Member> loadAllMembers() {
-    ArrayList<Member> m = new ArrayList<>();
+  public ArrayList<Member.Mutable> loadAllMembers() {
+    ArrayList<Member.Mutable> m = new ArrayList<>();
 
     m.add(getObjectFromStorage(new ObjectIdentifier("oid_12345")));
     m.add(getObjectFromStorage(new ObjectIdentifier("oid_23456")));

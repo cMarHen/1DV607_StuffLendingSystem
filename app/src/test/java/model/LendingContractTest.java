@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * Test LendingContract.
  */
 public class LendingContractTest {
-  Member newMember = new Member("t", "t", "t", "t", "t", 0);
+  Member.Mutable newMember = new Member.Mutable("t", "t", "t", "t", "t", 0);
   Item item = new Item(newMember, ItemType.Game, "test", "test", "test_id", 0, 2);
   LendingContract contract = new LendingContract(newMember, 3, item, 0);
 
@@ -31,11 +31,5 @@ public class LendingContractTest {
   public void readStartAndEndDayOfContract() {
     assertTrue(contract.getStartDay() == 0);
     assertTrue(contract.getEndDay() == 3);
-  }
-
-  @Test
-  public void shouldNotBeAbleToChangeLenderInfo() {
-    contract.getLender().setFirstName("newName");
-    assertTrue(newMember.getFirstName().equals("t"));
   }
 }
