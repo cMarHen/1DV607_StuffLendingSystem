@@ -20,7 +20,6 @@ public class LendingContract {
    * @param startDay - From this day the item is reserved until the day after endDay.
    */
   public LendingContract(Member lender, int endDay, Item item, int startDay) {
-    // TODO: Supress findbug to reflekt member and item.
     this.lender = lender;
     this.endDay = endDay;
     this.item = item;
@@ -36,41 +35,12 @@ public class LendingContract {
     return this.totalContractFee;
   }
 
-  /**
-   * Get a copy of the Item-object representing the item being loaned.
-   *
-   * @return - A copy of the item being loaned.
-   */
   public Item getItem() {
-    Item itemCopy = new Item(
-        this.item.getOwner(),
-        this.item.getType(),
-        this.item.getName(),
-        this.item.getDescription(),
-        this.item.getId(),
-        this.item.getDayOfCreation(),
-        this.item.getCostPerDay(),
-        this.item.getIsReserved());
-
-    return itemCopy;
+    return this.item;
   }
 
-  /**
-   * Get a copy of the Member-object representing the member loaning the item.
-   *
-   * @return - A copy of the member loaning the item.
-   */
   public Member getLender() {
-    Member lenderCopy = new Member(
-        this.lender.getFirstName(),
-        this.lender.getLastName(),
-        this.lender.getEmail(),
-        this.lender.getPhoneNumber(),
-        this.lender.getId(),
-        this.lender.getRegistredDay(),
-        this.lender.getCredits());
-
-    return lenderCopy;
+    return this.lender;
   }
 
   public int getStartDay() {

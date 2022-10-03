@@ -88,29 +88,25 @@ public class StuffLendingSystem {
    * The item is reserved, credits are transfered and the contract is added to the list of contracts.
    * (Can fail if item is reserved or if lender has insufficient credits.)
    *
-   * @param lenderId - Id of the member whom to pay credits for the total lending-fee.
-   * @param endDay - The day after the endDay the item is available for loan again.
-   * @param itemId - The id of the item that holds information about the owner to recieve credits for the loan.
+   * @param contract - The contract to validate.
    * @return - A flag if the contract was successfully implemented.
    */
-  public boolean setUpLendingContract(String lenderId, int startDay, int endDay, String itemId) {
-    Member.Mutable lender = members.findMemberById(lenderId);
-    Item.Mutable item = findItemById(itemId);
-    LendingContract newContract = new LendingContract(new Member(lender), endDay, new Item(item), startDay);
-    boolean successfullyAddedContract = contracts.addContract(newContract);
+  public boolean setUpLendingContract(LendingContract contract) {
+    boolean successfullyAddedContract = contracts.addContract(contract);
 
     if (successfullyAddedContract) {
-      Member.Mutable contractedLender = members.findMemberById(newContract.getLender().getId());
-      Member.Mutable contractedOwner = members.findMemberById(newContract.getItem().getOwner().getId());
+      Member.Mutable contractedLender = members.findMemberById(contract.getLender().getId());
+      Member.Mutable contractedOwner = members.findMemberById(contract.getItem().getOwner().getId());
       
       if (!contractedLender.equals(contractedOwner)) {
-        int contractFee = newContract.getTotalContractFee();
+        int contractFee = contract.getTotalContractFee();
         contractedLender.removeCredits(contractFee);
         contractedOwner.addCredits(contractFee);
       }
 
-      if (startDay <= currentDay) {
-        item.setReserved(true);
+      if (contract.getStartDay() <= currentDay) {
+        Item.Mutable contractedItem = findItemById(contract.getItem().getId());
+        contractedItem.setReserved(true);
       }
 
       return true;
