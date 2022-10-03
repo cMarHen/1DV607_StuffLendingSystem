@@ -12,11 +12,24 @@ public class LendingContract implements Comparable<LendingContract> {
   private Member lender;
 
   /**
+   * Instanciate a lending contract based on another contract that holds the data.
+   *
+   * @param contract - A contract holding all information needed to create a new contract.
+   */
+  public LendingContract(LendingContract contract) {
+    this.lender = contract.getLender();
+    this.endDay = contract.getEndDay();
+    this.item = contract.getItem();
+    this.startDay = contract.getStartDay();
+    this.totalContractFee = contract.getTotalContractFee();
+  }
+
+  /**
    * Instanciate a lending contract with the data presented as parameters.
    *
-   * @param lender - A copy of the whom to pay credits for the total lending-fee.
+   * @param lender - A readonly member whom to pay credits for the total lending-fee.
    * @param endDay - The day after the endDay the item is available for loan again.
-   * @param item - The item to copy wich holds information about the owner to recieve credits for the loan.
+   * @param item - The readonly item wich holds information about the owner to recieve credits for the loan.
    * @param startDay - From this day the item is reserved until the day after endDay.
    */
   public LendingContract(Member lender, int endDay, Item item, int startDay) {
@@ -57,9 +70,9 @@ public class LendingContract implements Comparable<LendingContract> {
     int compareToStartDay = contract.getStartDay();
 
     if (thisStartDay > compareToStartDay) {
-      return -1;
-    } else if (thisStartDay < compareToStartDay) {
       return 1;
+    } else if (thisStartDay < compareToStartDay) {
+      return -1;
     } else {
       return 0;
     }

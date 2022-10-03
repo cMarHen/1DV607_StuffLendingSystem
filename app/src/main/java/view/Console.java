@@ -295,7 +295,7 @@ public class Console {
   ) {
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
-    System.out.printf("                                     Item list     %n");
+    System.out.printf("                                     Member list     %n");
     System.out.printf("                                     ( Simple )       %n");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
@@ -332,7 +332,7 @@ public class Console {
   ) {
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
-    System.out.printf("                                     Item list     %n");
+    System.out.printf("                                     Member list     %n");
     System.out.printf("                                     ( Simple )       %n");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
@@ -396,13 +396,14 @@ public class Console {
    * @param item - The item to read all data from.
    */
   public void printDetailedItem(model.domain.Item item, ArrayList<model.domain.LendingContract> activeContracts, ArrayList<model.domain.LendingContract> expiredContracts) {
-    System.out.printf("----------------%n");
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
     System.out.printf(" Item Details                                                                                %n");
-    System.out.printf("----------------%n");
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
     System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", "Name", "Type", "Description", "Cost/Day", "Available");
-    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
+    System.out.printf("----------------------------------------------------------------------------------------------------%n");
     System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n", item.getName(), item.getType(), item.getDescription(), item.getCostPerDay(), (item.getIsReserved() ? "no" : "yes"));
-    System.out.printf("--------------------------------------------------------------------------------------------------------------%n");
     System.out.println();
     
     System.out.printf(" Active Contracts                                                                            %n");
@@ -413,7 +414,7 @@ public class Console {
     if (activeContracts.size() != 0) {
       Collections.sort(activeContracts);
       for (model.domain.LendingContract contract : activeContracts) {
-        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", contract.getStartDay(), contract.getEndDay(), contract.getLender().getFirstName() + contract.getLender().getLastName(), contract.getTotalContractFee());
+        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", contract.getStartDay(), contract.getEndDay(), contract.getLender().getFirstName() + " " + contract.getLender().getLastName(), contract.getTotalContractFee());
       }
       System.out.printf("---------------------------------------------------------------------------%n");
     }
@@ -426,11 +427,13 @@ public class Console {
     if (expiredContracts.size() != 0) {
       Collections.sort(expiredContracts, Collections.reverseOrder());
       for (model.domain.LendingContract contract : expiredContracts) {
-        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", contract.getStartDay(), contract.getEndDay(), contract.getLender().getFirstName() + contract.getLender().getLastName(), contract.getTotalContractFee());
+        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", contract.getStartDay(), contract.getEndDay(), contract.getLender().getFirstName() + " " + contract.getLender().getLastName(), contract.getTotalContractFee());
       }
       System.out.printf("---------------------------------------------------------------------------------------%n");
     }
 
+    System.out.println();
+    System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
   }
 

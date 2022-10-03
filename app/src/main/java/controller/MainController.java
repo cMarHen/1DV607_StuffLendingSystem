@@ -218,7 +218,7 @@ public class MainController {
         model.domain.Item item = sls.findItemById(id);
 
         if (item != null) {
-          ArrayList<model.domain.LendingContract> expiredContracts = sls.getContractsByItem(item);
+          ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
           ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
           ui.printDetailedItem(item, activeContracts, expiredContracts);
         } else {
@@ -265,7 +265,7 @@ public class MainController {
         } while (startDayOfLoan < currentDay);
 
         int daysToLoan = ui.promptInformationInt(promptEvent.AmountOfLoanDays);
-        int endDay = currentDay + daysToLoan;
+        int endDay = startDayOfLoan + daysToLoan;
 
         model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);
