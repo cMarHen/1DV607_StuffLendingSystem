@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T10:16:58" hostname="LAPTOP-85ADMTTU" time="0.107">
+<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T11:24:35" hostname="LAPTOP-85ADMTTU" time="0.111">
   <properties/>
-  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.107"/>
+  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.111"/>
   <system-out><![CDATA[0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollection.java
