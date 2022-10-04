@@ -10,7 +10,7 @@ public class MemberMockOne implements Mock {
   private String email = "martin@mail.com";
   private String phoneNumber = "0123455";
   private String id = "8yLo0c";
-  private String credits = "200";
+  private String credits = "0";
   private String registredDay = "0";
 
   public MemberMockOne() {
