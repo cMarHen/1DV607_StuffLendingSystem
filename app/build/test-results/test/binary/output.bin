@@ -26,46 +26,7 @@
 q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ObjectIdentifier.java
 r0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceFacade.java
 r0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceMapper.java
-]13 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
- text:line: 6 column: column:1 
-?Extra separation in import group before 'java.util.ArrayList'
-
-!text:line: 10 column: column:1 
-=Extra separation in import group before 'model.domain.Item'
-
-text:line: 385 column: 
-1Line is longer than 120 characters (found 172).
-
-text:line: 388 column: 
-1Line is longer than 120 characters (found 121).
-
-text:line: 391 column: 
-1Line is longer than 120 characters (found 125).
-
-text:line: 392 column: 
-1Line is longer than 120 characters (found 128).
-
-text:line: 393 column: 
-1Line is longer than 120 characters (found 185).
-
-text:line: 396 column: 
-1Line is longer than 120 characters (found 121).
-
-text:line: 404 column: 
-1Line is longer than 120 characters (found 223).
-
-text:line: 409 column: 
-1Line is longer than 120 characters (found 122).
-
-text:line: 417 column: 
-1Line is longer than 120 characters (found 223).
-
-"text:line: 427 column: column:3 
-Missing a Javadoc comment.
-
-"text:line: 449 column: column:3 
-Missing a Javadoc comment.
-
+\0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
 (0 FindBugs Issues in view/Console.java
 -3 FindBugs Issues in model/domain/Item.java
 text:lines: 35-157 
