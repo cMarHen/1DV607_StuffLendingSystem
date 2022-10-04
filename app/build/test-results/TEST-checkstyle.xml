@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.checkstyle" time="0" tests="29" errors="16" name="checkstyle">
+<testsuite package="org.checkstyle" time="0" tests="29" errors="13" name="checkstyle">
 <testcase time="0" name="controller/App.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="CheckStyle Issues">
@@ -29,55 +29,44 @@
 </testcase><testcase time="0" name="model/repository/PersistenceFacade.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/PersistenceMapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="view/Console.java" classname="CheckStyle Issues">
-<failure message="issues" ><![CDATA[line: 2 column: column:1 
-'import' should be separated from previous statement.
+<failure message="issues" ><![CDATA[line: 6 column: column:1 
+Extra separation in import group before 'java.util.ArrayList'
 ----------------
-line: 382 column: 
-Line is longer than 120 characters (found 172).
+line: 10 column: column:1 
+Extra separation in import group before 'model.domain.Item'
 ----------------
 line: 385 column: 
-Line is longer than 120 characters (found 121).
+Line is longer than 120 characters (found 172).
 ----------------
 line: 388 column: 
-Line is longer than 120 characters (found 125).
-----------------
-line: 389 column: 
-Line is longer than 120 characters (found 128).
-----------------
-line: 390 column: 
-Line is longer than 120 characters (found 185).
-----------------
-line: 393 column: 
 Line is longer than 120 characters (found 121).
 ----------------
-line: 401 column: 
+line: 391 column: 
+Line is longer than 120 characters (found 125).
+----------------
+line: 392 column: 
+Line is longer than 120 characters (found 128).
+----------------
+line: 393 column: 
+Line is longer than 120 characters (found 185).
+----------------
+line: 396 column: 
+Line is longer than 120 characters (found 121).
+----------------
+line: 404 column: 
 Line is longer than 120 characters (found 223).
 ----------------
-line: 406 column: 
+line: 409 column: 
 Line is longer than 120 characters (found 122).
 ----------------
-line: 414 column: 
+line: 417 column: 
 Line is longer than 120 characters (found 223).
 ----------------
-line: 424 column: column:3 
+line: 427 column: column:3 
 Missing a Javadoc comment.
 ----------------
-line: 446 column: column:3 
+line: 449 column: column:3 
 Missing a Javadoc comment.
-----------------
-line: 562 column: column:1 
-Line contains a tab character.
-----------------
-line: 562 column: column:9 
-'method def modifier' has incorrect indentation level 8, expected level 
-  should be 2.
-----------------
-line: 564 column: column:1 
-Line contains a tab character.
-----------------
-line: 564 column: column:9 
-'method def rcurly' has incorrect indentation level 8, expected level 
-  should be 2.
 ----------------
 ]]></failure>
 </testcase></testsuite>

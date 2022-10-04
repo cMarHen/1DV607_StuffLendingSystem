@@ -1,5 +1,6 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 import model.domain.LendingContract;
@@ -59,6 +60,7 @@ public class MainController {
    * @param ui - The view user interface. 
    * @param sls - The main class in the model.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "ui and sls should be a reference.")
   public MainController(view.Console ui, model.domain.StuffLendingSystem sls) {
     // TODO: Supress findbugs as the ui and sls should be presented to the class.
     this.ui = ui;
