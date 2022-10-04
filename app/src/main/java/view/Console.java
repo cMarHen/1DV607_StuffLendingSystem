@@ -354,13 +354,27 @@ public class Console {
       System.out.println("No items to show.");
     }
 
+    System.out.printf("______________________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("                                     Item list     %n");
+    System.out.printf("______________________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("| %-40s | %-10s | %-14s | %-10s | %-10s |%n", "NAME", "TYPE", "COST/DAY", "AVAILABLE", "ID");
+    System.out.printf("______________________________________________________________________________________________________%n");
+    System.out.println();
+
     for (model.domain.Item item : items) {
-      System.out.println(" --- ");
-      System.out.println("Name: " + item.getName());
-      System.out.println("Type: " + item.getType());
-      System.out.println("Available: " + (item.getIsReserved() ? "no" : "yes"));
-      System.out.println("Id: " + item.getId());
+      System.out.printf("| %-40s | %-10s | %-14s | %-10s | %-10s |%n",
+        item.getName(),
+        item.getType(),
+        item.getCostPerDay(),
+        (item.getIsReserved() ? "no" : "yes"),
+        item.getId());
     }
+    System.out.println();
+    System.out.printf("______________________________________________________________________________________________________%n");
+    System.out.println();
+
   }
 
   /**
@@ -369,10 +383,24 @@ public class Console {
    * @param member - The member to read all the data from.
    */
   public void printDetailedMember(model.domain.Member member) {
-    System.out.println("Name: " + member.getFirstName() + " " + member.getLastName());
-    System.out.println("Email: " + member.getEmail());
-    System.out.println("PhoneNumber: " + member.getPhoneNumber());
-    System.out.println("Credits: " + member.getCredits());
+    System.out.printf("_____________________________________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf(" Member Details                                                                           %n");
+    System.out.printf("_____________________________________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf(
+        "| %-40s | %-20s | %-20s | %-10s | %-10s |%n",
+        "Name", "Email", "Phone", "Credits", "Id"
+    );
+    System.out.printf("_____________________________________________________________________________________________________________________%n");
+    System.out.println();
+    System.out.printf("| %-40s | %-20s | %-20s | %-10s | %-10s |%n",
+        member.getFirstName() + " " + member.getLastName(),
+        member.getEmail(),
+        member.getPhoneNumber(),
+        member.getCredits(),
+        member.getId());
+    System.out.println();
   }
 
   /**
