@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="model.LendingContractTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-04T10:16:58" hostname="LAPTOP-85ADMTTU" time="0.006">
+<testsuite name="model.LendingContractTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-04T12:17:23" hostname="LAPTOP-85ADMTTU" time="0.005">
   <properties/>
-  <testcase name="readLenderOfContract()" classname="model.LendingContractTest" time="0.002"/>
+  <testcase name="readLenderOfContract()" classname="model.LendingContractTest" time="0.001"/>
   <testcase name="readStartAndEndDayOfContract()" classname="model.LendingContractTest" time="0.001"/>
   <testcase name="createNewContract()" classname="model.LendingContractTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

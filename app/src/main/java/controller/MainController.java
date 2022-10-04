@@ -62,7 +62,6 @@ public class MainController {
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "ui and sls should be a reference.")
   public MainController(view.Console ui, model.domain.StuffLendingSystem sls) {
-    // TODO: Supress findbugs as the ui and sls should be presented to the class.
     this.ui = ui;
     this.sls = sls;
     // currentRole = enum.Role
@@ -74,23 +73,27 @@ public class MainController {
    *
    */
   public void doMainMenu() {
-    boolean running = true;
-    do {
-      view.Console.MainEvent event = ui.getMainMenuChoice();
+    try {
+      boolean running = true;
+      do {
+        view.Console.MainEvent event = ui.getMainMenuChoice();
 
-      if (event == view.Console.MainEvent.MemberMenu) {
-        doMemberMenu();
-      }
-      if (event == view.Console.MainEvent.ItemMenu) {
-        doItemMenu();
-      }
-      if (event == view.Console.MainEvent.ForwardDay) {
-        doForwardDayMenu();
-      }
-      if (event == view.Console.MainEvent.Quit) {
-        running = false;
-      }
-    } while (running);
+        if (event == view.Console.MainEvent.MemberMenu) {
+          doMemberMenu();
+        }
+        if (event == view.Console.MainEvent.ItemMenu) {
+          doItemMenu();
+        }
+        if (event == view.Console.MainEvent.ForwardDay) {
+          doForwardDayMenu();
+        }
+        if (event == view.Console.MainEvent.Quit) {
+          running = false;
+        }
+      } while (running);
+    } catch (Exception e) {
+      System.err.println(e.getMessage());
+    }
   }
 
   private void doMemberMenu() {

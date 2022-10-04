@@ -14,15 +14,19 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-    PersistenceFacade p = new PersistenceFacade();
+    try {
+      PersistenceFacade p = new PersistenceFacade();
     
-    // TODO: .Load
-    view.Console ui = new Console();
-    model.domain.StuffLendingSystem sls = new StuffLendingSystem(p);
-    MainController mainController = new MainController(ui, sls);
+      // TODO: .Load
+      view.Console ui = new Console();
+      model.domain.StuffLendingSystem sls = new StuffLendingSystem(p);
+      MainController mainController = new MainController(ui, sls);
 
-    mainController.doMainMenu();
+      mainController.doMainMenu();
 
-    // TODO: .SAVE
+      // TODO: .SAVE
+    } catch (Exception e) {
+      System.err.println(e.getMessage());
+    }
   }
 }

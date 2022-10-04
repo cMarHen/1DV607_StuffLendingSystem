@@ -18,13 +18,16 @@ C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\OwnerIt
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\RandomString.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\StuffLendingSystem.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\domain\TypeIteratorImpl.class
+C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\ContractMapper.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\ItemMapper.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\Mapper.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\MapperFactory.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\MemberMapper.class
+C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\ContractMockOne.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\ItemMockOne.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\ItemMockTwo.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MemberMockOne.class
+C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MemberMockThree.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MemberMockTwo.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\Mock.class
 C:\Users\marti\LNU-WP\1dv607\a2\app\build\classes\java\main\model\repository\mock\MockCollection.class

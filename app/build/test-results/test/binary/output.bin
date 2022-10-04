@@ -13,13 +13,16 @@
 i0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/RandomString.java
 o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
 m0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
+o0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ContractMapper.java
 k0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ItemMapper.java
 g0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/Mapper.java
 n0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MapperFactory.java
 m0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MemberMapper.java
+u0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ContractMockOne.java
 q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockOne.java
 q0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockTwo.java
 s0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockOne.java
+u0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockThree.java
 s0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockTwo.java
 j0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/Mock.java
 t0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MockCollection.java
@@ -31,6 +34,7 @@
 -0 FindBugs Issues in model/domain/Item.java
 90 FindBugs Issues in model/domain/MemberCollection.java
 =0 FindBugs Issues in model/repository/mock/ItemMockOne.java
+;0 FindBugs Issues in model/repository/ContractMapper.java
 80 FindBugs Issues in model/domain/LendingContract.java
 ?0 FindBugs Issues in model/domain/ContractCollectionImpl.java
 50 FindBugs Issues in model/domain/ItemIterator.java
@@ -49,10 +53,12 @@
 ;0 FindBugs Issues in model/domain/ItemCollectionImpl.java
 90 FindBugs Issues in model/domain/TypeIteratorImpl.java
 60 FindBugs Issues in model/repository/mock/Mock.java
+A0 FindBugs Issues in model/repository/mock/MemberMockThree.java
 >0 FindBugs Issues in model/repository/PersistenceFacade.java
 /0 FindBugs Issues in model/domain/Member.java
 @0 FindBugs Issues in model/repository/mock/MockCollection.java
 70 FindBugs Issues in model/repository/ItemMapper.java
+A0 FindBugs Issues in model/repository/mock/ContractMockOne.java
 =0 FindBugs Issues in model/repository/mock/ItemMockTwo.java
 ;0 FindBugs Issues in model/domain/ContractCollection.java
 :0 FindBugs Issues in model/domain/OwnerIteratorImpl.java

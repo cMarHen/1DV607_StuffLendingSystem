@@ -1,7 +1,7 @@
 package model.repository.mock;
 
 /**
- * Mock for Member nr 2. 
+ * Mock for Member nr 3. 
  */
 public class MemberMockThree implements Mock {
   
