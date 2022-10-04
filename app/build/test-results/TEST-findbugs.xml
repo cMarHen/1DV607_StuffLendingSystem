@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.spotbugs" time="0" tests="29" errors="0" name="findbugs">
+<testsuite package="org.spotbugs" time="0" tests="32" errors="0" name="findbugs">
 <testcase time="0" name="view/Console.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/Item.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/MemberCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/mock/ItemMockOne.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/ContractMapper.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/LendingContract.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollectionImpl.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="FindBugs Issues">
@@ -22,10 +23,12 @@
 </testcase><testcase time="0" name="model/domain/ItemCollectionImpl.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/TypeIteratorImpl.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/mock/Mock.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/mock/MemberMockThree.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/PersistenceFacade.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/Member.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/mock/MockCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/ItemMapper.java" classname="FindBugs Issues">
+</testcase><testcase time="0" name="model/repository/mock/ContractMockOne.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/mock/ItemMockTwo.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/OwnerIteratorImpl.java" classname="FindBugs Issues">

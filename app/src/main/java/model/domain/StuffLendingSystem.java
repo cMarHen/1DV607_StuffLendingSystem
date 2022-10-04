@@ -11,21 +11,20 @@ import model.repository.PersistenceFacade;
 public class StuffLendingSystem {
   MemberCollection members;
   ItemCollection items;
-  ContractCollectionImpl contracts = new ContractCollectionImpl();
+  ContractCollection contracts;
   private RandomString randomStringGenerator = new RandomString();
   private int currentDay;
 
   /**
-   * TODO: Remove this.
+   * Constructor for SuffLendingSystem.
+   *
+   * @param p - PersistensFacade as reference to data from DB.
    */
   public StuffLendingSystem(PersistenceFacade p) {
     this.members = p.getMemberCollection();
     this.items = p.getItemCollection();
+    this.contracts = p.getContractCollection();
     this.currentDay = 0;
-
-    // TODO: Pre set a contract.
-    LendingContract c = new LendingContract(members.findMemberById("2yGoOc"), 4, items.findItemById("item_5yR0oc"), 0);
-    setUpLendingContract(c); 
   }
 
   /**

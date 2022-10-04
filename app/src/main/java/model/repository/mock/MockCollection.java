@@ -24,6 +24,7 @@ public class MockCollection {
     mocks.add(new MemberMockThree());
     mocks.add(new ItemMockOne());
     mocks.add(new ItemMockTwo());
+    mocks.add(new ContractMockOne());
   }
 
   /**

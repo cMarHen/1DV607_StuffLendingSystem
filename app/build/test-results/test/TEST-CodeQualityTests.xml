@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T11:24:35" hostname="LAPTOP-85ADMTTU" time="0.111">
+<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T12:17:23" hostname="LAPTOP-85ADMTTU" time="0.099">
   <properties/>
-  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.111"/>
+  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.099"/>
   <system-out><![CDATA[0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollection.java
@@ -17,13 +17,16 @@
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/RandomString.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/StuffLendingSystem.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/TypeIteratorImpl.java
+0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ContractMapper.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/ItemMapper.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/Mapper.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MapperFactory.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/MemberMapper.java
+0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ContractMockOne.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockOne.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/ItemMockTwo.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockOne.java
+0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockThree.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MemberMockTwo.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/Mock.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/mock/MockCollection.java
@@ -35,6 +38,7 @@
 0 FindBugs Issues in model/domain/Item.java
 0 FindBugs Issues in model/domain/MemberCollection.java
 0 FindBugs Issues in model/repository/mock/ItemMockOne.java
+0 FindBugs Issues in model/repository/ContractMapper.java
 0 FindBugs Issues in model/domain/LendingContract.java
 0 FindBugs Issues in model/domain/ContractCollectionImpl.java
 0 FindBugs Issues in model/domain/ItemIterator.java
@@ -53,10 +57,12 @@
 0 FindBugs Issues in model/domain/ItemCollectionImpl.java
 0 FindBugs Issues in model/domain/TypeIteratorImpl.java
 0 FindBugs Issues in model/repository/mock/Mock.java
+0 FindBugs Issues in model/repository/mock/MemberMockThree.java
 0 FindBugs Issues in model/repository/PersistenceFacade.java
 0 FindBugs Issues in model/domain/Member.java
 0 FindBugs Issues in model/repository/mock/MockCollection.java
 0 FindBugs Issues in model/repository/ItemMapper.java
+0 FindBugs Issues in model/repository/mock/ContractMockOne.java
 0 FindBugs Issues in model/repository/mock/ItemMockTwo.java
 0 FindBugs Issues in model/domain/ContractCollection.java
 0 FindBugs Issues in model/domain/OwnerIteratorImpl.java

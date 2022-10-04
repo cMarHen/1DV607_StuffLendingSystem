@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.checkstyle" time="0" tests="29" errors="0" name="checkstyle">
+<testsuite package="org.checkstyle" time="0" tests="32" errors="0" name="checkstyle">
 <testcase time="0" name="controller/App.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="CheckStyle Issues">
@@ -15,13 +15,16 @@
 </testcase><testcase time="0" name="model/domain/RandomString.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/StuffLendingSystem.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/domain/TypeIteratorImpl.java" classname="CheckStyle Issues">
+</testcase><testcase time="0" name="model/repository/ContractMapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/ItemMapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/Mapper.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/MapperFactory.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/MemberMapper.java" classname="CheckStyle Issues">
+</testcase><testcase time="0" name="model/repository/mock/ContractMockOne.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/ItemMockOne.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/ItemMockTwo.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/MemberMockOne.java" classname="CheckStyle Issues">
+</testcase><testcase time="0" name="model/repository/mock/MemberMockThree.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/MemberMockTwo.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/Mock.java" classname="CheckStyle Issues">
 </testcase><testcase time="0" name="model/repository/mock/MockCollection.java" classname="CheckStyle Issues">

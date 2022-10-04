@@ -8,10 +8,16 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class MapperFactory {
   private MemberMapper memberMapper;
   private ItemMapper itemMapper;
+  private ContractMapper contractMapper;
 
+  /**
+   * Constructor for MapperFactory.
+   * On init, MapperFactory loads all assets from respective storage.
+   */
   public MapperFactory() {
     this.memberMapper = new MemberMapper();
     this.itemMapper = new ItemMapper(this.memberMapper.loadAll());
+    this.contractMapper = new ContractMapper(this.memberMapper.loadAll(), this.itemMapper.loadAll());
   }
 
   /* public Mapper getMapper(MapperType type) {
@@ -30,5 +36,10 @@ public class MapperFactory {
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public ItemMapper getItemMapper() {
     return itemMapper;
+  }
+
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
+  public ContractMapper getContractMapper() {
+    return contractMapper;
   }
 }
