@@ -21,6 +21,7 @@ public class MockCollection {
   private void injectMocksToList() {
     mocks.add(new MemberMockOne());
     mocks.add(new MemberMockTwo());
+    mocks.add(new MemberMockThree());
     mocks.add(new ItemMockOne());
     mocks.add(new ItemMockTwo());
   }

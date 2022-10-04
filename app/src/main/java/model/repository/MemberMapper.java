@@ -44,6 +44,7 @@ public class MemberMapper extends PersistenceMapper {
 
     m.add(getObjectFromStorage(new ObjectIdentifier("oid_12345")));
     m.add(getObjectFromStorage(new ObjectIdentifier("oid_23456")));
+    m.add(getObjectFromStorage(new ObjectIdentifier("oid_78901")));
 
     return m;
   }

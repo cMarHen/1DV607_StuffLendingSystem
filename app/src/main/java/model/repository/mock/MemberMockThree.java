@@ -1,19 +1,20 @@
 package model.repository.mock;
 
 /**
- * Mock for Member nr 1. 
+ * Mock for Member nr 2. 
  */
-public class MemberMockOne implements Mock {
-  private String oid = "oid_12345";
-  private String firstName = "Martin";
-  private String lastName = "Henriksson";
-  private String email = "martin@mail.com";
-  private String phoneNumber = "0123455";
-  private String id = "8yLo0c";
+public class MemberMockThree implements Mock {
+  
+  private String oid = "oid_78901";
+  private String firstName = "Tobias";
+  private String lastName = "Olsson";
+  private String email = "hobbe@mail.com";
+  private String phoneNumber = "55510067";
+  private String id = "HyG1P3";
   private String credits = "0";
   private String registredDay = "0";
 
-  public MemberMockOne() {
+  public MemberMockThree() {
   }
 
   @Override
