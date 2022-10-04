@@ -1,12 +1,9 @@
 package model.repository;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import java.util.ArrayList;
 import model.domain.Item;
 import model.domain.Item.ItemType;
-import model.domain.ItemCollection;
-import model.domain.ItemCollectionImpl;
 import model.domain.Member;
-import model.domain.MemberCollection;
 import model.repository.mock.Mock;
 import model.repository.mock.MockCollection;
 
@@ -16,23 +13,22 @@ import model.repository.mock.MockCollection;
  */
 public class ItemMapper extends PersistenceMapper {
   private MockCollection mocks;
-  private MemberCollection members;
+  private ArrayList<Member.Mutable> members;
 
-  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
-  public ItemMapper(MemberCollection members) {
-    this.mocks = new MockCollection(); // TODO: Should this be in superclass?
-    this.members = members; // TODO: This is not good, strong coupling.
+  public ItemMapper(ArrayList<Member.Mutable> members) {
+    this.mocks = new MockCollection();
+    this.members = members;
   }
 
 
   @Override
-  protected Item getObjectFromStorage(ObjectIdentifier oid) {
+  protected Item.Mutable getObjectFromStorage(ObjectIdentifier oid) {
     String key = oid.toString();
     Mock item = mocks.searchMockByOid(key);
-    // TODO: Hard coded an owner.
-    Member.Mutable m = members.findMemberById(item.getColumn("OWNER_ID")); 
 
-    Item newItem = new Item(
+    Member.Mutable m = findMember(item.getColumn("OWNER_ID")); 
+
+    Item.Mutable newItem = new Item.Mutable(
         m,
         ItemType.valueOf(item.getColumn("TYPE")),
         item.getColumn("NAME"),
@@ -40,7 +36,7 @@ public class ItemMapper extends PersistenceMapper {
         item.getColumn("ALPHA_ID"),
         Integer.parseInt(item.getColumn("CREATION_DAY")),
         Integer.parseInt(item.getColumn("COST")),
-        item.getColumn("IS_RESERVED").equals("true") // TODO: Is this correct?
+        item.getColumn("IS_RESERVED").equals("true")
         );
     return newItem;
   }
@@ -50,12 +46,22 @@ public class ItemMapper extends PersistenceMapper {
    *
    * @return - ItemCollection with items from database.
    */
-  public ItemCollection loadAllItems() {
-    ItemCollection i = new ItemCollectionImpl();
+  public ArrayList<Item.Mutable> loadAll() {
+    ArrayList<Item.Mutable> i = new ArrayList<>();
 
-    i.addItem(getObjectFromStorage(new ObjectIdentifier("oid_232345")));
-    i.addItem(getObjectFromStorage(new ObjectIdentifier("oid_233456")));
+    i.add(getObjectFromStorage(new ObjectIdentifier("oid_232345")));
+    i.add(getObjectFromStorage(new ObjectIdentifier("oid_233456")));
 
     return i;
+  }
+
+  private Member.Mutable findMember(String id) {
+    for (Member.Mutable m : members) {
+      if (m.getId().equals(id)) {
+        return m;
+      }
+    }
+
+    return null;
   }
 }
