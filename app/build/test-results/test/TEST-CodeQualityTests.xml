@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T06:54:52" hostname="LAPTOP-85ADMTTU" time="0.132">
+<testsuite name="CodeQualityTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T10:16:58" hostname="LAPTOP-85ADMTTU" time="0.107">
   <properties/>
-  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.132"/>
+  <testcase name="codeQuality()" classname="CodeQualityTests" time="0.107"/>
   <system-out><![CDATA[0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/MainController.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/domain/ContractCollection.java
@@ -53,12 +53,7 @@
 0 FindBugs Issues in model/domain/ItemCollectionImpl.java
 0 FindBugs Issues in model/domain/TypeIteratorImpl.java
 0 FindBugs Issues in model/repository/mock/Mock.java
-1 FindBugs Issues in model/repository/PersistenceFacade.java
-text:lines: 19-46 
-Unread field: mapperFactory 
-Unread field 
-This field is never read. Consider removing it from the class.
-
+0 FindBugs Issues in model/repository/PersistenceFacade.java
 0 FindBugs Issues in model/domain/Member.java
 0 FindBugs Issues in model/repository/mock/MockCollection.java
 0 FindBugs Issues in model/repository/ItemMapper.java

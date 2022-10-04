@@ -19,22 +19,13 @@ public class StuffLendingSystem {
    * TODO: Remove this.
    */
   public StuffLendingSystem(PersistenceFacade p) {
-    this.members = p.getMembers();
-    this.items = p.getItems();
+    this.members = p.getMemberCollection();
+    this.items = p.getItemCollection();
     this.currentDay = 0;
 
+    // TODO: Pre set a contract.
     LendingContract c = new LendingContract(members.findMemberById("2yGoOc"), 4, items.findItemById("item_5yR0oc"), 0);
-    setUpLendingContract(c);    
-
-    /* Member m1 = new Member("Anders", "Jonsson", "ander@gotmail.", "09523588235", getNewUniqueMemberId(), 2);
-    Member m2 = new Member("Test", "Testsson", "test@gotmail.", "09523588205", getNewUniqueMemberId(), 5);
-    addNewMember(m1);
-    addNewMember(m2); */
-    /* 
-    addNewItem(findMemberById(m1.getId()), new Item(ItemType.Tool, "kratta", "Rinsing leafs", 20));
-    addNewItem(findMemberById(m1.getId()), new Item(ItemType.Game, "Super Mario", "playing", 50));
-    addNewItem(findMemberById(m2.getId()), new Item(ItemType.Sport, "Arsenal jersey", "jersey size xl", 80));  */   
-
+    setUpLendingContract(c); 
   }
 
   /**

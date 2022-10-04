@@ -1,7 +1,11 @@
 package model.repository;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import java.util.ArrayList;
+import model.domain.Item;
 import model.domain.ItemCollection;
+import model.domain.ItemCollectionImpl;
+import model.domain.Member;
 import model.domain.MemberCollection;
 
 /**
@@ -9,8 +13,8 @@ import model.domain.MemberCollection;
  */
 public class PersistenceFacade {
   MapperFactory mapperFactory;
-  MemberCollection members;
-  ItemCollection items;
+  MemberCollection memberCollection;
+  ItemCollection itemCollection;
 
   /**
    * Constructor for PersistenceFacade.
@@ -18,31 +22,33 @@ public class PersistenceFacade {
    */
   public PersistenceFacade() {
     this.mapperFactory = new MapperFactory();
-
-    loadMembers();
-    loadItems(members); 
-    // loadContracts(members, items);
+    this.memberCollection = new MemberCollection();
+    this.itemCollection = new ItemCollectionImpl();
   }
 
-  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to return a reference") // TODO:
-  public MemberCollection getMembers() {
-    return members;
+  /**
+   * Get MemberCollection, populated with members from storage.
+   */  
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
+  public MemberCollection getMemberCollection() {
+    ArrayList<Member.Mutable> members = mapperFactory.getMemberMapper().loadAll();
+
+    for (Member.Mutable m : members) {
+      memberCollection.addMember(m);
+    }
+    return memberCollection;
   }
 
-  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to return a reference") // TODO:
-  public ItemCollection getItems() {
-    return items;
+  /**
+   * Get ItemCollection, populated with items from storage.
+   */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
+  public ItemCollection getItemCollection() {
+    ArrayList<Item.Mutable> items = mapperFactory.getItemMapper().loadAll();
+    
+    for (Item.Mutable i : items) {
+      itemCollection.addItem(i);
+    }
+    return itemCollection;
   }
-
-  private void loadMembers() {
-    MemberMapper mapper = new MemberMapper();
-    this.members = mapper.loadAllMembers();
-  }
-
-  // Inject with members to be used when assign owners.
-  private void loadItems(MemberCollection members) {
-    ItemMapper mapper = new ItemMapper(members);
-    this.items = mapper.loadAllItems();
-  }
-
 }
