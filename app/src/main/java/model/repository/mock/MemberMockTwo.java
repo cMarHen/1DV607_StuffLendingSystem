@@ -9,7 +9,7 @@ public class MemberMockTwo implements Mock {
   private String firstName = "Anders";
   private String lastName = "Jonsson";
   private String email = "anders@mail.com";
-  private String phoneNumber = "1234556";
+  private String phoneNumber = "5558944";
   private String id = "2yGoOc";
   private String credits = "200";
   private String registredDay = "0";

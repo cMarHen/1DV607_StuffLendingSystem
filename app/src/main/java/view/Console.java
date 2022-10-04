@@ -302,7 +302,7 @@ public class Console {
     System.out.printf("                                     ( Simple )       %n");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
-    System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-6s |%n", "NAME", "EMAIL", "CREDITS", "ITEMS", "ID");
+    System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-8s | %-6s |%n", "NAME", "EMAIL", "PHONE", "CREDITS", "ITEMS", "ID");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
     for (model.domain.Member member : members) {
@@ -314,9 +314,10 @@ public class Console {
         }
       }
       
-      System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-6s |%n",
+      System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-8s | %-6s |%n",
           member.getFirstName() + " " + member.getLastName(),
           member.getEmail(),
+          member.getPhoneNumber(),
           member.getCredits(),
           ownedItems.size(),
           member.getId());
@@ -335,10 +336,11 @@ public class Console {
     System.out.printf("                     Information of member " + member.getFirstName() + "     %n");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
-    System.out.printf("| %-20s | %-20s | %-8s | %-8s |%n", "NAME", "EMAIL", "CREDITS", "ID");
-    System.out.printf("| %-20s | %-20s | %-8s | %-8s |%n",
+    System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-8s |%n", "NAME", "EMAIL", "PHONE", "CREDITS", "ID");
+    System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-8s |%n",
         member.getFirstName() + " " + member.getLastName(),
         member.getEmail(),
+        member.getPhoneNumber(),
         member.getCredits(),
         member.getId());
     
@@ -460,8 +462,6 @@ public class Console {
       System.out.printf("---------------------------------------------------------------------------------------%n");
     }
 
-    System.out.println();
-    System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
   }
 
