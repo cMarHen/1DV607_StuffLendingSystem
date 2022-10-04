@@ -1,5 +1,6 @@
 package model.repository;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.domain.ItemCollection;
 import model.domain.MemberCollection;
 
@@ -23,12 +24,12 @@ public class PersistenceFacade {
     // loadContracts(members, items);
   }
 
-  // Return MemberCollection, used in SLS
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to return a reference") // TODO:
   public MemberCollection getMembers() {
     return members;
   }
 
-  // Return ItemCollection, used in SLS
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to return a reference") // TODO:
   public ItemCollection getItems() {
     return items;
   }

@@ -1,78 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<testsuite package="org.spotbugs" time="0" tests="29" errors="12" name="findbugs">
+<testsuite package="org.spotbugs" time="0" tests="29" errors="1" name="findbugs">
 <testcase time="0" name="view/Console.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/Item.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 35-157 
-getOwner() may expose internal representation by returning Item.owner 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the 
-  object's fields exposes the internal representation of the object. If 
-  instances are accessed by untrusted code, and unchecked changes to the 
-  mutable object would compromise security or other important properties, 
-  you will need to do something different. Returning a new copy of the 
-  object is better approach in many situations.
-----------------
-lines: 35-157 
-new model.domain.Item(Member$Mutable, Item$ItemType, String, String, 
-  String, int, int) may expose internal representation by storing an 
-  externally mutable object into Item.owner 
-May expose internal representation by incorporating reference to mutable 
-  object 
-This code stores a reference to an externally mutable object into the 
-  internal representation of the object. If instances are accessed by 
-  untrusted code, and unchecked changes to the mutable object would 
-  compromise security or other important properties, you will need to do 
-  something different. Storing a copy of the object is better approach in 
-  many situations.
-----------------
-lines: 35-157 
-new model.domain.Item(Member$Mutable, Item$ItemType, String, String, 
-  String, int, int, boolean) may expose internal representation by storing 
-  an externally mutable object into Item.owner 
-May expose internal representation by incorporating reference to mutable 
-  object 
-This code stores a reference to an externally mutable object into the 
-  internal representation of the object. If instances are accessed by 
-  untrusted code, and unchecked changes to the mutable object would 
-  compromise security or other important properties, you will need to do 
-  something different. Storing a copy of the object is better approach in 
-  many situations.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/MemberCollection.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 9-74 
-getMembers() may expose internal representation by returning 
-  MemberCollection.members 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the 
-  object's fields exposes the internal representation of the object. If 
-  instances are accessed by untrusted code, and unchecked changes to the 
-  mutable object would compromise security or other important properties, 
-  you will need to do something different. Returning a new copy of the 
-  object is better approach in many situations.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/repository/mock/ItemMockOne.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/LendingContract.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 7-77 
-model.domain.LendingContract defines compareTo(LendingContract) and uses 
-  Object.equals() 
-Class defines compareTo(...) and uses Object.equals() 
-This class defines a compareTo(...) method but inherits its equals() method 
-  from java.lang.Object. Generally, the value of compareTo should return 
-  zero if and only if equals returns true. If this is violated, weird and 
-  unpredictable failures will occur in classes such as PriorityQueue. In 
-  Java 5 the PriorityQueue.remove method uses the compareTo method, while 
-  in Java 6 it uses the equals method. 
- 
-From the JavaDoc for the compareTo method in the Comparable interface: It 
-  is strongly recommended, but not strictly required that 
-  (x.compareTo(y)==0) == (x.equals(y)). Generally speaking, any class that 
-  implements the Comparable interface and violates this condition should 
-  clearly indicate this fact. The recommended language is "Note: this class 
-  has a natural ordering that is inconsistent with equals."
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/ContractCollectionImpl.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ItemIterator.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="controller/App.java" classname="FindBugs Issues">
@@ -88,58 +20,10 @@ From the JavaDoc for the compareTo method in the Comparable interface: It
 </testcase><testcase time="0" name="model/repository/PersistenceMapper.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="controller/MainController.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ItemCollectionImpl.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 17-82 
-getAllItems() may expose internal representation by returning 
-  ItemCollectionImpl.items 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the 
-  object's fields exposes the internal representation of the object. If 
-  instances are accessed by untrusted code, and unchecked changes to the 
-  mutable object would compromise security or other important properties, 
-  you will need to do something different. Returning a new copy of the 
-  object is better approach in many situations.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/domain/TypeIteratorImpl.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 22-48 
-new model.domain.TypeIteratorImpl(Item$ItemType, ArrayList) may expose 
-  internal representation by storing an externally mutable object into 
-  TypeIteratorImpl.items 
-May expose internal representation by incorporating reference to mutable 
-  object 
-This code stores a reference to an externally mutable object into the 
-  internal representation of the object. If instances are accessed by 
-  untrusted code, and unchecked changes to the mutable object would 
-  compromise security or other important properties, you will need to do 
-  something different. Storing a copy of the object is better approach in 
-  many situations.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/repository/mock/Mock.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/PersistenceFacade.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 18-45 
-getItems() may expose internal representation by returning 
-  PersistenceFacade.items 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the 
-  object's fields exposes the internal representation of the object. If 
-  instances are accessed by untrusted code, and unchecked changes to the 
-  mutable object would compromise security or other important properties, 
-  you will need to do something different. Returning a new copy of the 
-  object is better approach in many situations.
-----------------
-lines: 18-45 
-getMembers() may expose internal representation by returning 
-  PersistenceFacade.members 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the 
-  object's fields exposes the internal representation of the object. If 
-  instances are accessed by untrusted code, and unchecked changes to the 
-  mutable object would compromise security or other important properties, 
-  you will need to do something different. Returning a new copy of the 
-  object is better approach in many situations.
-----------------
-lines: 18-45 
+<failure message="issues" ><![CDATA[lines: 19-46 
 Unread field: mapperFactory 
 Unread field 
 This field is never read. Consider removing it from the class.
@@ -148,35 +32,7 @@ This field is never read. Consider removing it from the class.
 </testcase><testcase time="0" name="model/domain/Member.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/mock/MockCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/repository/ItemMapper.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 16-57 
-new model.repository.ItemMapper(MemberCollection) may expose internal 
-  representation by storing an externally mutable object into 
-  ItemMapper.members 
-May expose internal representation by incorporating reference to mutable 
-  object 
-This code stores a reference to an externally mutable object into the 
-  internal representation of the object. If instances are accessed by 
-  untrusted code, and unchecked changes to the mutable object would 
-  compromise security or other important properties, you will need to do 
-  something different. Storing a copy of the object is better approach in 
-  many situations.
-----------------
-]]></failure>
 </testcase><testcase time="0" name="model/repository/mock/ItemMockTwo.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/ContractCollection.java" classname="FindBugs Issues">
 </testcase><testcase time="0" name="model/domain/OwnerIteratorImpl.java" classname="FindBugs Issues">
-<failure message="issues" ><![CDATA[lines: 21-47 
-new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal 
-  representation by storing an externally mutable object into 
-  OwnerIteratorImpl.items 
-May expose internal representation by incorporating reference to mutable 
-  object 
-This code stores a reference to an externally mutable object into the 
-  internal representation of the object. If instances are accessed by 
-  untrusted code, and unchecked changes to the mutable object would 
-  compromise security or other important properties, you will need to do 
-  something different. Storing a copy of the object is better approach in 
-  many situations.
-----------------
-]]></failure>
 </testcase></testsuite>

@@ -1,5 +1,6 @@
 package model.domain;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
 
@@ -19,8 +20,8 @@ public class TypeIteratorImpl implements ItemIterator {
    * @param type - ItemType to query for. 
    * @param items - A list of items matching the type.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference") // TODO:
   public TypeIteratorImpl(ItemType type, ArrayList<Item.Mutable> items) {
-    // TODO: Findbugs issue should be supressed as the list to iterate shoud be presented to the iterator.
     this.type = type;
     this.items = items;
     this.position = 0;

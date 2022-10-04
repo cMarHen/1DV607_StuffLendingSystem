@@ -1,5 +1,6 @@
 package model.domain;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
 
@@ -17,12 +18,8 @@ public class ItemCollectionImpl implements ItemCollection {
   public ItemCollectionImpl() {
     items = new ArrayList<>();
   }
-
-  /**
-   * Get the whole list of items in the collection.
-   *
-   * @return - The whole list of items in the collection.
-   */
+  
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Returning an abstraction.")
   public Iterable<Item.Mutable> getAllItems() {
     return items;
   }

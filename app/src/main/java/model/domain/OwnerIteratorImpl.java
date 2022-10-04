@@ -1,5 +1,6 @@
 package model.domain;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,7 @@ public class OwnerIteratorImpl implements ItemIterator {
    * @param owner - A member as owner.
    * @param items - The list of items to search.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference") // TODO:
   public OwnerIteratorImpl(Member owner, ArrayList<Item.Mutable> items) {
     this.items = items;
     this.owner = owner;

@@ -66,15 +66,24 @@ public class LendingContract implements Comparable<LendingContract> {
    * @return - Int to signal sorting-order.
    */
   public int compareTo(LendingContract contract) {
-    int thisStartDay = this.getStartDay();
-    int compareToStartDay = contract.getStartDay();
+    Integer thisStartDay = this.getStartDay();
+    Integer compareToStartDay = contract.getStartDay();
+    
+    // TODO: Test this method
+    return thisStartDay.compareTo(compareToStartDay);
+  }
 
-    if (thisStartDay > compareToStartDay) {
-      return 1;
-    } else if (thisStartDay < compareToStartDay) {
-      return -1;
-    } else {
-      return 0;
+  @Override
+  public boolean equals(Object obj) {
+    if (!(obj instanceof LendingContract)) {
+      return false;
     }
+    return compareTo((LendingContract) obj) == 0;
+  }
+
+  @Override
+  public int hashCode() {
+    assert false : "hashCode not designed";
+    return 42;
   }
 }

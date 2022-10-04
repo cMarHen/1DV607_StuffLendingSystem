@@ -1,5 +1,6 @@
 package model.repository;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.domain.Item;
 import model.domain.Item.ItemType;
 import model.domain.ItemCollection;
@@ -17,6 +18,7 @@ public class ItemMapper extends PersistenceMapper {
   private MockCollection mocks;
   private MemberCollection members;
 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public ItemMapper(MemberCollection members) {
     this.mocks = new MockCollection(); // TODO: Should this be in superclass?
     this.members = members; // TODO: This is not good, strong coupling.

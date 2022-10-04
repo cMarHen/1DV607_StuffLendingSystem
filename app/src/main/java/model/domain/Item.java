@@ -1,5 +1,7 @@
 package model.domain;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * Class representing an item in the stufflending system.
  *
@@ -74,8 +76,8 @@ public class Item {
    * @param dayOfCreation - Metadata when item was created, not editable later.
    * @param costPerDay - Used in calculations to set up lending contracts, editable later.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public Item(
-      // TODO: Findbugs issue should be supressed as the owner should reflect the member in the sls!
       Member.Mutable owner,
       ItemType type,
       String name,
@@ -105,8 +107,8 @@ public class Item {
    * @param costPerDay - Used in calculations to set up lending contracts, editable later.
    * @param isReserved - Signals if item is available for loan at the moment.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public Item(
-      // TODO: Findbugs issue should be supressed as the owner should reflect the member in the sls.
       Member.Mutable owner,
       ItemType type,
       String name,
@@ -141,6 +143,7 @@ public class Item {
     return id;
   }
 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public Member.Mutable getOwner() {
     return this.owner;
   }

@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.167s</div>
+<div class="counter">0.132s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,112 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="codeQuality()"></a>
-<h3 class="failures">codeQuality()</h3>
-<span class="code">
-<pre>org.opentest4j.AssertionFailedError: Max amount (5) of quality issues exceeded:12 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;
-	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:193)
-	at app//CodeQualityTests.codeQuality(CodeQualityTests.java:70)
-	at java.base@18.0.2.1/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@18.0.2.1/java.lang.reflect.Method.invoke(Method.java:577)
-	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
-	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
-	at app//org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
-	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
-	at app//org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:210)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:206)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:131)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:65)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base@18.0.2.1/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at java.base@18.0.2.1/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:143)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:129)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:127)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:126)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:84)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
-	at java.base@18.0.2.1/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base@18.0.2.1/java.lang.reflect.Method.invoke(Method.java:577)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -177,13 +78,13 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">codeQuality()</td>
-<td class="failures">0.167s</td>
-<td class="failures">failed</td>
+<td class="success">codeQuality()</td>
+<td class="success">0.132s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/controller/App.java
@@ -216,61 +117,10 @@
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/model/repository/PersistenceMapper.java
 0 CheckStyle Issues in C:/Users/marti/LNU-WP/1dv607/a2/app/src/main/java/view/Console.java
 0 FindBugs Issues in view/Console.java
-3 FindBugs Issues in model/domain/Item.java
-text:lines: 35-157 
-getOwner() may expose internal representation by returning Item.owner 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the object's fields exposes the 
-  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
-  changes to the mutable object would compromise security or other important properties, you will 
-  need to do something different. Returning a new copy of the object is better approach in many 
-  situations.
-
-text:lines: 35-157 
-new model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int) may expose 
-  internal representation by storing an externally mutable object into Item.owner 
-May expose internal representation by incorporating reference to mutable object 
-This code stores a reference to an externally mutable object into the internal representation of the 
-  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-  would compromise security or other important properties, you will need to do something different. 
-  Storing a copy of the object is better approach in many situations.
-
-text:lines: 35-157 
-new model.domain.Item(Member$Mutable, Item$ItemType, String, String, String, int, int, boolean) may 
-  expose internal representation by storing an externally mutable object into Item.owner 
-May expose internal representation by incorporating reference to mutable object 
-This code stores a reference to an externally mutable object into the internal representation of the 
-  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-  would compromise security or other important properties, you will need to do something different. 
-  Storing a copy of the object is better approach in many situations.
-
-1 FindBugs Issues in model/domain/MemberCollection.java
-text:lines: 9-74 
-getMembers() may expose internal representation by returning MemberCollection.members 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the object's fields exposes the 
-  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
-  changes to the mutable object would compromise security or other important properties, you will 
-  need to do something different. Returning a new copy of the object is better approach in many 
-  situations.
-
+0 FindBugs Issues in model/domain/Item.java
+0 FindBugs Issues in model/domain/MemberCollection.java
 0 FindBugs Issues in model/repository/mock/ItemMockOne.java
-1 FindBugs Issues in model/domain/LendingContract.java
-text:lines: 7-77 
-model.domain.LendingContract defines compareTo(LendingContract) and uses Object.equals() 
-Class defines compareTo(...) and uses Object.equals() 
-This class defines a compareTo(...) method but inherits its equals() method from java.lang.Object. 
-  Generally, the value of compareTo should return zero if and only if equals returns true. If this 
-  is violated, weird and unpredictable failures will occur in classes such as PriorityQueue. In Java 
-  5 the PriorityQueue.remove method uses the compareTo method, while in Java 6 it uses the equals 
-  method. 
- 
-From the JavaDoc for the compareTo method in the Comparable interface: It is strongly recommended, 
-  but not strictly required that (x.compareTo(y)==0) == (x.equals(y)). Generally speaking, any class 
-  that implements the Comparable interface and violates this condition should clearly indicate this 
-  fact. The recommended language is &quot;Note: this class has a natural ordering that is inconsistent 
-  with equals.&quot;
-
+0 FindBugs Issues in model/domain/LendingContract.java
 0 FindBugs Issues in model/domain/ContractCollectionImpl.java
 0 FindBugs Issues in model/domain/ItemIterator.java
 0 FindBugs Issues in controller/App.java
@@ -285,75 +135,21 @@ From the JavaDoc for the compareTo method in the Comparable interface: It is str
 0 FindBugs Issues in model/repository/Mapper.java
 0 FindBugs Issues in model/repository/PersistenceMapper.java
 0 FindBugs Issues in controller/MainController.java
-1 FindBugs Issues in model/domain/ItemCollectionImpl.java
-text:lines: 17-82 
-getAllItems() may expose internal representation by returning ItemCollectionImpl.items 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the object's fields exposes the 
-  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
-  changes to the mutable object would compromise security or other important properties, you will 
-  need to do something different. Returning a new copy of the object is better approach in many 
-  situations.
-
-1 FindBugs Issues in model/domain/TypeIteratorImpl.java
-text:lines: 22-48 
-new model.domain.TypeIteratorImpl(Item$ItemType, ArrayList) may expose internal representation by 
-  storing an externally mutable object into TypeIteratorImpl.items 
-May expose internal representation by incorporating reference to mutable object 
-This code stores a reference to an externally mutable object into the internal representation of the 
-  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-  would compromise security or other important properties, you will need to do something different. 
-  Storing a copy of the object is better approach in many situations.
-
+0 FindBugs Issues in model/domain/ItemCollectionImpl.java
+0 FindBugs Issues in model/domain/TypeIteratorImpl.java
 0 FindBugs Issues in model/repository/mock/Mock.java
-3 FindBugs Issues in model/repository/PersistenceFacade.java
-text:lines: 18-45 
-getItems() may expose internal representation by returning PersistenceFacade.items 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the object's fields exposes the 
-  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
-  changes to the mutable object would compromise security or other important properties, you will 
-  need to do something different. Returning a new copy of the object is better approach in many 
-  situations.
-
-text:lines: 18-45 
-getMembers() may expose internal representation by returning PersistenceFacade.members 
-May expose internal representation by returning reference to mutable object 
-Returning a reference to a mutable object value stored in one of the object's fields exposes the 
-  internal representation of the object. If instances are accessed by untrusted code, and unchecked 
-  changes to the mutable object would compromise security or other important properties, you will 
-  need to do something different. Returning a new copy of the object is better approach in many 
-  situations.
-
-text:lines: 18-45 
+1 FindBugs Issues in model/repository/PersistenceFacade.java
+text:lines: 19-46 
 Unread field: mapperFactory 
 Unread field 
 This field is never read. Consider removing it from the class.
 
 0 FindBugs Issues in model/domain/Member.java
 0 FindBugs Issues in model/repository/mock/MockCollection.java
-1 FindBugs Issues in model/repository/ItemMapper.java
-text:lines: 16-57 
-new model.repository.ItemMapper(MemberCollection) may expose internal representation by storing an 
-  externally mutable object into ItemMapper.members 
-May expose internal representation by incorporating reference to mutable object 
-This code stores a reference to an externally mutable object into the internal representation of the 
-  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-  would compromise security or other important properties, you will need to do something different. 
-  Storing a copy of the object is better approach in many situations.
-
+0 FindBugs Issues in model/repository/ItemMapper.java
 0 FindBugs Issues in model/repository/mock/ItemMockTwo.java
 0 FindBugs Issues in model/domain/ContractCollection.java
-1 FindBugs Issues in model/domain/OwnerIteratorImpl.java
-text:lines: 21-47 
-new model.domain.OwnerIteratorImpl(Member, ArrayList) may expose internal representation by storing 
-  an externally mutable object into OwnerIteratorImpl.items 
-May expose internal representation by incorporating reference to mutable object 
-This code stores a reference to an externally mutable object into the internal representation of the 
-  object. If instances are accessed by untrusted code, and unchecked changes to the mutable object 
-  would compromise security or other important properties, you will need to do something different. 
-  Storing a copy of the object is better approach in many situations.
-
+0 FindBugs Issues in model/domain/OwnerIteratorImpl.java
 </pre>
 </span>
 </div>
@@ -365,7 +161,7 @@ This code stores a reference to an externally mutable object into the internal r
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at 4 okt. 2022 07:46:03</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at 4 okt. 2022 08:54:52</p>
 </div>
 </div>
 </body>

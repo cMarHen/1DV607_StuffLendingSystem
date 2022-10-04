@@ -1,5 +1,6 @@
 package model.domain;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +20,7 @@ public class MemberCollection {
     members.add(m);
   }
 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Returning an abstraction.")
   public Iterable<Member.Mutable> getMembers() {
     return members;
   }
