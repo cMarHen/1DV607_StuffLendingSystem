@@ -15,4 +15,10 @@ The selected `Add member` from the `Member menu` in the system and the sequence 
 
 ![sequence diagram](img/sequence-diagram.jpeg)
 
+### Object Diagram
+The diagram corresponds to the scenario above just **after** the illustrated sequence. <br>
+(The `red link-lines` indicates that the lifetime of the object is limited to the sequence.)
+
+![sequence diagram](img/object-diagram.jpeg)
+
 
