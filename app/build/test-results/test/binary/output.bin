@@ -49,12 +49,7 @@
 ;0 FindBugs Issues in model/domain/ItemCollectionImpl.java
 90 FindBugs Issues in model/domain/TypeIteratorImpl.java
 60 FindBugs Issues in model/repository/mock/Mock.java
->1 FindBugs Issues in model/repository/PersistenceFacade.java
-text:lines: 19-46 
-Unread field: mapperFactory 
-Unread field 
-@This field is never read. Consider removing it from the class.
-
+>0 FindBugs Issues in model/repository/PersistenceFacade.java
 /0 FindBugs Issues in model/domain/Member.java
 @0 FindBugs Issues in model/repository/mock/MockCollection.java
 70 FindBugs Issues in model/repository/ItemMapper.java

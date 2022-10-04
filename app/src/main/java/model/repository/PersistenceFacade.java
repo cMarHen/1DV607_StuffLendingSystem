@@ -1,5 +1,6 @@
 package model.repository;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 import model.domain.ItemCollection;
@@ -27,7 +28,8 @@ public class PersistenceFacade {
 
   /**
    * Get MemberCollection, populated with members from storage.
-   */
+   */  
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public MemberCollection getMemberCollection() {
     ArrayList<Member.Mutable> members = mapperFactory.getMemberMapper().loadAll();
 
@@ -40,6 +42,7 @@ public class PersistenceFacade {
   /**
    * Get ItemCollection, populated with items from storage.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public ItemCollection getItemCollection() {
     ArrayList<Item.Mutable> items = mapperFactory.getItemMapper().loadAll();
     

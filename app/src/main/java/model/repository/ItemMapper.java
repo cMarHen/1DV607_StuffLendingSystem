@@ -1,5 +1,6 @@
 package model.repository;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 import model.domain.Item.ItemType;
@@ -15,6 +16,7 @@ public class ItemMapper extends PersistenceMapper {
   private MockCollection mocks;
   private ArrayList<Member.Mutable> members;
 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public ItemMapper(ArrayList<Member.Mutable> members) {
     this.mocks = new MockCollection();
     this.members = members;
