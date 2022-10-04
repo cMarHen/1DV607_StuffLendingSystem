@@ -19,9 +19,9 @@ public class App {
     // TODO: .Load
     view.Console ui = new Console();
     model.domain.StuffLendingSystem sls = new StuffLendingSystem(p);
-    MainController mainMenu = new MainController(ui, sls);
+    MainController mainController = new MainController(ui, sls);
 
-    mainMenu.doMainMenu();
+    mainController.doMainMenu();
 
     // TODO: .SAVE
   }
