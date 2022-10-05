@@ -28,6 +28,33 @@ Removing or manipulating the code quality checks results in an immediate assignm
 The application should start by running console command:  
 `./gradlew run -q --console=plain`
 
+## Usage
+
+1. Main menu 
+    > `1 - Member Menu` => Go to member menu
+    >
+    > `2 - Item Menu` => Go to item menu
+    >
+    > `3 - Forward day` => Forward day counter
+    >
+    > `0 - Quit => Exit` application
+
+2. Member menu 
+    > `1 - Add member` => Add a new member
+    >
+    > `2 - List members simple` => List all members in a simple way
+    >
+    > `3 - List members verbose` => List all members in a verbose way
+    > 
+    > `4 - Show detailed member` => (req id) Show one member detailed 
+    >
+    > `5 - Edit a member` => (req id) Edit a member via EditMemberMenu
+    > 
+    > `6 - Delete member` => (req id) Delete a member
+    >
+    > `0 - Back` => (goto MainMenu) => Go back
+
+
 ## Adding Your Own Code
 The `Simple` classes project should likely be removed do not forget to also remove the test case associated to `model.Simple`.  
 

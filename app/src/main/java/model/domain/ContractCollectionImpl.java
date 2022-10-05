@@ -199,11 +199,11 @@ public class ContractCollectionImpl implements ContractCollection {
         // Contract starts during active contract.
         return false;
       } else if ((newContractsEndDay >= activeContract.getStartDay()) 
-      && (newContractsEndDay <= activeContract.getEndDay())) {
+          && (newContractsEndDay <= activeContract.getEndDay())) {
         // Contract ends during active contract.
         return false;
       } else if ((newContractsStartDay < activeContract.getStartDay())
-      && (newContractsEndDay > activeContract.getEndDay())) {
+          && (newContractsEndDay > activeContract.getEndDay())) {
         // Contract stretches from before to after active contract.
         return false;
       }
