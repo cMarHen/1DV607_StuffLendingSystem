@@ -1,7 +1,6 @@
 package controller;
 
 import model.domain.StuffLendingSystem;
-import model.repository.PersistenceFacade;
 import view.Console;
 
 /**
@@ -14,17 +13,14 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-    try {
-      PersistenceFacade p = new PersistenceFacade();
-    
-      // TODO: .Load
+    try {    
       view.Console ui = new Console();
-      model.domain.StuffLendingSystem sls = new StuffLendingSystem(p);
+      model.domain.StuffLendingSystem sls = new StuffLendingSystem();
       MainController mainController = new MainController(ui, sls);
 
       mainController.doMainMenu();
 
-      // TODO: .SAVE
+      // sls.save();
     } catch (Exception e) {
       System.err.println(e.getMessage());
     }
