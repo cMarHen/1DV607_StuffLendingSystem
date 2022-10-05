@@ -32,7 +32,9 @@ public class MainController {
     ERR_FIND_MEMBER,
     ERR_FIND_ITEM,
     SUCCESS_CREATE_CONTRACT,
-    ERR_CREATE_CONTRACT
+    ERR_CREATE_CONTRACT,
+    ERR_DUPLICATE_EMAIL,
+    ERR_DUPLICATE_PHONE
   }
 
   /**
@@ -106,12 +108,32 @@ public class MainController {
         return;
       }
       
-      if (event == view.Console.MemberEvent.AddMember) {        
-        model.domain.Member newMember = ui.promptForNewMember();
+      if (event == view.Console.MemberEvent.AddMember) {
+        boolean addMemberRunning = true;
 
-        boolean isSucceeded = sls.addNewMember(newMember);
+        do {
+          model.domain.Member newMember = ui.promptForNewMember();
+  
+          boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
+  
+          if (!isUniqueEmail) {
+            ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
+            break;
+          }
+  
+          boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
+  
+          if (!isUniquePhoneNumber) {
+            ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
+            break;
+          }
+  
+          boolean isSucceeded = sls.addNewMember(newMember);
+  
+          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
 
-        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
+          addMemberRunning = false;
+        } while (addMemberRunning);
       }
 
       if (event == view.Console.MemberEvent.ListMember) {
@@ -195,14 +217,24 @@ public class MainController {
 
       if (event == view.Console.MemberEditEvent.EditEmail) {
         String email =  ui.promptInformation(PromptEvent.Email);
+        boolean isUniqueEmail = sls.isUniqueEmail(email);
 
-        member.setEmail(email);
+        if (!isUniqueEmail) {
+          ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
+        } else {
+          member.setEmail(email);
+        }
       }
 
       if (event == view.Console.MemberEditEvent.EditPhone) {
         String phoneNumber =  ui.promptInformation(PromptEvent.PhoneNumber);
+        boolean isUniquePhone = sls.isUniquePhoneNumber(phoneNumber);
 
-        member.setPhoneNumber(phoneNumber);
+        if (!isUniquePhone) {
+          ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
+        } else {
+          member.setPhoneNumber(phoneNumber);
+        }
       }
 
       if (event == view.Console.MemberEditEvent.Back) {
@@ -291,7 +323,7 @@ public class MainController {
         } while (startDayOfLoan < currentDay);
 
         int daysToLoan = ui.promptInformationInt(PromptEvent.AmountOfLoanDays);
-        int endDay = startDayOfLoan + daysToLoan;
+        int endDay = (startDayOfLoan - 1) + daysToLoan;
 
         model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);

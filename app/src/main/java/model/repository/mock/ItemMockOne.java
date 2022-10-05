@@ -11,7 +11,7 @@ public class ItemMockOne implements Mock {
   String description = "Krattar gräsmattan";
   String id = "item_5yR0oc";
   String dayOfCreation = "0";
-  String costPerDay = "20";
+  String costPerDay = "50";
   String isReserved = "false";
 
   public ItemMockOne() {

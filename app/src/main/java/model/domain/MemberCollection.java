@@ -46,15 +46,29 @@ public class MemberCollection {
 
 
   /**
-   * Flag if email and phone number are unique.
+   * Check if email is unique in the members-list.
    *
    * @param email - The email to check.
-   * @param phoneNumber - The phone number to check.
-   * @return- Flag if any is not unique.
+   * @return- Flag if email is not unique.
    */
-  public boolean isUniqueEmailAndPhoneNumber(String email, String phoneNumber) {
+  public boolean isUniqueEmail(String email) {
     for (Member member : members) {
-      if (member.getEmail().equals(email) || member.getPhoneNumber().equals(phoneNumber)) {
+      if (member.getEmail().equals(email)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Check if phonenumber is unique in the members-list.
+   *
+   * @param phoneNumber - The phone number to check.
+   * @return- Flag if ponenumber is not unique.
+   */
+  public boolean isUniquePhone(String phoneNumber) {
+    for (Member member : members) {
+      if (member.getPhoneNumber().equals(phoneNumber)) {
         return false;
       }
     }

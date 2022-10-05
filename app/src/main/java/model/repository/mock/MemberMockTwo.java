@@ -11,7 +11,7 @@ public class MemberMockTwo implements Mock {
   private String email = "anders@mail.com";
   private String phoneNumber = "5558944";
   private String id = "2yGoOc";
-  private String credits = "200";
+  private String credits = "500";
   private String registredDay = "0";
 
   public MemberMockTwo() {

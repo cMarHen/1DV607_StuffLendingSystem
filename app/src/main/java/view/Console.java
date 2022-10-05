@@ -243,6 +243,7 @@ public class Console {
    * @return - Matching event for users choice.
    */
   public ItemEditEvent getEditItemMenuChoice() {
+    // TODO: Take Item as argument and print item details.
     System.out.println("------------------------");
     System.out.println("- Edit Item ---------- -");
     System.out.println("------------------------");
@@ -333,7 +334,7 @@ public class Console {
   public void printVerboseMember(Member.Mutable member) {
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
-    System.out.printf("                     Information of member " + member.getFirstName() + "     %n");
+    System.out.printf("                     DETAILED MEMBER: " + member.getFirstName() + "     %n");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
     System.out.printf("| %-20s | %-20s | %-8s | %-8s | %-8s |%n", "NAME", "EMAIL", "PHONE", "CREDITS", "ID");
@@ -343,6 +344,9 @@ public class Console {
         member.getPhoneNumber(),
         member.getCredits(),
         member.getId());
+    System.out.println();
+    System.out.printf("_________________________________________________________________________________________%n");
+    System.out.println();
     
   }
   
@@ -416,47 +420,54 @@ public class Console {
   ) {
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
-    System.out.printf(" Item Details                                                                           %n");
+    System.out.printf(" ITEM DETAILS: " + item.getName()  + "                                %n");
     System.out.printf("_________________________________________________________________________________________%n");
     System.out.println();
     System.out.printf(
-        "| %-20s | %-10s | %-40s | %-10s | %-10s |%n",
-        "Name", "Type", "Description", "Cost/Day", "Available"
+        "| %-20s | %-20s | %-10s | %-40s | %-10s | %-10s |%n",
+        "Id", "Name", "Type", "Description", "Cost/Day", "Available"
     );
     System.out.printf(
-        "----------------------------------------------------------------------------------------------------%n");
-    System.out.printf("| %-20s | %-10s | %-40s | %-10s | %-10s |%n",
-        item.getName(), item.getType(), item.getDescription(), item.getCostPerDay(), 
+        "--------------------------------------------------------------------------------------------------------------------------------%n");
+    System.out.printf("| %-20s | %-20s | %-10s | %-40s | %-10s | %-10s |%n",
+        item.getId(),
+        item.getName(),
+        item.getType(),
+        item.getDescription(),
+        item.getCostPerDay(), 
         (item.getIsReserved() ? "no" : "yes"));
     System.out.println();
     
     System.out.printf(" Active Contracts                                                                         %n");
     System.out.printf("----------------%n");
-    System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", "Start day", "End day", "Lender", "Contract fee");
-    System.out.printf("---------------------------------------------------------------------------%n");
+    System.out.printf("| %-10s | %-10s | %-30s | %-10s | %-10s |%n", "Start day", "End day", "Lender", "Lender ID", "Contract fee");
+    System.out.printf("---------------------------------------------------------------------------------------%n");
     
     if (activeContracts.size() != 0) {
       Collections.sort(activeContracts);
       for (model.domain.LendingContract contract : activeContracts) {
-        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n",
+        System.out.printf("| %-10s | %-10s | %-30s | %-10s | %-10s |%n",
             contract.getStartDay(), contract.getEndDay(), 
             contract.getLender().getFirstName() + " " + contract.getLender().getLastName(),
+            contract.getLender().getId(),
             contract.getTotalContractFee());
       }
-      System.out.printf("---------------------------------------------------------------------------%n");
+      System.out.printf("---------------------------------------------------------------------------------------%n");
     }
     System.out.println();
     System.out.printf(" Expired Contracts                                                                        %n");
     System.out.printf("----------------%n");
-    System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n", "Start day", "End day", "Lender", "Contract fee");
-    System.out.printf("---------------------------------------------------------------------------%n");
+    System.out.printf("| %-10s | %-10s | %-30s | %-10s | %-10s |%n", "Start day", "End day", "Lender", "Lender ID", "Contract fee");
+    System.out.printf("---------------------------------------------------------------------------------------%n");
     
     if (expiredContracts.size() != 0) {
       Collections.sort(expiredContracts, Collections.reverseOrder());
       for (model.domain.LendingContract contract : expiredContracts) {
-        System.out.printf("| %-10s | %-10s | %-30s | %-10s |%n",
+        System.out.printf("| %-10s | %-10s | %-30s | %-10s | %-10s |%n",
             contract.getStartDay(),
-            contract.getEndDay(), contract.getLender().getFirstName() + " " + contract.getLender().getLastName(),
+            contract.getEndDay(),
+            contract.getLender().getFirstName() + " " + contract.getLender().getLastName(),
+            contract.getLender().getId(),
             contract.getTotalContractFee());
       }
       System.out.printf("---------------------------------------------------------------------------------------%n");
@@ -530,10 +541,10 @@ public class Console {
       System.out.println("Item could not be created!");
     } else if (actionResponse == ActionEvent.SUCCESS_CREATE_ITEM) {
       System.out.println("Item successfully created!");
-    } else if (actionResponse == ActionEvent.ERR_EDIT_MEMBER) {
-      System.out.println("");
-    } else if (actionResponse == ActionEvent.SUCCESS_EDIT_MEMBER) {
-      System.out.println("");
+    } else if (actionResponse == ActionEvent.ERR_DUPLICATE_EMAIL) {
+      System.out.println("This email is already in use!");
+    } else if (actionResponse == ActionEvent.ERR_DUPLICATE_PHONE) {
+      System.out.println("This phonenumber is already in use!");
     } else if (actionResponse == ActionEvent.ERR_DELETE) {
       System.out.println("Oops, something went wrong. Could not delete this resource!");
     } else if (actionResponse == ActionEvent.SUCCESS_DELETE) {

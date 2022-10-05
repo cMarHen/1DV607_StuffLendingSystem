@@ -11,7 +11,7 @@ public class ItemMockTwo implements Mock {
   String description = "Build your world";
   String id = "item_2yG1Oc";
   String dayOfCreation = "0";
-  String costPerDay = "50";
+  String costPerDay = "10";
   String isReserved = "false";
 
   public ItemMockTwo() {

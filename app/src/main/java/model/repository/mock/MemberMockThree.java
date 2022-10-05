@@ -11,7 +11,7 @@ public class MemberMockThree implements Mock {
   private String email = "hobbe@mail.com";
   private String phoneNumber = "55510067";
   private String id = "HyG1P3";
-  private String credits = "0";
+  private String credits = "100";
   private String registredDay = "0";
 
   public MemberMockThree() {

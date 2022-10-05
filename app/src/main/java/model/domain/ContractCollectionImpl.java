@@ -188,11 +188,23 @@ public class ContractCollectionImpl implements ContractCollection {
   private boolean isValidContract(LendingContract contract) {
     // Validate that the item does'nt have any other contracts during the lending-period.
     ArrayList<LendingContract> activeContractsForItem = getContractsByItem(contract.getItem());
+    int newContractsStartDay = contract.getStartDay();
+    int newContractsEndDay = contract.getEndDay();
+
     for (LendingContract activeContract : activeContractsForItem) {
       if (
-          (activeContract.getStartDay() >= contract.getStartDay())
-          && (activeContract.getStartDay() <= contract.getEndDay())
+          (newContractsStartDay >= activeContract.getStartDay()) 
+          && (newContractsStartDay <= activeContract.getEndDay())
       ) {
+        // Contract starts during active contract.
+        return false;
+      } else if ((newContractsEndDay >= activeContract.getStartDay()) 
+      && (newContractsEndDay <= activeContract.getEndDay())) {
+        // Contract ends during active contract.
+        return false;
+      } else if ((newContractsStartDay < activeContract.getStartDay())
+      && (newContractsEndDay > activeContract.getEndDay())) {
+        // Contract stretches from before to after active contract.
         return false;
       }
     }

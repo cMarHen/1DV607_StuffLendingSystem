@@ -63,7 +63,11 @@ public class StuffLendingSystem {
    * @return - A flag if member successfully was added to the stufflending system.
    */
   public boolean addNewMember(Member m) {
-    if (!members.isUniqueEmailAndPhoneNumber(m.getEmail(), m.getPhoneNumber())) {
+    if (!members.isUniqueEmail(m.getEmail())) {
+      return false;
+    }
+    
+    if (!members.isUniquePhone(m.getPhoneNumber())) {
       return false;
     }
     
@@ -216,6 +220,14 @@ public class StuffLendingSystem {
 
   public ArrayList<LendingContract> getExpiredContractsByItem(Item item) {
     return contracts.getExpiredContractsByItem(item);
+  }
+
+  public boolean isUniqueEmail(String email) {
+    return members.isUniqueEmail(email);
+  }
+
+  public boolean isUniquePhoneNumber(String phoneNumber) {
+    return members.isUniquePhone(phoneNumber);
   }
 
   private String getNewUniqueMemberId() {

@@ -9,14 +9,21 @@ Environment: Windows, Java version 18.
 |   1.1    | :white-check: |                 |
 |   1.2    | :white-check: |                 |
 |   1.3    | :white-check: |                 |
-|   1.4    |               |                 |
-|   2.1    |               |                 |
-|   2.2    |               |                 |
-|   2.3    |               |                 |
-|   3.1    |               |                 |
-|   3.2    |               |                 |
-|   3.3    |               |                 |
-|   4.1    |               |                 |
+|   1.4    | :white-check: |                 |
+|   1.5    | :white-check: |                 |
+|   1.6    | :white-check: |                 |
+|   2.1    | :white-check: |                 |
+|   2.2    | :white-check: |                 |
+|   2.3    | :white-check: |                 |
+|   2.4    | :white-check: |                 |
+|   2.5    | :white-check: |                 |
+|   3.1    | :white-check: |                 |
+|   3.2    | :white-check: |                 |
+|   3.3    | :white-check: |                 |
+|   3.4    | :white-check: |                 |
+|   3.5    | :white-check: |                 |
+|   3.6    | :white-check: |                 |
+|   4.1    | :white-check: |                 |
 |   5.1    | :white-check: |                 |
 
 
@@ -62,57 +69,122 @@ Requirement: 1.1, 1.1.1, 1.1.2, 1.2, 1.4
 
 ### 1.4 Edit Member
 
-Requirement: 1.3, 1.4, 1.5, 1.6
+Requirement: 1.3, 1.4, 1.5
 
-1. ...
+1. Change a Members firstname to Allan.
+2. Check that the members firstname is Allan in the members-list.
 
-### 2.1 Add Item
+### 1.5 Edit Member - Conflicting email
+
+Requirement: 1.3, 1.4, 1.6
+
+1. List all members in verbose way.
+2. Change a Members email to the exact match of another members email.
+2. Check that the email was NOT changed.
+
+### 1.6 Edit Member - Conflicting phonenumber
+
+Requirement: 1.3, 1.4, 1.6
+
+1. List all members in verbose way.
+2. Change a Members phonenumber to the exact match of another members phonenumber.
+2. Check that the phonenumber was NOT changed.
+
+### 2.1 Create Item
 
 Requirement: 2.1, 2.1.1, 2.4
 
-1. ...
+1. Create an item for a Member
+2. Check that the item is created and part of the Members items by inspecting the verbose memberlist.
+3. Check that the owner member has increased it's credits with 100
 
-### 2.2 Delete Item
+### 2.2 Delete Item - Items without future/active contracts
 
 Requirement: 2.2, 2.4
 
-1. ...
+1. Select a member with one or several items
+2. Delete one of the member's items that is not involved in any contract
+3. Check that the item was deleted from the members owned items in the verbose member-list
 
-### 2.3 Edit Item
+### 2.3 Delete Item - Items with future contract
+
+Requirement: 2.2, 2.4
+
+1. Select a member with one or several items
+2. Delete one of the member's items that is booked (i.e. a future contract)
+3. Check that the item was NOT from the members owned items
+4. Check that the contract was NOT cancelled.
+
+### 2.4 Edit Item - Without future contract
 
 Requirement: 2.3, 2.4
 
-1. ...
+1. Change the (I1) Item cost/day to 40
+2. Check that the cost/day was updated for the item
 
-### 3.1 Lend Item - Lend Available Item From Current Day
+### 2.5 Edit Item - With future contract
+
+Requirement: 2.3, 2.4
+
+1. Change the (I2) Item cost/day to 100
+2. Check that the cost/day was updated for the item
+3. Check that the contract-fee for the future contract did NOT change (still 30 (10/day))
+
+### 3.1 Create Contract
 
 Requirement: 2.4, 3.1, 3.1.1
 
-1. ...
+1. Create a contract for I2 lending to M2, 3 days of lending, from day 1 to and including day 3
+2. Check that the contract was created
 
-### 3.2 Lend Item - Lend Available Item From Future Day
+### 3.2 Create Contract - Not enough credits
 
-Requirement: 2.4, 3.1, 3.1.1, 4.1, 4.2
+Requirement: 2.4, 3.1, 3.1.1
 
-1. ... Forward time to see item reserved ...
+1. Create a contract for I1 lending to M2, 3 days of lending (e.g. day 1 to and including day 3)
+2. Check that the contract was not created due to lack of funds
 
-### 3.3 Lend Item - Lend Reserved and Too Expensive Item
+### 3.3 Create Contract - Conflicting time (stretching into existing contract)
 
 Requirement: 2.4, 3.1, 3.1.2, 3.1.3
 
-1. ...
+1. Create a contract for I2 lending to M2, 3 days of lending, day 4 to and including day 6
+2. Check that the contract was NOT created due to conflicting time
 
-### 4.1 Forward Time
+### 3.4 Create Contract - Conflicting time (starting during existing contract)
+
+Requirement: 2.4, 3.1, 3.1.2, 3.1.3
+
+1. Create a contract for I2 lending to M2, 3 days of lending, day 6 to and including day 9
+2. Check that the contract was NOT created due to conflicting time
+
+### 3.5 Create Contract - Conflicting time (stretching from before to after)
+
+Requirement: 2.4, 3.1, 3.1.2, 3.1.3
+
+1. Create a contract for I2 lending to M2, 6 days of lending, day 4 to and including day 9
+2. Check that the contract was NOT created due to conflicting time
+
+### 3.6 Create Contract - Conflicting time (for only one day during existing contract)
+
+Requirement: 2.4, 3.1, 3.1.2, 3.1.3
+
+1. Create a contract for I2 lending to M2, 3 days of lending, day 6 to and including day 6
+2. Check that the contract was NOT created due to conflicting time
+
+### 4.1 Advance Time
 
 Requirement: 2.4, 4.1, 4.2
 
-1. ... Forward time to see preloaded item reserved ...
+1. Advance the time 8 days.
+2. Check that the contract has been fullfilled and that the contract now is in expired contracts-list
+3. Check that I2 now is available for loan
 
 ### 5.1 Member Data
 
 Requirement: 5
 
 1. Check that there are at least 3 Members.
-2. Check that one member has two items for lending.
-3. Check that one member has no items for lending.
-4. Check that one member has an active lending contract that starts on day 5 and ends on day 7
+2. Check that one member (M1) with 500 credits. M1 has two items for lending, I1 with cost 50 one cheap I2 cost 10
+3. Check that one member (M2) with 100 credits. M2 has no items for lending.
+4. Check that one member (M3) with 100 credits has an active lending contract for I2 that starts on day 5 and ends on day 7 (3 days) for

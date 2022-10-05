@@ -7,9 +7,9 @@ public class ContractMockOne implements Mock {
   private String oid = "oid_264345";
   private String startDay = "5";
   private String endDay = "7";
-  private String totalContractFee = "0";
-  private String itemId = "item_5yR0oc";
-  private String lenderId = "2yGoOc";
+  private String totalContractFee = "30";
+  private String itemId = "item_2yG1Oc";
+  private String lenderId = "HyG1P3";
 
   public ContractMockOne() {
   }
