@@ -15,6 +15,9 @@ Since we do not have any dependencies going <i>from</i> the model, the second di
 ### Class Diagram
 Please provide at least one class diagram according to the assignment requirments.
 
+![model class diagram](img/class-diagram-Model.jpeg)
+![package class diagram](img/class-diagram-package-view.jpeg)
+
 ### Sequence Diagram
 The selected `Add member` from the `Member menu` in the system and the sequence that follows is illustrated below. <br>
 _(Instead of illustrating the single scenarios if email or phone is not unique when adding member we merged them together in a single alternative scenario)_
