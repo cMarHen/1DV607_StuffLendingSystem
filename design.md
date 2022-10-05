@@ -1,4 +1,4 @@
-# Boatclub OO-Design
+# Stuff Lending System OO-Design
 This document describes the design according to the requirements presented in assignment 2.
 
 ## Architectural Overview
@@ -7,6 +7,11 @@ The application uses the model-view-controller (MVC) architectural pattern. The 
 ![class diagram](img/package_diagram.jpg)
 
 ## Detailed Design
+
+We provides two different class diagrams. One diagram will show the dependencies between the packages in this MVC-architecture. In this diagram, all classes that the view- and controller package holds are visualized, but the model package is scaled down to get a better overview of the dependencies. 
+
+Since we do not have any dependencies going <i>from</i> the model, the second diagram does only contain the model package, and will visualize both domain- and repository package in detail. 
+
 ### Class Diagram
 Please provide at least one class diagram according to the assignment requirments.
 
