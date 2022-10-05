@@ -37,7 +37,7 @@ public class LendingContract implements Comparable<LendingContract> {
     this.endDay = endDay;
     this.item = item;
     this.startDay = startDay;
-    this.totalContractFee = ((endDay + 1)- startDay) * item.getCostPerDay();
+    this.totalContractFee = ((endDay + 1) - startDay) * item.getCostPerDay();
   }
 
   public int getEndDay() {

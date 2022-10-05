@@ -20,7 +20,7 @@ public class TypeIteratorImpl implements ItemIterator {
    * @param type - ItemType to query for. 
    * @param items - A list of items matching the type.
    */
-  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference") // TODO:
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public TypeIteratorImpl(ItemType type, ArrayList<Item.Mutable> items) {
     this.type = type;
     this.items = items;
