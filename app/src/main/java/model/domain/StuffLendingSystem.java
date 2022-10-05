@@ -9,6 +9,7 @@ import model.repository.PersistenceFacade;
  *
  */
 public class StuffLendingSystem {
+  PersistenceFacade persistence;
   MemberCollection members;
   ItemCollection items;
   ContractCollection contracts;
@@ -18,12 +19,12 @@ public class StuffLendingSystem {
   /**
    * Constructor for SuffLendingSystem.
    *
-   * @param p - PersistensFacade as reference to data from DB.
    */
-  public StuffLendingSystem(PersistenceFacade p) {
-    this.members = p.getMemberCollection();
-    this.items = p.getItemCollection();
-    this.contracts = p.getContractCollection();
+  public StuffLendingSystem() {
+    this.persistence = new PersistenceFacade();
+    this.members = persistence.getMemberCollection();
+    this.items = persistence.getItemCollection();
+    this.contracts = persistence.getContractCollection();
     this.currentDay = 0;
   }
 

@@ -15,10 +15,10 @@ import model.domain.MemberCollection;
  * Facade for Persistence handling.
  */
 public class PersistenceFacade {
-  MapperFactory mapperFactory;
-  MemberCollection memberCollection;
-  ItemCollection itemCollection;
-  ContractCollection contractCollection;
+  private MapperFactory mapperFactory;
+  private MemberCollection memberCollection;
+  private ItemCollection itemCollection;
+  private ContractCollection contractCollection;
 
   /**
    * Constructor for PersistenceFacade.
