@@ -1,6 +1,5 @@
 package model.persistence;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 
 /**
@@ -10,8 +9,7 @@ import java.util.ArrayList;
 public class ItemMapper implements Mapper<ItemDto> {
   private ItemConverter converter;
 
-  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
-  public ItemMapper() {
+ public ItemMapper() {
     this.converter = new ItemConverter();
   }
 

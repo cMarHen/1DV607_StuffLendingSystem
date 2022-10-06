@@ -16,8 +16,8 @@ public class MapperFactory {
    */
   public MapperFactory() {
     this.memberMapper = new MemberMapper();
-    this.itemMapper = new ItemMapper(this.memberMapper.getAll());
-    this.contractMapper = new ContractMapper(this.memberMapper.getAll(), this.itemMapper.loadAll());
+    this.itemMapper = new ItemMapper();
+    this.contractMapper = new ContractMapper();
   }
 
   /* public Mapper getMapper(MapperType type) {
