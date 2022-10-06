@@ -27,7 +27,7 @@ public class MemberMapper implements Mapper<MemberDto> {
   @Override
   public Boolean delete(String id) {
     // TODO Auto-generated method stub
-    return null;
+    return false;
   }
 
   @Override

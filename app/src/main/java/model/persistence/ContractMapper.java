@@ -31,7 +31,7 @@ public class ContractMapper implements Mapper<ContractDto> {
   @Override
   public Boolean delete(String id) {
     // TODO Auto-generated method stub
-    return null;
+    return false;
   }
   
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ItemMapper implements Mapper<ItemDto> {
   private ItemConverter converter;
 
- public ItemMapper() {
+  public ItemMapper() {
     this.converter = new ItemConverter();
   }
 
@@ -32,6 +32,6 @@ public class ItemMapper implements Mapper<ItemDto> {
   @Override
   public Boolean delete(String id) {
     // TODO Auto-generated method stub
-    return null;
+    return false;
   }
 }

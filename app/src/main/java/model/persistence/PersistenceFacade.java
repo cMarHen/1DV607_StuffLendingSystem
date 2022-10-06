@@ -1,5 +1,6 @@
 package model.persistence;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.ContractCollection;
 import model.domain.ContractCollectionImpl;
@@ -33,11 +34,11 @@ public class PersistenceFacade {
   /**
    * Get MemberCollection, populated with members from storage.
    */  
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public MemberCollection getMemberCollection() {
     ArrayList<MemberDto> members = mapperFactory.getMemberMapper().getAll();
 
     for (MemberDto dto : members) {
-      System.out.println(dto.getRegistredDay() + "-|-" + dto.getCredits());
       Member.Mutable newMember = new Member.Mutable(
           dto.getFirstName(),
           dto.getLastName(),
@@ -54,6 +55,7 @@ public class PersistenceFacade {
   /**
    * Get ItemCollection, populated with items from storage.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public ItemCollection getItemCollection() {
     ArrayList<ItemDto> items = mapperFactory.getItemMapper().getAll();
     
@@ -76,6 +78,7 @@ public class PersistenceFacade {
   /**
    * Get ContractCollection, populated with contracts from storage.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public ContractCollection getContractCollection() {
     ArrayList<ContractDto> contracts = mapperFactory.getContractMapper().getAll();
 

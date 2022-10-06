@@ -43,8 +43,6 @@ public class ContractConverter implements StorageConverter<ContractDto> {
   
   private void writeContractsToDb(ArrayList<ContractDto> contracts) {
     try {
-      BufferedWriter bw = new BufferedWriter(
-          new FileWriter(relativePathToProject + projectPath, StandardCharsets.UTF_8));
 
       String str = "";
       for (ContractDto c : contracts) {
@@ -56,8 +54,10 @@ public class ContractConverter implements StorageConverter<ContractDto> {
           + c.getLenderId()
           + "\n";
       }
-      System.out.println(".--- yo --");
-      System.out.println(str);
+
+      BufferedWriter bw = new BufferedWriter(
+          new FileWriter(relativePathToProject + projectPath, StandardCharsets.UTF_8));
+
       bw.write(str);
       bw.close();
       
