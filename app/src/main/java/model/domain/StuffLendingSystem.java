@@ -1,7 +1,8 @@
 package model.domain;
 
 import java.util.ArrayList;
-import model.repository.PersistenceFacade;
+import model.persistence.PersistenceFacade;
+
 
 /**
  * The main class in the system and the Facade for the model.
@@ -26,6 +27,10 @@ public class StuffLendingSystem {
     this.items = persistence.getItemCollection();
     this.contracts = persistence.getContractCollection();
     this.currentDay = 0;
+  }
+
+  public void saveData() {
+    persistence.save();
   }
 
   /**

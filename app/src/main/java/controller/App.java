@@ -20,7 +20,7 @@ public class App {
 
       mainController.doMainMenu();
 
-      // sls.save();
+      sls.saveData();
     } catch (Exception e) {
       System.err.println(e.getMessage());
     }
