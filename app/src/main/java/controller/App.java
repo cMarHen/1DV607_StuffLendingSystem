@@ -13,7 +13,7 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-    try {    
+    try {
       view.MainView ui = new MainView();
       model.domain.StuffLendingSystem sls = new StuffLendingSystem();
       MainController mainController = new MainController(ui, sls);

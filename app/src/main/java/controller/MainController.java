@@ -11,7 +11,8 @@ import model.domain.Member;
  *
  */
 public class MainController {
-  private view.MainView ui;
+  private view.View ui;
+  private view.MainView mainView;
   private model.domain.StuffLendingSystem sls;
 
   /**
@@ -64,10 +65,12 @@ public class MainController {
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "ui and sls should be a reference.")
   public MainController(view.MainView ui, model.domain.StuffLendingSystem sls) {
-    this.ui = ui;
     this.sls = sls;
-    // currentRole = enum.Role
-    // currentId = id
+    this.mainView = ui;
+
+    // NOTE: (Hardcoding change of view here.)
+    this.ui = ui.unAuthView;
+    // this.ui = ui.authView;
   }
 
   /**
