@@ -66,7 +66,7 @@ public class PersistenceFacade {
           dto.getDayOfCreation(),
           dto.getCostPerDay(),
           dto.getIsReserved());
-
+  
       itemCollection.addItem(newItem);
     }
     return itemCollection;
@@ -89,14 +89,6 @@ public class PersistenceFacade {
     }
 
     return contractCollection;
-  }
-
-  private Item findItemById(String itemId) {
-    return itemCollection.findItemById(itemId);
-  }
-
-  private Member.Mutable findMemberById(String ownerId) {
-    return memberCollection.findMemberById(ownerId);
   }
 
   /**
@@ -126,7 +118,7 @@ public class PersistenceFacade {
       memberDtos.add(dto);
     }
 
-    
+    mapperFactory.getMemberMapper().saveAll(memberDtos);
   }
 
   private void saveAllItems() {
@@ -146,6 +138,8 @@ public class PersistenceFacade {
         
       itemDtos.add(dto);
     }
+
+    mapperFactory.getItemMapper().saveAll(itemDtos);
   }
     
   private void saveAllContracts() {
@@ -174,5 +168,17 @@ public class PersistenceFacade {
 
       contractDtos.add(newContract);
     }
+
+    mapperFactory.getContractMapper().saveAll(contractDtos);
+  }
+  
+  private Item.Mutable findItemById(String itemId) {
+    Item.Mutable item = itemCollection.findItemById(itemId);
+    return item;
+  }
+
+  private Member.Mutable findMemberById(String ownerId) {
+    Member.Mutable m = memberCollection.findMemberById(ownerId);
+    return m;
   }
 }

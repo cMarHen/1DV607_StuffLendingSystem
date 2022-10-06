@@ -29,6 +29,10 @@ public class StuffLendingSystem {
     this.currentDay = 0;
   }
 
+  public void saveData() {
+    persistence.save();
+  }
+
   /**
    * Increment the current day.
    * Cleans up expired contracts, finding newly activated contracts and updating the items-stats.

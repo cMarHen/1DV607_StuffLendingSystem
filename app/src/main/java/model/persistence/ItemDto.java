@@ -26,7 +26,7 @@ public class ItemDto {
       int costPerDay,
       boolean isReserved
   ) {
-    this.ownerId = id;
+    this.ownerId = ownerId;
     this.type = type;
     this.name = name;
     this.description = description;

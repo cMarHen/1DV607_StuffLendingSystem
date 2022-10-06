@@ -47,7 +47,7 @@ public class ItemConverter implements StorageConverter<ItemDto> {
       String str = "";
       for (ItemDto i : items) {
         str 
-          += i.getId() + ":"
+          += i.getOwnerId() + ":"
           + i.getType() + ":"
           + i.getName() + ":"
           + i.getDescription() + ":"

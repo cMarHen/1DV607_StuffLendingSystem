@@ -17,7 +17,7 @@ public class ContractConverter implements StorageConverter<ContractDto> {
   private String relativePathToProject;
 
   public ContractConverter() {
-    this.projectPath = "/src/main/java/model/persistence/mock-files/members.data";
+    this.projectPath = "/src/main/java/model/persistence/mock-files/contracts.data";
     this.relativePathToProject = new File("").getAbsolutePath();
   }
 
@@ -56,7 +56,8 @@ public class ContractConverter implements StorageConverter<ContractDto> {
           + c.getLenderId()
           + "\n";
       }
-
+      System.out.println(".--- yo --");
+      System.out.println(str);
       bw.write(str);
       bw.close();
       
