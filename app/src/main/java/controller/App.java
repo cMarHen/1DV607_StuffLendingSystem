@@ -1,7 +1,7 @@
 package controller;
 
 import model.domain.StuffLendingSystem;
-import view.Console;
+import view.MainView;
 
 /**
  * Responsible for staring the application.
@@ -14,7 +14,7 @@ public class App {
    */
   public static void main(String[] args) {
     try {    
-      view.Console ui = new Console();
+      view.MainView ui = new MainView();
       model.domain.StuffLendingSystem sls = new StuffLendingSystem();
       MainController mainController = new MainController(ui, sls);
 
