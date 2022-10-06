@@ -1,28 +1,27 @@
 package model.persistence;
 
 import java.util.ArrayList;
-import model.domain.Member;
 
 /**
  * Class MemberMapper, used for mapping members from DB.
  */
-public class MemberMapper implements Mapper<Member.Mutable> {
-  private MemberConverter orm;
+public class MemberMapper implements Mapper<MemberDto> {
+  private MemberConverter converter;
 
   public MemberMapper() {
-    this.orm = new MemberConverter();
+    this.converter = new MemberConverter();
   }
 
   @Override
-  public Member.Mutable getById(String id) {
+  public MemberDto getById(String id) {
 
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public ArrayList<Member.Mutable> getAll() {
-    return orm.getAll();
+  public ArrayList<MemberDto> getAll() {
+    return converter.getAll();
   }
 
   @Override
@@ -32,8 +31,8 @@ public class MemberMapper implements Mapper<Member.Mutable> {
   }
 
   @Override
-  public void saveAll(ArrayList<Member.Mutable> resources) {
-    orm.put(resources);
+  public void saveAll(ArrayList<MemberDto> resources) {
+    converter.put(resources);
   }
   
 }

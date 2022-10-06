@@ -36,7 +36,9 @@ public class PersistenceFacade {
    */  
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public MemberCollection getMemberCollection() {
-    ArrayList<Member.Mutable> members = mapperFactory.getMemberMapper().getAll();
+    ArrayList<MemberDto> members = mapperFactory.getMemberMapper().getAll();
+
+    // TRANSFORM FROM MEMBERDTO to Member.Mutable
 
     for (Member.Mutable m : members) {
       memberCollection.addMember(m);

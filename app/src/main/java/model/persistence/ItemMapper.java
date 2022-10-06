@@ -2,47 +2,38 @@ package model.persistence;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
-import model.domain.Item;
-import model.domain.Item.ItemType;
-import model.domain.Member;
-import model.persistence.mock.Mock;
-import model.persistence.mock.MockCollection;
 
 /**
  * Class ItemMapper, used for mapping items from DB.
  * RDBMapper : Item
  */
-public class ItemMapper implements Mapper<Item.Mutable> {
-  private MockCollection mocks;
-  private ArrayList<Member.Mutable> members;
+public class ItemMapper implements Mapper<ItemDto> {
+  private ItemConverter converter;
 
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
-  public ItemMapper(ArrayList<Member.Mutable> members) {
-    this.mocks = new MockCollection();
-    this.members = members;
+  public ItemMapper() {
+    this.converter = new ItemConverter();
   }
 
-  /**
-   * Load all items.
-   *
-   * @return - ItemCollection with items from database.
-   */
-  public ArrayList<Item.Mutable> loadAll() {
-    ArrayList<Item.Mutable> i = new ArrayList<>();
-
-    i.add(getObjectFromStorage(new ObjectIdentifier("oid_232345")));
-    i.add(getObjectFromStorage(new ObjectIdentifier("oid_233456")));
-
-    return i;
+  @Override
+  public ItemDto getById(String id) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
-  private Member.Mutable findMember(String id) {
-    for (Member.Mutable m : members) {
-      if (m.getId().equals(id)) {
-        return m;
-      }
-    }
+  @Override
+  public ArrayList<ItemDto> getAll() {
+    return converter.getAll();
+  }
 
+  @Override
+  public void saveAll(ArrayList<ItemDto> resources) {
+    converter.put(resources);
+  }
+
+  @Override
+  public Boolean delete(String id) {
+    // TODO Auto-generated method stub
     return null;
   }
 }

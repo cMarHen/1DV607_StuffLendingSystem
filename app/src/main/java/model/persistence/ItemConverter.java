@@ -10,49 +10,51 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
- * Handles DB relation for Member.
+ * Class ItemConverter.
  */
-public class MemberConverter implements StorageConverter<MemberDto> {
+public class ItemConverter implements StorageConverter<ItemDto> {
   private String projectPath;
   private String relativePathToProject;
 
-  public MemberConverter() {
-    this.projectPath = "/src/main/java/model/persistence/mock-files/members.data";
+  public ItemConverter() {
+    this.projectPath = "/src/main/java/model/persistence/mock-files/items.data";
     this.relativePathToProject = new File("").getAbsolutePath();
   }
 
   @Override
-  public MemberDto get(String id) {
+  public ItemDto get(String id) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  public ArrayList<MemberDto> getAll() {
-    ArrayList<MemberDto> members = loadMembersFromDb();
-    return members;
+  public ArrayList<ItemDto> getAll() {
+    ArrayList<ItemDto> items = loadItemsFromDb();
+    return items;
   }
 
+  
   @Override
-  public void put(ArrayList<MemberDto> members) {
-    writeMembersToDb(members);
+  public void put(ArrayList<ItemDto> resources) {
+    writeItemsToDb(resources);
   }
 
-  private void writeMembersToDb(ArrayList<MemberDto> members) {
+  private void writeItemsToDb(ArrayList<ItemDto> items) {
     try {
       BufferedWriter bw = new BufferedWriter(
           new FileWriter(relativePathToProject + projectPath, StandardCharsets.UTF_8));
 
       String str = "";
-      for (MemberDto m : members) {
+      for (ItemDto i : items) {
         str 
-          += m.getId() + ":"
-          + m.getFirstName() + ":"
-          + m.getLastName() + ":"
-          + m.getEmail() + ":"
-          + m.getPhoneNumber() + ":"
-          + m.getRegistredDay() + ":"
-          + m.getCredits()
+          += i.getId() + ":"
+          + i.getType() + ":"
+          + i.getName() + ":"
+          + i.getDescription() + ":"
+          + i.getId() + ":"
+          + i.getDayOfCreation() + ":"
+          + i.getCostPerDay() + ":"
+          + i.getIsReserved()
           + "\n";
       }
 
@@ -63,39 +65,38 @@ public class MemberConverter implements StorageConverter<MemberDto> {
       e.printStackTrace();
     }
   }
-
-  private ArrayList<MemberDto> loadMembersFromDb() {
+  
+  private ArrayList<ItemDto> loadItemsFromDb() {
     try {
       BufferedReader br = new BufferedReader(
           new FileReader(relativePathToProject + projectPath, StandardCharsets.UTF_8));
 
-      ArrayList<MemberDto> members = new ArrayList<>();
+      ArrayList<ItemDto> items = new ArrayList<>();
       String line = null;
       while ((line = br.readLine()) != null) {
-        members.add(createMemberFromFile(line));
+        items.add(createItemFromFile(line));
       }
 
       br.close();
-      return members; 
+      return items; 
     } catch (IOException e) {
       e.printStackTrace();
       return null;
     }
   }
 
-  private MemberDto createMemberFromFile(String line) {
+  private ItemDto createItemFromFile(String line) {
     String[] arr = line.split(":");
-    MemberDto m = new MemberDto(
+    ItemDto i = new ItemDto(
+        arr[0],
         arr[1],
         arr[2],
         arr[3],
         arr[4],
-        arr[0],
         Integer.parseInt(arr[5]),
-        Integer.parseInt(arr[6])
+        Integer.parseInt(arr[6]),
+        arr[7].equals("true")
     );
-
-    return m;
+    return i;
   }
-  
 }
