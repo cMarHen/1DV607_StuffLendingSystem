@@ -1,7 +1,8 @@
 package model.domain;
 
 import java.util.ArrayList;
-import model.repository.PersistenceFacade;
+import model.persistence.PersistenceFacade;
+
 
 /**
  * The main class in the system and the Facade for the model.

@@ -1,18 +1,18 @@
-package model.repository;
+package model.persistence;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 import model.domain.Item.ItemType;
 import model.domain.Member;
-import model.repository.mock.Mock;
-import model.repository.mock.MockCollection;
+import model.persistence.mock.Mock;
+import model.persistence.mock.MockCollection;
 
 /**
  * Class ItemMapper, used for mapping items from DB.
  * RDBMapper : Item
  */
-public class ItemMapper extends PersistenceMapper {
+public class ItemMapper implements Mapper<Item.Mutable> {
   private MockCollection mocks;
   private ArrayList<Member.Mutable> members;
 
@@ -20,27 +20,6 @@ public class ItemMapper extends PersistenceMapper {
   public ItemMapper(ArrayList<Member.Mutable> members) {
     this.mocks = new MockCollection();
     this.members = members;
-  }
-
-
-  @Override
-  protected Item.Mutable getObjectFromStorage(ObjectIdentifier oid) {
-    String key = oid.toString();
-    Mock item = mocks.searchMockByOid(key);
-
-    Member.Mutable m = findMember(item.getColumn("OWNER_ID")); 
-
-    Item.Mutable newItem = new Item.Mutable(
-        m,
-        ItemType.valueOf(item.getColumn("TYPE")),
-        item.getColumn("NAME"),
-        item.getColumn("DESCRIPTION"),
-        item.getColumn("ALPHA_ID"),
-        Integer.parseInt(item.getColumn("CREATION_DAY")),
-        Integer.parseInt(item.getColumn("COST")),
-        item.getColumn("IS_RESERVED").equals("true")
-        );
-    return newItem;
   }
 
   /**

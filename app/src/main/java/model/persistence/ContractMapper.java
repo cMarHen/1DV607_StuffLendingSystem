@@ -1,17 +1,17 @@
-package model.repository;
+package model.persistence;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 import model.domain.LendingContract;
 import model.domain.Member;
-import model.repository.mock.Mock;
-import model.repository.mock.MockCollection;
+import model.persistence.mock.Mock;
+import model.persistence.mock.MockCollection;
 
 /**
  * Class ContractMapper, used for mapping contracts from DB.
  */
-public class ContractMapper extends PersistenceMapper {
+public class ContractMapper implements Mapper<LendingContract> {
   private MockCollection mocks;
   private ArrayList<Member.Mutable> members;
   private ArrayList<Item.Mutable> items;

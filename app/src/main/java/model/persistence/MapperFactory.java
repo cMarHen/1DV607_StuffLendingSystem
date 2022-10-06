@@ -1,4 +1,4 @@
-package model.repository;
+package model.persistence;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
@@ -16,8 +16,8 @@ public class MapperFactory {
    */
   public MapperFactory() {
     this.memberMapper = new MemberMapper();
-    this.itemMapper = new ItemMapper(this.memberMapper.loadAll());
-    this.contractMapper = new ContractMapper(this.memberMapper.loadAll(), this.itemMapper.loadAll());
+    this.itemMapper = new ItemMapper(this.memberMapper.getAll());
+    this.contractMapper = new ContractMapper(this.memberMapper.getAll(), this.itemMapper.loadAll());
   }
 
   /* public Mapper getMapper(MapperType type) {

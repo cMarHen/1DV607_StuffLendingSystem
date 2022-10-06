@@ -1,4 +1,4 @@
-package model.repository.mock;
+package model.persistence.mock;
 
 /**
  * Mock for contract nr 1.

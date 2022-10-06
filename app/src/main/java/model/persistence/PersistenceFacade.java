@@ -1,4 +1,4 @@
-package model.repository;
+package model.persistence;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class PersistenceFacade {
    */  
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference")
   public MemberCollection getMemberCollection() {
-    ArrayList<Member.Mutable> members = mapperFactory.getMemberMapper().loadAll();
+    ArrayList<Member.Mutable> members = mapperFactory.getMemberMapper().getAll();
 
     for (Member.Mutable m : members) {
       memberCollection.addMember(m);

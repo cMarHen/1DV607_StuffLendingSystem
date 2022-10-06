@@ -1,20 +1,20 @@
-package model.repository.mock;
+package model.persistence.mock;
 
 /**
- * Mock for Member nr 2. 
+ * Mock for Member nr 3. 
  */
-public class MemberMockTwo implements Mock {
+public class MemberMockThree implements Mock {
   
-  private String oid = "oid_23456";
-  private String firstName = "Anders";
-  private String lastName = "Jonsson";
-  private String email = "anders@mail.com";
-  private String phoneNumber = "5558944";
-  private String id = "2yGoOc";
-  private String credits = "500";
+  private String oid = "oid_78901";
+  private String firstName = "Tobias";
+  private String lastName = "Olsson";
+  private String email = "hobbe@mail.com";
+  private String phoneNumber = "55510067";
+  private String id = "HyG1P3";
+  private String credits = "100";
   private String registredDay = "0";
 
-  public MemberMockTwo() {
+  public MemberMockThree() {
   }
 
   @Override

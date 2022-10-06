@@ -1,0 +1,11 @@
+<members>
+  <member Attr.isId="123">
+    <firstname>Martin</firstname>
+    <lastname>Henriksson</lastname>
+  </member>
+
+  <member Attr.isId="234">
+    <firstname>Mar</firstname>
+    <lastname>Henr</lastname>
+  </member>
+</members>

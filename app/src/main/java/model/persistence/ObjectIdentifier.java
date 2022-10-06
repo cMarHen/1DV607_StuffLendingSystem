@@ -1,4 +1,4 @@
-package model.repository;
+package model.persistence;
 
 /**
  * Encapsulate an object identifier.

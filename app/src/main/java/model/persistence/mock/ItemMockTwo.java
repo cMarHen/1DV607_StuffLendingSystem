@@ -1,20 +1,20 @@
-package model.repository.mock;
+package model.persistence.mock;
 
 /**
- * Mock for Item nr 1. 
+ * Mock for Item nr 2. 
  */
-public class ItemMockOne implements Mock {
-  String oid = "oid_232345";
+public class ItemMockTwo implements Mock {
+  String oid = "oid_233456";
   String ownerId = "2yGoOc";
-  String type = "Tool";
-  String name = "Kratta";
-  String description = "Krattar gräsmattan";
-  String id = "item_5yR0oc";
+  String type = "Game";
+  String name = "Minecraft";
+  String description = "Build your world";
+  String id = "item_2yG1Oc";
   String dayOfCreation = "0";
-  String costPerDay = "50";
+  String costPerDay = "10";
   String isReserved = "false";
 
-  public ItemMockOne() {
+  public ItemMockTwo() {
   }
 
   @Override
@@ -38,8 +38,7 @@ public class ItemMockOne implements Mock {
     } else if (column.equals("IS_RESERVED")) {
       return this.isReserved;
     } 
-
+    
     return null;
   }
-  
 }

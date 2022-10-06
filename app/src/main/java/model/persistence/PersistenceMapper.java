@@ -1,10 +1,10 @@
-package model.repository;
+package model.persistence;
 
 /**
  * Abstract class PersistenceMapper.
  */
-public abstract class PersistenceMapper implements Mapper {
-  @Override
+public abstract class PersistenceMapper /* implements Mapper */ {
+  /* @Override
   public Object get(ObjectIdentifier oid) {
     // TODO Auto-generated method stub
     return null;
@@ -18,6 +18,6 @@ public abstract class PersistenceMapper implements Mapper {
 
   protected Object getObjectFromStorage(ObjectIdentifier oid) {
     return null;
-  }
+  } */
   
 }
