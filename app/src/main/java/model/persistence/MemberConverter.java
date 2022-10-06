@@ -51,8 +51,8 @@ public class MemberConverter implements StorageConverter<MemberDto> {
           + m.getLastName() + ":"
           + m.getEmail() + ":"
           + m.getPhoneNumber() + ":"
-          + m.getRegistredDay() + ":"
-          + m.getCredits()
+          + m.getCredits() + ":"
+          + m.getRegistredDay()
           + "\n";
       }
 

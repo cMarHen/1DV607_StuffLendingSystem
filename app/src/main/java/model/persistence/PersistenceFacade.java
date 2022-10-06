@@ -37,6 +37,7 @@ public class PersistenceFacade {
     ArrayList<MemberDto> members = mapperFactory.getMemberMapper().getAll();
 
     for (MemberDto dto : members) {
+      System.out.println(dto.getRegistredDay() + "-|-" + dto.getCredits());
       Member.Mutable newMember = new Member.Mutable(
           dto.getFirstName(),
           dto.getLastName(),
