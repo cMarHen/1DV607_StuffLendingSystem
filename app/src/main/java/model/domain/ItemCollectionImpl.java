@@ -3,6 +3,7 @@ package model.domain;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
+import model.domain.iterators.ItemAndIteratorImpl;
 import model.domain.iterators.ItemIterator;
 import model.domain.iterators.NameIteratorImpl;
 import model.domain.iterators.OwnerIteratorImpl;
@@ -79,14 +80,13 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
-  public Item.Mutable getItemByName(String name) {
+  public ArrayList<Item.Mutable> getItemsByName(String name) {
     ItemIterator iterator = nameIterator(name);
-    Item.Mutable item;
+    ArrayList<Item.Mutable> items = new ArrayList<>();
     while (iterator.hasNext()) {
-      item = iterator.next();
-      return item;
+      items.add(iterator.next());
     }
-    return null;
+    return items;
   }
   
 
@@ -102,8 +102,7 @@ public class ItemCollectionImpl implements ItemCollection {
 
   @Override
   public ItemIterator nestedLogicalAndIterator(ItemIterator a, ItemIterator b) {
-    // TODO Auto-generated method stub
-    return null;
+    return new ItemAndIteratorImpl(a, b, items);
   }
 
   @Override

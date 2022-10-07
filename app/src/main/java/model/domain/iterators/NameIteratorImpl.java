@@ -2,7 +2,6 @@ package model.domain.iterators;
 
 import java.util.ArrayList;
 import model.domain.Item;
-import model.domain.Item.Mutable;
 
 /**
  * Concrete class that implements the GOF Iterator-pattern.

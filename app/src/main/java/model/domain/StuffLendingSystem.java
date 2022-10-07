@@ -1,6 +1,9 @@
 package model.domain;
 
 import java.util.ArrayList;
+
+import model.domain.Item.ItemType;
+import model.domain.iterators.ItemIterator;
 import model.persistence.PersistenceFacade;
 
 
@@ -212,13 +215,39 @@ public class StuffLendingSystem {
     return members.findMemberById(id);
   }
 
+  public ArrayList<Item.Mutable> getItemsByQuery(ItemType type, Member owner) {
+    ItemIterator iterator = items.nestedLogicalAndIterator(
+        items.typeIterator(type),
+        items.ownerIterator(owner));
+
+    ArrayList<Item.Mutable> list = new ArrayList<>();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+
+    return list;
+  }
+
+  public ArrayList<Item.Mutable> getItemsByQuery(String name, ItemType type) {
+    ItemIterator iterator = items.nestedLogicalAndIterator(
+        items.nameIterator(name),
+        items.typeIterator(type));
+
+    ArrayList<Item.Mutable> list = new ArrayList<>();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+
+    return list;
+  }
+
   /**
    * Search item by name.
    *
    * @param name - The name to search for. Add a "?" to do a queried search.
    */
-  public Item.Mutable getItemByName(String name) {
-    return items.getItemByName(name);
+  public ArrayList<Item.Mutable> getItemByName(String name) {
+    return items.getItemsByName(name);
   }
 
   public Iterable<Item.Mutable> getAllItems() {

@@ -1,6 +1,5 @@
 package controller;
 
-import model.domain.ItemCollection;
 import model.domain.StuffLendingSystem;
 import view.MainView;
 
@@ -15,14 +14,11 @@ public class App {
    */
   public static void main(String[] args) {
     try {
-      System.out.println("----");
-      // view.MainView ui = new MainView();
+      view.MainView ui = new MainView();
       model.domain.StuffLendingSystem sls = new StuffLendingSystem();
-      // MainController mainController = new MainController(ui, sls);
+      MainController mainController = new MainController(ui, sls);
 
-      // mainController.doMainMenu();
-
-      System.out.println(sls.getItemByName("kr?").getName());
+      mainController.doMainMenu();
 
       sls.saveData();
     } catch (Exception e) {
