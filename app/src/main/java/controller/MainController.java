@@ -16,48 +16,6 @@ public class MainController {
   private model.domain.StuffLendingSystem sls;
 
   /**
-   * The types of events that can occur in response to an action.
-   *
-   */
-  public static enum ActionEvent {
-    ERR_CREATE_MEMBER,
-    SUCCESS_CREATE_MEMBER,
-    ERR_CREATE_ITEM,
-    SUCCESS_CREATE_ITEM,
-    ERR_EDIT_MEMBER,
-    SUCCESS_EDIT_MEMBER,
-    ERR_EDIT_ITEM,
-    SUCCESS_EDIT_ITEM,
-    ERR_DELETE,
-    SUCCESS_DELETE,
-    ERR_FIND_MEMBER,
-    ERR_FIND_ITEM,
-    SUCCESS_CREATE_CONTRACT,
-    ERR_CREATE_CONTRACT,
-    ERR_DUPLICATE_EMAIL,
-    ERR_DUPLICATE_PHONE
-  }
-
-  /**
-   * The types of prompts to use in communication with view.
-   *
-   */
-  public static enum PromptEvent {
-    ItemId,
-    MemberId,
-    FirstName,
-    LastName,
-    Email,
-    PhoneNumber,
-    Name,
-    Description,
-    CostPerDay,
-    LoanStartDay,
-    AmountOfLoanDays,
-    ForwardDay
-  }
-
-  /**
    * Instaciate the MainController with a user interface representing the view and the main model class.
    *
    * @param ui - The view user interface. 
@@ -69,8 +27,8 @@ public class MainController {
     this.mainView = ui;
 
     // NOTE: (Hardcoding change of view here.)
-    this.ui = ui.unAuthView;
-    // this.ui = ui.authView;
+    // this.ui = ui.unAuthView;
+    this.ui = ui.authView;
   }
 
   /**
@@ -89,6 +47,19 @@ public class MainController {
         if (event == view.MainView.MenuEvent.ItemMenu) {
           doItemMenu();
         }
+
+        if (event == view.MainView.MenuEvent.Login) {
+          doLogin();
+        }
+
+        if (event == view.MainView.MenuEvent.Register) {
+          doRegisterMember();
+        }
+
+        if (event == view.MainView.MenuEvent.Logout) {
+          doLogout();
+        }
+
         if (event == view.MainView.MenuEvent.ForwardDay) {
           doForwardDayMenu();
         }
@@ -112,38 +83,14 @@ public class MainController {
       }
       
       if (event == view.MainView.MenuEvent.AddMember) {
-        boolean addMemberRunning = true;
-
-        do {
-          model.domain.Member newMember = ui.promptForNewMember();
-  
-          boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
-  
-          if (!isUniqueEmail) {
-            ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
-            break;
-          }
-  
-          boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
-  
-          if (!isUniquePhoneNumber) {
-            ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
-            break;
-          }
-  
-          boolean isSucceeded = sls.addNewMember(newMember);
-  
-          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
-
-          addMemberRunning = false;
-        } while (addMemberRunning);
+        // TODO: Remove.
       }
 
       if (event == view.MainView.MenuEvent.ListMember) {
         Iterable<model.domain.Member.Mutable> members = sls.getMembers();
         Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
-        ui.printMemberList(members, items);
+        ui.printer.printMemberList(members, items);
       }
 
       if (event == view.MainView.MenuEvent.ListMemberVerbose) {
@@ -152,30 +99,30 @@ public class MainController {
         for (Member.Mutable m : members) {
           Iterable<Item.Mutable> memberItems = sls.getItemByOwner(m);
 
-          ui.printVerboseMember(m);
+          ui.printer.printVerboseMember(m);
           
           for (Item.Mutable item : memberItems) {
             ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
             ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
-            ui.printDetailedItem(item, activeContracts, expiredContracts);
+            ui.printer.printDetailedItem(item, activeContracts, expiredContracts);
           }
         }
       }
       
       if (event == view.MainView.MenuEvent.DetailedMember) {
-        String id = ui.promptInformation(PromptEvent.MemberId);
+        String id = ui.promptForMemberId();
         
         model.domain.Member member = sls.findMemberById(id);
         
         if (member != null) {
-          ui.printDetailedMember(member);
+          ui.printer.printDetailedMember(member);
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
         }
       }
       
       if (event == view.MainView.MenuEvent.EditMember) {
-        String id = ui.promptInformation(PromptEvent.MemberId);
+        String id = ui.promptForMemberId();
 
         model.domain.Member.Mutable member = sls.findMemberById(id);
 
@@ -183,17 +130,21 @@ public class MainController {
           doEditMemberMenu(member);
 
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
         }
         
       }
       
       if (event == view.MainView.MenuEvent.DeleteMember) {
-        String id = ui.promptInformation(PromptEvent.MemberId);
+        String id = ui.promptForMemberId();
 
         boolean isSucceeded = sls.deleteMember(id);
 
-        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
+        if (isSucceeded) {
+          ui.printer.printDeleteMemberSuccess();
+        } else {
+          ui.printer.printDeleteMemberError();
+        }
       }
 
     } while (running);
@@ -203,38 +154,38 @@ public class MainController {
     boolean running = true;
 
     do {
-      ui.printDetailedMember(member);
+      ui.printer.printDetailedMember(member);
       view.MainView.MenuEvent event = ui.getEditMemberMenuChoice();
 
       if (event == view.MainView.MenuEvent.EditFirstName) {
-        String firstName =  ui.promptInformation(PromptEvent.FirstName);
+        String firstName =  ui.promptForFirstName();
 
         member.setFirstName(firstName);
       }
 
       if (event == view.MainView.MenuEvent.EditLastName) {
-        String lastName =  ui.promptInformation(PromptEvent.LastName);
+        String lastName =  ui.promptForLastName();
 
         member.setLastName(lastName);
       }
 
       if (event == view.MainView.MenuEvent.EditEmail) {
-        String email =  ui.promptInformation(PromptEvent.Email);
+        String email =  ui.promptForEmail();
         boolean isUniqueEmail = sls.isUniqueEmail(email);
 
         if (!isUniqueEmail) {
-          ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
+          ui.printer.printDuplicateEmail();
         } else {
           member.setEmail(email);
         }
       }
 
       if (event == view.MainView.MenuEvent.EditPhone) {
-        String phoneNumber =  ui.promptInformation(PromptEvent.PhoneNumber);
+        String phoneNumber =  ui.promptForPhone();
         boolean isUniquePhone = sls.isUniquePhoneNumber(phoneNumber);
 
         if (!isUniquePhone) {
-          ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
+          ui.printer.printDuplicatePhone();
         } else {
           member.setPhoneNumber(phoneNumber);
         }
@@ -254,15 +205,15 @@ public class MainController {
       view.MainView.MenuEvent event = ui.getItemMenuChoice();
 
       if (event == view.MainView.MenuEvent.AddItem) {
-        String memberId =  ui.promptInformation(PromptEvent.MemberId);
+        String memberId =  ui.promptForMemberId();
         model.domain.Member.Mutable member = sls.findMemberById(memberId);
 
         if (member != null) {
           model.domain.Item item = ui.promptForNewItem();
           sls.addNewItem(member, item);
-          ui.actionResponder(ActionEvent.SUCCESS_CREATE_ITEM);
+          ui.printer.printCreateItemSuccess();
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
         }
 
       } 
@@ -270,25 +221,25 @@ public class MainController {
       if (event == view.MainView.MenuEvent.ListItems) {
         Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
-        ui.printItemList(items);
+        ui.printer.printItemList(items);
       }
 
       if (event == view.MainView.MenuEvent.DetailedItem) {
-        String id =  ui.promptInformation(PromptEvent.ItemId);
+        String id =  ui.promptForItemId();
 
         model.domain.Item item = sls.findItemById(id);
 
         if (item != null) {
           ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
           ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
-          ui.printDetailedItem(item, activeContracts, expiredContracts);
+          ui.printer.printDetailedItem(item, activeContracts, expiredContracts);
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+          ui.printer.printFindItemError();
         }
       } 
 
       if (event == view.MainView.MenuEvent.EditItem) {
-        String id = ui.promptInformation(PromptEvent.ItemId);
+        String id = ui.promptForItemId();
 
         model.domain.Item.Mutable item = sls.findItemById(id);
 
@@ -296,52 +247,56 @@ public class MainController {
           doEditItemMenu(item);
 
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+          ui.printer.printFindItemError();
         }
       }
 
       if (event == view.MainView.MenuEvent.LendItem) {
-        String itemId = ui.promptInformation(PromptEvent.ItemId);
+        String itemId = ui.promptForItemId();
         model.domain.Item item = sls.findItemById(itemId);
 
         if (item == null) {
-          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+          ui.printer.printFindItemError();
           return;
         }
 
-        String lenderId = ui.promptInformation(PromptEvent.MemberId);
+        String lenderId = ui.promptForMemberId();
         model.domain.Member lender = sls.findMemberById(lenderId);
 
         if (lender == null) {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
           return;
         }
 
         int currentDay = sls.getCurrentDay();
-        ui.notifyCurrentDay(sls.getCurrentDay());
+        ui.printer.printCurrentDay(sls.getCurrentDay());
 
         int startDayOfLoan = 0;
         do {
-          startDayOfLoan = ui.promptInformationInt(PromptEvent.LoanStartDay); 
+          startDayOfLoan = ui.promptForLoanStartDay(); 
         } while (startDayOfLoan < currentDay);
 
-        int daysToLoan = ui.promptInformationInt(PromptEvent.AmountOfLoanDays);
+        int daysToLoan = ui.promptForDaysToLoan();
         int endDay = (startDayOfLoan - 1) + daysToLoan;
 
         model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);
         if (successfullyCreatedContract) {
-          ui.actionResponder(ActionEvent.SUCCESS_CREATE_CONTRACT);
+          ui.printer.printCreateContractSuccess();
         } else {
-          ui.actionResponder(ActionEvent.ERR_CREATE_CONTRACT);
+          ui.printer.printCreateContractError();
         }
       } 
 
       if (event == view.MainView.MenuEvent.DeleteItem) {
-        String itemId = ui.promptInformation(PromptEvent.ItemId);
+        String itemId = ui.promptForItemId();
         Boolean isSucceeded = sls.deleteItem(itemId);
 
-        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
+        if (isSucceeded) {
+          ui.printer.printDeleteItemSuccess();
+        } else {
+          ui.printer.printDeleteItemError();
+        }
       } 
 
       if (event == view.MainView.MenuEvent.Back) {
@@ -357,19 +312,19 @@ public class MainController {
       view.MainView.MenuEvent event = ui.getEditItemMenuChoice();
 
       if (event == view.MainView.MenuEvent.EditName) {
-        String name = ui.promptInformation(PromptEvent.Name);
+        String name = ui.promptForItemName();
 
         item.setName(name);
       }
       
       if (event == view.MainView.MenuEvent.EditDescription) {
-        String description = ui.promptInformation(PromptEvent.Description);
+        String description = ui.promptForItemDescription();
 
         item.setDescription(description);
       }
 
       if (event == view.MainView.MenuEvent.EditCost) {
-        int cost = ui.promptInformationInt(PromptEvent.CostPerDay);
+        int cost = ui.promptForCostPerDay();
 
         item.setCostPerDay(cost);
       }
@@ -380,15 +335,80 @@ public class MainController {
 
     } while (running);
   }
+
+  private void doRegisterMember() {
+    boolean addMemberRunning = true;
+
+        do {
+          model.domain.Member newMember = ui.promptForNewMember();
+  
+          boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
+  
+          if (!isUniqueEmail) {
+            ui.printer.printDuplicateEmail();
+            break;
+          }
+  
+          boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
+  
+          if (!isUniquePhoneNumber) {
+            ui.printer.printDuplicatePhone();
+            break;
+          }
+
+          Password password = doPromptForPassword();
+
+          // TODO: Create Auth-object and save in authservice.
+
+          boolean isSucceeded = sls.addNewMember(newMember);
+  
+          if (isSucceeded) {
+            ui.printer.printCreateMemberSuccess();
+          } else {
+            ui.printer.printCreateMemberError();
+          }
+          
+          addMemberRunning = false;
+        } while (addMemberRunning);
+  }
+
+  private Password doPromptForPassword() {
+    boolean validPassword = false;
+    Password password = null;
+    do {
+      String enteredPassword = ui.promptForPassword();
+
+      try {
+        password = new Password(enteredPassword);
+        validPassword = true;
+      } catch (Exception e) {
+        ui.printer.printInvalidPassword();
+      }
+    } while (!validPassword);
+
+    return password;
+  }
+
+  private void doLogin() {
+    // TODO: Add login logic.
+  }
+
+  private void doLogout() {
+    setUiStrategy(mainView.unAuthView);
+  }
+
+  private void setUiStrategy(view.View strategy) {
+    this.ui = strategy;
+  }
   
   private void doForwardDayMenu() {
-    int amountOfDaysToProceed = ui.promptInformationInt(PromptEvent.ForwardDay);
+    int amountOfDaysToProceed = ui.promptForDaysToProceed();
     
     for (int i = 0; i < amountOfDaysToProceed; i++) {
       sls.incrementCurrentDay();
     }
 
-    ui.notifyCurrentDay(sls.getCurrentDay());
+    ui.printer.printCurrentDay(sls.getCurrentDay());
   }
 }
 
