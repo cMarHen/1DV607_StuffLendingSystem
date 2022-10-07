@@ -1,9 +1,11 @@
 package model.domain.iterators;
 
 import java.util.ArrayList;
-
 import model.domain.Item;
 
+/**
+ * To be used to nest a search with AND operator.
+ */
 public class ItemAndIteratorImpl implements ItemIterator {
   private ItemIterator aiterator;
   private ItemIterator biterator;
@@ -12,6 +14,9 @@ public class ItemAndIteratorImpl implements ItemIterator {
   ArrayList<Item.Mutable> bitems = new ArrayList<>();
   private int position;
   
+  /**
+   * Constructor for ItemAndIteratorImpl.
+   */
   public ItemAndIteratorImpl(ItemIterator a, ItemIterator b, ArrayList<Item.Mutable> items) {
     this.aiterator = a;
     this.biterator = b;

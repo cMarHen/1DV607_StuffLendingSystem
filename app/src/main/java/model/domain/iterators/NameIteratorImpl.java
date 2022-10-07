@@ -14,6 +14,9 @@ public class NameIteratorImpl implements ItemIterator {
   private int position;
   private boolean isQuery;
 
+  /**
+   * Constructor for NameIteratorImpl.
+   */
   public NameIteratorImpl(String name, ArrayList<Item.Mutable> items) {
     this.items = items;
     this.isQuery = name.charAt(name.length() - 1) == '?';

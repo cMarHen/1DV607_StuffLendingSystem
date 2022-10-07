@@ -1,7 +1,6 @@
 package model.domain;
 
 import java.util.ArrayList;
-
 import model.domain.Item.ItemType;
 import model.domain.iterators.ItemIterator;
 import model.persistence.PersistenceFacade;
@@ -215,6 +214,14 @@ public class StuffLendingSystem {
     return members.findMemberById(id);
   }
 
+  /**
+   * Nested search with ItemType and owner.
+   * If searched type AND owner match, it will add to returned list.
+   *
+   * @param type - ItemType to search for.
+   * @param owner - Member to search for.
+   * @return - List of items that matched the search.
+   */
   public ArrayList<Item.Mutable> getItemsByQuery(ItemType type, Member owner) {
     ItemIterator iterator = items.nestedLogicalAndIterator(
         items.typeIterator(type),
@@ -228,6 +235,14 @@ public class StuffLendingSystem {
     return list;
   }
 
+  /**
+   * Nested search with ItemType and owner.
+   * If searched type AND owner match, it will add to returned list.
+   *
+   * @param name - String to search for. Subset of name is made with a "?" at the end.
+   * @param type - ItemType to search for.
+   * @return - List of items that matched the search.
+   */
   public ArrayList<Item.Mutable> getItemsByQuery(String name, ItemType type) {
     ItemIterator iterator = items.nestedLogicalAndIterator(
         items.nameIterator(name),
