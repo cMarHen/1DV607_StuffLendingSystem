@@ -90,7 +90,7 @@ public class MainController {
         Iterable<model.domain.Member.Mutable> members = sls.getMembers();
         Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
-        ui.printMemberList(members, items);
+        ui.printer.printMemberList(members, items);
       }
 
       if (event == view.MainView.MenuEvent.ListMemberVerbose) {
@@ -99,12 +99,12 @@ public class MainController {
         for (Member.Mutable m : members) {
           Iterable<Item.Mutable> memberItems = sls.getItemByOwner(m);
 
-          ui.printVerboseMember(m);
+          ui.printer.printVerboseMember(m);
           
           for (Item.Mutable item : memberItems) {
             ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
             ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
-            ui.printDetailedItem(item, activeContracts, expiredContracts);
+            ui.printer.printDetailedItem(item, activeContracts, expiredContracts);
           }
         }
       }
@@ -115,7 +115,7 @@ public class MainController {
         model.domain.Member member = sls.findMemberById(id);
         
         if (member != null) {
-          ui.printDetailedMember(member);
+          ui.printer.printDetailedMember(member);
         } else {
           ui.printer.printFindMemberError();
         }
@@ -154,7 +154,7 @@ public class MainController {
     boolean running = true;
 
     do {
-      ui.printDetailedMember(member);
+      ui.printer.printDetailedMember(member);
       view.MainView.MenuEvent event = ui.getEditMemberMenuChoice();
 
       if (event == view.MainView.MenuEvent.EditFirstName) {
@@ -221,7 +221,7 @@ public class MainController {
       if (event == view.MainView.MenuEvent.ListItems) {
         Iterable<model.domain.Item.Mutable> items = sls.getAllItems();
 
-        ui.printItemList(items);
+        ui.printer.printItemList(items);
       }
 
       if (event == view.MainView.MenuEvent.DetailedItem) {
@@ -232,7 +232,7 @@ public class MainController {
         if (item != null) {
           ArrayList<model.domain.LendingContract> expiredContracts = sls.getExpiredContractsByItem(item);
           ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
-          ui.printDetailedItem(item, activeContracts, expiredContracts);
+          ui.printer.printDetailedItem(item, activeContracts, expiredContracts);
         } else {
           ui.printer.printFindItemError();
         }

@@ -1,5 +1,7 @@
 package view;
 
+import java.util.ArrayList;
+
 /**
  * Sets the contract to be followed by printers.
  *
@@ -25,4 +27,15 @@ public interface Printer {
   public void printFindItemError();
   public void printDuplicateEmail();
   public void printDuplicatePhone();
+  public void printMemberList(
+      Iterable<? extends model.domain.Member> members,
+      Iterable<model.domain.Item.Mutable> items
+  );
+  public void printVerboseMember(model.domain.Member.Mutable member);
+  public void printItemList(Iterable<? extends model.domain.Item> items);
+  public void printDetailedMember(model.domain.Member member);
+  public void printDetailedItem(
+      model.domain.Item item, ArrayList<model.domain.LendingContract> activeContracts,
+      ArrayList<model.domain.LendingContract> expiredContracts
+  );
 }
