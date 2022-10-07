@@ -13,12 +13,12 @@ import javax.naming.AuthenticationException;
 /**
  * Class AuthHandler. 
  */
-public class AuthHandler {
+public class AuthServiceHandler {
   private String projectPath;
   private String relativePathToProject;
-  private ArrayList<User> users;
+  private ArrayList<AuthUser> users;
 
-  protected AuthHandler() {
+  protected AuthServiceHandler() {
     this.projectPath = "/src/main/java/model/auth/mock-files/registry.data";
     this.relativePathToProject = new File("").getAbsolutePath();
     this.users = new ArrayList<>();
@@ -26,13 +26,13 @@ public class AuthHandler {
   }
 
   protected String register(String username, String password) throws Exception {
-    for (User user : users) {
-      if (user.getUsername().equals(username)) {
+    for (AuthUser user : users) {
+      if (user.getId().equals(username)) {
         throw new Exception();
       }
     }
 
-    User newUser = new User(username, password);
+    AuthUser newUser = new AuthUser(username, password);
 
     if (newUser != null) {
       users.add(newUser);
@@ -43,8 +43,8 @@ public class AuthHandler {
   }
 
   protected String login(String username, String password) throws AuthenticationException {
-    for (User user : users) {
-      if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+    for (AuthUser user : users) {
+      if (user.getId().equals(username) && user.getPassword().equals(password)) {
         return username;
       }
     }
@@ -58,8 +58,8 @@ public class AuthHandler {
           new FileWriter(relativePathToProject + projectPath, StandardCharsets.UTF_8));
 
       String str = "";
-      for (User user : users) {
-        str += user.getUsername() + ":" + user.getPassword() + "\n";
+      for (AuthUser user : users) {
+        str += user.getId() + ":" + user.getPassword() + "\n";
       }
 
       bw.write(str);
@@ -87,9 +87,9 @@ public class AuthHandler {
 
   }
 
-  private User createUserFromFile(String line) {
+  private AuthUser createUserFromFile(String line) {
     String[] arr = line.split(":");
-    return new User(arr[0], arr[1]);
+    return new AuthUser(arr[0], arr[1]);
   }
 
   
