@@ -11,6 +11,8 @@ public class MainMenu extends Menu {
   public static enum MainMenuChoices {
     MemberMenu,
     ItemMenu,
+    Login,
+    Register,
     Quit
   }
 
@@ -25,6 +27,8 @@ public class MainMenu extends Menu {
     System.out.println("------------------------");
     System.out.println("1. Member Menu");
     System.out.println("2. Item Menu");
+    System.out.println("3. Log in");
+    System.out.println("4. Register");
     System.out.println("0. Quit ");
     System.out.println("------------------------");
 
@@ -39,6 +43,10 @@ public class MainMenu extends Menu {
       return MenuEvent.MemberMenu;
     } else if (choice == 2) {
       return MenuEvent.ItemMenu;
+    } else if (choice == 3) {
+      return MenuEvent.Login;
+    } else if (choice == 4) {
+      return MenuEvent.Register;
     } else {
       return MenuEvent.Quit;
     }

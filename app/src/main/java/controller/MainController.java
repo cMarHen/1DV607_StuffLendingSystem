@@ -69,8 +69,8 @@ public class MainController {
     this.mainView = ui;
 
     // NOTE: (Hardcoding change of view here.)
-    this.ui = ui.unAuthView;
-    // this.ui = ui.authView;
+    // this.ui = ui.unAuthView;
+    this.ui = ui.authView;
   }
 
   /**
@@ -89,6 +89,19 @@ public class MainController {
         if (event == view.MainView.MenuEvent.ItemMenu) {
           doItemMenu();
         }
+
+        if (event == view.MainView.MenuEvent.Login) {
+          doLogin();
+        }
+
+        if (event == view.MainView.MenuEvent.Register) {
+          doAddMember();
+        }
+
+        if (event == view.MainView.MenuEvent.Logout) {
+          doLogout();
+        }
+
         if (event == view.MainView.MenuEvent.ForwardDay) {
           doForwardDayMenu();
         }
@@ -112,31 +125,7 @@ public class MainController {
       }
       
       if (event == view.MainView.MenuEvent.AddMember) {
-        boolean addMemberRunning = true;
-
-        do {
-          model.domain.Member newMember = ui.promptForNewMember();
-  
-          boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
-  
-          if (!isUniqueEmail) {
-            ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
-            break;
-          }
-  
-          boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
-  
-          if (!isUniquePhoneNumber) {
-            ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
-            break;
-          }
-  
-          boolean isSucceeded = sls.addNewMember(newMember);
-  
-          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
-
-          addMemberRunning = false;
-        } while (addMemberRunning);
+        // TODO: Remove.
       }
 
       if (event == view.MainView.MenuEvent.ListMember) {
@@ -379,6 +368,46 @@ public class MainController {
       }
 
     } while (running);
+  }
+
+  private void doAddMember() {
+    boolean addMemberRunning = true;
+
+        do {
+          model.domain.Member newMember = ui.promptForNewMember();
+  
+          boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
+  
+          if (!isUniqueEmail) {
+            ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
+            break;
+          }
+  
+          boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
+  
+          if (!isUniquePhoneNumber) {
+            ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
+            break;
+          }
+  
+          boolean isSucceeded = sls.addNewMember(newMember);
+  
+          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
+
+          addMemberRunning = false;
+        } while (addMemberRunning);
+  }
+
+  private void doLogin() {
+    // TODO: Add login logic.
+  }
+
+  private void doLogout() {
+    setUiStrategy(mainView.unAuthView);
+  }
+
+  private void setUiStrategy(view.View strategy) {
+    this.ui = strategy;
   }
   
   private void doForwardDayMenu() {

@@ -12,6 +12,7 @@ public class AuthMainMenu extends Menu {
     MemberMenu,
     ItemMenu,
     ForwardDay,
+    Logout,
     Quit
   }
 
@@ -27,6 +28,7 @@ public class AuthMainMenu extends Menu {
     System.out.println("1. Member Menu");
     System.out.println("2. Item Menu");
     System.out.println("3. Forward day");
+    System.out.println("4. Log out");
     System.out.println("0. Quit ");
     System.out.println("------------------------");
 
@@ -43,6 +45,8 @@ public class AuthMainMenu extends Menu {
       return MenuEvent.ItemMenu;
     } else if (choice == 3) {
       return MenuEvent.ForwardDay;
+    } else if (choice == 4) {
+      return MenuEvent.Logout;
     } else {
       return MenuEvent.Quit;
     }
