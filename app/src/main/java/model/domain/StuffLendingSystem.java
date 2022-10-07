@@ -29,6 +29,11 @@ public class StuffLendingSystem {
     this.currentDay = 0;
   }
 
+  // TODO: Testing purpose
+  public ItemCollection getItemCollection() {
+    return items;
+  }
+
   public void saveData() {
     persistence.save();
   }
@@ -208,10 +213,14 @@ public class StuffLendingSystem {
   }
 
   /**
-   * Get an iterable list of mutable items in the stufflending system.
+   * Search item by name.
    *
-   * @return - Iterable list of mutable items in the stufflending system.
+   * @param name - The name to search for. Add a "?" to do a queried search.
    */
+  public Item.Mutable getItemByName(String name) {
+    return items.getItemByName(name);
+  }
+
   public Iterable<Item.Mutable> getAllItems() {
     return items.getAllItems();
   }

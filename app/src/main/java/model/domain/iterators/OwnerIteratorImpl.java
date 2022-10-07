@@ -1,7 +1,9 @@
-package model.domain;
+package model.domain.iterators;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
+import model.domain.Item;
+import model.domain.Member;
 
 /**
  * Concrete class that implements the GOF Iterator-pattern.

@@ -27,7 +27,7 @@ public class AuthHandler {
 
   protected String register(String username, String password) throws Exception {
     for (User user : users) {
-      if (user.getUsername().equals(password) || user.getPassword().equals(password)) {
+      if (user.getUsername().equals(username)) {
         throw new Exception();
       }
     }

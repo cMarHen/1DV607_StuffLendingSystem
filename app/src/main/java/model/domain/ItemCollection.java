@@ -2,6 +2,7 @@ package model.domain;
 
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
+import model.domain.iterators.ItemIterator;
 
 /**
  * Interface setting the contract for an ItemCollection.
@@ -19,8 +20,16 @@ public interface ItemCollection {
   public boolean isUniqueItemId(String id);
   
   public ArrayList<Item.Mutable> getItemsByOwner(Member owner);
+
+  public Item.Mutable getItemByName(String name);
   
   public ItemIterator typeIterator(ItemType type);
 
   public ItemIterator ownerIterator(Member owner);
+
+  public ItemIterator nameIterator(String name);
+
+  public ItemIterator nestedLogicalAndIterator(ItemIterator a, ItemIterator b);
+  
+  public ItemIterator nestedLogicalOrIterator(ItemIterator a, ItemIterator b);
 }
