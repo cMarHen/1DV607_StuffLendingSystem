@@ -1,7 +1,5 @@
 package view;
 
-import controller.MainController.ActionEvent;
-import controller.MainController.PromptEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -15,7 +13,8 @@ import model.domain.Member;
  * 
  */
 public class Console {
-  Scanner scan;
+  private Scanner scan;
+  public Printer printer;
 
   /**
    * Events emmited from the class that constructs the main-menu choices.
@@ -85,6 +84,7 @@ public class Console {
    */
   public Console() {
     this.scan = new Scanner(System.in, "UTF8");
+    this.printer = new ConsolePrinter();
   }
 
   /**
@@ -491,90 +491,6 @@ public class Console {
   }
 
   /**
-   * Prompt user for a PromptEvent.
-   *
-   * @param event - Type of Prompt to do to the user.
-   * @return - The user input as String.
-   */
-  public String promptInformation(PromptEvent event) {
-    if (event == PromptEvent.ItemId) {
-      return promptForString("Enter the item ID: ");
-    } else if (event == PromptEvent.MemberId) {
-      return promptForString("Enter the member ID: ");
-    } else if (event == PromptEvent.FirstName) {
-      return promptForString("Enter first name: ");
-    } else if (event == PromptEvent.LastName) {
-      return promptForString("Enter last name: ");
-    } else if (event == PromptEvent.Email) {
-      return promptForString("Enter email: ");
-    } else if (event == PromptEvent.PhoneNumber) {
-      return promptForString("Enter phone number: ");
-    } else if (event == PromptEvent.Name) {
-      return promptForString("Enter name: ");
-    } else if (event == PromptEvent.Description) {
-      return promptForString("Enter description: ");
-    }
-
-    return null;
-  }
-
-  /**
-   * Prompt user for a PromptEvent.
-   *
-   * @param event - Type of Prompt to do to the user.
-   * @return - The user input as Integer.
-   */
-  public int promptInformationInt(PromptEvent event) {
-    if (event == PromptEvent.CostPerDay) {
-      return promptForInt("Enter the cost per day: ");
-    } else if (event == PromptEvent.LoanStartDay) {
-      return promptForInt("From which day do you want to book this item?: ");
-    } else if (event == PromptEvent.AmountOfLoanDays) {
-      return promptForInt("Number of days to loan the item: ");
-    } else if (event == PromptEvent.ForwardDay) {
-      return promptForInt("How many days do you want to proceed?: ");
-    } 
-    
-    // TODO: Handle this..
-    return 0;
-  }
-
-  /**
-   * Prints a message to the user based on action-event.
-   * (E.g, member not found, unable to set up lending contract etc.)
-   *
-   * @param actionResponse - The response from controller of type enum ActionEvent.
-   */
-  public void actionResponder(controller.MainController.ActionEvent actionResponse) {
-
-    if (actionResponse == ActionEvent.ERR_CREATE_MEMBER) {
-      System.out.println("Member could not be created!");
-    } else if (actionResponse == ActionEvent.SUCCESS_CREATE_MEMBER) {
-      System.out.println("Member successfully created!");
-    }  else if (actionResponse == ActionEvent.ERR_CREATE_ITEM) {
-      System.out.println("Item could not be created!");
-    } else if (actionResponse == ActionEvent.SUCCESS_CREATE_ITEM) {
-      System.out.println("Item successfully created!");
-    } else if (actionResponse == ActionEvent.ERR_DUPLICATE_EMAIL) {
-      System.out.println("This email is already in use!");
-    } else if (actionResponse == ActionEvent.ERR_DUPLICATE_PHONE) {
-      System.out.println("This phonenumber is already in use!");
-    } else if (actionResponse == ActionEvent.ERR_DELETE) {
-      System.out.println("Oops, something went wrong. Could not delete this resource!");
-    } else if (actionResponse == ActionEvent.SUCCESS_DELETE) {
-      System.out.println("The resource was successfully deleted");
-    } else if (actionResponse == ActionEvent.ERR_FIND_MEMBER) {
-      System.out.println("Could not find a member with this ID!");
-    } else if (actionResponse == ActionEvent.ERR_FIND_ITEM) {
-      System.out.println("Could not find an item with this ID!");
-    }  else if (actionResponse == ActionEvent.ERR_CREATE_CONTRACT) {
-      System.out.println("Could not set up lending contract!");
-    }  else if (actionResponse == ActionEvent.SUCCESS_CREATE_CONTRACT) {
-      System.out.println("Lending contract was successfully set up!");
-    } 
-  }
-
-  /**
    * Request user-inputs needed to register a new member.
    *
    * @return - Readonly object with member-information.
@@ -603,6 +519,55 @@ public class Console {
 
     return new model.domain.Item(type, name, description, costPerDay);
   }
+
+  public String promptForItemId() {
+    return promptForString("Enter the item ID: ");
+  }
+
+  public String promptForMemberId() {
+    return promptForString("Enter the member ID: ");
+  }
+
+  public String promptForFirstName() {
+    return promptForString("Enter first name: ");
+  }
+
+  public String promptForLastName() {
+    return promptForString("Enter last name: ");
+  }
+
+  public String promptForEmail() {
+    return promptForString("Enter email: ");
+  }
+
+  public String promptForPhone() {
+    return promptForString("Enter phone number: ");
+  }
+
+  public String promptForItemName() {
+    return promptForString("Enter item name: ");
+  }
+
+  public String promptForItemDescription() {
+    return promptForString("Enter description: ");
+  }
+
+  public int promptForCostPerDay() {
+    return promptForInt("Enter the cost per day: ");
+  }
+
+  public int promptForLoanStartDay() {
+    return promptForInt("From which day do you want to book this item?: ");
+  }
+
+  public int promptForDaysToLoan() {
+    return promptForInt("Number of days to loan the item: ");
+  }
+
+  public int promptForDaysToProceed() {
+    return promptForInt("How many days do you want to proceed?: ");
+  }
+
 
   private int promptForInt(String message) {
     int input = -1;
@@ -638,9 +603,5 @@ public class Console {
     } while (!validInput);
 
     return input;
-  }
-
-  public void notifyCurrentDay(int currentDay) {
-    System.out.println("The current day is: " + currentDay);
   }
 }

@@ -15,48 +15,6 @@ public class MainController {
   private model.domain.StuffLendingSystem sls;
 
   /**
-   * The types of events that can occur in response to an action.
-   *
-   */
-  public static enum ActionEvent {
-    ERR_CREATE_MEMBER,
-    SUCCESS_CREATE_MEMBER,
-    ERR_CREATE_ITEM,
-    SUCCESS_CREATE_ITEM,
-    ERR_EDIT_MEMBER,
-    SUCCESS_EDIT_MEMBER,
-    ERR_EDIT_ITEM,
-    SUCCESS_EDIT_ITEM,
-    ERR_DELETE,
-    SUCCESS_DELETE,
-    ERR_FIND_MEMBER,
-    ERR_FIND_ITEM,
-    SUCCESS_CREATE_CONTRACT,
-    ERR_CREATE_CONTRACT,
-    ERR_DUPLICATE_EMAIL,
-    ERR_DUPLICATE_PHONE
-  }
-
-  /**
-   * The types of prompts to use in communication with view.
-   *
-   */
-  public static enum PromptEvent {
-    ItemId,
-    MemberId,
-    FirstName,
-    LastName,
-    Email,
-    PhoneNumber,
-    Name,
-    Description,
-    CostPerDay,
-    LoanStartDay,
-    AmountOfLoanDays,
-    ForwardDay
-  }
-
-  /**
    * Instaciate the MainController with a user interface representing the view and the main model class.
    *
    * @param ui - The view user interface. 
@@ -117,20 +75,25 @@ public class MainController {
           boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
   
           if (!isUniqueEmail) {
-            ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
+            ui.printer.printDuplicateEmail();
             break;
           }
   
           boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
   
           if (!isUniquePhoneNumber) {
-            ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
+            ui.printer.printDuplicatePhone();
             break;
           }
   
           boolean isSucceeded = sls.addNewMember(newMember);
   
-          ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_CREATE_MEMBER : ActionEvent.ERR_CREATE_MEMBER);
+          if (isSucceeded) {
+            ui.printer.printCreateMemberSuccess();
+          } else {
+            ui.printer.printCreateMemberError();
+          }
+
 
           addMemberRunning = false;
         } while (addMemberRunning);
@@ -167,7 +130,7 @@ public class MainController {
         if (member != null) {
           ui.printDetailedMember(member);
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
         }
       }
       
@@ -180,7 +143,7 @@ public class MainController {
           doEditMemberMenu(member);
 
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
         }
         
       }
@@ -190,7 +153,11 @@ public class MainController {
 
         boolean isSucceeded = sls.deleteMember(id);
 
-        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
+        if (isSucceeded) {
+          ui.printer.printDeleteMemberSuccess();
+        } else {
+          ui.printer.printDeleteMemberError();
+        }
       }
 
     } while (running);
@@ -220,7 +187,7 @@ public class MainController {
         boolean isUniqueEmail = sls.isUniqueEmail(email);
 
         if (!isUniqueEmail) {
-          ui.actionResponder(ActionEvent.ERR_DUPLICATE_EMAIL);
+          ui.printer.printDuplicateEmail();
         } else {
           member.setEmail(email);
         }
@@ -231,7 +198,7 @@ public class MainController {
         boolean isUniquePhone = sls.isUniquePhoneNumber(phoneNumber);
 
         if (!isUniquePhone) {
-          ui.actionResponder(ActionEvent.ERR_DUPLICATE_PHONE);
+          ui.printer.printDuplicatePhone();
         } else {
           member.setPhoneNumber(phoneNumber);
         }
@@ -257,9 +224,9 @@ public class MainController {
         if (member != null) {
           model.domain.Item item = ui.promptForNewItem();
           sls.addNewItem(member, item);
-          ui.actionResponder(ActionEvent.SUCCESS_CREATE_ITEM);
+          ui.printer.printCreateItemSuccess();
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
         }
 
       } 
@@ -280,7 +247,7 @@ public class MainController {
           ArrayList<model.domain.LendingContract> activeContracts = sls.getContractsByItem(item);
           ui.printDetailedItem(item, activeContracts, expiredContracts);
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+          ui.printer.printFindItemError();
         }
       } 
 
@@ -293,7 +260,7 @@ public class MainController {
           doEditItemMenu(item);
 
         } else {
-          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+          ui.printer.printFindItemError();
         }
       }
 
@@ -302,7 +269,7 @@ public class MainController {
         model.domain.Item item = sls.findItemById(itemId);
 
         if (item == null) {
-          ui.actionResponder(ActionEvent.ERR_FIND_ITEM);
+          ui.printer.printFindItemError();
           return;
         }
 
@@ -310,12 +277,12 @@ public class MainController {
         model.domain.Member lender = sls.findMemberById(lenderId);
 
         if (lender == null) {
-          ui.actionResponder(ActionEvent.ERR_FIND_MEMBER);
+          ui.printer.printFindMemberError();
           return;
         }
 
         int currentDay = sls.getCurrentDay();
-        ui.notifyCurrentDay(sls.getCurrentDay());
+        ui.printer.printCurrentDay(sls.getCurrentDay());
 
         int startDayOfLoan = 0;
         do {
@@ -328,9 +295,9 @@ public class MainController {
         model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);
         if (successfullyCreatedContract) {
-          ui.actionResponder(ActionEvent.SUCCESS_CREATE_CONTRACT);
+          ui.printer.printCreateContractSuccess();
         } else {
-          ui.actionResponder(ActionEvent.ERR_CREATE_CONTRACT);
+          ui.printer.printCreateContractError();
         }
       } 
 
@@ -338,7 +305,12 @@ public class MainController {
         String itemId = ui.promptInformation(PromptEvent.ItemId);
         Boolean isSucceeded = sls.deleteItem(itemId);
 
-        ui.actionResponder(isSucceeded ? ActionEvent.SUCCESS_DELETE : ActionEvent.ERR_DELETE);
+        if (isSucceeded) {
+          ui.printer.printDeleteItemSuccess();
+        } else {
+          ui.printer.printDeleteItemError();
+        }
+
       } 
 
       if (event == view.Console.ItemEvent.Back) {
