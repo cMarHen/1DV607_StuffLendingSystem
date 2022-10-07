@@ -202,8 +202,6 @@ public abstract class View {
    */
   public abstract int promptForDaysToProceed();
 
-  public abstract void notifyCurrentDay(int currentDay);
-
   protected int promptForInt(String message) {
     int input = -1;
     boolean validInput;

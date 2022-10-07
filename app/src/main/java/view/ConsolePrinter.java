@@ -10,6 +10,11 @@ public class ConsolePrinter implements Printer {
   }
 
   @Override
+  public void printCurrentDay(int currentDay) {
+    System.out.println("The current day is: " + currentDay);
+  }
+
+  @Override
   public void printCreateMemberSuccess() {
     System.out.println("Member successfully created!");
   }

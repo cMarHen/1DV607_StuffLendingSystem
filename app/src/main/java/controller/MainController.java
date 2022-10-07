@@ -269,7 +269,7 @@ public class MainController {
         }
 
         int currentDay = sls.getCurrentDay();
-        ui.notifyCurrentDay(sls.getCurrentDay());
+        ui.printer.printCurrentDay(sls.getCurrentDay());
 
         int startDayOfLoan = 0;
         do {
@@ -408,7 +408,7 @@ public class MainController {
       sls.incrementCurrentDay();
     }
 
-    ui.notifyCurrentDay(sls.getCurrentDay());
+    ui.printer.printCurrentDay(sls.getCurrentDay());
   }
 }
 

@@ -267,11 +267,6 @@ public class AuthView extends View {
   }
 
   @Override
-  public void notifyCurrentDay(int currentDay) {
-    System.out.println("The current day is: " + currentDay);
-  }
-
-  @Override
   public String promptForItemId() {
     return promptForString("Enter the item ID: ");
   }

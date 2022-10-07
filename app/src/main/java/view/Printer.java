@@ -5,6 +5,7 @@ package view;
  *
  */
 public interface Printer {
+  public void printCurrentDay(int currentDay);
   public void printInvalidPassword();
   public void printCreateMemberSuccess();
   public void printCreateMemberError();
