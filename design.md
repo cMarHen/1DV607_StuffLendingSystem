@@ -19,7 +19,7 @@ Please provide at least one class diagram according to the assignment requirment
 ![package class diagram](img/class-diagram-package-view.jpeg)
 
 ### Sequence Diagram
-The selected `Add member` from the `Member menu` in the system and the sequence that follows is illustrated below. <br>
+The user has selected `Add member` from the `Member menu` in the system and the sequence that follows is illustrated below. <br>
 _(Instead of illustrating the single scenarios if email or phone is not unique when adding member we merged them together in a single alternative scenario)_
 
 ![sequence diagram](img/sequence-diagram.jpeg)
