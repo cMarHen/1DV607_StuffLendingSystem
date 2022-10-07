@@ -12,8 +12,8 @@ import view.MainView.MenuEvent;
 
 public class AuthView extends View {
 
-  public AuthView(Scanner scan, ConsolePrinter printer) {
-    super(scan, printer)
+  public AuthView(Scanner scan) {
+    super(scan);
   }
 
   @Override
@@ -240,44 +240,6 @@ public class AuthView extends View {
       }
 
   @Override
-  public String promptInformation(PromptEvent event) {
-    if (event == PromptEvent.ItemId) {
-      return promptForString("Enter the item ID: ");
-    } else if (event == PromptEvent.MemberId) {
-      return promptForString("Enter the member ID: ");
-    } else if (event == PromptEvent.FirstName) {
-      return promptForString("Enter first name: ");
-    } else if (event == PromptEvent.LastName) {
-      return promptForString("Enter last name: ");
-    } else if (event == PromptEvent.Email) {
-      return promptForString("Enter email: ");
-    } else if (event == PromptEvent.PhoneNumber) {
-      return promptForString("Enter phone number: ");
-    } else if (event == PromptEvent.Name) {
-      return promptForString("Enter name: ");
-    } else if (event == PromptEvent.Description) {
-      return promptForString("Enter description: ");
-    }
-
-    return null;
-  }
-
-  @Override
-  public int promptInformationInt(PromptEvent event) {
-    if (event == PromptEvent.CostPerDay) {
-      return promptForInt("Enter the cost per day: ");
-    } else if (event == PromptEvent.LoanStartDay) {
-      return promptForInt("From which day do you want to book this item?: ");
-    } else if (event == PromptEvent.AmountOfLoanDays) {
-      return promptForInt("Number of days to loan the item: ");
-    } else if (event == PromptEvent.ForwardDay) {
-      return promptForInt("How many days do you want to proceed?: ");
-    } 
-    
-    return 0;
-  }
-
-  @Override
   public Member promptForNewMember() {
     String firstName = promptForString("Enter first name: ");
     String lastName = promptForString("Enter last name: ");
@@ -309,39 +271,63 @@ public class AuthView extends View {
     System.out.println("The current day is: " + currentDay);
   }
 
-  private int promptForInt(String message) {
-    int input = -1;
-    boolean validInput;
-
-    do {
-      try {
-        System.out.print(message);
-        input = scan.nextInt();
-        scan.nextLine();
-        validInput = true;
-      } catch (Exception exeption) {
-        scan.nextLine();
-        validInput = false;
-      }
-    } while (!validInput);
-
-    return input;
+  @Override
+  public String promptForItemId() {
+    return promptForString("Enter the item ID: ");
   }
 
-  private String promptForString(String message) {
-    String input = "";
-    boolean validInput;
+  @Override
+  public String promptForMemberId() {
+    return promptForString("Enter the member ID: ");
+  }
 
-    do {
-      try {
-        System.out.print(message);
-        input = scan.nextLine();
-        validInput = true;
-      } catch (Exception exeption) {
-        validInput = false;
-      }
-    } while (!validInput);
+  @Override
+  public String promptForFirstName() {
+    return promptForString("Enter first name: ");
+  }
 
-    return input;
+  @Override
+  public String promptForLastName() {
+    return promptForString("Enter last name: ");
+  }
+
+  @Override
+  public String promptForEmail() {
+    return promptForString("Enter email: ");
+  }
+
+  @Override
+  public String promptForPhone() {
+    return promptForString("Enter phone number: ");
+  }
+
+  @Override
+  public String promptForItemName() {
+    return promptForString("Enter item name: ");
+  }
+
+  @Override
+  public String promptForItemDescription() {
+    return promptForString("Enter description: ");
+  }
+
+  @Override
+  public int promptForCostPerDay() {
+    return promptForInt("Enter the cost per day: ");
+  }
+
+  @Override
+  public int promptForLoanStartDay() {
+    return promptForInt("From which day do you want to book this item?: ");
+  }
+
+  @Override
+  public int promptForDaysToLoan() {
+    return promptForInt("Number of days to loan the item: ");
+  }
+
+  @Override
+  public int promptForDaysToProceed() {
+    return promptForInt("How many days do you want to proceed?: ");
   }
 }
