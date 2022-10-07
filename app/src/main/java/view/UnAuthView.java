@@ -3,9 +3,6 @@ package view;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-
-import controller.MainController.ActionEvent;
-import controller.MainController.PromptEvent;
 import model.domain.Item;
 import model.domain.Item.ItemType;
 import model.domain.Item.Mutable;
@@ -13,11 +10,10 @@ import model.domain.LendingContract;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
-public class UnAuthView implements View {
-  private Scanner scan;
+public class UnAuthView extends View {
 
-  public UnAuthView(Scanner scan) {
-    this.scan = scan;
+  public AuthView(Scanner scan, ConsolePrinter printer) {
+    super(scan, printer);
   }
 
   @Override
@@ -272,7 +268,7 @@ public class UnAuthView implements View {
     return 0;
   }
 
-  @Override
+  /* @Override
   public void actionResponder(ActionEvent actionResponse) {
     if (actionResponse == ActionEvent.ERR_CREATE_MEMBER) {
       System.out.println("Member could not be created!");
@@ -299,7 +295,7 @@ public class UnAuthView implements View {
     }  else if (actionResponse == ActionEvent.SUCCESS_CREATE_CONTRACT) {
       System.out.println("Lending contract was successfully set up!");
     } 
-  }
+  } */
 
   @Override
   public Member promptForNewMember() {
@@ -321,6 +317,11 @@ public class UnAuthView implements View {
     int costPerDay = promptForInt("Enter cost per day: ");
 
     return new model.domain.Item(type, name, description, costPerDay);
+  }
+
+  @Override
+  public String promptForPassword() {
+    return promptForString("Enter password: ");
   }
 
   @Override

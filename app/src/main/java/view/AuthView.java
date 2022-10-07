@@ -3,9 +3,6 @@ package view;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-
-import controller.MainController.ActionEvent;
-import controller.MainController.PromptEvent;
 import model.domain.Item;
 import model.domain.Item.ItemType;
 import model.domain.Item.Mutable;
@@ -13,11 +10,10 @@ import model.domain.LendingContract;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
-public class AuthView implements View {
-  private Scanner scan;
+public class AuthView extends View {
 
-  public AuthView(Scanner scan) {
-    this.scan = scan;
+  public AuthView(Scanner scan, ConsolePrinter printer) {
+    super(scan, printer)
   }
 
   @Override
@@ -282,35 +278,6 @@ public class AuthView implements View {
   }
 
   @Override
-  public void actionResponder(ActionEvent actionResponse) {
-    if (actionResponse == ActionEvent.ERR_CREATE_MEMBER) {
-      System.out.println("Member could not be created!");
-    } else if (actionResponse == ActionEvent.SUCCESS_CREATE_MEMBER) {
-      System.out.println("Member successfully created!");
-    }  else if (actionResponse == ActionEvent.ERR_CREATE_ITEM) {
-      System.out.println("Item could not be created!");
-    } else if (actionResponse == ActionEvent.SUCCESS_CREATE_ITEM) {
-      System.out.println("Item successfully created!");
-    } else if (actionResponse == ActionEvent.ERR_DUPLICATE_EMAIL) {
-      System.out.println("This email is already in use!");
-    } else if (actionResponse == ActionEvent.ERR_DUPLICATE_PHONE) {
-      System.out.println("This phonenumber is already in use!");
-    } else if (actionResponse == ActionEvent.ERR_DELETE) {
-      System.out.println("Oops, something went wrong. Could not delete this resource!");
-    } else if (actionResponse == ActionEvent.SUCCESS_DELETE) {
-      System.out.println("The resource was successfully deleted");
-    } else if (actionResponse == ActionEvent.ERR_FIND_MEMBER) {
-      System.out.println("Could not find a member with this ID!");
-    } else if (actionResponse == ActionEvent.ERR_FIND_ITEM) {
-      System.out.println("Could not find an item with this ID!");
-    }  else if (actionResponse == ActionEvent.ERR_CREATE_CONTRACT) {
-      System.out.println("Could not set up lending contract!");
-    }  else if (actionResponse == ActionEvent.SUCCESS_CREATE_CONTRACT) {
-      System.out.println("Lending contract was successfully set up!");
-    } 
-  }
-
-  @Override
   public Member promptForNewMember() {
     String firstName = promptForString("Enter first name: ");
     String lastName = promptForString("Enter last name: ");
@@ -330,6 +297,11 @@ public class AuthView implements View {
     int costPerDay = promptForInt("Enter cost per day: ");
 
     return new model.domain.Item(type, name, description, costPerDay);
+  }
+
+  @Override
+  public String promptForPassword() {
+    return promptForString("Enter password: ");
   }
 
   @Override
