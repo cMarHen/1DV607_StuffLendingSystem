@@ -201,12 +201,9 @@ public class MainController {
       view.MainView.MenuEvent event = ui.getItemMenuChoice();
 
       if (event == view.MainView.MenuEvent.AddItem) {
-        String memberId =  ui.promptForMemberId();
-        model.domain.Member.Mutable member = sls.findMemberById(memberId);
-
-        if (member != null) {
+        if (this.loggedInMember != null) {
           model.domain.Item item = ui.promptForNewItem();
-          sls.addNewItem(member, item);
+          sls.addNewItem(this.loggedInMember, item);
           ui.printer.printCreateItemSuccess();
         } else {
           ui.printer.printFindMemberError();
@@ -236,7 +233,7 @@ public class MainController {
 
       if (event == view.MainView.MenuEvent.EditItem) {
         String id = ui.promptForItemId();
-
+        // TODO: Find item by owner and id!!!!!!!
         model.domain.Item.Mutable item = sls.findItemById(id);
 
         if (item != null) {
@@ -256,10 +253,7 @@ public class MainController {
           return;
         }
 
-        String lenderId = ui.promptForMemberId();
-        model.domain.Member lender = sls.findMemberById(lenderId);
-
-        if (lender == null) {
+        if (this.loggedInMember == null) {
           ui.printer.printFindMemberError();
           return;
         }
@@ -275,7 +269,7 @@ public class MainController {
         int daysToLoan = ui.promptForDaysToLoan();
         int endDay = (startDayOfLoan - 1) + daysToLoan;
 
-        model.domain.LendingContract contract = new LendingContract(lender, endDay, item, startDayOfLoan);
+        model.domain.LendingContract contract = new LendingContract(new Member(this.loggedInMember), endDay, item, startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);
         if (successfullyCreatedContract) {
           ui.printer.printCreateContractSuccess();
@@ -285,6 +279,7 @@ public class MainController {
       } 
 
       if (event == view.MainView.MenuEvent.DeleteItem) {
+        // TODO: Find item by owner and id!!!!!!
         String itemId = ui.promptForItemId();
         Boolean isSucceeded = sls.deleteItem(itemId);
 
