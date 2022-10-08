@@ -147,4 +147,9 @@ public class AuthView extends View {
   public int promptForDaysToProceed() {
     return promptForInt("How many days do you want to proceed?: ");
   }
+
+  @Override
+  public boolean promptDeleteMemberConfirmation() {
+    return promptForConfirmation("Are you sure you want to delete your account? ");
+  }
 }

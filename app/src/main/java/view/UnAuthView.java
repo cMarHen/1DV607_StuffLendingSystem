@@ -138,4 +138,10 @@ public class UnAuthView extends View {
   public int promptForDaysToProceed() {
     return promptForInt("How many days do you want to proceed?: ");
   }
+
+  @Override
+  public boolean promptDeleteMemberConfirmation() {
+    // TODO: Thorow error!
+    return true;
+  }
 }

@@ -121,28 +121,25 @@ public class MainController {
       }
       
       if (event == view.MainView.MenuEvent.EditMember) {
-        String id = ui.promptForMemberId();
-
-        model.domain.Member.Mutable member = sls.findMemberById(id);
-
-        if (member != null) {
-          doEditMemberMenu(member);
-
+        if (this.loggedInMember != null) {
+          doEditMemberMenu(this.loggedInMember);
         } else {
           ui.printer.printFindMemberError();
         }
-        
       }
       
       if (event == view.MainView.MenuEvent.DeleteMember) {
-        String id = ui.promptForMemberId();
+        boolean deleteIsConfirmed = ui.promptDeleteMemberConfirmation();
 
-        boolean isSucceeded = sls.deleteMember(id);
-
-        if (isSucceeded) {
-          ui.printer.printDeleteMemberSuccess();
-        } else {
-          ui.printer.printDeleteMemberError();
+        if (deleteIsConfirmed) {
+          boolean isSucceeded = sls.deleteMember(this.loggedInMember.getId());
+  
+          if (isSucceeded) {
+            ui.printer.printDeleteMemberSuccess();
+            setUiStrategy(mainView.unAuthView);
+          } else {
+            ui.printer.printDeleteMemberError();
+          }
         }
       }
 

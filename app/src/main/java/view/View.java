@@ -162,6 +162,13 @@ public abstract class View {
    */
   public abstract int promptForDaysToProceed();
 
+  /**
+   * Request user to confirm delete.
+   *
+   * @return - The users decision.
+   */
+  public abstract boolean promptDeleteMemberConfirmation();
+
   protected int promptForInt(String message) {
     int input = -1;
     boolean validInput;
@@ -197,4 +204,19 @@ public abstract class View {
 
     return input;
   }
+
+  protected boolean promptForConfirmation(String question) {
+    String confirmation;
+    do {
+      System.out.print(question + " (Y/N) ");
+      confirmation = scan.next();
+    } while (!confirmation.equalsIgnoreCase("y") && !confirmation.equalsIgnoreCase("n"));
+
+    if (confirmation.equalsIgnoreCase("y")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

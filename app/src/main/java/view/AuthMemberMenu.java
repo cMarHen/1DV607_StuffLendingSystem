@@ -29,8 +29,8 @@ public class AuthMemberMenu extends Menu {
     System.out.println("1. List Members simple");
     System.out.println("2. List Members verbose");
     System.out.println("3. Show detailed member");
-    System.out.println("4. Edit a member");
-    System.out.println("5. Delete Member");
+    System.out.println("4. Edit profile");
+    System.out.println("5. Delete Your Account");
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
