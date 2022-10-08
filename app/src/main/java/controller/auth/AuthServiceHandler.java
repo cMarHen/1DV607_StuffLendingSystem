@@ -52,6 +52,18 @@ public class AuthServiceHandler {
     throw new AuthenticationException();
   }
 
+  protected String unRegister(String username) throws Exception {
+    for (AuthUser user : users) {
+      if ((user.getId().equals(username))) {
+        this.users.remove(user);
+        break;
+      }
+    }
+
+    this.saveFiles();
+    return username;
+  }
+
   private void saveFiles() {
     try {
       BufferedWriter bw = new BufferedWriter(

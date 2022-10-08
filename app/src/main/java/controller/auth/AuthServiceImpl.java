@@ -31,4 +31,13 @@ public class AuthServiceImpl implements AuthService {
     }    
   }
 
+  @Override
+  public String unRegister(Auth auth) throws Exception {
+    try {
+      return handler.unRegister(auth.getId());
+    } catch (Exception e) {
+      throw new Exception("Error: Un-register user failed");
+    } 
+  }
+
 }

@@ -130,11 +130,16 @@ public class MainController {
       
       if (event == view.MainView.MenuEvent.DeleteMember) {
         boolean deleteIsConfirmed = ui.promptDeleteMemberConfirmation();
+        Password password = doPromptForPassword();
+        // TODO: Validate password.
+        Auth authObj = new Auth(this.loggedInMember.getId(), password);
 
         if (deleteIsConfirmed) {
           boolean isSucceeded = sls.deleteMember(this.loggedInMember.getId());
   
           if (isSucceeded) {
+            // TODO: Handle error.
+            // authservice.unRegister(authObj); // NOTE: uncomments this.
             ui.printer.printDeleteMemberSuccess();
             setUiStrategy(mainView.unAuthView);
           } else {
