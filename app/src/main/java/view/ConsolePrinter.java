@@ -283,6 +283,6 @@ public class ConsolePrinter implements Printer {
 
   @Override
   public void printMemberId(String id) {
-    System.out.println("Your id is: ");
+    System.out.println("Your id is: " + id);
   }
 }
