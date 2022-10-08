@@ -14,7 +14,7 @@ public class AuthServiceImpl implements AuthService {
   }
 
   @Override
-  public String login(Auth auth) throws AuthenticationException {
+  public String authenticate(Auth auth) throws AuthenticationException {
     try {
       return handler.login(auth.getId(), auth.getPassword());
     } catch (Exception e) {

@@ -130,20 +130,33 @@ public class MainController {
       
       if (event == view.MainView.MenuEvent.DeleteMember) {
         boolean deleteIsConfirmed = ui.promptDeleteMemberConfirmation();
-        Password password = doPromptForPassword();
-        // TODO: Validate password.
-        Auth authObj = new Auth(this.loggedInMember.getId(), password);
 
         if (deleteIsConfirmed) {
-          boolean isSucceeded = sls.deleteMember(this.loggedInMember.getId());
-  
-          if (isSucceeded) {
-            // TODO: Handle error.
-            // authservice.unRegister(authObj); // NOTE: uncomments this.
-            ui.printer.printDeleteMemberSuccess();
-            setUiStrategy(mainView.unAuthView);
-          } else {
-            ui.printer.printDeleteMemberError();
+          Password password = doPromptForPassword();
+          Auth authObj = new Auth(this.loggedInMember.getId(), password);
+          boolean isAuthenticated = false;
+
+          try {
+            authservice.authenticate(authObj);
+            isAuthenticated = true;
+          } catch (Exception e) {
+            System.out.println(e);
+            ui.printer.printLoginError();
+          }
+          
+          if (isAuthenticated){
+            boolean isSucceeded = sls.deleteMember(this.loggedInMember.getId());
+            if (isSucceeded) {
+              try {
+                authservice.unRegister(authObj);
+                ui.printer.printDeleteMemberSuccess();
+                setUiStrategy(mainView.unAuthView);
+              } catch (Exception e) {
+                ui.printer.printDeleteMemberError();
+              }
+            } else {
+              ui.printer.printDeleteMemberError();
+            }
           }
         }
       }
@@ -404,7 +417,7 @@ public class MainController {
 
     boolean isLoggedIn = false;
     try {
-      authservice.login(authObj);
+      authservice.authenticate(authObj);
       isLoggedIn = true;
     } catch (Exception e) {
       isLoggedIn = false;

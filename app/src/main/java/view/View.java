@@ -210,6 +210,7 @@ public abstract class View {
     do {
       System.out.print(question + " (Y/N) ");
       confirmation = scan.next();
+      scan.nextLine();
     } while (!confirmation.equalsIgnoreCase("y") && !confirmation.equalsIgnoreCase("n"));
 
     if (confirmation.equalsIgnoreCase("y")) {

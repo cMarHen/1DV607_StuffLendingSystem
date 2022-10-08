@@ -278,7 +278,7 @@ public class ConsolePrinter implements Printer {
 
   @Override
   public void printLoginError() {
-    System.out.println("Invalid id or password!");
+    System.out.println("Authentication failed!");
   }
 
   @Override
