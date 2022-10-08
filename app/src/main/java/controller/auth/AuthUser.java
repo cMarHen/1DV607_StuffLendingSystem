@@ -1,4 +1,4 @@
-package model.auth;
+package controller.auth;
 
 /**
  * Class User.

@@ -2,6 +2,8 @@ package controller;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
+
+import controller.auth.AuthServiceImpl;
 import model.domain.Item;
 import model.domain.LendingContract;
 import model.domain.Member;
@@ -14,6 +16,8 @@ public class MainController {
   private view.View ui;
   private view.MainView mainView;
   private model.domain.StuffLendingSystem sls;
+  private AuthServiceImpl authservice;
+  private model.domain.Member.Mutable loggedInMember;
 
   /**
    * Instaciate the MainController with a user interface representing the view and the main model class.
@@ -22,13 +26,12 @@ public class MainController {
    * @param sls - The main class in the model.
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "ui and sls should be a reference.")
-  public MainController(view.MainView ui, model.domain.StuffLendingSystem sls) {
+  public MainController(view.MainView ui, model.domain.StuffLendingSystem sls, AuthServiceImpl authservice) {
     this.sls = sls;
     this.mainView = ui;
-
-    // NOTE: (Hardcoding change of view here.)
-    // this.ui = ui.unAuthView;
-    this.ui = ui.authView;
+    this.ui = ui.unAuthView;
+    this.authservice = authservice;
+    this.loggedInMember = null;
   }
 
   /**
@@ -80,10 +83,6 @@ public class MainController {
 
       if (event == view.MainView.MenuEvent.Back) {
         return;
-      }
-      
-      if (event == view.MainView.MenuEvent.AddMember) {
-        // TODO: Remove.
       }
 
       if (event == view.MainView.MenuEvent.ListMember) {
@@ -357,19 +356,31 @@ public class MainController {
           }
 
           Password password = doPromptForPassword();
+          model.domain.Member.Mutable addedMember = sls.addNewMember(newMember);
+          Auth authObj = new Auth(addedMember.getId(), password);
+          boolean isRegistered = registerMember(authObj);
 
-          // TODO: Create Auth-object and save in authservice.
-
-          boolean isSucceeded = sls.addNewMember(newMember);
-  
-          if (isSucceeded) {
+          if (addedMember != null && isRegistered) {
             ui.printer.printCreateMemberSuccess();
+            ui.printer.printMemberId(addedMember.getId());
           } else {
             ui.printer.printCreateMemberError();
           }
           
           addMemberRunning = false;
         } while (addMemberRunning);
+  }
+
+  public boolean registerMember(Auth authObject) {
+    boolean isRegistered = false;
+    try {
+      authservice.register(authObject);
+      isRegistered = true;
+    } catch (Exception e) {
+      isRegistered = false;
+    }
+
+    return isRegistered;
   }
 
   private Password doPromptForPassword() {
@@ -390,7 +401,25 @@ public class MainController {
   }
 
   private void doLogin() {
-    // TODO: Add login logic.
+    String id = ui.promptForMemberId();
+    Password password = doPromptForPassword();
+    Auth authObj = new Auth(id, password);
+
+    boolean isLoggedIn = false;
+    try {
+      authservice.login(authObj);
+      isLoggedIn = true;
+    } catch (Exception e) {
+      isLoggedIn = false;
+    }
+
+    if (isLoggedIn) {
+      this.loggedInMember = sls.findMemberById(id);
+      setUiStrategy(mainView.authView);
+      ui.printer.printLoginSuccess();
+    } else {
+      ui.printer.printLoginError();
+    }
   }
 
   private void doLogout() {

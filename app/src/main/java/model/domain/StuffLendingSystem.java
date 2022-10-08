@@ -1,6 +1,8 @@
 package model.domain;
 
 import java.util.ArrayList;
+
+import controller.auth.AuthServiceImpl;
 import model.domain.Item.ItemType;
 import model.domain.iterators.ItemIterator;
 import model.persistence.PersistenceFacade;
@@ -75,13 +77,13 @@ public class StuffLendingSystem {
    * @param m - Wrapper for the member-data to create a new member based on.
    * @return - A flag if member successfully was added to the stufflending system.
    */
-  public boolean addNewMember(Member m) {
+  public Member.Mutable addNewMember(Member m) {
     if (!members.isUniqueEmail(m.getEmail())) {
-      return false;
+      return null;
     }
     
     if (!members.isUniquePhone(m.getPhoneNumber())) {
-      return false;
+      return null;
     }
     
     String id = getNewUniqueMemberId();
@@ -94,7 +96,7 @@ public class StuffLendingSystem {
         currentDay);
     members.addMember(newMember);
 
-    return true;
+    return newMember;
   }
 
   /**

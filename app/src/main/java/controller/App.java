@@ -1,5 +1,6 @@
 package controller;
 
+import controller.auth.AuthServiceImpl;
 import model.domain.StuffLendingSystem;
 import view.MainView;
 
@@ -14,9 +15,10 @@ public class App {
    */
   public static void main(String[] args) {
     try {
-      view.MainView ui = new MainView();
-      model.domain.StuffLendingSystem sls = new StuffLendingSystem();
-      MainController mainController = new MainController(ui, sls);
+      MainView ui = new MainView();
+      StuffLendingSystem sls = new StuffLendingSystem();
+      AuthServiceImpl auth = new AuthServiceImpl();
+      MainController mainController = new MainController(ui, sls, auth);
 
       mainController.doMainMenu();
 

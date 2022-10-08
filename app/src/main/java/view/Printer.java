@@ -44,6 +44,12 @@ public interface Printer {
 
   public void printDuplicatePhone();
 
+  public void printMemberId(String id);
+
+  public void printLoginSuccess();
+
+  public void printLoginError();
+
   public void printMemberList(
       Iterable<? extends model.domain.Member> members,
       Iterable<model.domain.Item.Mutable> items

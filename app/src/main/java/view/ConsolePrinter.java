@@ -270,4 +270,19 @@ public class ConsolePrinter implements Printer {
 
     System.out.println();
   }
+
+  @Override
+  public void printLoginSuccess() {
+    System.out.println("Successfully logged in!");
+  }
+
+  @Override
+  public void printLoginError() {
+    System.out.println("Invalid id or password!");
+  }
+
+  @Override
+  public void printMemberId(String id) {
+    System.out.println("Your id is: ");
+  }
 }
