@@ -48,7 +48,7 @@ public interface Printer {
 
   public void printLoginSuccess();
 
-  public void printLoginError();
+  public void printAuthorizationError();
 
   public void printMemberList(
       Iterable<? extends model.domain.Member> members,
