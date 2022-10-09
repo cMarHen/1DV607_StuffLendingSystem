@@ -1,10 +1,7 @@
 package model.domain;
 
 import java.util.ArrayList;
-
-import controller.auth.AuthServiceImpl;
 import model.domain.Item.ItemType;
-import model.domain.iterators.ItemIterator;
 import model.persistence.PersistenceFacade;
 
 
@@ -224,17 +221,8 @@ public class StuffLendingSystem {
    * @param owner - Member to search for.
    * @return - List of items that matched the search.
    */
-  public ArrayList<Item.Mutable> getItemsByQuery(ItemType type, Member owner) {
-    ItemIterator iterator = items.nestedLogicalAndIterator(
-        items.typeIterator(type),
-        items.ownerIterator(owner));
-
-    ArrayList<Item.Mutable> list = new ArrayList<>();
-    while (iterator.hasNext()) {
-      list.add(iterator.next());
-    }
-
-    return list;
+  public ArrayList<Item.Mutable> searchItems(ItemType type, Member owner) {
+    return items.getItemsByTypeAndOwner(type, owner);
   }
 
   /**
@@ -245,23 +233,14 @@ public class StuffLendingSystem {
    * @param type - ItemType to search for.
    * @return - List of items that matched the search.
    */
-  public ArrayList<Item.Mutable> getItemsByQuery(String name, ItemType type) {
-    ItemIterator iterator = items.nestedLogicalAndIterator(
-        items.nameIterator(name),
-        items.typeIterator(type));
-
-    ArrayList<Item.Mutable> list = new ArrayList<>();
-    while (iterator.hasNext()) {
-      list.add(iterator.next());
-    }
-
-    return list;
+  public ArrayList<Item.Mutable> searchItems(String name, ItemType type) {
+    return items.getItemsByNameAndType(name, type);
   }
 
   /**
    * Search item by name.
    *
-   * @param name - The name to search for. Add a "?" to do a queried search.
+   * @param name - The name to search for. Add a "?" to do a subset search.
    */
   public ArrayList<Item.Mutable> getItemByName(String name) {
     return items.getItemsByName(name);
