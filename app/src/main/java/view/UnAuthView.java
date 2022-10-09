@@ -1,12 +1,8 @@
 package view;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 import model.domain.Item;
 import model.domain.Item.ItemType;
-import model.domain.Item.Mutable;
-import model.domain.LendingContract;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
@@ -36,19 +32,19 @@ public class UnAuthView extends View {
 
   @Override
   public MenuEvent getEditMemberMenuChoice() {
-    // TODO: Throw error!
+    // TODO: Throw error?
     return null;
   }
 
   @Override
   public MenuEvent getEditItemMenuChoice() {
-    // TODO: Throw error!
+    // TODO: Throw error?
     return null;
   }
 
   @Override
   public ItemType getItemTypeMenuChoice() {
-        // TODO: Throw error!
+        // TODO: Throw error?
     return null;
   }
 
@@ -141,7 +137,7 @@ public class UnAuthView extends View {
 
   @Override
   public boolean promptDeleteMemberConfirmation() {
-    // TODO: Thorow error!
+    // TODO: Thorow error?
     return true;
   }
 }

@@ -2,7 +2,6 @@ package controller;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
-
 import controller.auth.AuthServiceImpl;
 import model.domain.Item;
 import model.domain.LendingContract;
@@ -140,12 +139,12 @@ public class MainController {
             authservice.authenticate(authObj);
             isAuthenticated = true;
           } catch (Exception e) {
-            System.out.println(e);
             ui.printer.printAuthorizationError();
           }
           
-          if (isAuthenticated){
+          if (isAuthenticated) {
             boolean isSucceeded = sls.deleteMember(this.loggedInMember.getId());
+
             if (isSucceeded) {
               try {
                 authservice.unRegister(authObj);
@@ -255,7 +254,7 @@ public class MainController {
         model.domain.Item.Mutable item = sls.findItemById(id);
 
         if (item != null) {
-          if (item.getOwner().getId().equals(this.loggedInMember.getId())){
+          if (item.getOwner().getId().equals(this.loggedInMember.getId())) {
             doEditItemMenu(item);
           } else {
             ui.printer.printAuthorizationError();
@@ -290,7 +289,11 @@ public class MainController {
         int daysToLoan = ui.promptForDaysToLoan();
         int endDay = (startDayOfLoan - 1) + daysToLoan;
 
-        model.domain.LendingContract contract = new LendingContract(new Member(this.loggedInMember), endDay, item, startDayOfLoan);
+        model.domain.LendingContract contract = new LendingContract(
+            new Member(this.loggedInMember),
+            endDay,
+            item,
+            startDayOfLoan);
         boolean successfullyCreatedContract = sls.setUpLendingContract(contract);
         if (successfullyCreatedContract) {
           ui.printer.printCreateContractSuccess();
@@ -304,7 +307,7 @@ public class MainController {
         model.domain.Item.Mutable item = sls.findItemById(itemId);
 
         if (item != null) {
-          if (item.getOwner().getId().equals(this.loggedInMember.getId())){
+          if (item.getOwner().getId().equals(this.loggedInMember.getId())) {
             Boolean isSucceeded = sls.deleteItem(itemId);
 
             if (isSucceeded) {
@@ -360,44 +363,44 @@ public class MainController {
   private void doRegisterMember() {
     boolean addMemberRunning = true;
 
-        do {
-          model.domain.Member newMember = ui.promptForNewMember();
-  
-          boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
-  
-          if (!isUniqueEmail) {
-            ui.printer.printDuplicateEmail();
-            break;
-          }
-  
-          boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
-  
-          if (!isUniquePhoneNumber) {
-            ui.printer.printDuplicatePhone();
-            break;
-          }
+    do {
+      model.domain.Member newMember = ui.promptForNewMember();
 
-          Password password = doPromptForPassword();
-          model.domain.Member.Mutable addedMember = sls.addNewMember(newMember);
-          Auth authObj = new Auth(addedMember.getId(), password);
-          boolean isRegistered = registerMember(authObj);
+      boolean isUniqueEmail = sls.isUniqueEmail(newMember.getEmail());
 
-          if (addedMember != null && isRegistered) {
-            // Setting user as authenticated.
-            this.loggedInMember = addedMember;
-            setUiStrategy(mainView.authView);
-            ui.printer.printCreateMemberSuccess();
-            ui.printer.printLoginSuccess();
-            ui.printer.printMemberId(addedMember.getId());
-          } else {
-            ui.printer.printCreateMemberError();
-          }
-          
-          addMemberRunning = false;
-        } while (addMemberRunning);
+      if (!isUniqueEmail) {
+        ui.printer.printDuplicateEmail();
+        break;
+      }
+
+      boolean isUniquePhoneNumber = sls.isUniquePhoneNumber(newMember.getPhoneNumber());
+
+      if (!isUniquePhoneNumber) {
+        ui.printer.printDuplicatePhone();
+        break;
+      }
+
+      Password password = doPromptForPassword();
+      model.domain.Member.Mutable addedMember = sls.addNewMember(newMember);
+      Auth authObj = new Auth(addedMember.getId(), password);
+      boolean isRegistered = registerMember(authObj);
+
+      if (addedMember != null && isRegistered) {
+        // Setting user as authenticated.
+        this.loggedInMember = addedMember;
+        setUiStrategy(mainView.authView);
+        ui.printer.printCreateMemberSuccess();
+        ui.printer.printLoginSuccess();
+        ui.printer.printMemberId(addedMember.getId());
+      } else {
+        ui.printer.printCreateMemberError();
+      }
+      
+      addMemberRunning = false;
+    } while (addMemberRunning);
   }
 
-  public boolean registerMember(Auth authObject) {
+  private boolean registerMember(Auth authObject) {
     boolean isRegistered = false;
     try {
       authservice.register(authObject);

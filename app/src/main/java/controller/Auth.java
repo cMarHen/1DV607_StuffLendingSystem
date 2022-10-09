@@ -1,5 +1,9 @@
 package controller;
 
+/**
+ * Class used to wrap credentials when communicating with authservice.
+ *
+ */
 public class Auth {
   private String id;
   private String password;

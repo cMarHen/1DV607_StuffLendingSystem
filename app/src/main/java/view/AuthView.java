@@ -1,12 +1,8 @@
 package view;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 import model.domain.Item;
 import model.domain.Item.ItemType;
-import model.domain.Item.Mutable;
-import model.domain.LendingContract;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
