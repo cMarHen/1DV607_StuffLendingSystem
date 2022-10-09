@@ -383,7 +383,11 @@ public class MainController {
           boolean isRegistered = registerMember(authObj);
 
           if (addedMember != null && isRegistered) {
+            // Setting user as authenticated.
+            this.loggedInMember = addedMember;
+            setUiStrategy(mainView.authView);
             ui.printer.printCreateMemberSuccess();
+            ui.printer.printLoginSuccess();
             ui.printer.printMemberId(addedMember.getId());
           } else {
             ui.printer.printCreateMemberError();
