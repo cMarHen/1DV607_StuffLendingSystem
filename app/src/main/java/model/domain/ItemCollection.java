@@ -22,6 +22,10 @@ public interface ItemCollection {
   public ArrayList<Item.Mutable> getItemsByOwner(Member owner);
 
   public ArrayList<Item.Mutable> getItemsByName(String name);
+
+  public ArrayList<Item.Mutable> getItemsByTypeAndOwner(ItemType type, Member owner);
+
+  public ArrayList<Item.Mutable> getItemsByNameAndType(String name, ItemType type);
   
   public ItemIterator typeIterator(ItemType type);
 

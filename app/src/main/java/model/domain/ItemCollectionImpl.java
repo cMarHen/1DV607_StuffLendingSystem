@@ -3,6 +3,7 @@ package model.domain;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
+import model.domain.Item.Mutable;
 import model.domain.iterators.ItemAndIteratorImpl;
 import model.domain.iterators.ItemIterator;
 import model.domain.iterators.NameIteratorImpl;
@@ -89,6 +90,33 @@ public class ItemCollectionImpl implements ItemCollection {
     return items;
   }
   
+  @Override
+  public ArrayList<Mutable> getItemsByTypeAndOwner(ItemType type, Member owner) {
+    ItemIterator iterator = this.nestedLogicalAndIterator(
+        this.typeIterator(type),
+        this.ownerIterator(owner));
+
+    ArrayList<Item.Mutable> list = new ArrayList<>();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+
+    return list;
+  }
+
+  @Override
+  public ArrayList<Mutable> getItemsByNameAndType(String name, ItemType type) {
+    ItemIterator iterator = this.nestedLogicalAndIterator(
+        this.nameIterator(name),
+        this.typeIterator(type));
+
+    ArrayList<Item.Mutable> list = new ArrayList<>();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+
+    return list;
+  }
 
   @Override
   public ItemIterator ownerIterator(Member owner) {
@@ -110,8 +138,4 @@ public class ItemCollectionImpl implements ItemCollection {
     // TODO Auto-generated method stub
     return null;
   }
-
-  
-
-
 }
