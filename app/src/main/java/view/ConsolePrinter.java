@@ -277,7 +277,7 @@ public class ConsolePrinter implements Printer {
   }
 
   @Override
-  public void printLoginError() {
+  public void printAuthorizationError() {
     System.out.println("Authentication failed!");
   }
 

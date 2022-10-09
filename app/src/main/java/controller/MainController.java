@@ -141,7 +141,7 @@ public class MainController {
             isAuthenticated = true;
           } catch (Exception e) {
             System.out.println(e);
-            ui.printer.printLoginError();
+            ui.printer.printAuthorizationError();
           }
           
           if (isAuthenticated){
@@ -252,12 +252,14 @@ public class MainController {
 
       if (event == view.MainView.MenuEvent.EditItem) {
         String id = ui.promptForItemId();
-        // TODO: Find item by owner and id!!!!!!!
         model.domain.Item.Mutable item = sls.findItemById(id);
 
         if (item != null) {
-          doEditItemMenu(item);
-
+          if (item.getOwner().getId().equals(this.loggedInMember.getId())){
+            doEditItemMenu(item);
+          } else {
+            ui.printer.printAuthorizationError();
+          }
         } else {
           ui.printer.printFindItemError();
         }
@@ -298,14 +300,23 @@ public class MainController {
       } 
 
       if (event == view.MainView.MenuEvent.DeleteItem) {
-        // TODO: Find item by owner and id!!!!!!
         String itemId = ui.promptForItemId();
-        Boolean isSucceeded = sls.deleteItem(itemId);
+        model.domain.Item.Mutable item = sls.findItemById(itemId);
 
-        if (isSucceeded) {
-          ui.printer.printDeleteItemSuccess();
+        if (item != null) {
+          if (item.getOwner().getId().equals(this.loggedInMember.getId())){
+            Boolean isSucceeded = sls.deleteItem(itemId);
+
+            if (isSucceeded) {
+              ui.printer.printDeleteItemSuccess();
+            } else {
+              ui.printer.printDeleteItemError();
+            }
+          } else {
+            ui.printer.printAuthorizationError();
+          }
         } else {
-          ui.printer.printDeleteItemError();
+          ui.printer.printFindItemError();
         }
       } 
 
@@ -429,7 +440,7 @@ public class MainController {
       setUiStrategy(mainView.authView);
       ui.printer.printLoginSuccess();
     } else {
-      ui.printer.printLoginError();
+      ui.printer.printAuthorizationError();
     }
   }
 
