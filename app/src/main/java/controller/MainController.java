@@ -151,6 +151,7 @@ public class MainController {
                 authservice.unRegister(authObj);
                 ui.printer.printDeleteMemberSuccess();
                 setUiStrategy(mainView.unAuthView);
+                return; // To get to main menu as not authenticated user.
               } catch (Exception e) {
                 ui.printer.printDeleteMemberError();
               }
