@@ -30,11 +30,6 @@ public class StuffLendingSystem {
     this.currentDay = 0;
   }
 
-  // TODO: Testing purpose
-  public ItemCollection getItemCollection() {
-    return items;
-  }
-
   public void saveData() {
     persistence.save();
   }

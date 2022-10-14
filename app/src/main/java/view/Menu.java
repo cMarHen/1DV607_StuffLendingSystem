@@ -1,5 +1,6 @@
 package view;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Scanner;
 import view.MainView.MenuEvent;
 
@@ -10,6 +11,7 @@ import view.MainView.MenuEvent;
 public abstract class Menu {
   protected Scanner scan;
 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public Menu(Scanner scan) {
     this.scan = scan;
   }

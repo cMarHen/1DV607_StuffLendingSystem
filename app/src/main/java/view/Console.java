@@ -80,7 +80,7 @@ public class Console {
    */
   public Console() {
     this.scan = new Scanner(System.in, "UTF8");
-    this.printer = new ConsolePrinter();
+    this.printer = new ConsolePrinter(); // TODO: Never used ?
   }
 
   /**

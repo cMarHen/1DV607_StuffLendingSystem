@@ -1,5 +1,6 @@
 package model.domain.iterators;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 
@@ -17,6 +18,7 @@ public class ItemAndIteratorImpl implements ItemIterator {
   /**
    * Constructor for ItemAndIteratorImpl.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public ItemAndIteratorImpl(ItemIterator a, ItemIterator b, ArrayList<Item.Mutable> items) {
     this.aiterator = a;
     this.biterator = b;

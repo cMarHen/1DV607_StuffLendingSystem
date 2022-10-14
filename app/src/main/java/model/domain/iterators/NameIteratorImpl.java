@@ -1,5 +1,6 @@
 package model.domain.iterators;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item;
 
@@ -17,6 +18,7 @@ public class NameIteratorImpl implements ItemIterator {
   /**
    * Constructor for NameIteratorImpl.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public NameIteratorImpl(String name, ArrayList<Item.Mutable> items) {
     this.items = items;
     this.isQuery = name.charAt(name.length() - 1) == '?';

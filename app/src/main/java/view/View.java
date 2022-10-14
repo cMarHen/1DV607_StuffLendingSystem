@@ -1,5 +1,6 @@
 package view;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Scanner;
 import view.MainView.MenuEvent;
 
@@ -11,11 +12,12 @@ public abstract class View {
   protected Scanner scan;
   public Printer printer;
 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Want to keep the reference.")
   public View(Scanner scan) {
     this.scan = scan;
     this.printer = new ConsolePrinter();
   }
-  
+
   /**
    * Prints the main menu and emits event based on users choice.
    *
