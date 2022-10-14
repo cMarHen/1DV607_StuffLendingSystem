@@ -6,6 +6,9 @@ import model.domain.Item.ItemType;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
+/**
+ * Class as not-authenticated user View.
+ */
 public class UnAuthView extends View {
 
   public UnAuthView(Scanner scan) {
@@ -44,7 +47,7 @@ public class UnAuthView extends View {
 
   @Override
   public ItemType getItemTypeMenuChoice() {
-        // TODO: Throw error?
+    // TODO: Throw error?
     return null;
   }
 

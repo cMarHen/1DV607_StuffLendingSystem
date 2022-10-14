@@ -15,6 +15,7 @@ public abstract class View {
     this.scan = scan;
     this.printer = new ConsolePrinter();
   }
+  
   /**
    * Prints the main menu and emits event based on users choice.
    *

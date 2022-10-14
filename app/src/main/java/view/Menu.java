@@ -10,7 +10,7 @@ import view.MainView.MenuEvent;
 public abstract class Menu {
   protected Scanner scan;
 
-  public Menu (Scanner scan) {
+  public Menu(Scanner scan) {
     this.scan = scan;
   }
 

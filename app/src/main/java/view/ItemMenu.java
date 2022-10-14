@@ -3,6 +3,9 @@ package view;
 import java.util.Scanner;
 import view.MainView.MenuEvent;
 
+/**
+ * Class as not-authenticated user Menu.
+ */
 public class ItemMenu extends Menu {
   /**
    * Choices for the item menu.

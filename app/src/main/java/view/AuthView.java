@@ -6,6 +6,9 @@ import model.domain.Item.ItemType;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
+/**
+ * Class as authenticated user View.
+ */
 public class AuthView extends View {
 
   public AuthView(Scanner scan) {

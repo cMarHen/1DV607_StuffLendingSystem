@@ -3,6 +3,9 @@ package view;
 import java.util.Scanner;
 import view.MainView.MenuEvent;
 
+/**
+ * Class as not-authenticated user Menu.
+ */
 public class MainMenu extends Menu {
   /**
    * Choices for the main menu.
@@ -16,7 +19,7 @@ public class MainMenu extends Menu {
     Quit
   }
 
-  public MainMenu (Scanner scan) {
+  public MainMenu(Scanner scan) {
     super(scan);
   }
 

@@ -1,5 +1,8 @@
 package controller;
 
+/**
+ * Class as encapsulated Password.
+ */
 public class Password {
   private String password;
 

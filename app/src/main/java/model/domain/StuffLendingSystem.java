@@ -1,6 +1,5 @@
 package model.domain;
 
-import model.domain.iterators.ItemIterator;
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
 import model.persistence.PersistenceFacade;

@@ -1,8 +1,8 @@
 package controller;
 
+import controller.auth.AuthServiceImpl;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
-import controller.auth.AuthServiceImpl;
 import model.domain.Item;
 import model.domain.LendingContract;
 import model.domain.Member;
