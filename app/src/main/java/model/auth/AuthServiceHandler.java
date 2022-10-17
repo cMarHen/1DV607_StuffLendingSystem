@@ -19,7 +19,7 @@ public class AuthServiceHandler {
   private ArrayList<AuthUser> users;
 
   protected AuthServiceHandler() {
-    this.projectPath = "/src/main/java/controller/auth/mock-files/registry.data";
+    this.projectPath = "/src/main/java/model/auth/mock-files/registry.data";
     this.relativePathToProject = new File("").getAbsolutePath();
     this.users = new ArrayList<>();
     this.loadFiles();
