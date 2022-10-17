@@ -1,6 +1,6 @@
 package controller;
 
-import controller.auth.AuthServiceImpl;
+import model.auth.AuthServiceImpl;
 import model.domain.StuffLendingSystem;
 import view.MainView;
 

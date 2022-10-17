@@ -1,4 +1,4 @@
-package controller.auth;
+package model.auth;
 
 import controller.Auth;
 import javax.naming.AuthenticationException;

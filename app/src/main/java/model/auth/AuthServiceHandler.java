@@ -1,4 +1,4 @@
-package controller.auth;
+package model.auth;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
