@@ -1,8 +1,7 @@
-package model.domain.iterators;
+package model.domain;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
-import model.domain.Item;
 
 /**
  * To be used to nest a search with AND operator.

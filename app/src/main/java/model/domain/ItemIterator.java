@@ -1,6 +1,4 @@
-package model.domain.iterators;
-
-import model.domain.Item;
+package model.domain;
 
 /**
  * Interface used to implement the GOF Iterator-pattern.

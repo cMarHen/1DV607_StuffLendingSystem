@@ -4,11 +4,6 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
 import model.domain.Item.Mutable;
-import model.domain.iterators.ItemAndIteratorImpl;
-import model.domain.iterators.ItemIterator;
-import model.domain.iterators.NameIteratorImpl;
-import model.domain.iterators.OwnerIteratorImpl;
-import model.domain.iterators.TypeIteratorImpl;
 
 /**
  * Class to manage querying and actions on the list of items.

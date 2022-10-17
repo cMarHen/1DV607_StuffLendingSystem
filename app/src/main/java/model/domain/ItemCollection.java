@@ -2,7 +2,6 @@ package model.domain;
 
 import java.util.ArrayList;
 import model.domain.Item.ItemType;
-import model.domain.iterators.ItemIterator;
 
 /**
  * Interface setting the contract for an ItemCollection.
