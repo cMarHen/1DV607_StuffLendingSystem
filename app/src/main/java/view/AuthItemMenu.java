@@ -14,6 +14,7 @@ public class AuthItemMenu extends Menu {
   public static enum AuthItemMenuChoices {
     AddItem,
     ListItems,
+    SearchItems,
     DetailedItem,
     EditItem,
     LendItem,
@@ -32,10 +33,11 @@ public class AuthItemMenu extends Menu {
     System.out.println("------------------------");
     System.out.println("1. Add new item");
     System.out.println("2. List items");
-    System.out.println("3. Show detailed item");
-    System.out.println("4. Edit item");
-    System.out.println("5. Lend item");
-    System.out.println("6. Delete item");
+    System.out.println("3. Search items");
+    System.out.println("4. Show detailed item");
+    System.out.println("5. Edit item");
+    System.out.println("6. Lend item");
+    System.out.println("7. Delete item");
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
@@ -50,12 +52,14 @@ public class AuthItemMenu extends Menu {
     } else if (choice == 2) {
       return MenuEvent.ListItems;
     } else if (choice == 3) {
-      return MenuEvent.DetailedItem;
+      return MenuEvent.SearchItems;
     } else if (choice == 4) {
-      return MenuEvent.EditItem;
+      return MenuEvent.DetailedItem;
     } else if (choice == 5) {
-      return MenuEvent.LendItem;
+      return MenuEvent.EditItem;
     } else if (choice == 6) {
+      return MenuEvent.LendItem;
+    } else if (choice == 7) {
       return MenuEvent.DeleteItem;
     } else {
       return MenuEvent.Back;

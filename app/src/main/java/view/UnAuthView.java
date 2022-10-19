@@ -2,7 +2,6 @@ package view;
 
 import java.util.Scanner;
 import model.domain.Item;
-import model.domain.Item.ItemType;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
@@ -41,12 +40,6 @@ public class UnAuthView extends View {
 
   @Override
   public MenuEvent getEditItemMenuChoice() {
-    // TODO: Throw error?
-    return null;
-  }
-
-  @Override
-  public ItemType getItemTypeMenuChoice() {
     // TODO: Throw error?
     return null;
   }
@@ -109,8 +102,10 @@ public class UnAuthView extends View {
   }
 
   @Override
-  public String promptForItemName() {
-    return promptForString("Enter item name: ");
+  public String promptForItemName(boolean query) {
+    return query
+      ? promptForString("Search on full name, subset or blank: ")
+      : promptForString("Enter item name: ");
   }
 
   @Override

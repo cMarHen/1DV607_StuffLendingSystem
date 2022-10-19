@@ -13,6 +13,7 @@ public class ItemMenu extends Menu {
    */
   public static enum ItemMenuChoices {
     ListItems,
+    SearchItems,
     DetailedItem,
     Back
   }
@@ -27,7 +28,8 @@ public class ItemMenu extends Menu {
     System.out.println("- Item Menu ---------- -");
     System.out.println("------------------------");
     System.out.println("1. List items");
-    System.out.println("2. Show detailed item");
+    System.out.println("2. Search items");
+    System.out.println("3. Show detailed item");
     System.out.println("0. Back ");
     System.out.println("------------------------");
 
@@ -40,6 +42,8 @@ public class ItemMenu extends Menu {
     if (choice == 1) {
       return MenuEvent.ListItems;
     } else if (choice == 2) {
+      return MenuEvent.SearchItems;
+    } else if (choice == 3) {
       return MenuEvent.DetailedItem;
     } else {
       return MenuEvent.Back;

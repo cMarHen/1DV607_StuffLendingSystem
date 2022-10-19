@@ -233,6 +233,16 @@ public class StuffLendingSystem {
   }
 
   /**
+   * Nested search with ItemType.
+   *
+   * @param type - ItemType to search for.
+   * @return - List of items that matched the search.
+   */
+  public ArrayList<Item.Mutable> searchItems(ItemType type) {
+    return items.getItemsByType(type);
+  }
+
+  /**
    * Search item by name.
    *
    * @param name - The name to search for. Add a "?" to do a subset search.

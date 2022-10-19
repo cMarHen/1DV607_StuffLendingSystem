@@ -54,13 +54,6 @@ public abstract class View {
   public abstract MenuEvent getEditItemMenuChoice();
 
   /**
-   * Prints menu based on the available item types reads the user choice of type.
-   *
-   * @return - The users item-type choice.
-   */
-  public abstract model.domain.Item.ItemType getItemTypeMenuChoice();
-
-  /**
    * Request user-inputs needed to register a new member.
    *
    * @return - Readonly object with member-information.
@@ -126,9 +119,10 @@ public abstract class View {
   /**
    * Request user-input string for item name.
    *
+   * @param query - Flag if query to present different.
    * @return - Entered string.
    */
-  public abstract String promptForItemName();
+  public abstract String promptForItemName(boolean query);
 
   /**
    * Request user-input string for description.
@@ -221,6 +215,25 @@ public abstract class View {
     } else {
       return false;
     }
+  }
+
+  /**
+   * Prints menu based on the available item types reads the user choice of type.
+   *
+   * @return - The users item-type choice.
+   */
+  public model.domain.Item.ItemType getItemTypeMenuChoice() {
+    for (int i = 1; i <= model.domain.Item.ItemType.values().length; i++) {
+      System.out.println(i + ". " + model.domain.Item.ItemType.values()[i - 1]);
+    }
+
+    int choice = -1;
+
+    do {
+      choice = promptForInt("Select from menu: ");
+    } while (choice >= model.domain.Item.ItemType.values().length || choice < 0);
+
+    return model.domain.Item.ItemType.values()[choice - 1];
   }
 
 }

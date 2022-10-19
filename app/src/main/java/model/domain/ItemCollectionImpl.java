@@ -76,6 +76,18 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
+  public ArrayList<Item.Mutable> getItemsByType(ItemType type) {
+    ItemIterator iterator = typeIterator(type);
+    ArrayList<Item.Mutable> items = new ArrayList<>();
+
+    while (iterator.hasNext()) {
+      items.add(iterator.next());
+    }
+
+    return items;
+  }
+
+  @Override
   public ArrayList<Item.Mutable> getItemsByName(String name) {
     ItemIterator iterator = nameIterator(name);
     ArrayList<Item.Mutable> items = new ArrayList<>();

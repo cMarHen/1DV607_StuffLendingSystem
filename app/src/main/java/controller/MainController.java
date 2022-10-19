@@ -4,6 +4,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import model.auth.AuthServiceImpl;
 import model.domain.Item;
+import model.domain.Item.ItemType;
 import model.domain.LendingContract;
 import model.domain.Member;
 
@@ -235,6 +236,27 @@ public class MainController {
         ui.printer.printItemList(items);
       }
 
+      if (event == view.MainView.MenuEvent.SearchItems) {
+        String searchString = ui.promptForItemName(true);
+        ItemType itemTypeName = ui.getItemTypeMenuChoice();
+
+        ArrayList<Item.Mutable> items = 
+            searchString.length() > 0
+            ? sls.searchItems(searchString + "?", itemTypeName)
+            : sls.searchItems(itemTypeName);
+        
+        for (Item.Mutable m : items) {
+          System.out.println(m.getName());
+        }
+
+        if (items.size() > 0) {
+          ui.printer.printItemList(items);
+        } else {
+          ui.printer.printFindItemError();
+        }
+        
+      }
+
       if (event == view.MainView.MenuEvent.DetailedItem) {
         String id =  ui.promptForItemId();
 
@@ -336,7 +358,7 @@ public class MainController {
       view.MainView.MenuEvent event = ui.getEditItemMenuChoice();
 
       if (event == view.MainView.MenuEvent.EditName) {
-        String name = ui.promptForItemName();
+        String name = ui.promptForItemName(false);
 
         item.setName(name);
       }

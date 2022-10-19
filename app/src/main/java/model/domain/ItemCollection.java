@@ -22,6 +22,8 @@ public interface ItemCollection {
 
   public ArrayList<Item.Mutable> getItemsByName(String name);
 
+  public ArrayList<Item.Mutable> getItemsByType(ItemType type);
+
   public ArrayList<Item.Mutable> getItemsByTypeAndOwner(ItemType type, Member owner);
 
   public ArrayList<Item.Mutable> getItemsByNameAndType(String name, ItemType type);

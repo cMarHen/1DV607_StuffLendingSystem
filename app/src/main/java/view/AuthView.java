@@ -2,7 +2,6 @@ package view;
 
 import java.util.Scanner;
 import model.domain.Item;
-import model.domain.Item.ItemType;
 import model.domain.Member;
 import view.MainView.MenuEvent;
 
@@ -43,21 +42,6 @@ public class AuthView extends View {
   public MenuEvent getEditItemMenuChoice() {
     AuthEditItemMenu editItemMenu = new AuthEditItemMenu(this.scan);
     return editItemMenu.getMenuChoice();
-  }
-
-  @Override
-  public ItemType getItemTypeMenuChoice() {
-    for (int i = 1; i <= model.domain.Item.ItemType.values().length; i++) {
-      System.out.println(i + ". " + model.domain.Item.ItemType.values()[i - 1]);
-    }
-
-    int choice = -1;
-
-    do {
-      choice = promptForInt("Select from menu: ");
-    } while (choice >= ItemType.values().length || choice < 0);
-
-    return model.domain.Item.ItemType.values()[choice - 1];
   }
 
   @Override
@@ -118,8 +102,10 @@ public class AuthView extends View {
   }
 
   @Override
-  public String promptForItemName() {
-    return promptForString("Enter item name: ");
+  public String promptForItemName(boolean query) {
+    return query
+      ? promptForString("Search on full name, subset or blank: ")
+      : promptForString("Enter item name: ");
   }
 
   @Override

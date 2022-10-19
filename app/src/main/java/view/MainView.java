@@ -34,6 +34,7 @@ public class MainView {
     EditPhone,
     AddItem,
     ListItems,
+    SearchItems,
     DetailedItem,
     EditItem,
     LendItem,
