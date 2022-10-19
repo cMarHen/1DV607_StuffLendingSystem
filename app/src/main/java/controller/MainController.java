@@ -136,7 +136,7 @@ public class MainController {
           boolean isAuthenticated = false;
 
           try {
-            authservice.authenticate(authObj);
+            authservice.authenticate(authObj.getId(), authObj.getPassword());
             isAuthenticated = true;
           } catch (Exception e) {
             ui.printer.printAuthorizationError();
@@ -147,7 +147,7 @@ public class MainController {
 
             if (isSucceeded) {
               try {
-                authservice.unRegister(authObj);
+                authservice.unRegister(authObj.getId(), authObj.getPassword());
                 ui.printer.printDeleteMemberSuccess();
                 setUiStrategy(mainView.unAuthView);
                 return; // To get to main menu as not authenticated user.
@@ -403,7 +403,7 @@ public class MainController {
   private boolean registerMember(Auth authObject) {
     boolean isRegistered = false;
     try {
-      authservice.register(authObject);
+      authservice.register(authObject.getId(), authObject.getPassword());
       isRegistered = true;
     } catch (Exception e) {
       isRegistered = false;
@@ -436,7 +436,7 @@ public class MainController {
 
     boolean isLoggedIn = false;
     try {
-      authservice.authenticate(authObj);
+      authservice.authenticate(authObj.getId(), authObj.getPassword());
       isLoggedIn = true;
     } catch (Exception e) {
       isLoggedIn = false;

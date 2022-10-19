@@ -1,6 +1,5 @@
 package model.auth;
 
-import controller.Auth;
 import javax.naming.AuthenticationException;
 
 /**
@@ -14,27 +13,27 @@ public class AuthServiceImpl implements AuthService {
   }
 
   @Override
-  public String authenticate(Auth auth) throws AuthenticationException {
+  public String authenticate(String username, String password) throws AuthenticationException {
     try {
-      return handler.login(auth.getId(), auth.getPassword());
+      return handler.login(username, password);
     } catch (Exception e) {
       throw new AuthenticationException();
     }
   }
 
   @Override
-  public String register(Auth auth) throws Exception {
+  public String register(String username, String password) throws Exception {
     try {
-      return handler.register(auth.getId(), auth.getPassword());
+      return handler.register(username, password);
     } catch (Exception e) {
       throw new Exception("Error: Register user failed");
     }    
   }
 
   @Override
-  public String unRegister(Auth auth) throws Exception {
+  public String unRegister(String username, String password) throws Exception {
     try {
-      return handler.unRegister(auth.getId());
+      return handler.unRegister(username);
     } catch (Exception e) {
       throw new Exception("Error: Un-register user failed");
     } 
