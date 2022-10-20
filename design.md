@@ -10,13 +10,12 @@ The application uses the model-view-controller (MVC) architectural pattern. The 
 
 We provides two different class diagrams. One diagram will show the dependencies between the packages in this MVC-architecture. In this diagram, all classes that the view- and controller package holds are visualized, but the model package is scaled down to get a better overview of the dependencies. 
 
-Since we do not have any dependencies going <i>from</i> the model, the second diagram does only contain the model package, and will visualize both domain- and repository package in detail. 
+Since we do not have any dependencies going <i>from</i> the model, the second diagram does only contain the model package, and will visualize both domain-, persistence- and auth-package in detail. 
 
 ### Class Diagram
-Please provide at least one class diagram according to the assignment requirments.
 
-![model class diagram](img/class-diagram-Model.jpeg)
 ![package class diagram](img/class-diagram-package-view.jpeg)
+![model class diagram](img/class-diagram-Model.jpeg)
 
 ### Sequence Diagram
 The user has selected `Add member` from the `Member menu` in the system and the sequence that follows is illustrated below. <br>
