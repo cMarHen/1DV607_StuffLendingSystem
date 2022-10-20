@@ -1,5 +1,7 @@
 package model.persistence;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,7 +19,7 @@ public class MemberConverter implements StorageConverter<MemberDto> {
   private String relativePathToProject;
 
   public MemberConverter() {
-    this.projectPath = "/src/main/java/model/persistence/mock-files/members.data";
+    this.projectPath = "/src/main/java/model/persistence/mock-files/members.json";
     this.relativePathToProject = new File("").getAbsolutePath();
   }
 
@@ -43,20 +45,10 @@ public class MemberConverter implements StorageConverter<MemberDto> {
       BufferedWriter bw = new BufferedWriter(
           new FileWriter(relativePathToProject + projectPath, StandardCharsets.UTF_8));
 
-      String str = "";
-      for (MemberDto m : members) {
-        str 
-          += m.getId() + ":"
-          + m.getFirstName() + ":"
-          + m.getLastName() + ":"
-          + m.getEmail() + ":"
-          + m.getPhoneNumber() + ":"
-          + m.getCredits() + ":"
-          + m.getRegistredDay()
-          + "\n";
-      }
+      // Implementation borrowed from https://attacomsian.com/blog/gson-read-json-file
+      Gson gson = new Gson();
+      gson.toJson(members, bw);
 
-      bw.write(str);
       bw.close();
       
     } catch (IOException e) {
@@ -69,11 +61,10 @@ public class MemberConverter implements StorageConverter<MemberDto> {
       BufferedReader br = new BufferedReader(
           new FileReader(relativePathToProject + projectPath, StandardCharsets.UTF_8));
 
-      ArrayList<MemberDto> members = new ArrayList<>();
-      String line = null;
-      while ((line = br.readLine()) != null) {
-        members.add(createMemberFromFile(line));
-      }
+      
+      // Implementation borrowed from https://attacomsian.com/blog/gson-read-json-file
+      Gson gson = new Gson();
+      ArrayList<MemberDto> members = gson.fromJson(br, new TypeToken<ArrayList<MemberDto>>() {}.getType());
 
       br.close();
       return members; 
@@ -81,21 +72,5 @@ public class MemberConverter implements StorageConverter<MemberDto> {
       e.printStackTrace();
       return null;
     }
-  }
-
-  private MemberDto createMemberFromFile(String line) {
-    String[] arr = line.split(":");
-    MemberDto m = new MemberDto(
-        arr[1],
-        arr[2],
-        arr[3],
-        arr[4],
-        arr[0],
-        Integer.parseInt(arr[5]),
-        Integer.parseInt(arr[6])
-    );
-
-    return m;
-  }
-  
+  }  
 }
