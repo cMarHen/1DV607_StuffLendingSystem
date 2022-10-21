@@ -1,10 +1,19 @@
 # Stuff Lending System OO-Design
 This document describes the design according to the requirements presented in assignment 2.
 
+## Design reflection
+
+### Grade_3 requirement 1. (Authentication)
+We have built an member-based authentication. That means that you are not authenticated as a "system admin", but as a member in the Stuff Lending System. 
+Credentials are stored in a mocked database in `model`, with a basic auth service. When credentials is handled in `controller`, they are encapsulated in a temporary object to make password handling as safe as possible. 
+Strategy-pattern is used for the user interface, so an unauthorized user can not access resources they do not have the rights for.
+
+### Grade_3 requirement 2. (Searching)
+Items are searchable in a flexible way (in model). ItemCollection have methods that return iterators, both for single search or nested search. The nested iterators are built in the way that you provide two other iterators as an argument. If you do not want to setup your own search, there are pre-defined search methods on ItemCollection to be used.
+
 ## Architectural Overview
 The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. The view may only read information from the model, not directly change it.
 
-![class diagram](img/package_diagram.jpg)
 
 ## Detailed Design
 
