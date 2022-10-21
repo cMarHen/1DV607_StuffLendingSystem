@@ -10,6 +10,22 @@ public class LendingContract implements Comparable<LendingContract> {
   private int totalContractFee;
   private Item item;
   private Member lender;
+  private boolean isValidated;
+
+  /**
+   * Instanciate a lending contract based on another contract that holds the data and sets isValidated.
+   *
+   * @param contract - A contract holding all information needed to create a new contract.
+   * @param isValidate - To signal that contract is validated.
+   */
+  public LendingContract(LendingContract contract, boolean isValidated) {
+    this.lender = contract.getLender();
+    this.endDay = contract.getEndDay();
+    this.item = contract.getItem();
+    this.startDay = contract.getStartDay();
+    this.totalContractFee = contract.getTotalContractFee();
+    this.isValidated = isValidated;
+  }
 
   /**
    * Instanciate a lending contract based on another contract that holds the data.
@@ -22,10 +38,11 @@ public class LendingContract implements Comparable<LendingContract> {
     this.item = contract.getItem();
     this.startDay = contract.getStartDay();
     this.totalContractFee = contract.getTotalContractFee();
+    this.isValidated = contract.getIsValidated();
   }
 
   /**
-   * Instanciate a lending contract with the data presented as parameters.
+   * Instanciate a lending contract with the data presented as parameters, sets isValidated to false.
    *
    * @param lender - A readonly member whom to pay credits for the total lending-fee.
    * @param endDay - The day after the endDay the item is available for loan again.
@@ -38,6 +55,7 @@ public class LendingContract implements Comparable<LendingContract> {
     this.item = item;
     this.startDay = startDay;
     this.totalContractFee = ((endDay + 1) - startDay) * item.getCostPerDay();
+    this.isValidated = false;
   }
 
   public int getEndDay() {
@@ -58,6 +76,10 @@ public class LendingContract implements Comparable<LendingContract> {
 
   public int getStartDay() {
     return startDay;
+  }
+
+  public boolean getIsValidated() {
+    return this.isValidated;
   }
 
   /**

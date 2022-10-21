@@ -28,11 +28,16 @@ public class ContractCollectionImpl implements ContractCollection {
    */
   @Override
   public boolean addContract(LendingContract contract) {
-    if (contract != null && isValidContract(contract)) {
+    if (contract.getIsValidated()) {
       contracts.add(contract);
       return true;
     } else {
-      return false;
+      if (contract != null && isValidContract(contract)) {
+        contracts.add(new LendingContract(contract, true));
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
