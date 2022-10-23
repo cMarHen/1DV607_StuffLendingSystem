@@ -1,10 +1,1 @@
-{
-  "oid": "oid_12345",
-  "firstName": "Martin",
-  "lastName": "Henriksson",
-  "email": "martin@mail.com",
-  "phoneNumber": "0123455",
-  "id": "8yLo0c",
-  "credits ":"100",
-  "registredDay": "0"
-}
+[{"firstName":"Martin","lastName":"Henriksson","email":"martin@mail.com","phoneNumber":"0123455","id":"8yLo0c","credits":0,"registredDay":0},{"firstName":"Anders","lastName":"Jonsson","email":"anders@mail.com","phoneNumber":"035123455","id":"2yGoOc","credits":0,"registredDay":0},{"firstName":"Tobias","lastName":"Ohlsson","email":"tobias@mail.com","phoneNumber":"034958392","id":"HyG1P3","credits":0,"registredDay":0},{"firstName":"Daniel","lastName":"Toll","email":"daniel@mail.com","phoneNumber":"034238543","id":"a6mzTS","credits":0,"registredDay":0}]
