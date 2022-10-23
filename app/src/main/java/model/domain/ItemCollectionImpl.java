@@ -126,6 +126,20 @@ public class ItemCollectionImpl implements ItemCollection {
   }
 
   @Override
+  public ArrayList<Mutable> getItemsByNameOrType(String name, ItemType type) {
+    ItemIterator iterator = this.nestedLogicalOrIterator(
+        this.nameIterator(name),
+        this.typeIterator(type));
+
+    ArrayList<Item.Mutable> list = new ArrayList<>();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+
+    return list;
+  }
+
+  @Override
   public ItemIterator ownerIterator(Member owner) {
     return new OwnerIteratorImpl(owner, items);
   }
@@ -142,7 +156,6 @@ public class ItemCollectionImpl implements ItemCollection {
 
   @Override
   public ItemIterator nestedLogicalOrIterator(ItemIterator a, ItemIterator b) {
-    // TODO Auto-generated method stub
-    return null;
+    return new ItemOrIteratorImpl(a, b, items);
   }
 }

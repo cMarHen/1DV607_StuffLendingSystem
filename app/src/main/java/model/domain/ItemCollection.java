@@ -24,9 +24,20 @@ public interface ItemCollection {
 
   public ArrayList<Item.Mutable> getItemsByType(ItemType type);
 
+  /**
+   * To search on item name AND item owner.
+   */
   public ArrayList<Item.Mutable> getItemsByTypeAndOwner(ItemType type, Member owner);
 
+  /**
+   * To search on item name AND item type.
+   */
   public ArrayList<Item.Mutable> getItemsByNameAndType(String name, ItemType type);
+
+  /**
+   * To search on item name OR item type.
+   */
+  public ArrayList<Item.Mutable> getItemsByNameOrType(String name, ItemType type);
   
   public ItemIterator typeIterator(ItemType type);
 
