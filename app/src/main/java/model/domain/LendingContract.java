@@ -16,7 +16,7 @@ public class LendingContract implements Comparable<LendingContract> {
    * Instanciate a lending contract based on another contract that holds the data and sets isValidated.
    *
    * @param contract - A contract holding all information needed to create a new contract.
-   * @param isValidate - To signal that contract is validated.
+   * @param isValidated - To signal that contract is validated.
    */
   public LendingContract(LendingContract contract, boolean isValidated) {
     this.lender = contract.getLender();
