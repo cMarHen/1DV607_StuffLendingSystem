@@ -10,6 +10,13 @@ Anders Jonsson - aj224rj
 
 Project for Assignment 2
 
+### Contributors:
+
+Martin Henriksson - mh225wd
+
+Anders Jonsson - aj224rj
+
+---
 
 [design.md](design.md) contains the prescribed architectural design of the application.
 
