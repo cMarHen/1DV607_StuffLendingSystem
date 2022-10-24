@@ -51,7 +51,8 @@ public class ContractConverter implements StorageConverter<ContractDto> {
           + c.getEndDay() + ":"
           + c.getTotalContractFee() + ":"
           + c.getItemId() + ":"
-          + c.getLenderId()
+          + c.getLenderId() + ":"
+          + c.getIsValidated()
           + "\n";
       }
 
@@ -92,7 +93,8 @@ public class ContractConverter implements StorageConverter<ContractDto> {
         Integer.parseInt(arr[1]),
         Integer.parseInt(arr[2]),
         arr[3],
-        arr[4]
+        arr[4],
+        arr[5].equals("true")
       );
 
     return c;

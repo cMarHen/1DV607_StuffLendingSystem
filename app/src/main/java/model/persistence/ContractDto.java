@@ -9,6 +9,7 @@ public class ContractDto {
   private int totalContractFee;
   private String itemId;
   private String lenderId;
+  private Boolean isValidated;
 
   /**
    * Constructor for ContractDto.
@@ -18,13 +19,15 @@ public class ContractDto {
       int endDay,
       int totalContractFee,
       String itemId,
-      String lenderId
+      String lenderId,
+      Boolean isValidated
   ) {
     this.lenderId = lenderId;
     this.endDay = endDay;
     this.itemId = itemId;
     this.startDay = startDay;
     this.totalContractFee = totalContractFee;
+    this.isValidated = isValidated;
   }
 
   public int getEndDay() {
@@ -45,5 +48,9 @@ public class ContractDto {
 
   public int getTotalContractFee() {
     return totalContractFee;
+  }
+
+  public Boolean getIsValidated() {
+    return isValidated;
   }
 }

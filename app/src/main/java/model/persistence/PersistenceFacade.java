@@ -89,6 +89,8 @@ public class PersistenceFacade {
           findItemById(dto.getItemId()),
           dto.getStartDay());
 
+
+      newContract.setValidated(dto.getIsValidated());
       contractCollection.addContract(newContract);
     }
 
@@ -168,7 +170,9 @@ public class PersistenceFacade {
           c.getEndDay(),
           c.getTotalContractFee(),
           c.getItem().getId(),
-          c.getLender().getId());
+          c.getLender().getId(),
+          c.getIsValidated());
+
 
       contractDtos.add(newContract);
     }
