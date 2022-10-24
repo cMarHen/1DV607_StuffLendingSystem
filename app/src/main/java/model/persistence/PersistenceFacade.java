@@ -90,7 +90,8 @@ public class PersistenceFacade {
           dto.getStartDay());
 
 
-      newContract.setValidated(dto.getIsValidated());
+      newContract = new LendingContract(newContract, dto.getIsValidated());
+
       contractCollection.addContract(newContract);
     }
 

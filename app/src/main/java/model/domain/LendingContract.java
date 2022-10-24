@@ -82,10 +82,6 @@ public class LendingContract implements Comparable<LendingContract> {
     return this.isValidated;
   }
 
-  public void setValidated(boolean isValidated) {
-    this.isValidated = isValidated;
-  }
-
   /**
    * Compare contracts by startDay.
    *
